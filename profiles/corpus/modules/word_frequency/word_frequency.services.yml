@@ -1,0 +1,4 @@
+services:
+  word_frequency.count:
+    class: Drupal\word_frequency\FrequencyService
+    arguments: []

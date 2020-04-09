@@ -1,0 +1,31 @@
+uuid: 6d93d53f-357f-4c11-898a-a6b688b86bcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gender
+    - node.type.text
+    - taxonomy.vocabulary.gender
+_core:
+  default_config_hash: S8S_GgyGOo7-jksmsQ0cLTia1b6hDlLJQibenWAAz5w
+id: node.text.field_gender
+field_name: field_gender
+entity_type: node
+bundle: text
+label: Gender
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      gender: gender
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

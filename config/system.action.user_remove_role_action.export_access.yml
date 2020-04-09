@@ -1,0 +1,14 @@
+uuid: 62f356f3-5a48-4131-96cb-8ee48c7bf1cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.export_access
+  module:
+    - user
+id: user_remove_role_action.export_access
+label: 'Remove the Export Access role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: export_access

@@ -1,0 +1,21 @@
+uuid: 01bca257-67ba-4024-9c7f-579b136081c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_path
+    - node.type.page
+_core:
+  default_config_hash: sxE-gcY2_RvFFHnD-KogHXlJQU7FFRtmCVT956WWS70
+id: node.page.field_path
+field_name: field_path
+entity_type: node
+bundle: page
+label: Path
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

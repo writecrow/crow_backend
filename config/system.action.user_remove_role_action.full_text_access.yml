@@ -1,0 +1,14 @@
+uuid: 3d14c7f6-9e5c-44e9-aa94-b82abc342ece
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.full_text_access
+  module:
+    - user
+id: user_remove_role_action.full_text_access
+label: 'Remove the Full Text Access role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: full_text_access

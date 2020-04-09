@@ -1,0 +1,31 @@
+uuid: 0f6037a8-39ed-4e0e-bafb-423819bf6f79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_type
+    - node.type.resource
+    - taxonomy.vocabulary.file_type
+_core:
+  default_config_hash: '-av9mSujTW1EvML6enPak8Fs7GrFUjsZ5I8mMGVoy2k'
+id: node.resource.field_file_type
+field_name: field_file_type
+entity_type: node
+bundle: resource
+label: 'File Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      file_type: file_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

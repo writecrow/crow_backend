@@ -1,0 +1,31 @@
+uuid: 72ffd3c7-956f-4e90-ba3e-ca54a951ed74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instructor
+    - node.type.resource
+    - taxonomy.vocabulary.instructor
+_core:
+  default_config_hash: f7Nn_UPlXkI7uuHSUivgdxx1pV3XoeNsTAmHW-0oy1s
+id: node.resource.field_instructor
+field_name: field_instructor
+entity_type: node
+bundle: resource
+label: Instructor
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      instructor: instructor
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

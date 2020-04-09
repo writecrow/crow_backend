@@ -1,0 +1,11 @@
+uuid: cddab04d-50b8-4c6b-8a9a-41265d7dd8d4
+langcode: en
+status: true
+dependencies: {  }
+id: full_text_access
+label: 'Full Text Access'
+weight: 3
+is_admin: null
+permissions:
+  - 'restful get corpus_search'
+  - 'restful get corpus_search_user_roles'

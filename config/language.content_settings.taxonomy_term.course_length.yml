@@ -1,0 +1,13 @@
+uuid: ad1772c9-2def-40f6-ac01-50a17c638b1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.course_length
+_core:
+  default_config_hash: 3OfWnXgeu3y-U-tkPU8jnXfruNU-aa3i-fZDiT3d_X8
+id: taxonomy_term.course_length
+target_entity_type_id: taxonomy_term
+target_bundle: course_length
+default_langcode: site_default
+language_alterable: false

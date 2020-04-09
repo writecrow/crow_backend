@@ -1,0 +1,18 @@
+uuid: 38fa196c-798f-4f1e-ada4-876e174d6edf
+langcode: en
+status: true
+dependencies:
+  module:
+    - corpus_search
+    - serialization
+    - simple_oauth
+id: corpus_search_user_roles
+plugin_id: corpus_search_user_roles
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - oauth2

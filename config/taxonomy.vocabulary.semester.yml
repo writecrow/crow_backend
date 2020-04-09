@@ -1,0 +1,10 @@
+uuid: 631d5c88-133d-4a2a-bc9d-d3943a01191e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5u-88joFE1_Ct3VBMeJQGFkCplpJjm1u4hK0pG71_Mc
+name: Semester
+vid: semester
+description: ''
+weight: 0

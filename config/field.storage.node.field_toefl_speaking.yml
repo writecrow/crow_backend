@@ -1,0 +1,22 @@
+uuid: fa21cd78-cbcd-4b98-8fd5-24f9af985747
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: wbMJgHvRa0ygldnvHBLbn5rcHrY5FPg5DqirDaXJJCU
+id: node.field_toefl_speaking
+field_name: field_toefl_speaking
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

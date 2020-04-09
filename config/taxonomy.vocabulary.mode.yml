@@ -1,0 +1,10 @@
+uuid: fea95983-5a9a-4ee1-9453-437ccc283ab1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HF6RqMfs-70rT_o_HePG7ggWoe4Sh65sJKCSR6VQI0w
+name: Mode
+vid: mode
+description: ''
+weight: 0

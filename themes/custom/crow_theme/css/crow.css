@@ -1,0 +1,14 @@
+.logo-wrapper .logo {
+  width: 350px;
+}
+header nav.crow {
+  float: right;
+}
+header nav.crow a {
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}

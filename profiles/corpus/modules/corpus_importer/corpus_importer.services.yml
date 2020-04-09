@@ -1,0 +1,4 @@
+services:
+  corpus_importer.importer:
+    class: Drupal\corpus_importer\ImporterService
+    arguments: []

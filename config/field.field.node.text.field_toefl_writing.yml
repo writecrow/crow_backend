@@ -1,0 +1,25 @@
+uuid: 0996a004-138d-414b-bcbf-1d04ad930077
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_toefl_writing
+    - node.type.text
+_core:
+  default_config_hash: fNMP0VEBGiZ9MshN0UAqSU4kC87YGIzNUDr-If3vAwQ
+id: node.text.field_toefl_writing
+field_name: field_toefl_writing
+entity_type: node
+bundle: text
+label: 'TOEFL Writing'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

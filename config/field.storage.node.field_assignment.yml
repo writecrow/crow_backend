@@ -1,0 +1,22 @@
+uuid: 2318956e-dc3f-43c9-b380-557765e9af0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: jhxNeOisLt9S_Tf3H7fKITI8ZQD1jdaimmX6RVhsDmg
+id: node.field_assignment
+field_name: field_assignment
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

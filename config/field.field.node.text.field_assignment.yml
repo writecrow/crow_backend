@@ -1,0 +1,31 @@
+uuid: 1c02a23d-1f5f-4e5c-8db5-0b2c388984f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assignment
+    - node.type.text
+    - taxonomy.vocabulary.assignment
+_core:
+  default_config_hash: RsX4KEEzmsAh2FnZ06H-3GEQGjoXc8WSZvZlPIpy-gQ
+id: node.text.field_assignment
+field_name: field_assignment
+entity_type: node
+bundle: text
+label: Assignment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      assignment: assignment
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

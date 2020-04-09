@@ -1,0 +1,5 @@
+name: Word Frequency
+type: module
+description: Counts word occurrences & stores in a table
+core: 8.x
+package: Corpus

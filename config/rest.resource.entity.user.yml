@@ -1,0 +1,22 @@
+uuid: 101a2023-8f1b-4c25-b0ed-f4886a64125a
+langcode: en
+status: false
+dependencies:
+  module:
+    - csv_serialization
+    - serialization
+    - simple_oauth
+    - user
+id: entity.user
+plugin_id: 'entity:user'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+  formats:
+    - csv
+    - json
+    - xml
+  authentication:
+    - oauth2

@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Defines user registration modifications.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Display modifications to the user profile form.
+ */
+function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id != 'user_register_form') {
+    $request_fields = [
+      'field_account_type',
+      'field_affiliation',
+      'field_institution',
+      'field_requested_access_level',
+      'field_project_complete_date',
+      'field_project_description',
+      'field_requested_access_level',
+      'field_read_terms',
+    ];
+    $basic_fields = [
+      'current_pass',
+      'mail',
+      'name',
+      'pass',
+    ];
+    $notification_fields = [
+      'field_email_updates',
+      'field_notifications',
+    ];
+    $form['tabs'] = [
+      '#type' => 'vertical_tabs',
+    ];
+    $form['basic'] = [
+      '#type' => 'details',
+      '#title' => t('Account information'),
+      '#group' => 'tabs',
+    ];
+    $form['original_request'] = [
+      '#type' => 'details',
+      '#title' => t('Access request information'),
+      '#group' => 'tabs',
+    ];
+    $form['notification_preferences'] = [
+      '#type' => 'details',
+      '#title' => t('Notification preferences'),
+      '#group' => 'tabs',
+    ];
+    foreach ($basic_fields as $field) {
+      $form['basic'][$field] = $form['account'][$field];
+      unset($form['account'][$field]);
+    }
+    $current_user = \Drupal::currentUser();
+    $manager = $current_user->hasPermission('administer users');
+    foreach ($request_fields as $field) {
+      if (!$manager) {
+        $form[$field]['#disabled'] = TRUE;
+      }
+      $form['original_request'][$field] = $form[$field];
+      unset($form[$field]);
+    }
+    foreach ($notification_fields as $field) {
+      $form['notification_preferences'][$field] = $form[$field];
+      unset($form[$field]);
+    }
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * Sends a blind carbon copy to all outgoing emails.
+ */
+function crow_users_mail_alter(&$message) {
+  $bcc_mail = Settings::get('crow_bcc_email');
+
+  if (in_array($message['id'], [
+    'user_register_admin_created',
+    'user_status_activated',
+    'user_register_pending_approval',
+  ])) {
+    if ($bcc_mail) {
+      $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
+      $message['headers']['Bcc'] = implode(' ', array_merge(explode(' ', $existing_bcc), [$bcc_mail]));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function crow_users_form_alter(&$form, &$form_state, $form_id) {
+  // For now we just want the user registration form. Will continue to develop
+  // additional functionality, possibly including the user_account_form().
+  $user_forms = ['user_register_form'];
+
+  if (in_array($form_id, $user_forms)) {
+    // Add a new validation handler to the form.
+    $form['#validate'][] = '_crow_users_registration_validate';
+  }
+}
+
+/**
+ * Form validation handler for \Drupal\user\RegisterForm.
+ *
+ * The validation_counter variable stores how many registrations have been
+ * blocked by this module. This is added to the status report page.
+ *
+ * @see \Drupal\user\RegisterForm
+ */
+function _crow_users_registration_validate($form, &$form_state) {
+  $error = 'Please enter a more specific project description';
+  $description = $form_state->getValue('field_project_description');
+  if (strlen($description[0]['value']) < 100) {
+    // Files an error on the mail element and provides an error message.
+    $form_state->setErrorByName('field_project_description', $error);
+    // Log the error message.
+    \Drupal::logger('crow_users')->notice($error);
+  }
+}

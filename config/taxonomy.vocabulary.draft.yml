@@ -1,0 +1,10 @@
+uuid: b1da0f13-dff8-420d-8081-48b7866470bd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5pbPUzq1lDgwi98ZTwjQyIIerdPdWLUxph_CzF6nwFM
+name: Draft
+vid: draft
+description: ''
+weight: 0

@@ -1,0 +1,30 @@
+uuid: 77fdf231-8fc0-4a93-b71b-87ff37108b8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_institution
+    - taxonomy.vocabulary.account_insitution_organization
+  module:
+    - user
+id: user.user.field_institution
+field_name: field_institution
+entity_type: user
+bundle: user
+label: Institution/Organization
+description: 'The institution or organization with which this account is associated.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      account_insitution_organization: account_insitution_organization
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

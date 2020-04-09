@@ -1,0 +1,16 @@
+name: 'Content Type Page'
+type: module
+core: 8.x
+dependencies:
+  - ckeditor
+  - editor
+  - field
+  - filter
+  - node
+  - path
+  - rest
+  - serialization
+  - text
+  - user
+  - views
+version: 8.x-1.0

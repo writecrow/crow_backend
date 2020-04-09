@@ -1,0 +1,22 @@
+uuid: 3b1b6518-0d5c-4854-a9b2-bb499a5d07da
+langcode: en
+status: false
+dependencies:
+  module:
+    - user
+  theme:
+    - crow_theme
+_core:
+  default_config_hash: 862sIulDdHmF0vBU1s2j2_a_CwkxursrL0pIrMDzzOg
+id: crow_theme_login
+theme: crow_theme
+region: content
+weight: 10
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

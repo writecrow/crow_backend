@@ -1,0 +1,10 @@
+uuid: 942d8db6-4a46-4da5-a588-640076f9ea52
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h_PSCW4L-owMBkuOPUBJD6UzBoP359Tx-_JL9wpW6Q0
+name: Country
+vid: country
+description: ''
+weight: 0

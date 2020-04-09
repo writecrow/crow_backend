@@ -1,0 +1,20 @@
+uuid: 72f06325-c6d4-4f2e-ab17-789a095bb31c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_affiliation
+  module:
+    - user
+id: user.user.field_affiliation
+field_name: field_affiliation
+entity_type: user
+bundle: user
+label: 'Title or Affiliation'
+description: 'Your job title and/or institutional affiliation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

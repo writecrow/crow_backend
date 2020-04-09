@@ -1,0 +1,22 @@
+uuid: 564f422c-8c56-4334-a7d6-c301b994f633
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: nIQ8W-pR4Ieb3lr4zvC_RSlxELvKXhZQsqnpsC7-pYM
+id: node.field_college
+field_name: field_college
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: a0135b69-b61a-4b58-a22e-452fbf3d5130
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: 8oBa7Ez8B1MAEh3P5YnwNOwuy1gwx-8-K3vSY7uSVyY
+id: node.field_instructor
+field_name: field_instructor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

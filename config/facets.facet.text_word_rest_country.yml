@@ -1,0 +1,50 @@
+uuid: 4672ff45-83dc-4812-8d43-57d6a7914cd7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9tjZQtmoM6_1Ev-vun6g7fWs4yY_ufQGe_A8a6fKJ8Y
+id: text_word_rest_country
+name: text_word_rest_country
+url_alias: country
+weight: 0
+min_count: 1
+show_only_one_result: false
+field_identifier: country
+facet_source_id: 'search_api:views_rest__texts_by_word__rest_export_1'
+widget:
+  type: array
+  config:
+    show_numbers: true
+query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
+    weights:
+      build: -10
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none

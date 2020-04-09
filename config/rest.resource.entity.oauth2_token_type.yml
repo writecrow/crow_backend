@@ -1,0 +1,20 @@
+uuid: dd6ef685-c335-479a-9fb8-e196a3ce4bad
+langcode: en
+status: false
+dependencies:
+  module:
+    - csv_serialization
+    - serialization
+    - simple_oauth
+id: entity.oauth2_token_type
+plugin_id: 'entity:oauth2_token_type'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - csv
+    - json
+    - xml
+  authentication:
+    - oauth2

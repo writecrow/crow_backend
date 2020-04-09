@@ -1,0 +1,8 @@
+uuid: 9b3d7f84-5c52-47e6-8175-220c03a52de5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Account Insitution/Organization'
+vid: account_insitution_organization
+description: ''
+weight: 0

@@ -1,0 +1,11 @@
+uuid: 4deda856-7669-46c3-ba08-555b3f2d58af
+langcode: en
+status: true
+dependencies: {  }
+id: basic_search_access
+label: 'Basic Search Access'
+weight: 4
+is_admin: null
+permissions:
+  - 'restful get corpus_search'
+  - 'restful get corpus_search_user_roles'

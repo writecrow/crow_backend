@@ -1,0 +1,22 @@
+uuid: c6b802c4-3454-49ab-84b8-4e9b9b94a9ab
+langcode: en
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+weight: 6
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'assign basic_search_access role'
+  - 'assign export_access role'
+  - 'assign full_text_access role'
+  - 'assign manager role'
+  - 'bypass honeypot protection'
+  - 'skip CAPTCHA'
+  - userprotect.account.edit
+  - userprotect.mail.edit
+  - userprotect.pass.edit
+  - 'view the administration theme'

@@ -1,0 +1,18 @@
+uuid: 5864c192-51e7-44d3-8167-783722b68e47
+langcode: en
+status: true
+dependencies:
+  module:
+    - corpus_search
+    - csv_serialization
+    - simple_oauth
+id: corpus_export
+plugin_id: corpus_export
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - csv
+  authentication:
+    - oauth2

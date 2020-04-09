@@ -1,0 +1,31 @@
+uuid: d59c0922-49ed-4953-8729-134c58d46320
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_length
+    - node.type.resource
+    - taxonomy.vocabulary.course_length
+_core:
+  default_config_hash: Bk6LiQH4omDZlg2OjedDK-CdW2SEggD0KITNpH83aiM
+id: node.resource.field_course_length
+field_name: field_course_length
+entity_type: node
+bundle: resource
+label: 'Course Length'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_length: course_length
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

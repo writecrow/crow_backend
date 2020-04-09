@@ -1,0 +1,23 @@
+uuid: 62793318-4502-4bad-b1b8-fb02138e03f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_account_type
+  module:
+    - options
+    - user
+id: user.user.field_account_type
+field_name: field_account_type
+entity_type: user
+bundle: user
+label: 'Account type'
+description: 'Institutional accounts may be used by multiple individuals across an organization. The email address on record for institutional accounts should be accessible by the group manager; it is used for initial account verification and password setup. '
+required: true
+translatable: false
+default_value:
+  -
+    value: institutional
+default_value_callback: ''
+settings: {  }
+field_type: list_string

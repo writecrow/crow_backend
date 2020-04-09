@@ -1,0 +1,29 @@
+uuid: 669377ea-387e-4456-9433-624e8549543c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - crow_theme
+_core:
+  default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
+id: crow_theme_primary_local_tasks
+theme: crow_theme
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/register\r\n/user/password"
+    negate: true
+    context_mapping: {  }

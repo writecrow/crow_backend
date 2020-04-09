@@ -1,0 +1,10 @@
+uuid: dfc00b11-5525-45eb-9c27-24d50580cffe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vvE3FQJNbkpC2tdUAcE6Jo6VGe-KTE0Fv86aoV8QgTU
+name: 'Year in School'
+vid: year_in_school
+description: ''
+weight: 0

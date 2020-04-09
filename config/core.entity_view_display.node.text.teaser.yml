@@ -1,0 +1,63 @@
+uuid: ae9a4ace-6c24-44de-a3de-f0e3027c4193
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.text.field_assignment
+    - field.field.node.text.field_body
+    - field.field.node.text.field_college
+    - field.field.node.text.field_country
+    - field.field.node.text.field_course
+    - field.field.node.text.field_draft
+    - field.field.node.text.field_gender
+    - field.field.node.text.field_id
+    - field.field.node.text.field_institution
+    - field.field.node.text.field_instructor
+    - field.field.node.text.field_program
+    - field.field.node.text.field_semester
+    - field.field.node.text.field_toefl_listening
+    - field.field.node.text.field_toefl_reading
+    - field.field.node.text.field_toefl_speaking
+    - field.field.node.text.field_toefl_total
+    - field.field.node.text.field_toefl_writing
+    - field.field.node.text.field_wordcount
+    - field.field.node.text.field_year
+    - field.field.node.text.field_year_in_school
+    - node.type.text
+  module:
+    - user
+_core:
+  default_config_hash: MSRw1FRMkKfMHdMSzMt1r69e1OjhKfdmQP4pgvwauJ8
+id: node.text.teaser
+targetEntityType: node
+bundle: text
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_assignment: true
+  field_body: true
+  field_college: true
+  field_country: true
+  field_course: true
+  field_draft: true
+  field_gender: true
+  field_id: true
+  field_institution: true
+  field_instructor: true
+  field_program: true
+  field_semester: true
+  field_toefl_listening: true
+  field_toefl_reading: true
+  field_toefl_speaking: true
+  field_toefl_total: true
+  field_toefl_writing: true
+  field_wordcount: true
+  field_year: true
+  field_year_in_school: true
+  langcode: true

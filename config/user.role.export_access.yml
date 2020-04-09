@@ -1,0 +1,12 @@
+uuid: 27c7ed9e-d994-4eb8-bd29-90f82aeb36ca
+langcode: en
+status: true
+dependencies: {  }
+id: export_access
+label: 'Export Access'
+weight: 5
+is_admin: null
+permissions:
+  - 'restful get corpus_export'
+  - 'restful get corpus_search'
+  - 'restful get corpus_search_user_roles'

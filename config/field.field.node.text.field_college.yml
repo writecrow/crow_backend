@@ -1,0 +1,31 @@
+uuid: 56b877b8-9de9-45bd-a024-a9c7b0c4ed32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_college
+    - node.type.text
+    - taxonomy.vocabulary.college
+_core:
+  default_config_hash: gBQo8tI5goxNhNMzwzcoPZrVriD9_QBSxzslCoC-4wQ
+id: node.text.field_college
+field_name: field_college
+entity_type: node
+bundle: text
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      college: college
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

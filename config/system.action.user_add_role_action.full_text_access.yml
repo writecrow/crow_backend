@@ -1,0 +1,14 @@
+uuid: 0e229b72-96f6-4215-a2b1-1512c5c560fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.full_text_access
+  module:
+    - user
+id: user_add_role_action.full_text_access
+label: 'Add the Full Text Access role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: full_text_access

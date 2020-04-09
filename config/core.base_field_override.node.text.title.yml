@@ -1,0 +1,20 @@
+uuid: e8841223-6625-46ee-9b10-1f0d37799a61
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.text
+_core:
+  default_config_hash: kpBxhORZiSBQ6Gwt215Ch1hrEnhmlrklCo7JB-8x3ag
+id: node.text.title
+field_name: title
+entity_type: node
+bundle: text
+label: Filename
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

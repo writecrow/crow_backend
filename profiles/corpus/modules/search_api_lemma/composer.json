@@ -1,0 +1,16 @@
+{
+  "name": "drupal/search_api_lemma",
+  "type": "drupal-module",
+  "description": "Search index lemmatizer processor for Search API",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/search_api_lemma",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/search_api_lemma",
+    "source": "http://cgit.drupalcode.org/search_api_lemma"
+  },
+  "require": {
+    "skyeng/php-lemmatizer": "dev-master"
+  }
+}

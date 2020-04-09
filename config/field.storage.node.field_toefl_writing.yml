@@ -1,0 +1,22 @@
+uuid: f088ca17-cdf8-43ab-91c7-bfba4b3fbb85
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: kStvLoQbsATd-vyCXy5YalcEnDqmxvHomQH6QM6aDKg
+id: node.field_toefl_writing
+field_name: field_toefl_writing
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

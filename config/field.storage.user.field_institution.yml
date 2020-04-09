@@ -1,0 +1,20 @@
+uuid: 71edd5e1-1082-468b-9325-a4f2cb1206ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_institution
+field_name: field_institution
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,13 @@
+uuid: 28bb74f1-edc8-49c9-821a-dfeaa57d7bcb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TvuFGlHgzO0VgeQKE5Qy-bBerVjpN21mbl0aYisezf0
+name: Page
+type: page
+description: 'General purpose content for pages.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

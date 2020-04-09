@@ -1,0 +1,22 @@
+uuid: 35824e6a-3086-49c7-8133-08a6e8b8b6ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: 3h9ZFP8B1uTgH6I8L0EPaDQ4dJohZziFIrBLB8n-8mA
+id: node.field_course_length
+field_name: field_course_length
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

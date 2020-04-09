@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the Corpus Minimal installation profile.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_preprocess_install_page().
+ */
+function corpus_preprocess_install_page(&$variables) {
+  // Custom styling for the install page.
+  $variables['#attached']['library'][] = 'corpus/corpus-install';
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for Corpus Minimal Profile.
+ *
+ * @see system_install()
+ */
+function corpus_install() {
+
+  // Restrict user registration to admin role creation.
+  \Drupal::configFactory()
+    ->getEditable('user.settings')
+    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
+    ->save(TRUE);
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // Set the default and admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('admin', 'seven')
+    ->save(TRUE);
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+}

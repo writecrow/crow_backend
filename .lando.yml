@@ -1,0 +1,14 @@
+name: api
+recipe: drupal8
+services:
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+  mailhog:
+    type: mailhog:v1.0.0
+    portforward: true
+    hogfrom:
+      - appserver
+  appserver:
+    type: php

@@ -1,0 +1,25 @@
+uuid: af1f0d40-64f8-4030-a745-7cecd5851063
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_toefl_reading
+    - node.type.text
+_core:
+  default_config_hash: wPy4g_oSmAEQl9Zu0n4tlGWGu-uQIKu5uETVpwzbZXA
+id: node.text.field_toefl_reading
+field_name: field_toefl_reading
+entity_type: node
+bundle: text
+label: 'TOEFL Reading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

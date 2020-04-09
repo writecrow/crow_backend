@@ -1,0 +1,14 @@
+{
+  "name": "drupal/corpus_search",
+  "type": "drupal-module",
+  "description": "Search API for a Corpus Dataset",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/corpus_search",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/corpus_search",
+    "source": "http://cgit.drupalcode.org/corpus_search"
+  },
+  "require": { }
+}

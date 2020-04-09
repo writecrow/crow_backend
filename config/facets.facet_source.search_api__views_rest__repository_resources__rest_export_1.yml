@@ -1,0 +1,14 @@
+uuid: 5d6692e1-ffa7-4454-b099-2b656ccb6e8e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2byoyFxvuQzCBo-BRHGBwZNYv-_t3-jDwNI3MzlPwmw
+id: search_api__views_rest__repository_resources__rest_export_1
+name: 'search_api:views_rest__repository_resources__rest_export_1'
+filter_key: f
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

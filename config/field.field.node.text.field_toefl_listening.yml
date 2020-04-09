@@ -1,0 +1,25 @@
+uuid: d8c81f3d-bc26-4689-99cb-135b1a6b57bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_toefl_listening
+    - node.type.text
+_core:
+  default_config_hash: phsLHQUGiab5PLkss48fDK-yXPweS6PqEZOrNexmgTI
+id: node.text.field_toefl_listening
+field_name: field_toefl_listening
+entity_type: node
+bundle: text
+label: 'TOEFL Listening'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

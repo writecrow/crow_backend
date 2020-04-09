@@ -1,0 +1,20 @@
+uuid: 22a7a55f-97f0-4c41-a398-de281727bdfc
+langcode: en
+status: false
+dependencies:
+  module:
+    - csv_serialization
+    - serialization
+    - simple_oauth
+id: entity.oauth2_token
+plugin_id: 'entity:oauth2_token'
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - csv
+    - json
+    - xml
+  authentication:
+    - oauth2

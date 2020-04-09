@@ -1,0 +1,20 @@
+uuid: 133f6b2b-90a6-4446-a8da-bcc098f8698b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_project_description
+  module:
+    - user
+id: user.user.field_project_description
+field_name: field_project_description
+entity_type: user
+bundle: user
+label: 'Project description'
+description: 'Please provide a short description of the research or pedagogical project that you plan to use Crow for (e.g., examining hedges in Chinese argumentative essays; exploring assignments to create a new assignment sheet for my first year writing class). If you would like full text or export access, please provide justification for that level of access in your description.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

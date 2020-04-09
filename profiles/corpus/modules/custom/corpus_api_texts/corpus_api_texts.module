@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Modifications for text_index.
+ */
+
+use Drupal\search_api\Query\ResultSetInterface;
+
+/**
+ * Alter a search query's result set.
+ *
+ * The hook is invoked after all enabled processors have postprocessed the
+ * results.
+ *
+ * @param \Drupal\search_api\Query\ResultSetInterface $results
+ *   The search results to alter.
+ */
+function corpus_api_texts_search_api_results_alter(ResultSetInterface &$results) {
+  $id = $results->getQuery()->getIndex()->id();
+  $parse_mode = $results->getQuery()->getParseMode()->getConjunction();
+  if ($id == 'text_index_by_word') {
+    $search_keys = $results->getQuery()->getOriginalKeys();
+    preg_match_all("/\"([^\"]+)\"/u", $search_keys, $phrases);
+    $has_space = stripos($search_keys, ' ');
+    if (!empty($phrases[1]) && $has_space !== FALSE) {
+      $preprocessed_results = $results->getResultItems();
+      // Loop through each result.
+      $result_items = [];
+      foreach ($preprocessed_results as $item) {
+        $or = FALSE;
+        $and = TRUE;
+        $text_object = $item->getField('body')->getValues();
+        $text = $text_object[0]->getText();
+        $pos = 0;
+        foreach ($phrases[1] as $phrase) {
+          $pos = strpos($text, $phrase);
+          if ($pos !== FALSE) {
+            if ($parse_mode == 'OR') {
+              // We only need one match in "OR" mode.
+              $or = TRUE;
+              break;
+            }
+          }
+          else {
+            // If any checks fail, "AND" mode fails.
+            $and = FALSE;
+          }
+        }
+        if ($or or $and) {
+          $start = $pos - 100 < 0 ? 0 : $pos - 100;
+          $excerpt = substr($text, $start, 1000);
+          // Boldface matches.
+          foreach ($phrases[1] as $phrase) {
+            $excerpt = str_ireplace($phrase, '<strong>' . $phrase . '</strong>', $excerpt);
+          }
+          $item->setExcerpt($excerpt);
+          $result_items[] = $item;
+        }
+      }
+      $results->setResultItems($result_items);
+      // For now, let's just return the "original" counts from Solr,
+      // rather than adjusting based on what our parser found, above.
+      // $results->setResultCount(count($result_items));
+    }
+  }
+}

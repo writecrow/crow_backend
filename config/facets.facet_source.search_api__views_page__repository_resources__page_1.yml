@@ -1,0 +1,14 @@
+uuid: 0915ba6c-21dc-4d02-b75c-fc64097240cd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: qiImVs172buRLJFLtaGpwOKqc2Dc1Jw7eX4wBW3PspI
+id: search_api__views_page__repository_resources__page_1
+name: 'search_api:views_page__repository_resources__page_1'
+filter_key: f
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

@@ -1,0 +1,13 @@
+uuid: f864094d-0fe3-4897-99a6-085636743865
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4owJZrGNm1qCAHcXH00Vr89XnSadZak8j3Q3mtuNP-8
+name: 'Corpus Text'
+type: text
+description: 'The basic storage unit for corpus data. Includes relational fields to assignment, school, and TOEFL metadata.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

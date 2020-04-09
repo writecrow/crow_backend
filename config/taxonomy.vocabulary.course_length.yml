@@ -1,0 +1,10 @@
+uuid: 7a31e3d7-99bf-4952-bbf1-a4a13bef0e92
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hgcg6-Z07UEiev-o6tX4YzJXz-VBZI1Q5sFmkBDV36I
+name: 'Course Length'
+vid: course_length
+description: ''
+weight: 0

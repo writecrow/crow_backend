@@ -1,0 +1,25 @@
+uuid: 8eae362e-5e8c-4473-9a99-a0e62ab86ee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_toefl_total
+    - node.type.text
+_core:
+  default_config_hash: mQmhA0vlQKbb3IrP25KxOUm3Y9GQ_zHYaGfMQCM1nSU
+id: node.text.field_toefl_total
+field_name: field_toefl_total
+entity_type: node
+bundle: text
+label: 'TOEFL Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

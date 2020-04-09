@@ -1,0 +1,21 @@
+uuid: 355e972c-3672-4d0f-b915-5f4d8f86f3b2
+langcode: en
+status: false
+dependencies:
+  module:
+    - csv_serialization
+    - serialization
+    - simple_oauth
+    - views
+id: entity.view
+plugin_id: 'entity:view'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - csv
+    - json
+    - xml
+  authentication:
+    - oauth2

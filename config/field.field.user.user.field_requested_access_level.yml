@@ -1,0 +1,23 @@
+uuid: fdc80eb5-963c-4594-ab2f-870541f93442
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_requested_access_level
+  module:
+    - options
+    - user
+id: user.user.field_requested_access_level
+field_name: field_requested_access_level
+entity_type: user
+bundle: user
+label: 'Requested access level'
+description: "- <strong>Standard</strong> access supports full search capability on all student texts and instructor materials. Excerpts of student texts are shown.<br>\r\n- <strong>Full text</strong> access provides the ability to see the full text of student writing. Additional justification and verification will be required.<br>\r\n- <strong>Data export</strong> access is intended for corpus analysis research. Additional justification and verification will be required."
+required: true
+translatable: false
+default_value:
+  -
+    value: standard
+default_value_callback: ''
+settings: {  }
+field_type: list_string

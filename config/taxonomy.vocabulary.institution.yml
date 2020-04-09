@@ -1,0 +1,10 @@
+uuid: 5346223e-f91c-4e0f-84dd-5d734e893f70
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aVJ-PBCbfdgO64MvT7UMcpSvY_zqqb9s6q4qrz202tY
+name: Institution
+vid: institution
+description: ''
+weight: 0

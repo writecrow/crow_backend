@@ -1,0 +1,24 @@
+uuid: d1a339ce-aaab-4102-9bf0-3df98f155315
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_notifications
+  module:
+    - user
+id: user.user.field_notifications
+field_name: field_notifications
+entity_type: user
+bundle: user
+label: 'Email me technical notifications about changes and outages'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

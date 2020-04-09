@@ -1,0 +1,21 @@
+uuid: 81273a1e-96b6-4de2-b7b3-ecc4ef7c763e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_filename
+    - node.type.resource
+_core:
+  default_config_hash: 5QJO88FzosPNfcBq6evw7oUHiTvGCOX4O3sbAvnMp8k
+id: node.resource.field_filename
+field_name: field_filename
+entity_type: node
+bundle: resource
+label: Filename
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

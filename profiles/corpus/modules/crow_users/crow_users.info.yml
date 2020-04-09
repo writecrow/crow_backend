@@ -1,0 +1,8 @@
+name: 'Crow Users'
+description: 'User management & registration functionality'
+type: module
+core: 8.x
+package: 'Crow'
+dependencies:
+  - user
+version: 8.x-1.0

@@ -1,0 +1,22 @@
+uuid: 81df78fa-4c32-4a8b-830d-d636dad638ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Dkf7Dd2TH7Uj9qtbUEt2rcCwiKTjwAzIgqMmnVnAzXY
+id: node.field_toefl_total
+field_name: field_toefl_total
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

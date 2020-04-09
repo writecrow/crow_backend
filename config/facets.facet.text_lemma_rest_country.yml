@@ -1,0 +1,50 @@
+uuid: 15076240-443e-47bc-a080-ca9e2248a6e0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WwuzN0yDLqJ6IpqMQSevGDHKtc7DU5tUBIgBFVtOkhM
+id: text_lemma_rest_country
+name: text_lemma_rest_country
+url_alias: country
+weight: 0
+min_count: 1
+show_only_one_result: false
+field_identifier: country
+facet_source_id: 'search_api:views_rest__texts_by_lemma__rest_export_1'
+widget:
+  type: array
+  config:
+    show_numbers: true
+query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
+    weights:
+      build: -10
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none

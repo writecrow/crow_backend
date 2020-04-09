@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * @file
+ * Module file for content_type_resource.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\file\Entity\File;
+use writecrow\LoremGutenberg\LoremGutenberg;
+
+/**
+ * Helper function for generating demo content.
+ */
+function _content_type_resource_generate_demo_files() {
+  $file = File::create([
+    'uid' => 1,
+    'filename' => 'blank.pdf',
+    'uri' => 'public://resources/blank.pdf',
+    'status' => 1,
+  ]);
+  $file->save();
+  $test_file = __DIR__ . '/assets/blank.pdf';
+  $file_content = file_get_contents($test_file);
+  $directory = 'public://resources/';
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
+  $file_image = file_save_data($file_content, $directory . basename($test_file), FILE_EXISTS_REPLACE);
+}
+
+/**
+ * Helper function for generating demo content.
+ */
+function _content_type_resource_generate_demo_terms() {
+  $vids = [
+    'document_type' => ['Syllabus', 'Sample paper', 'Checklist', 'Presentation', 'Rubric', 'Lesson Plan', 'Assignment Sheet'],
+    'file_type' => ['pdf', 'doc', 'docx', 'pptx', 'odt', 'txt'],
+    'length' => ['15 weeks', '6 weeks'],
+    'mode' => ['Face-to-face', 'Online', 'Hybrid'],
+  ];
+  foreach ($vids as $vid => $terms) {
+    foreach ($terms as $term) {
+      $tid = Term::create([
+        'name' => $term,
+        'vid' => $vid,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Helper function for generating demo content.
+ */
+function _content_type_resource_generate_demo_content($number = 10) {
+  $inc = 0;
+  $taxonomies = [
+    'Assignment' => 'assignment',
+    'Document Type' => 'document_type',
+    'Institution' => 'institution',
+    'Instructor' => 'instructor',
+    'File Type' => 'file_type',
+    'Length' => 'length',
+    'Mode' => 'mode',
+    'Semester' => 'semester',
+    'Year' => 'year',
+    'Course' => 'course',
+  ];
+
+  while ($inc < $number) {
+    $inc++;
+    // Instantiate a new node object.
+    $id = rand(1000, 9999);
+    $node = Node::create(['type' => 'resource']);
+    $return = 'created';
+    $node->set('title', $id);
+    foreach ($taxonomies as $name => $machine_name) {
+      $term = _get_random_term_from_vocabulary($machine_name);
+      $node->set('field_' . $machine_name, ['target_id' => $term->tid]);
+    }
+    $node->set('field_filename', array('value' => $term->name . '_UA_' . $id . '.pdf'));
+    $node->set('field_file', array('target_id' => 1));
+    $body = LoremGutenberg::generate(array('sentences' => 10));
+    // Remove unnecessary <End Header> text.
+    $node->set('field_raw_text', ['value' => $body, 'format' => 'plain_text']);
+    $node->save();
+  }
+}
+
+/**
+ * Helper function for retrieving a random (existing) TID from a VID.
+ */
+function _get_random_term_from_vocabulary($vid = '') {
+  if ($vid != '') {
+    $tids = [];
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+    $rand = array_rand($terms);
+    if (empty($terms)) {
+    }
+    else {
+      return $terms[$rand];
+    }
+
+  }
+  return 0;
+}

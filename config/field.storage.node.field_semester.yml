@@ -1,0 +1,22 @@
+uuid: 8a6e0e51-f9e5-4bf2-aa5d-50829b88d37f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: WhvqNx3Qry7Jwm7YsafsfZsiJd0RwFkAR4o_mNX3D4k
+id: node.field_semester
+field_name: field_semester
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

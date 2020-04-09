@@ -1,0 +1,18 @@
+uuid: 2dfbe379-058d-4fc7-aecc-6fdb6b8c4581
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_read_terms
+field_name: field_read_terms
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

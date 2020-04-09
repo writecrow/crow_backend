@@ -1,0 +1,31 @@
+uuid: d8bab053-cd1b-4112-8aed-4724c46aa795
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_semester
+    - node.type.resource
+    - taxonomy.vocabulary.semester
+_core:
+  default_config_hash: RhmpCHtwJxQna2EL6CY2H0mFxRUC4yaBMzXSvy23auA
+id: node.resource.field_semester
+field_name: field_semester
+entity_type: node
+bundle: resource
+label: Semester
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      semester: semester
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

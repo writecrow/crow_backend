@@ -1,0 +1,23 @@
+uuid: 87046d5e-84cf-43a3-ad02-58f24734cad6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_raw_text
+    - node.type.resource
+  module:
+    - text
+_core:
+  default_config_hash: 1h_sPtz9ZNBX0wi7ukptRGD9uVjvkklgqI2t89YmA1g
+id: node.resource.field_raw_text
+field_name: field_raw_text
+entity_type: node
+bundle: resource
+label: 'Raw Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

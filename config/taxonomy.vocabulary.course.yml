@@ -1,0 +1,10 @@
+uuid: adbf2453-a779-47ab-b050-95a499417d0b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ru23SeodoTXcRSZr3FRiiI5G5vDA3uBSzUtght9nOxI
+name: Course
+vid: course
+description: ''
+weight: 0

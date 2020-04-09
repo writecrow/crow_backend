@@ -1,0 +1,21 @@
+name: 'Repository API'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - content_type_resource
+  - content_type_text
+  - corpus_api_texts
+  - facets
+  - file
+  - node
+  - rest
+  - search_api
+  - search_api_solr
+  - serialization
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+version: 8.x-1.0

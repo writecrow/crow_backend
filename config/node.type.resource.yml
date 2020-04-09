@@ -1,0 +1,13 @@
+uuid: fe09d624-b927-4a87-bab1-3383c530df06
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rNHzEMAYbsVnLVva94MAgNmLHb_IlQ-CGoVu_-MSuUE
+name: 'Repository Resource'
+type: resource
+description: 'The basic storage unit for repository materials. Includes relational fields to assignment, institution, year, semester, instructor, and the file itself.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

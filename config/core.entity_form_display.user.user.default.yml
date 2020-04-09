@@ -1,0 +1,95 @@
+uuid: d1417fe8-7aa5-4343-8da4-ec8726473d41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_account_type
+    - field.field.user.user.field_affiliation
+    - field.field.user.user.field_email_updates
+    - field.field.user.user.field_institution
+    - field.field.user.user.field_notifications
+    - field.field.user.user.field_project_complete_date
+    - field.field.user.user.field_project_description
+    - field.field.user.user.field_read_terms
+    - field.field.user.user.field_requested_access_level
+  module:
+    - datetime
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_account_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_affiliation:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email_updates:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_institution:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_notifications:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_project_complete_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_project_description:
+    weight: 4
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_read_terms:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_requested_access_level:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  langcode: true
+  language: true

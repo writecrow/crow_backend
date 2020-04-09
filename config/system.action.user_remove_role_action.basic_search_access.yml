@@ -1,0 +1,14 @@
+uuid: 9f6ee9fb-942a-4ad5-9db6-ccc6aad8330c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.basic_search_access
+  module:
+    - user
+id: user_remove_role_action.basic_search_access
+label: 'Remove the Basic Search Access role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: basic_search_access

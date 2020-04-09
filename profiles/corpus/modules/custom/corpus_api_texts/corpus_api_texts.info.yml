@@ -1,0 +1,24 @@
+name: 'Corpus API'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - content_type_text
+  - corpus_api_texts
+  - csv_serialization
+  - facets
+  - facets_rest
+  - node
+  - rest
+  - search_api
+  - search_api_db
+  - search_api_lemma
+  - search_api_solr
+  - serialization
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+  - views_data_export
+version: 8.x-1.0

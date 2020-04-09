@@ -1,0 +1,7 @@
+crow_users.frontpage:
+  path: '/frontpage'
+  defaults:
+    _controller: '\Drupal\crow_users\Controller\FrontPageController::content'
+    _title: 'Crow: The Corpus & Repository of Writing'
+  requirements:
+    _permission: 'access content'

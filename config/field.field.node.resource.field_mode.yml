@@ -1,0 +1,31 @@
+uuid: 632bce95-2974-4ad2-a5e1-8b26bf14fc00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mode
+    - node.type.resource
+    - taxonomy.vocabulary.mode
+_core:
+  default_config_hash: g8mPTdw6hxaavl6PYd5jKGxi1AATG6U5-wZ4cwIdGJg
+id: node.resource.field_mode
+field_name: field_mode
+entity_type: node
+bundle: resource
+label: Mode
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mode: mode
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: b5a39d19-e407-456e-9308-e1a625f68605
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Yy-naWQAGtGNj3z9Oaxd_y9wPtxzCvp7eWWkJohPY1A
+id: search_api__views_rest__texts_by_word__rest_export_1
+name: 'search_api:views_rest__texts_by_word__rest_export_1'
+filter_key: f
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

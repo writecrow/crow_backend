@@ -1,0 +1,10 @@
+uuid: b5984c37-439f-484b-99d6-dc33877c0f6a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Tn-258Dob8nyVLLtZ64uga66Wefzu_b5VZqyKIehcHQ
+name: Assignment
+vid: assignment
+description: ''
+weight: 0

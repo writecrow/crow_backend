@@ -1,0 +1,14 @@
+uuid: 609e9a25-ed45-4aa4-8201-e97d2e9af186
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SS3KVd9z6E3ZBuRWEFcaW0UwYMPqIR_7m7-cojByoHA
+id: search_api__views_page__texts_by_word__page_1
+name: 'search_api:views_page__texts_by_word__page_1'
+filter_key: f
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

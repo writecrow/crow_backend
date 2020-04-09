@@ -1,0 +1,10 @@
+uuid: c983ba5c-63a0-4d43-a6f1-e3d5f6bdd68c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gJkFDUuB3CawAvDmC64d1Kpbj99LDXTE5iHorYFzDWA
+name: College
+vid: college
+description: ''
+weight: 0

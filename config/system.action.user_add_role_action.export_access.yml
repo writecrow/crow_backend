@@ -1,0 +1,14 @@
+uuid: 1554fa96-6d4d-4e2d-bc21-9032d66d4f77
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.export_access
+  module:
+    - user
+id: user_add_role_action.export_access
+label: 'Add the Export Access role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: export_access

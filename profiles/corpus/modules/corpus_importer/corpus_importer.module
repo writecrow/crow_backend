@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains corpus_importer.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function corpus_importer_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the corpus_importer module.
+    case 'help.page.corpus_importer':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Importer tool for tagged text files to a Drupal entity') . '</p>';
+      return $output;
+
+    default:
+  }
+}

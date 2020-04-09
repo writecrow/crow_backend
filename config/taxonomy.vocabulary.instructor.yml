@@ -1,0 +1,10 @@
+uuid: 588c5ca0-c55c-4159-93e0-a71f1af16ae3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 03LTPf-4Wgzm-zdWAjz0ZxmgLaDD5KcQMhIf2bPZrTk
+name: Instructor
+vid: instructor
+description: ''
+weight: 0

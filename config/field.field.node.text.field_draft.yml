@@ -1,0 +1,31 @@
+uuid: 90e103c9-6c15-47d4-9c2d-f603658c9e9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_draft
+    - node.type.text
+    - taxonomy.vocabulary.draft
+_core:
+  default_config_hash: 2m87nN_OxCzKQkJcFeBjRzHnB7zc3CUXscXd3v_Z8gI
+id: node.text.field_draft
+field_name: field_draft
+entity_type: node
+bundle: text
+label: Draft
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      draft: draft
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

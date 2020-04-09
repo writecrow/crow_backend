@@ -1,0 +1,11 @@
+uuid: dfc37e6e-64ff-408b-8b42-375046617a10
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.account_insitution_organization
+id: taxonomy_term.account_insitution_organization
+target_entity_type_id: taxonomy_term
+target_bundle: account_insitution_organization
+default_langcode: site_default
+language_alterable: false

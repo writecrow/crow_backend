@@ -1,0 +1,22 @@
+uuid: 1a618f0a-ed42-4fc7-b1ae-d27020a2c962
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 3HuvdfsWiniVuPFwA_rPDt9wQ-k2GsFSBrKZIoRLQuk
+id: node.field_toefl_reading
+field_name: field_toefl_reading
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,31 @@
+uuid: 317e86d1-3e92-4b1d-9d03-2d6a565d1c77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_in_school
+    - node.type.text
+    - taxonomy.vocabulary.year_in_school
+_core:
+  default_config_hash: jcfkFwiK0J-0SA0luI3ttXzeRwKm9gzI22uwe_07-UU
+id: node.text.field_year_in_school
+field_name: field_year_in_school
+entity_type: node
+bundle: text
+label: 'Year in School'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      year_in_school: year_in_school
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

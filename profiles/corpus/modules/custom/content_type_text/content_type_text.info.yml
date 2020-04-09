@@ -1,0 +1,14 @@
+name: 'Content Type Text'
+description: 'Content Type & Taxonomy for "Text"'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - language
+  - node
+  - path
+  - rabbit_hole
+  - taxonomy
+  - text
+  - user
+version: 8.x-1.0
