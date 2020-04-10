@@ -22,7 +22,6 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       'field_requested_access_level',
       'field_project_complete_date',
       'field_project_description',
-      'field_requested_access_level',
       'field_read_terms',
     ];
     $basic_fields = [
@@ -70,6 +69,7 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       $form['notification_preferences'][$field] = $form[$field];
       unset($form[$field]);
     }
+    $form['#attributes']['novalidate'] = 'novalidate';
   }
 }
 
