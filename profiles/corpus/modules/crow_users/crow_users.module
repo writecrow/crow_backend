@@ -25,7 +25,6 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       'field_read_terms',
     ];
     $basic_fields = [
-      'current_pass',
       'mail',
       'name',
       'pass',
