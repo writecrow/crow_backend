@@ -68,6 +68,7 @@ class CorpusSearch extends ControllerBase {
     $token_data = [];
     $op = 'or';
     $tokens = [];
+    $matching_texts = [];
     $results = [
       'search_results' => [],
       'facets' => [],
@@ -98,7 +99,9 @@ class CorpusSearch extends ControllerBase {
         $token_data[$token] = $individual_search;
         $global = self::updateGlobalData($global, $individual_search, $op);
       }
-      $matching_texts = array_intersect_key($all_texts_metadata, $global['text_ids']);
+      if (isset($global['text_ids'])) {
+        $matching_texts = array_intersect_key($all_texts_metadata, $global['text_ids']);
+      }
     }
     else {
       // Perform a non-text string search.
