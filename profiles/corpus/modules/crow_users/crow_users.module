@@ -53,8 +53,10 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       '#group' => 'tabs',
     ];
     foreach ($basic_fields as $field) {
-      $form['basic'][$field] = $form['account'][$field];
-      unset($form['account'][$field]);
+      if (isset($form['account'][$field])) {
+        $form['basic'][$field] = $form['account'][$field];
+        unset($form['account'][$field]);
+      }
     }
     $current_user = \Drupal::currentUser();
     $manager = $current_user->hasPermission('administer users');
