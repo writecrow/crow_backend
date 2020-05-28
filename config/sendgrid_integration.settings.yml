@@ -1,6 +1,6 @@
 apikey: ''
 test_defaults:
-  to: ''
+  to: mfullmer@gmail.com
   subject: 'Test Email from SendGrid Module'
   body:
     value: 'Test Message for SendGrid.'

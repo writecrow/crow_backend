@@ -12,3 +12,12 @@ services:
       - appserver
   appserver:
     type: php
+tooling:
+  uli:
+    service: appserver
+    description: one-time login command
+    cmd: drush uli --uri=https://api.lndo.site
+  cr:
+    service: appserver
+    description: clear the Drupal cache
+    cmd: /app/scripts/lando/cr.sh

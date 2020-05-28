@@ -12,6 +12,7 @@ permissions:
   - 'access content'
   - 'access toolbar'
   - 'change own username'
+  - 'grant simple_oauth codes'
   - userprotect.account.edit
   - userprotect.mail.edit
   - userprotect.pass.edit
