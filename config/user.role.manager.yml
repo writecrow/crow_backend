@@ -7,6 +7,7 @@ label: Manager
 weight: 6
 is_admin: null
 permissions:
+  - 'access content overview'
   - 'access toolbar'
   - 'access user profiles'
   - 'administer users'
@@ -15,8 +16,13 @@ permissions:
   - 'assign full_text_access role'
   - 'assign manager role'
   - 'bypass honeypot protection'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert page revisions'
   - 'skip CAPTCHA'
   - userprotect.account.edit
   - userprotect.mail.edit
   - userprotect.pass.edit
+  - 'view all revisions'
+  - 'view own unpublished content'
   - 'view the administration theme'
