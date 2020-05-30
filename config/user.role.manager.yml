@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: manager
-label: Manager
+label: 'Account Manager'
 weight: 6
 is_admin: null
 permissions:
@@ -12,6 +12,7 @@ permissions:
   - 'access user profiles'
   - 'administer users'
   - 'assign basic_search_access role'
+  - 'assign content_manager role'
   - 'assign export_access role'
   - 'assign full_text_access role'
   - 'assign manager role'
