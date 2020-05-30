@@ -20,6 +20,7 @@ permissions:
   - 'edit own page content'
   - 'revert page revisions'
   - 'skip CAPTCHA'
+  - 'use text format standard_html'
   - userprotect.account.edit
   - userprotect.mail.edit
   - userprotect.pass.edit
