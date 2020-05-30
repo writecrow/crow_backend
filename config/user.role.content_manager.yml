@@ -1,0 +1,20 @@
+uuid: 6541f6ce-5141-4958-baa7-4bdb0372bc21
+langcode: en
+status: true
+dependencies: {  }
+id: content_manager
+label: 'Content Manager'
+weight: 7
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access user profiles'
+  - 'bypass honeypot protection'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert page revisions'
+  - 'skip CAPTCHA'
+  - 'use text format standard_html'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'
