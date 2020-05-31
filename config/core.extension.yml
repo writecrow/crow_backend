@@ -47,6 +47,7 @@ module:
   path_alias: 0
   plupload: 0
   rabbit_hole: 0
+  recaptcha: 0
   redirect_after_login: 0
   reroute_email: 0
   rest: 0

@@ -871,6 +871,7 @@ display:
               basic_search_access: '0'
               export_access: '0'
               manager: '0'
+              content_manager: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -885,6 +886,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
+            field_full_name: field_full_name
             name: name
           plugin_id: combine
         status:
@@ -904,6 +906,8 @@ display:
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
@@ -912,8 +916,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Status
@@ -931,7 +933,7 @@ display:
                 operator: '='
                 value: '1'
               2:
-                title: Blocked
+                title: Pending
                 operator: '='
                 value: '0'
           plugin_id: boolean
