@@ -4,7 +4,6 @@ private.key
 public.key
 
 # "Built" components
-composer.lock
 .csslintrc
 .drush-lock-update
 .editorconfig

@@ -23,6 +23,7 @@
     "drupal/features": "3.8",
     "drupal/honeypot": "1.30",
     "drupal/login_emailusername": "^1.1",
+    "drupal/nocurrent_pass": "^1.0",
     "drupal/plupload": "^1.0@beta",
     "drupal/rabbit_hole": "^1.0@beta",
     "drupal/redirect_after_login": "^2.5",
