@@ -23,8 +23,10 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       'field_project_complete_date',
       'field_project_description',
       'field_read_terms',
+      'field_no_download',
     ];
     $basic_fields = [
+      'field_full_name',
       'mail',
       'name',
       'pass',
@@ -55,6 +57,10 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       if (isset($form['account'][$field])) {
         $form['basic'][$field] = $form['account'][$field];
         unset($form['account'][$field]);
+      }
+      if (isset($form[$field])) {
+        $form['basic'][$field] = $form[$field];
+        unset($form[$field]);
       }
     }
     $current_user = \Drupal::currentUser();

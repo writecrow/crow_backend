@@ -1,0 +1,24 @@
+uuid: b8f4046e-24a5-46a3-ace1-fac892ed82a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_no_download
+  module:
+    - user
+id: user.user.field_no_download
+field_name: field_no_download
+entity_type: user
+bundle: user
+label: 'I will not download full texts from the Crow servers for research purposes.'
+description: 'If researchers are interested in having full text access to the corpus for off-line use, they should contact us at collaborate@writecrow.org. Instructors may download limited texts (no more than 10 per assignment) for pedagogical purposes (non-commercial).'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
