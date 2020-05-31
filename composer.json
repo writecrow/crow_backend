@@ -26,6 +26,7 @@
     "drupal/nocurrent_pass": "^1.0",
     "drupal/plupload": "^1.0@beta",
     "drupal/rabbit_hole": "^1.0@beta",
+    "drupal/recaptcha": "^2.5",
     "drupal/redirect_after_login": "^2.5",
     "drupal/reroute_email": "^1.1",
     "drupal/restui": "^1",
