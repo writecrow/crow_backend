@@ -9,17 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function crow_theme_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['account']['name']['#title'] = "Account login name";
-  $form['account']['name']['#description'] = 'This field will be used for signing in. ';
-  $form['field_institution']['#states'] = [
-    'visible' => [
-      ':input[name="field_account_type"]' => ['value' => 'institutional'],
-    ],
-  ];
-  $form['field_affiliation']['#states'] = [
-    'visible' => [
-      ':input[name="field_account_type"]' => ['value' => 'individual'],
-    ],
-  ];
+  $form['account']['name']['#description'] = 'This field will be used for signing in.';
   $form['field_requested_access_level']['#states'] = [
     'visible' => [
       ':input[name="field_account_type"]' => ['value' => 'individual'],
