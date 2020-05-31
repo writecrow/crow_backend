@@ -83,11 +83,28 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
 /**
  * Implements hook_mail_alter().
  *
- * Sends a blind carbon copy to all outgoing emails.
+ * Control sender/reply-to of outgoing emails.
  */
 function crow_users_mail_alter(&$message) {
-  $bcc_mail = Settings::get('crow_bcc_email');
+  // All variables defined in sites/default/settings.local.php.
+  $return_path = Settings::get('corpus_users_return_path');
+  if ($return_path) {
+    $message['headers']['Return-Path'] = $return_path;
+  }
+  $sender = Settings::get('corpus_users_sender');
+  if ($sender) {
+    $message['headers']['Sender'] = $sender;
+  }
+  $reply_to = Settings::get('corpus_users_reply_to');
+  if ($reply_to) {
+    $message['headers']['Reply-To'] = $reply_to;
+  }
+  $from = Settings::get('corpus_users_from');
+  if ($from) {
+    $message['headers']['From'] = $from;
+  }
 
+  $bcc_mail = Settings::get('corpus_users_bcc_email');
   if (in_array($message['id'], [
     'user_register_admin_created',
     'user_status_activated',
