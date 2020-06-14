@@ -7,6 +7,7 @@
 
 use Drupal\corpus_importer\ImporterService;
 use Drupal\corpus_importer\ImporterHelper;
+use Drupal\corpus_importer\DeDupeHelper;
 
 /**
  * Implements hook_drush_commands().
@@ -34,6 +35,16 @@ function corpus_importer_drush_command() {
       'drush corpus-wipe',
     ],
     'aliases' => ['c-wipe'],
+  ];
+  $items['corpus-dedupe'] = [
+    'description' => "Find duplicate corpus texts",
+    'examples' => [
+      'drush corpus-dedupe',
+    ],
+    'options' => [
+      'delete' => 'Delete duplicates',
+    ],
+    'aliases' => ['c-dedupe'],
   ];
   $items['taxonomy-wipe'] = [
     'description' => 'Delete a terms from a given taxonomy',
@@ -79,6 +90,25 @@ function drush_corpus_importer_corpus_import($path) {
 function drush_corpus_importer_taxonomy_wipe($vid) {
   ImporterHelper::taxonomyWipe($vid);
   print_r("Deleted terms from vocabulary " . $vid);
+}
+
+/**
+ * Corpus-dedupe.
+ */
+function drush_corpus_importer_corpus_dedupe() {
+  $delete_value = drush_get_option('delete', FALSE);
+  $duplicate_corpus_nodes = DeDupeHelper::audit();
+  print_r($duplicate_corpus_nodes);
+  $delete = $delete_value ? TRUE : FALSE;
+  if ($delete) {
+    foreach ($duplicate_corpus_nodes['all_matches'] as $file) {
+      if (isset($file[1])) {
+        $node = \Drupal::entityManager()->getStorage('node')->load($file[1]);
+        $node->delete();
+        print_r('Deleted node ' . $file[1]);
+      }
+    }
+  }
 }
 
 /**
