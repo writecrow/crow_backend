@@ -76,5 +76,5 @@ function drush_corpus_search_corpus_word_wipe() {
  */
 function drush_corpus_search_corpus_lemma_wipe() {
   CorpusLemmaFrequency::wipe();
-  print_r('Lemma Frequency data reset. Run drush clw to re-run.' . PHP_EOL);
+  print_r('Lemma Frequency data reset. Run drush clc to re-run.' . PHP_EOL);
 }
