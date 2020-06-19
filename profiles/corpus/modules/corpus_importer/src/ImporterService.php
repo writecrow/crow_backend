@@ -119,6 +119,9 @@ class ImporterService {
     foreach ($messages as $instance) {
       foreach ($instance as $id => $types) {
         foreach ($types as $type) {
+          if (!isset($prepared_messages[$type])) {
+            $prepared_messages[$type] = [];
+          }
           if (!in_array($id, $prepared_messages[$type])) {
             $prepared_messages[$type][] = $id;
           }
@@ -213,9 +216,10 @@ class ImporterService {
     $node = Node::create(['type' => 'text']);
     $node->set('title', $text['filename']);
 
+    print_r($fields);
     // Set each known field on the node type.
     foreach (ImporterMap::$corpusTaxonomies as $name => $machine_name) {
-      if (!empty($fields[$machine_name])) {
+      if (isset($fields[$machine_name])) {
         if (is_array($fields[$machine_name])) {
           $elements = [];
           foreach ($fields[$machine_name] as $delta => $term) {

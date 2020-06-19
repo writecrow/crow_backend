@@ -12,6 +12,15 @@ class ImporterMap {
   /**
    * {@inheritdoc}
    */
+  public static $notAvailableValues = [
+    'NA',
+    'N/A',
+    'NAN',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
   public static $corpusTaxonomies = [
     'Assignment' => 'assignment',
     'College' => 'college',
@@ -101,6 +110,7 @@ class ImporterMap {
    * {@inheritdoc}
    */
   public static $countryFixes = [
+    'NAN' => 'USA',
     'CHI' => 'CHN',
     'MLY' => 'MYS',
     'LEB' => 'LBN',
@@ -129,6 +139,13 @@ class ImporterMap {
     '106' => 'ENGL 106',
     '107' => 'ENGL 107',
     '108' => 'ENGL 108',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  public static $semesters = [
+    'F' => 'Fall',
   ];
 
   /**
