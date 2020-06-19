@@ -214,6 +214,9 @@ class ImporterService {
     $messages = $field_metadata['messages'];
     $fields = $field_metadata['fields'];
     $node = Node::create(['type' => 'text']);
+
+    // @temporary fix for NAU country filename issue.
+    $text['filename'] = str_replace('NAN', 'USA', $text['filename']);
     $node->set('title', $text['filename']);
 
     // Set each known field on the node type.
