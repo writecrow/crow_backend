@@ -216,7 +216,6 @@ class ImporterService {
     $node = Node::create(['type' => 'text']);
     $node->set('title', $text['filename']);
 
-    print_r($fields);
     // Set each known field on the node type.
     foreach (ImporterMap::$corpusTaxonomies as $name => $machine_name) {
       if (isset($fields[$machine_name])) {

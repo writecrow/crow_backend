@@ -228,9 +228,7 @@ class ImporterHelper {
     }
     foreach (ImporterMap::$corpusTaxonomies as $key => $value) {
       if (!in_array($key, array_keys($text)) && $key != "Instructor") {
-        print_r($text);
         echo 'This text is missing the header ' . $key;
-        die();
       }
     }
     return $text;
