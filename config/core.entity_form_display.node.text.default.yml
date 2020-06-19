@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
     - field.field.node.text.field_instructor
+    - field.field.node.text.field_l1
     - field.field.node.text.field_program
     - field.field.node.text.field_semester
     - field.field.node.text.field_toefl_listening
@@ -133,6 +134,16 @@ content:
       size: 60
       placeholder: ''
       match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_l1:
+    weight: 142
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content

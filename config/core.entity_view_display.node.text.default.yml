@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
     - field.field.node.text.field_instructor
+    - field.field.node.text.field_l1
     - field.field.node.text.field_program
     - field.field.node.text.field_semester
     - field.field.node.text.field_toefl_listening
@@ -107,6 +108,14 @@ content:
     region: content
   field_instructor:
     weight: 117
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_l1:
+    weight: 122
     label: above
     settings:
       link: true

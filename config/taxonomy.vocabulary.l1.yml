@@ -1,0 +1,8 @@
+uuid: dbf17766-090e-44bc-b415-b0b0e6048e94
+langcode: en
+status: true
+dependencies: {  }
+name: L1
+vid: l1
+description: 'First Language'
+weight: 0

@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
     - field.field.node.text.field_instructor
+    - field.field.node.text.field_l1
     - field.field.node.text.field_program
     - field.field.node.text.field_semester
     - field.field.node.text.field_toefl_listening
@@ -50,6 +51,7 @@ hidden:
   field_id: true
   field_institution: true
   field_instructor: true
+  field_l1: true
   field_program: true
   field_semester: true
   field_toefl_listening: true
