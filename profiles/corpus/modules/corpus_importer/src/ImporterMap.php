@@ -30,6 +30,7 @@ class ImporterMap {
     'Gender' => 'gender',
     'Institution' => 'institution',
     'Instructor' => 'instructor',
+    'L1' => 'l1',
     'Program' => 'program',
     'Course Semester' => 'semester',
     'Course Year' => 'year',
