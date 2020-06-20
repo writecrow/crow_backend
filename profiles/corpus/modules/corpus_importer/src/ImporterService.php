@@ -216,7 +216,7 @@ class ImporterService {
     $node = Node::create(['type' => 'text']);
 
     // @temporary fix for NAU country filename issue.
-    $text['filename'] = str_replace('NAN', 'USA', $text['filename']);
+    // $text['filename'] = str_replace('NAN', 'USA', $text['filename']);
     $node->set('title', $text['filename']);
 
     // Set each known field on the node type.

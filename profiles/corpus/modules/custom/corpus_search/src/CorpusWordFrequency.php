@@ -68,7 +68,7 @@ class CorpusWordFrequency {
       }
       if (!empty($frequency)) {
         foreach ($frequency as $word => $count) {
-          if (strlen($word) > 250) {
+          if (mb_strlen($word) > 100) {
             continue;
           }
           $connection = \Drupal::database();
