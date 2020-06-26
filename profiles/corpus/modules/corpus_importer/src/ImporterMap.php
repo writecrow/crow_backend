@@ -111,7 +111,7 @@ class ImporterMap {
    * {@inheritdoc}
    */
   public static $countryFixes = [
-    'NAN' => 'USA',
+    'NA' => '',
     'CHI' => 'CHN',
     'MLY' => 'MYS',
     'LEB' => 'LBN',

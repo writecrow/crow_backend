@@ -114,6 +114,9 @@ class ImporterHelper {
   public static function mapMetadata(array $text, $name, $machine_name) {
     if (in_array($machine_name, ['program', 'college'])) {
       if (is_string($text[$name])) {
+        if ($text[$name] == "NA") {
+          $text[$name] = "";
+        }
         $multiples = preg_split("/\s?;\s?/", $text[$name]);
         if (isset($multiples[1])) {
           array_push($multiples, $text[$name]);
