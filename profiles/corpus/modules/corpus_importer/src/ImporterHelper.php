@@ -42,6 +42,9 @@ class ImporterHelper {
         // Skip various N/A values. These will be reported later on.
         continue;
       }
+      if (empty($text[$name])) {
+        continue;
+      }
 
       if (is_array($text[$name])) {
         // Save multiple values.
@@ -115,7 +118,8 @@ class ImporterHelper {
     if (in_array($machine_name, ['program', 'college'])) {
       if (is_string($text[$name])) {
         if ($text[$name] == "NA") {
-          $text[$name] = "";
+          // Leave "NA" program/college values as-is.
+          return $text;
         }
         $multiples = preg_split("/\s?;\s?/", $text[$name]);
         if (isset($multiples[1])) {
@@ -249,16 +253,15 @@ class ImporterHelper {
    *   Term id or 0 if none.
    */
   public static function getTidByName($name = NULL, $vid = NULL) {
-    $properties = [];
-    if (!empty($name)) {
-      $properties['name'] = $name;
+    if (empty($name) || empty($vid)) {
+      return 0;
     }
-    if (!empty($vid)) {
-      $properties['vid'] = $vid;
-    }
+    $properties = [
+      'name' => $name,
+      'vid' => $vid,
+    ];
     $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties($properties);
     $term = reset($terms);
-
     return !empty($term) ? $term->id() : 0;
   }
 
