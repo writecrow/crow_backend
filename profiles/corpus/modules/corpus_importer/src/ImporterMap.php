@@ -60,6 +60,7 @@ class ImporterMap {
   public static $assignments = [
     "AB" => "Annotated Bibliography",
     "AR" => "Argumentative Paper",
+    "AN" => "Analytical Essay",
     "CA" => "Controversy Analysis",
     "CS" => "Case Study",
     "DA" => "Visual Design Analysis",
@@ -68,6 +69,7 @@ class ImporterMap {
     "GA" => "Genre Analysis",
     "GR" => "Genre Redesign",
     "IR" => "Interview Report",
+    "IN" => "Informative Essay",
     "LN" => "Literacy Narrative",
     "LR" => "Literature Review",
     "ME" => "Memo",
@@ -83,6 +85,7 @@ class ImporterMap {
     "RR" => "Register Rewrite",
     "RP" => "Research Proposal",
     "RT" => "Research Report",
+    "SA" => "Short Argument",
     "SR" => "Summary and Response",
     "SY" => "Synthesis",
     "TA" => "Text Analysis",
