@@ -99,6 +99,7 @@ class ImporterMap {
   public static $docTypes = [
     "AC" => "Activity",
     "SL" => "Syllabus",
+    "SY" => "Syllabus",
     "LP" => "Lesson Plan",
     "AS" => "Assignment Sheet/Prompt",
     "RU" => "Rubric",

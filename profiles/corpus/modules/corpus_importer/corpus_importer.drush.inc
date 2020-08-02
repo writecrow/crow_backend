@@ -29,16 +29,6 @@ function corpus_importer_drush_command() {
     ],
     'aliases' => ['ci'],
   ];
-  $items['corpus-wipe'] = [
-    'description' => "Delete all corpus nodes",
-    'examples' => [
-      'drush corpus-wipe',
-    ],
-    'options' => [
-      'institution' => 'Limit the wipe by institution vocabulary ID',
-    ],
-    'aliases' => ['c-wipe'],
-  ];
   $items['corpus-dedupe'] = [
     'description' => "Find duplicate corpus texts",
     'examples' => [
@@ -62,9 +52,23 @@ function corpus_importer_drush_command() {
     'examples' => [
       'drush repository-wipe',
     ],
+    'options' => [
+      'institution' => 'Limit the wipe by institution vocabulary ID',
+      'filename' => 'Limit the wipe by corpus text filename',
+    ],
     'aliases' => ['r-wipe'],
   ];
-
+  $items['corpus-wipe'] = [
+    'description' => "Delete all corpus nodes",
+    'examples' => [
+      'drush corpus-wipe',
+    ],
+    'options' => [
+      'institution' => 'Limit the wipe by institution vocabulary ID',
+      'filename' => 'Limit the wipe by corpus text filename',
+    ],
+    'aliases' => ['c-wipe'],
+  ];
   return $items;
 }
 
@@ -119,6 +123,7 @@ function drush_corpus_importer_corpus_dedupe() {
  */
 function drush_corpus_importer_corpus_wipe() {
   $institution_id = drush_get_option('institution', NULL);
+  $filename = drush_get_option('filename', NULL);
   ini_set("memory_limit", "4096M");
   $corpus_deleted = FALSE;
   $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
@@ -126,22 +131,46 @@ function drush_corpus_importer_corpus_wipe() {
   if ($institution_id !== NULL) {
     $query->condition('field_institution.target_id', (int) $institution_id, '=');
   }
+  if ($filename !== NULL) {
+    $query->condition('title', $filename);
+  }
   $items = array_values($query->execute());
-  print_r(count($items) . " matching corpus nodes exist..." . PHP_EOL);
-  entity_delete_multiple('node', $items);
-  print_r('Deleted!' . PHP_EOL);
+  if (count($items) != 0) {
+    print_r(count($items) . " matching corpus nodes exist..." . PHP_EOL);
+    print_r('This may take a few moments...' . PHP_EOL);
+    entity_delete_multiple('node', $items);
+    print_r('Deleted!' . PHP_EOL);
+  }
+  else {
+    print_r('No corpus texts match the criteria' . PHP_EOL);
+  }
 }
 
 /**
  * Implements the drush command.
  */
 function drush_corpus_importer_repository_wipe() {
+  $institution_id = drush_get_option('institution', NULL);
+  $filename = drush_get_option('filename', NULL);
   print_r("Finding existing repository nodes..." . PHP_EOL);
   ini_set("memory_limit", "4096M");
 
-  $result = \Drupal::entityQuery('node')
-    ->condition('type', 'resource')
-    ->execute();
-  print_r(count($result) . " repository nodes will be deleted...");
-  entity_delete_multiple('node', $result);
+  $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+  $query->condition('type', 'resource');
+  if ($institution_id !== NULL) {
+    $query->condition('field_institution.target_id', (int) $institution_id, '=');
+  }
+  if ($filename !== NULL) {
+    $query->condition('field_filename.value', $filename);
+  }
+  $items = array_values($query->execute());
+  if (count($items) != 0) {
+    print_r(count($items) . " matching repository nodes exist..." . PHP_EOL);
+    print_r('This may take a few moments...' . PHP_EOL);
+    entity_delete_multiple('node', $items);
+    print_r('Deleted!' . PHP_EOL);
+  }
+  else {
+    print_r('No repository texts match the criteria' . PHP_EOL);
+  }
 }
