@@ -61,6 +61,7 @@ class ImporterMap {
     "AB" => "Annotated Bibliography",
     "AR" => "Argumentative Paper",
     "AN" => "Analytical Essay",
+    "BE" => "Belief Exploration",
     "CA" => "Controversy Analysis",
     "CS" => "Case Study",
     "DA" => "Visual Design Analysis",
