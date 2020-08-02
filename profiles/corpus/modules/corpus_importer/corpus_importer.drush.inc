@@ -34,6 +34,9 @@ function corpus_importer_drush_command() {
     'examples' => [
       'drush corpus-wipe',
     ],
+    'options' => [
+      'institution' => 'Limit the wipe by institution vocabulary ID',
+    ],
     'aliases' => ['c-wipe'],
   ];
   $items['corpus-dedupe'] = [
@@ -115,26 +118,18 @@ function drush_corpus_importer_corpus_dedupe() {
  * Implements the drush command.
  */
 function drush_corpus_importer_corpus_wipe() {
-  print_r("Finding existing nodes..." . PHP_EOL);
+  $institution_id = drush_get_option('institution', NULL);
   ini_set("memory_limit", "4096M");
   $corpus_deleted = FALSE;
-  $result = \Drupal::entityQuery('node')
-    ->condition('type', 'text')
-    ->execute();
-  print_r(count($result) . " corpus nodes exist in the database..." . PHP_EOL);
-  while ($corpus_deleted !== TRUE) {
-    $result = \Drupal::entityQuery('node')
-      ->condition('type', 'text')
-      ->range(0, 20)
-      ->execute();
-    if (count($result) !== 0) {
-      print_r(count($result) . " corpus nodes deleted..." . PHP_EOL);
-      entity_delete_multiple('node', $result);
-    }
-    else {
-      $corpus_deleted = TRUE;
-    }
+  $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+  $query->condition('type', 'text');
+  if ($institution_id !== NULL) {
+    $query->condition('field_institution.target_id', (int) $institution_id, '=');
   }
+  $items = array_values($query->execute());
+  print_r(count($items) . " matching corpus nodes exist..." . PHP_EOL);
+  entity_delete_multiple('node', $items);
+  print_r('Deleted!' . PHP_EOL);
 }
 
 /**
@@ -146,7 +141,6 @@ function drush_corpus_importer_repository_wipe() {
 
   $result = \Drupal::entityQuery('node')
     ->condition('type', 'resource')
-    ->range(0, 500)
     ->execute();
   print_r(count($result) . " repository nodes will be deleted...");
   entity_delete_multiple('node', $result);
