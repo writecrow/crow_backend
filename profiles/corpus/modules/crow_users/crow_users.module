@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\basecamp_api\Basecamp;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -128,6 +129,43 @@ function crow_users_form_alter(&$form, &$form_state, $form_id) {
   if (in_array($form_id, $user_forms)) {
     // Add a new validation handler to the form.
     $form['#validate'][] = '_crow_users_registration_validate';
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = '_crow_users_basecamp_todo';
+      }
+    }
+  }
+}
+
+function _crow_users_basecamp_todo(&$form, &$form_state) {
+  
+  $config = \Drupal::config('crow_users.settings');
+  $base_url = \Drupal::request()->getSchemeAndHttpHost();
+  \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
+  $values = $form_state->getValues();
+  $message = '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
+  $message = '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
+  $message .= '<p><strong>Email: </strong>' . $values['mail'] . '</p>';
+  $message .= '<p><strong>Project description: </strong>' . $values['field_project_description'][0]['value'] . '</p>';
+  $message .= '<p><hr /></p>';
+  $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/95/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Basic Search Access")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
+  $data = [
+    'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
+    'description' => $message,
+    'due_on' => date('Y-m-d', strtotime('+2 days')),
+    'starts_on' => date('Y-m-d', time()),
+  ];
+  $assignee_ids = $config->get('assignee_ids');
+  if (!empty($assignee_ids)) {
+    $data['assignee_ids'] = explode(',', $assignee_ids);
+  }
+  $project = $config->get('project');
+  $list = $config->get('list');
+  if (!empty($list) && !empty($project)) {
+    Basecamp::createTodo($project, $list, $data);
+  }
+  else {
+    \Drupal::logger('basecamp_api')->error('Todo not added to Basecamp. Missing project ID or todolist ID.');
   }
 }
 

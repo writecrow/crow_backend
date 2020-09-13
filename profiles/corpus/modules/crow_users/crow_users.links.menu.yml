@@ -1,0 +1,5 @@
+crow_users.settings:
+  title: 'Corpus users settings'
+  description: 'Manage user notification settings'
+  parent: user.admin_index
+  route_name: crow_users.settings

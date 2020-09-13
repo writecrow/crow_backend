@@ -1,0 +1,4 @@
+administer basecamp api:
+  title: 'Administer Basecamp API'
+  description: 'Enter client credentials'
+  restrict access: TRUE

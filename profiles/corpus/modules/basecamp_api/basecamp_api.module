@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file Module file for Basecamp API.
+ */
+
+use Drupal\basecamp_api\Basecamp;
+
+function basecamp_api_cron() {
+  $interval = 24*60*60; // Run approximately once a day.
+  $next_execution = \Drupal::state()->get('basecamp_api.next_cron');
+  $next_execution = !empty($next_execution) ? $next_execution : 0;
+  if (REQUEST_TIME >= $next_execution) {
+    Basecamp::refreshToken();
+    \Drupal::state()->set('basecamp_api.next_cron', REQUEST_TIME + $interval);
+  }
+}
