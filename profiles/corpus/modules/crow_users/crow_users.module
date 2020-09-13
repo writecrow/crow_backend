@@ -82,43 +82,6 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
 }
 
 /**
- * Implements hook_mail_alter().
- *
- * Control sender/reply-to of outgoing emails.
- */
-function crow_users_mail_alter(&$message) {
-  // All variables defined in sites/default/settings.local.php.
-  $return_path = Settings::get('corpus_users_return_path');
-  if ($return_path) {
-    $message['headers']['Return-Path'] = $return_path;
-  }
-  $sender = Settings::get('corpus_users_sender');
-  if ($sender) {
-    $message['headers']['Sender'] = $sender;
-  }
-  $reply_to = Settings::get('corpus_users_reply_to');
-  if ($reply_to) {
-    $message['headers']['Reply-To'] = $reply_to;
-  }
-  $from = Settings::get('corpus_users_from');
-  if ($from) {
-    $message['headers']['From'] = $from;
-  }
-
-  $bcc_mail = Settings::get('corpus_users_bcc_email');
-  if (in_array($message['id'], [
-    'user_register_admin_created',
-    'user_status_activated',
-    'user_register_pending_approval',
-  ])) {
-    if ($bcc_mail) {
-      $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
-      $message['headers']['Bcc'] = implode(' ', array_merge(explode(' ', $existing_bcc), [$bcc_mail]));
-    }
-  }
-}
-
-/**
  * Implements hook_form_alter().
  */
 function crow_users_form_alter(&$form, &$form_state, $form_id) {
