@@ -1,0 +1,7 @@
+name: 'Basecamp API'
+description: 'OAuth integration for version 3 of the Basecamp API'
+package: 'Basecamp'
+type: module
+core: 8.x
+core_version_requirement: '^8 || ^9'
+core_incompatible: false

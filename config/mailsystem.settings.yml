@@ -1,11 +1,12 @@
 theme: current
 defaults:
-  sender: sendgrid_integration
-  formatter: sendgrid_integration
+  sender: SMTPMailSystem
+  formatter: SMTPMailSystem
 _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 modules:
-  sendgrid_integration:
+  sendgrid_integration: {  }
+  smtp:
     none:
-      formatter: sendgrid_integration
-      sender: sendgrid_integration
+      formatter: SMTPMailSystem
+      sender: SMTPMailSystem

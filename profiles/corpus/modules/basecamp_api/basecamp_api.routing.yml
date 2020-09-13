@@ -1,0 +1,7 @@
+basecamp_api.settings:
+  path: '/admin/config/basecamp_api/settings'
+  defaults:
+    _form: '\Drupal\basecamp_api\Form\Settings'
+    _title: 'Basecamp API settings'
+  requirements:
+    _permission: 'administer basecamp api'

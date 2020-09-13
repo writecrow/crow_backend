@@ -5,3 +5,10 @@ crow_users.frontpage:
     _title: 'Crow: The Corpus & Repository of Writing'
   requirements:
     _permission: 'access content'
+crow_users.settings:
+  path: '/admin/config/corpus-users'
+  defaults:
+    _form: '\Drupal\crow_users\Form\Settings'
+    _title: 'Corpus User Settings'
+  requirements:
+    _permission: 'administer basecamp api'
