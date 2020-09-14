@@ -152,8 +152,9 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   $data = [
     'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
     'description' => $message,
-    'due_on' => date('Y-m-d', strtotime('+2 days')),
+    'due_on' => date('Y-m-d', strtotime('+7 days')),
     'starts_on' => date('Y-m-d', time()),
+    'notify' => TRUE,
   ];
   $assignee_ids = $config->get('assignee_ids');
   if (!empty($assignee_ids)) {
