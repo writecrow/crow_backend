@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class Settings extends ConfigFormBase {
 
-  /** 
+  /**
    * Config settings.
    *
    * @var string
