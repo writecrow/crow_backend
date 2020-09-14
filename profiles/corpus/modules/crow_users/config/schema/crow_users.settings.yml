@@ -2,6 +2,9 @@ crow_users.settings:
   type: config_object
   label: 'Crow users settings'
   mapping:
+    on:
+      type: boolean
+      label: 'Enable notifications'
     assignee_ids:
       type: text
       label: 'Assignee IDs'
@@ -11,3 +14,4 @@ crow_users.settings:
     list:
       type: text
       label: 'List'
+

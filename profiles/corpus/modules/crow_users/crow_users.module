@@ -138,8 +138,10 @@ function crow_users_mail_alter(&$message) {
 }
 
 function _crow_users_basecamp_todo(&$form, &$form_state) {
-  
   $config = \Drupal::config('crow_users.settings');
+  if (!$config->get('on')) {
+    return;
+  }
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
   $values = $form_state->getValues();

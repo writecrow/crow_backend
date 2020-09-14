@@ -38,6 +38,11 @@ class Settings extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS);
+    $form['on'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable notifications'),
+      '#default_value' => $config->get('on'),
+    ];
     $form['project'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Basecamp Project ID for todo list'),
@@ -63,6 +68,7 @@ class Settings extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Retrieve the configuration.
     $this->configFactory->getEditable(static::SETTINGS)
+      ->set('on', $form_state->getValue('on'))
       ->set('assignee_ids', $form_state->getValue('assignee_ids'))
       ->set('list', $form_state->getValue('list'))
       ->set('project', $form_state->getValue('project'))

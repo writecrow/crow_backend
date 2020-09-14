@@ -42,8 +42,8 @@ class Settings extends ConfigFormBase {
     }
     $form['basecamp_api_user_id'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('User ID'),
-      '#description' => $this->t('This numeric value can be found in the URL when you click on your profile (e.g., https://3.basecamp.com/3129499/'),
+      '#title' => $this->t('Account ID'),
+      '#description' => $this->t('This numeric value can be found in the URL when you log into the Basecamp instance (e.g., https://3.basecamp.com/3129499/'),
       '#default_value' => \Drupal::state()->get('basecamp_api_user_id'),
     ];
     $form['basecamp_api_client_id'] = [
