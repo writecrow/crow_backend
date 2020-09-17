@@ -150,7 +150,7 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   $message .= '<p><strong>Email: </strong>' . $values['mail'] . '</p>';
   $message .= '<p><strong>Project description: </strong>' . $values['field_project_description'][0]['value'] . '</p>';
   $message .= '<p><hr /></p>';
-  $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/95/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Basic Search Access")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
+  $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/' . $values['uid'] . '/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Basic Search Access")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
   $data = [
     'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
     'description' => $message,
