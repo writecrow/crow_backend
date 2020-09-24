@@ -24,6 +24,7 @@ update.php
 vendor/
 web.config
 config/.htaccess
+.ftpquota
 
 # Ignore paths that contain user-generated content.
 sites/*/files
