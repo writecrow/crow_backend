@@ -22,7 +22,35 @@ class ExcerptEmbed extends CorpusSearch {
     // Response.
     $results = self::getSearchResults($request, "fixed");
     $response = new CacheableResponse('', 200);
-    $output = '';
+    $output = "<!doctype html><html lang='en'><head><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-130278011-1', 'auto');
+  </script>
+  <meta charset='utf-8'>
+  <title>Crow: Corpus & Repository of Writing</title>";
+      $output .= "<style>
+        body {
+          font-size: 14px;
+          font-family: 'Lucida Console', Monaco, monospace;
+          width: 1200px;
+        }
+        table {
+          white-space: pre;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #f5f5f5;
+        }
+      </style>";
     if (!empty($results['search_results'])) {
       $inc = 0;
       $lines = [];
@@ -51,39 +79,8 @@ class ExcerptEmbed extends CorpusSearch {
         $lines[] = [$first, $second, $three[0], $trailing[2], $trailing[3] . '<br>'];
       }
       $json_lines = json_encode($lines);
-      $output .= "<style>
-        body {
-          font-size: 14px;
-          font-family: 'Lucida Console', Monaco, monospace;
-          width: 1200px;
-        }
-        table {
-          white-space: pre;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
-        }
-
-        tr:nth-child(even) {
-          background-color: #f5f5f5;
-        }
-      </style>";
-      $output .= '
-        <div id="concordance_lines"></div>
-
+      $output .= '</head><body><div id="concordance_lines"></div>
         <script type="text/javascript">
-
-        // lines is a list of lists with 5 items each:
-        // 0: context before
-        // 1: word right before kwic
-        // 2: kwic
-        // 3: word right after kwic
-        // 4: context after
-
         lines = ' . $json_lines . ' 
 
         // comparator function to sort by word after the kwic
@@ -134,7 +131,7 @@ class ExcerptEmbed extends CorpusSearch {
         sort_before();
 
 
-        </script>';
+        </script></body></html>';
       $response->setContent($output);
     }
     $response->getCacheableMetadata()->addCacheContexts(['url.query_args']);
