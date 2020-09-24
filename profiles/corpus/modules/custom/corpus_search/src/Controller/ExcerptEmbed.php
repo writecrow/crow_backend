@@ -31,6 +31,7 @@ class ExcerptEmbed extends CorpusSearch {
           break;
         }
         $inc++;
+        $three = [];
         preg_match('/<mark>([^<]*)<\/mark>(.[^\w]*)/u', $result['text'], $three);
         $bookends = preg_split('/<mark>([^<]*)<\/mark>(.[^\w]*)/u', $result['text'], 2);
         $start = $bookends[0];
