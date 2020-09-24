@@ -22,7 +22,7 @@ class ExcerptEmbed extends CorpusSearch {
     // Response.
     $results = self::getSearchResults($request, "fixed");
     $response = new CacheableResponse('', 200);
-    $output = "<!doctype html><html lang='en'><head><script>
+    $output = "<!doctype html><html><head><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -80,7 +80,7 @@ class ExcerptEmbed extends CorpusSearch {
       }
       $json_lines = json_encode($lines);
       $output .= '</head><body><div id="concordance_lines"></div>
-        <script type="text/javascript">
+        <script>
         lines = ' . $json_lines . ' 
 
         // comparator function to sort by word after the kwic
