@@ -61,7 +61,6 @@ module:
   search_api_db: 0
   search_api_lemma: 0
   search_api_solr: 0
-  sendgrid_integration: 0
   serialization: 0
   simple_oauth: 0
   simple_oauth_extras: 0
