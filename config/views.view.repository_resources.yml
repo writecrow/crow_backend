@@ -1540,7 +1540,8 @@ display:
       cache:
         type: search_api_tag
         options: {  }
-      auth: {  }
+      auth:
+        - oauth2
     cache_metadata:
       max-age: -1
       contexts:
