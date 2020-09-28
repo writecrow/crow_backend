@@ -119,16 +119,18 @@ class TextMetadata {
     foreach (array_keys(self::$facetIDs) as $group) {
       // Loop through facet names (e.g., ENGL 106, ENGL 107).
       foreach ($facet_map['by_name'][$group] as $name => $id) {
-        // Add description, if it exists..
-        if (isset($facet_map['by_id'][$group][$id]['description'])) {
-          $facet_results[$group][$name]['description'] = $facet_map['by_id'][$group][$id]['description'];
-        }
-        if (!isset($facet_results[$group][$name])) {
-          $facet_results[$group][$name] = ['count' => 0];
-        }
         if (isset($conditions[$group])) {
+          if (!isset($facet_results[$group][$name])) {
+            $facet_results[$group][$name] = ['count' => 0];
+          }
           if (in_array($id, $conditions[$group])) {
             $facet_results[$group][$name]['active'] = TRUE;
+          }
+        }
+        if (isset($facet_results[$group][$name])) {
+          // Add description, if it exists..
+          if (isset($facet_map['by_id'][$group][$id]['description'])) {
+            $facet_results[$group][$name]['description'] = $facet_map['by_id'][$group][$id]['description'];
           }
         }
       }
