@@ -20,9 +20,9 @@ dependencies:
     - search_api.server.corpus_database_server
   module:
     - taxonomy
-    - node
     - search_api
     - search_api_solr
+    - node
 _core:
   default_config_hash: 4ClZxj_kuUFCSkVb3Qj61bb4vy01QRj6c77yDfqMG14
 id: resource_index
@@ -40,7 +40,6 @@ field_settings:
         - field.storage.node.field_assignment
       module:
         - taxonomy
-        - taxonomy
   course:
     label: 'Course » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -50,7 +49,6 @@ field_settings:
       config:
         - field.storage.node.field_course
       module:
-        - taxonomy
         - taxonomy
   course_length:
     label: 'Course Length » Taxonomy term » Name'
@@ -62,7 +60,6 @@ field_settings:
         - field.storage.node.field_course_length
       module:
         - taxonomy
-        - taxonomy
   document_type:
     label: 'Document Type » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -72,7 +69,6 @@ field_settings:
       config:
         - field.storage.node.field_document_type
       module:
-        - taxonomy
         - taxonomy
   file:
     label: file
@@ -92,7 +88,6 @@ field_settings:
         - field.storage.node.field_file_type
       module:
         - taxonomy
-        - taxonomy
   filename:
     label: Filename
     datasource_id: 'entity:node'
@@ -106,9 +101,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
-    dependencies:
-      module:
-        - node
   institution:
     label: 'Institution » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -118,7 +110,6 @@ field_settings:
       config:
         - field.storage.node.field_institution
       module:
-        - taxonomy
         - taxonomy
   instructor:
     label: 'Instructor » Taxonomy term » Name'
@@ -130,7 +121,6 @@ field_settings:
         - field.storage.node.field_instructor
       module:
         - taxonomy
-        - taxonomy
   mode:
     label: 'Mode » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -140,7 +130,6 @@ field_settings:
       config:
         - field.storage.node.field_mode
       module:
-        - taxonomy
         - taxonomy
   raw_text:
     label: 'Raw Text'
@@ -160,7 +149,6 @@ field_settings:
         - field.storage.node.field_semester
       module:
         - taxonomy
-        - taxonomy
   topic:
     label: 'Topic » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -170,7 +158,6 @@ field_settings:
       config:
         - field.storage.node.field_topic
       module:
-        - taxonomy
         - taxonomy
   year:
     label: 'Year » Taxonomy term » Name'
@@ -182,6 +169,25 @@ field_settings:
         - field.storage.node.field_year
       module:
         - taxonomy
+  assignment_description:
+    label: 'Assignment » Taxonomy term » Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_assignment:entity:description'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_assignment
+      module:
+        - taxonomy
+  course_description:
+    label: 'Course » Taxonomy term » Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_course:entity:description'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_course
+      module:
         - taxonomy
 datasource_settings:
   'entity:node':
@@ -194,19 +200,14 @@ datasource_settings:
       selected:
         - en
 processor_settings:
-  add_url: {  }
-  aggregated_field: {  }
-  entity_status: {  }
-  highlight:
-    highlight: always
-    highlight_partial: false
-    excerpt: true
-    excerpt_length: 256
-    exclude_fields: {  }
-    prefix: '<strong>'
-    suffix: '</strong>'
+  transliteration:
+    all_fields: false
+    fields:
+      - id
+      - raw_text
     weights:
-      postprocess_query: 0
+      preprocess_index: -20
+      preprocess_query: -20
   html_filter:
     all_fields: false
     fields:
@@ -214,6 +215,7 @@ processor_settings:
       - course
       - course_length
       - document_type
+      - file_type
       - filename
       - id
       - institution
@@ -221,7 +223,10 @@ processor_settings:
       - mode
       - raw_text
       - semester
+      - topic
       - year
+      - assignment_description
+      - course_description
     title: true
     alt: true
     tags:
@@ -233,6 +238,7 @@ processor_settings:
     weights:
       preprocess_index: -15
       preprocess_query: -15
+  add_url: {  }
   ignorecase:
     all_fields: false
     fields:
@@ -241,10 +247,8 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  rendered_item: {  }
-  solr_date_range:
-    weights:
-      preprocess_index: 0
+  entity_status: {  }
+  aggregated_field: {  }
   tokenizer:
     all_fields: false
     fields:
@@ -255,14 +259,20 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -6
-  transliteration:
-    all_fields: false
-    fields:
-      - id
-      - raw_text
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
     weights:
-      preprocess_index: -20
-      preprocess_query: -20
+      postprocess_query: 0
+  rendered_item: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
     indexing_order: fifo

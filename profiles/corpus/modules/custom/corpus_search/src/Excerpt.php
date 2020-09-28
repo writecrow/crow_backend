@@ -18,8 +18,18 @@ class Excerpt {
    *   An array of entity data, including metadata.
    * @param string[] $tokens
    *   The words/phrases to be highlighted.
+   * @param string[] $facet_map
+   *   The canonical facet map -- includes all data.
+   * @param int $limit
+   *   The number of results to return.
+   * @param int $offset
+   *   Pagination functionality (translates to SQL offset).
+   * @param bool $do_excerpt
+   *   Should an excerpt be returned?
+   * @param string $excerpt_type
+   *   Provide concatenated results or keyed (for iDDL)?
    */
-  public static function getExcerptOrFullText(array $matching_texts, array $tokens, $facet_map, $limit = 20, $offset = 0, $do_excerpt = TRUE, $excerpt_type = "concat") {
+  public static function getExcerptOrFullText(array $matching_texts, array $tokens, array $facet_map, $limit = 20, $offset = 0, $do_excerpt = TRUE, $excerpt_type = "concat") {
     if (empty($matching_texts)) {
       return [];
     }
@@ -30,7 +40,8 @@ class Excerpt {
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
     $sliced_matches = array_intersect_key($matching_texts, $results);
-    $metadata_names = [
+    // @see TextMetadata::populateTextMetadata().
+    $metadata_groups = [
       'filename',
       'institution',
       'course',
@@ -46,11 +57,15 @@ class Excerpt {
     foreach ($sliced_matches as $id => $metadata) {
       $excerpts[$id]['filename'] = $metadata['filename'];
       $excerpts[$id]['wordcount'] = $metadata['wordcount'];
-      foreach ($metadata_names as $name) {
-        $excerpts[$id][$name] = self::getFacetName($metadata[$name], $name, $facet_map);
+      foreach ($metadata_groups as $field) {
+        $facet_data = self::getFacetData($metadata[$field], $field, $facet_map);
+        $excerpts[$id][$field] = $facet_data['name'];
+        if (isset($facet_data['description'])) {
+          $excerpts[$id][$field . '_description'] = $facet_data['description'];
+        }
       }
       if ($do_excerpt) {
-        $excerpts[$id]['text'] = HighlightExcerpt::highlight($results[$id], $tokens, $length = "300", $excerpt_type);
+        $excerpts[$id]['text'] = HighlightExcerpt::highlight($results[$id], $tokens, '300', $excerpt_type) . '...';
       }
       else {
         $excerpts[$id]['text'] = $results[$id];
@@ -62,11 +77,11 @@ class Excerpt {
   /**
    * Simple facet name array lookup.
    */
-  public static function getFacetName($id, $facet_group, $facet_map) {
-    if (!empty($facet_map['by_id'][$facet_group][$id])) {
-      return $facet_map['by_id'][$facet_group][$id];
+  public static function getFacetData($id, $vocabulary, $facet_map) {
+    if (!empty($facet_map['by_id'][$vocabulary][$id])) {
+      return $facet_map['by_id'][$vocabulary][$id];
     }
-    return $id;
+    return ['name' => $id];
   }
 
 }

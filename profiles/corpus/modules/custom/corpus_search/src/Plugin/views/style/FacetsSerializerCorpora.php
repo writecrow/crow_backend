@@ -1,12 +1,13 @@
 <?php
 
-namespace Drupal\corpus_api_texts\Plugin\views\style;
+namespace Drupal\corpus_search\Plugin\views\style;
 
 use Drupal\facets\FacetManager\DefaultFacetManager;
 use Drupal\rest\Plugin\views\style\Serializer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Drupal\facets_rest\Plugin\views\style\FacetsSerializer;
+use Drupal\corpus_search\TextMetadata;
 
 /**
  * The style plugin for serialized output formats.
@@ -14,13 +15,13 @@ use Drupal\facets_rest\Plugin\views\style\FacetsSerializer;
  * @ingroup views_style_plugins
  *
  * @ViewsStyle(
- *   id = "facets_serializer_plus",
- *   title = @Translation("Facets serializer Plus"),
+ *   id = "facets_serializer_corpora",
+ *   title = @Translation("Facets serializer for corpora"),
  *   help = @Translation("Adds Facets results and Pager/Results information to output"),
  *   display_types = {"data"}
  * )
  */
-class FacetsSerializerPlus extends FacetsSerializer {
+class FacetsSerializerCorpora extends FacetsSerializer {
 
   /**
    * {@inheritdoc}
@@ -61,6 +62,19 @@ class FacetsSerializerPlus extends FacetsSerializer {
     }
 
     $rows['facets'] = array_values($processed_facets);
+    $facet_map = TextMetadata::getFacetMap();
+    foreach ($rows['facets'] as &$facet) {
+      $group = key($facet[0]);
+      foreach ($facet[0][$group] as &$item) {
+        $name = $item['values']['value'];
+        if (isset($facet_map['by_name'][$group][$name])) {
+          $id = $facet_map['by_name'][$group][$name];
+          if (isset($facet_map['by_id'][$group][$id]['description'])) {
+            $item['values']['description'] = $facet_map['by_id'][$group][$id]['description'];
+          }
+        }
+      }
+    }
 
     $pager = $this->view->pager;
     $class = get_class($pager);

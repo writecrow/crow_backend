@@ -10,7 +10,7 @@ dependencies:
     - user.role.basic_search_access
     - user.role.full_text_access
   module:
-    - corpus_api_texts
+    - corpus_search
     - file
     - rest
     - search_api
@@ -1203,6 +1203,144 @@ display:
             multi_type: separator
             multi_separator: ', '
           plugin_id: search_api_field
+        assignment_description:
+          id: assignment_description
+          table: search_api_index_resource_index
+          field: assignment_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Assignment Description'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
+        course_description:
+          id: course_description
+          table: search_api_index_resource_index
+          field: course_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Course Description'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -1312,12 +1450,13 @@ display:
       display_extenders: {  }
       path: repository
       style:
-        type: facets_serializer_plus
+        type: facets_serializer_corpora
         options:
           uses_fields: true
           formats:
             json: json
             xml: xml
+          show_facets: 1
       defaults:
         style: false
         row: false
@@ -1371,6 +1510,12 @@ display:
             topic:
               alias: ''
               raw_output: false
+            assignment_description:
+              alias: ''
+              raw_output: false
+            course_description:
+              alias: ''
+              raw_output: false
       pager:
         type: full
         options:
@@ -1395,8 +1540,7 @@ display:
       cache:
         type: search_api_tag
         options: {  }
-      auth:
-        - oauth2
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:

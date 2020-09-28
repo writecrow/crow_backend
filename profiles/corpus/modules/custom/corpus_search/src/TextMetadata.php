@@ -3,7 +3,7 @@
 namespace Drupal\corpus_search;
 
 /**
- * Class SearchService.
+ * Class TextMetadata.
  *
  * @package Drupal\corpus_search
  */
@@ -82,11 +82,17 @@ class TextMetadata {
     $map = [];
     $connection = \Drupal::database();
     $query = $connection->select('taxonomy_term_field_data', 't');
-    $query->fields('t', ['tid', 'vid', 'name']);
+    $query->fields('t', ['tid', 'vid', 'name', 'description__value']);
     $result = $query->execute()->fetchAll();
     foreach ($result as $i) {
+      $data = [
+        'name' => $i->name,
+      ];
+      if (isset($i->description__value)) {
+        $data['description'] = strip_tags($i->description__value);
+      }
       $map['by_name'][$i->vid][$i->name] = $i->tid;
-      $map['by_id'][$i->vid][$i->tid] = $i->name;
+      $map['by_id'][$i->vid][$i->tid] = $data;
     }
     return $map;
   }
@@ -96,35 +102,38 @@ class TextMetadata {
    */
   public static function countFacets($matching_texts, $facet_map, $conditions) {
     foreach ($matching_texts as $id => $elements) {
-      foreach (array_keys(self::$facetIDs) as $f) {
-        if (isset($facet_map['by_id'][$f]{$elements[$f]})) {
-          $name = $facet_map['by_id'][$f]{$elements[$f]};
-          if (!isset($facet_results[$f][$name]['count'])) {
-            $facet_results[$f][$name]['count'] = 1;
+      foreach (array_keys(self::$facetIDs) as $group) {;
+        if (isset($facet_map['by_id'][$group]{$elements[$group]})) {
+          $name = $facet_map['by_id'][$group]{$elements[$group]}['name'];
+          if (!isset($facet_results[$group][$name]['count'])) {
+            $facet_results[$group][$name]['count'] = 1;
           }
           else {
-            $facet_results[$f][$name]['count']++;
+            $facet_results[$group][$name]['count']++;
           }
         }
       }
     }
     // Add facets that have no matches to the result set.
     // Loop through facet groups (e.g., course, assignment).
-    foreach (array_keys(self::$facetIDs) as $f) {
+    foreach (array_keys(self::$facetIDs) as $group) {
       // Loop through facet names (e.g., ENGL 106, ENGL 107).
-      foreach ($facet_map['by_id'][$f] as $n) {
-        if (!isset($facet_results[$f][$n])) {
-          $facet_results[$f][$n]['count'] = 0;
+      foreach ($facet_map['by_name'][$group] as $name => $id) {
+        // Add description, if it exists..
+        if (isset($facet_map['by_id'][$group][$id]['description'])) {
+          $facet_results[$group][$name]['description'] = $facet_map['by_id'][$group][$id]['description'];
         }
-        $facet_id = $facet_map['by_name'][$f][$n];
-        if (isset($conditions[$f])) {
-          if (in_array($facet_id, $conditions[$f])) {
-            $facet_results[$f][$n]['active'] = TRUE;
+        if (!isset($facet_results[$group][$name])) {
+          $facet_results[$group][$name] = ['count' => 0];
+        }
+        if (isset($conditions[$group])) {
+          if (in_array($id, $conditions[$group])) {
+            $facet_results[$group][$name]['active'] = TRUE;
           }
         }
       }
       // Ensure facets are listed alphanumerically.
-      ksort($facet_results[$f]);
+      ksort($facet_results[$group]);
     }
     return $facet_results;
   }
