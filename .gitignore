@@ -46,6 +46,9 @@ sites/*/services.local.yml
 # Ignore SimpleTest multi-site environment.
 sites/simpletest
 
+## Explicitly ignore configuration that we do not want to version
+config/smtp.settings.yml
+
 # Ignore test data
 corpus_data
 repository_data
