@@ -18,6 +18,7 @@ module:
   contextual: 0
   corpus_api_resources: 0
   corpus_api_texts: 0
+  corpus_bug_reporting: 0
   corpus_importer: 0
   corpus_search: 0
   crow_users: 0

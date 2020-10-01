@@ -1,0 +1,5 @@
+corpus_bug_reporting.settings:
+  title: 'Corpus bug reporting settings'
+  description: 'Manage notification settings'
+  parent: user.admin_index
+  route_name: corpus_bug_reporting.settings

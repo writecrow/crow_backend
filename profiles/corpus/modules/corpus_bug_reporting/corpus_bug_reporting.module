@@ -1,0 +1,17 @@
+<?php
+
+/**
+* Implements hook_mail().
+*/
+function corpus_bug_reporting_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+   case 'corpus_bug_reporting':
+     $message['subject'] = t('Crow interface bug report: @title', ['@title' => $params['title']], $options);
+     $message['body'][] = $params['message'];
+     break;
+ }
+}
