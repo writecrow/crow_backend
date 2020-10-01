@@ -128,8 +128,7 @@ class Basecamp {
       $response = $client->post('/authorization/token', $options);
       $body = json_decode($response->getBody(), TRUE);
       \Drupal::state()->set('basecamp_api_access_token', $body['access_token']);
-      \Drupal::state()->set('basecamp_api_refresh_token', $body['refresh_token']);
-      \Drupal::logger('basecamp_api')->error('Refreshed Basecamp API token.');
+      \Drupal::logger('basecamp_api')->notice('Refreshed Basecamp API token.');
     }
     catch (RequestException $e) {
       if ($e->hasResponse()) {
