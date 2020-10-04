@@ -161,11 +161,11 @@ parameters:
   cors.config:
     enabled: true
     # Specify allowed headers, like 'x-allowed-header'.
-    allowedHeaders: ['authorization']
+    allowedHeaders: ['x-csrf-token','authorization','content-type','accept','origin','x-requested-with', 'access-control-allow-origin','x-allowed-header']
     # Specify allowed request methods, specify ['*'] to allow all possible ones.
     allowedMethods: ['GET', 'POST']
     # Configure requests allowed from specific origins.
-    allowedOrigins: ['http://localhost:4200','https://crow.corporaproject.org','https://devcrow.corporaproject.org']
+    allowedOrigins: ['*']
     # Sets the Access-Control-Expose-Headers header.
     exposedHeaders: false
     # Sets the Access-Control-Max-Age header.
