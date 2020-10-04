@@ -1,0 +1,19 @@
+uuid: 547c051d-574c-4824-b5a8-222c0e0d6285
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest_feedback_endpoint
+    - serialization
+    - simple_oauth
+id: rest_feedback_endpoint_submit_issue
+plugin_id: rest_feedback_endpoint_submit_issue
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+    - xml
+  authentication:
+    - oauth2

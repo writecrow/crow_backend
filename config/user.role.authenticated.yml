@@ -13,6 +13,8 @@ permissions:
   - 'access toolbar'
   - 'change own username'
   - 'grant simple_oauth codes'
+  - 'restful post feedback_endpoint_bug_report'
+  - 'restful post rest_feedback_endpoint_submit_issue'
   - userprotect.account.edit
   - userprotect.mail.edit
   - userprotect.pass.edit

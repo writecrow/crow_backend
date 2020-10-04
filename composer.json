@@ -46,6 +46,7 @@
     "writecrow/country_code_converter": "dev-master",
     "writecrow/highlighter": "dev-master",
     "writecrow/lorem_gutenberg": "^1.1",
+    "writecrow/rest_feedback_endpoint": "dev-master",
     "writecrow/tag_converter": "~1.0",
     "zaporylie/composer-drupal-optimizations": "^1.1"
   },

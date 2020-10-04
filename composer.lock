@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb280f514cd870fd4e7ededdbd9a913e",
+    "content-hash": "f3948d86e609599f1ee16f853cc3c4e7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7922,6 +7922,35 @@
             "time": "2018-01-11T20:11:01+00:00"
         },
         {
+            "name": "writecrow/rest_feedback_endpoint",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
+                "reference": "943cb174074133a6c73b81b93cf4910c6861ca77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/943cb174074133a6c73b81b93cf4910c6861ca77",
+                "reference": "943cb174074133a6c73b81b93cf4910c6861ca77",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "REST endpoint for receiving a POST request",
+            "homepage": "https://github.com/writecrow/rest_feedback_endpoint",
+            "keywords": [
+                "drupal"
+            ],
+            "time": "2020-10-04T00:22:24+00:00"
+        },
+        {
             "name": "writecrow/tag_converter",
             "version": "1.4",
             "source": {
@@ -8246,7 +8275,8 @@
         "drupal/smtp": 5,
         "drupal/views_data_export": 10,
         "writecrow/country_code_converter": 20,
-        "writecrow/highlighter": 20
+        "writecrow/highlighter": 20,
+        "writecrow/rest_feedback_endpoint": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

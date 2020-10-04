@@ -1,8 +1,0 @@
-name: 'Corpus bug reporting'
-description: 'Simple way to report bugs, including context-specific metadata'
-type: module
-core: 8.x
-package: 'Reporting'
-dependencies:
-  - user
-version: 8.x-1.0
