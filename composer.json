@@ -43,6 +43,7 @@
     "oomphinc/composer-installers-extender": "1.1.2",
     "rvtraveller/qs-composer-installer": "1.1",
     "wikimedia/composer-merge-plugin": "~1.4",
+    "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
     "writecrow/highlighter": "dev-master",
     "writecrow/lorem_gutenberg": "^1.1",
