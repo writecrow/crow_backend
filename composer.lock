@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45f15d50888ceb8b3dce05590e3b91e6",
+    "content-hash": "ff7b97f0b2ee3244f1c20df738878762",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7797,16 +7797,16 @@
         },
         {
             "name": "writecrow/basecamp_api",
-            "version": "1.0.0-alpha.1",
+            "version": "1.0.0-alpha.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/basecamp_api.git",
-                "reference": "27409615093362b1064243c4b9bec09b110a9493"
+                "reference": "5fa3996b265262cbb708585aa784ae54c4e2a9ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/27409615093362b1064243c4b9bec09b110a9493",
-                "reference": "27409615093362b1064243c4b9bec09b110a9493",
+                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/5fa3996b265262cbb708585aa784ae54c4e2a9ed",
+                "reference": "5fa3996b265262cbb708585aa784ae54c4e2a9ed",
                 "shasum": ""
             },
             "require": {
@@ -7817,12 +7817,12 @@
             "license": [
                 "GPL-2.0+"
             ],
-            "description": "Integration for Basecamp API v3",
+            "description": "Drupal integration for Basecamp API v3",
             "homepage": "https://github.com/writecrow/basecamp_api",
             "keywords": [
                 "drupal"
             ],
-            "time": "2020-10-04T02:42:49+00:00"
+            "time": "2020-10-04T17:35:39+00:00"
         },
         {
             "name": "writecrow/country_code_converter",
@@ -7952,16 +7952,16 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "dev-master",
+            "version": "1.0.0-alpha.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "943cb174074133a6c73b81b93cf4910c6861ca77"
+                "reference": "4b5be00030b4b3b152c3d4c90659aa91d79a9e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/943cb174074133a6c73b81b93cf4910c6861ca77",
-                "reference": "943cb174074133a6c73b81b93cf4910c6861ca77",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/4b5be00030b4b3b152c3d4c90659aa91d79a9e07",
+                "reference": "4b5be00030b4b3b152c3d4c90659aa91d79a9e07",
                 "shasum": ""
             },
             "require": {
@@ -7977,7 +7977,7 @@
             "keywords": [
                 "drupal"
             ],
-            "time": "2020-10-04T00:22:24+00:00"
+            "time": "2020-10-04T16:59:10+00:00"
         },
         {
             "name": "writecrow/tag_converter",
@@ -8306,7 +8306,7 @@
         "writecrow/basecamp_api": 15,
         "writecrow/country_code_converter": 20,
         "writecrow/highlighter": 20,
-        "writecrow/rest_feedback_endpoint": 20
+        "writecrow/rest_feedback_endpoint": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
