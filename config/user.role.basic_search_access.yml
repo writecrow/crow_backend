@@ -9,3 +9,4 @@ is_admin: null
 permissions:
   - 'restful get corpus_search'
   - 'restful get corpus_search_user_roles'
+  - 'restful post feedback_endpoint_bug_report'

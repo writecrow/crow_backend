@@ -43,9 +43,11 @@
     "oomphinc/composer-installers-extender": "1.1.2",
     "rvtraveller/qs-composer-installer": "1.1",
     "wikimedia/composer-merge-plugin": "~1.4",
+    "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
     "writecrow/highlighter": "dev-master",
     "writecrow/lorem_gutenberg": "^1.1",
+    "writecrow/rest_feedback_endpoint": "^1.0@alpha",
     "writecrow/tag_converter": "~1.0",
     "zaporylie/composer-drupal-optimizations": "^1.1"
   },
@@ -85,10 +87,11 @@
         "[web-root]/INSTALL.txt": false,
         "[web-root]/README.txt": false,
         "[web-root]/sites/README.txt": false,
-        "[web-root]/sites/development.services.yml": false
+        "[web-root]/sites/development.services.yml": false,
+        "[web-root]/sites/default/default.services.yml": false,
+        "[web-root]/sites/default/default.settings.php": false
       }
     },
-
     "installer-paths": {
       "core": [
         "type:drupal-core"
