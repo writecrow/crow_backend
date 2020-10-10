@@ -21,7 +21,10 @@ class TextMetadata {
     'semester' => 'se',
     'year' => 'yr',
     'year_in_school' => 'ys',
+    'l1' => 'l1',
   ];
+
+  public static $corpusSourceBundle = 'text';
 
   /**
    * Retrieve metadata for all texts in one go!
@@ -33,36 +36,19 @@ class TextMetadata {
     }
     $connection = \Drupal::database();
     $query = $connection->select('node_field_data', 'n');
-    $query->leftJoin('node__field_assignment', 'at', 'n.nid = at.entity_id');
-    $query->leftJoin('node__field_college', 'co', 'n.nid = co.entity_id');
-    $query->leftJoin('node__field_country', 'cy', 'n.nid = cy.entity_id');
-    $query->leftJoin('node__field_course', 'ce', 'n.nid = ce.entity_id');
-    $query->leftJoin('node__field_draft', 'dr', 'n.nid = dr.entity_id');
-    $query->leftJoin('node__field_gender', 'ge', 'n.nid = ge.entity_id');
-    $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
-    $query->leftJoin('node__field_institution', 'it', 'n.nid = it.entity_id');
-    $query->leftJoin('node__field_program', 'pr', 'n.nid = pr.entity_id');
-    $query->leftJoin('node__field_semester', 'se', 'n.nid = se.entity_id');
-    $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
-    $query->leftJoin('node__field_year_in_school', 'ys', 'n.nid = ys.entity_id');
-    $query->leftJoin('node__field_year', 'yr', 'n.nid = yr.entity_id');
-    $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
+    $query->condition('n.type', self::$corpusSourceBundle, '=');
     $query->fields('n', ['title', 'type', 'nid']);
-    $query->fields('at', ['field_assignment_target_id']);
-    $query->fields('co', ['field_college_target_id']);
-    $query->fields('cy', ['field_country_target_id']);
-    $query->fields('ce', ['field_course_target_id']);
-    $query->fields('dr', ['field_draft_target_id']);
-    $query->fields('ge', ['field_gender_target_id']);
+    // Add non-facet fields.
+    $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
     $query->fields('id', ['field_id_value']);
-    $query->fields('it', ['field_institution_target_id']);
-    $query->fields('pr', ['field_program_target_id']);
-    $query->fields('se', ['field_semester_target_id']);
+    $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
     $query->fields('tt', ['field_toefl_total_value']);
-    $query->fields('ys', ['field_year_in_school_target_id']);
-    $query->fields('yr', ['field_year_target_id']);
+    $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
     $query->fields('wc', ['field_wordcount_value']);
-    $query->condition('n.type', 'text', '=');
+    foreach (self::$facetIDs as $field => $alias) {
+      $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
+      $query->fields($alias, ['field_' . $field . '_target_id']);
+    }
     $result = $query->execute();
     $matching_texts = $result->fetchAll();
     $texts = [];
@@ -102,8 +88,8 @@ class TextMetadata {
    */
   public static function countFacets($matching_texts, $facet_map, $conditions) {
     foreach ($matching_texts as $id => $elements) {
-      foreach (array_keys(self::$facetIDs) as $group) {;
-        if (isset($facet_map['by_id'][$group]{$elements[$group]})) {
+      foreach (array_keys(self::$facetIDs) as $group) {
+        if (isset($elements[$group]) && isset($facet_map['by_id'][$group]{$elements[$group]})) {
           $name = $facet_map['by_id'][$group]{$elements[$group]}['name'];
           if (!isset($facet_results[$group][$name]['count'])) {
             $facet_results[$group][$name]['count'] = 1;
@@ -135,7 +121,9 @@ class TextMetadata {
         }
       }
       // Ensure facets are listed alphanumerically.
-      ksort($facet_results[$group]);
+      if (isset($facet_results[$group])) {
+        ksort($facet_results[$group]);
+      }
     }
     return $facet_results;
   }
@@ -144,22 +132,18 @@ class TextMetadata {
    * Helper function to put a single text's result data into a structured array.
    */
   private static function populateTextMetadata($result) {
-    return [
+    $metadata = [
       'filename' => $result->title,
-      'assignment' => $result->field_assignment_target_id,
-      'college' => $result->field_college_target_id,
-      'country' => $result->field_country_target_id,
-      'course' => $result->field_course_target_id,
-      'draft' => $result->field_draft_target_id,
-      'gender' => $result->field_gender_target_id,
-      'institution' => $result->field_institution_target_id,
-      'program' => $result->field_program_target_id,
-      'semester' => $result->field_semester_target_id,
       'toefl_total' => $result->field_toefl_total_value,
-      'year' => $result->field_year_target_id,
-      'year_in_school' => $result->field_year_in_school_target_id,
       'wordcount' => $result->field_wordcount_value,
     ];
+    foreach (array_keys(self::$facetIDs) as $field) {
+      $target = 'field_' . $field . '_target_id';
+      if (isset($result->$target)) {
+        $metadata[$field] = $result->$target;
+      }
+    }
+    return $metadata;
   }
 
 }

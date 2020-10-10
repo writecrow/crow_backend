@@ -11,7 +11,6 @@ dependencies:
   - node
   - rest
   - search_api
-  - search_api_solr
   - serialization
   - system
   - taxonomy
