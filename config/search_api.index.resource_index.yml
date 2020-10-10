@@ -20,9 +20,8 @@ dependencies:
     - search_api.server.corpus_database_server
   module:
     - taxonomy
-    - search_api
-    - search_api_solr
     - node
+    - search_api
 _core:
   default_config_hash: 4ClZxj_kuUFCSkVb3Qj61bb4vy01QRj6c77yDfqMG14
 id: resource_index
@@ -101,6 +100,9 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
+    dependencies:
+      module:
+        - node
   institution:
     label: 'Institution » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -270,9 +272,7 @@ processor_settings:
     weights:
       postprocess_query: 0
   rendered_item: {  }
-  solr_date_range:
-    weights:
-      preprocess_index: 0
+  language_with_fallback: {  }
 tracker_settings:
   default:
     indexing_order: fifo
