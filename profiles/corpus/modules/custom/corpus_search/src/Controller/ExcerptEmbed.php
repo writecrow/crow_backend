@@ -45,6 +45,9 @@ class ExcerptEmbed extends CorpusSearch {
         tr:nth-child(even) {
           background-color: #f5f5f5;
         }
+        td {
+          white-space: nowrap;
+        }
         #concordance_lines {
           overflow-y: auto;
         }
@@ -109,7 +112,7 @@ class ExcerptEmbed extends CorpusSearch {
           sorted_lines = lines.sort(comparator_after);
 
           const conc_line_div = document.getElementById("concordance_lines");
-          conc_line_div.innerHTML = "The lines below are sorted by the word right <strong>after</strong> the key word in context. <a href=\"#\" onclick=\"sort_before();return false;\">Sort by the word before</a>.<hr>";
+          conc_line_div.innerHTML = "<tr><td>The lines below are sorted by the word right <strong>after</strong> the key word in context. <a href=\"#\" onclick=\"sort_before();return false;\">Sort by the word before</a>.</td></tr>";
 
           for (const line of sorted_lines) {
             conc_line_div.innerHTML += line.join(" ");
