@@ -5,6 +5,7 @@ services:
     type: phpmyadmin
     hosts:
       - database
+      - source_database
   mailhog:
     type: mailhog:v1.0.0
     portforward: true
@@ -12,6 +13,8 @@ services:
       - appserver
   appserver:
     type: php
+  source_database:
+    type: mysql
 tooling:
   uli:
     service: appserver

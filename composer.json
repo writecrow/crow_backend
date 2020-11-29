@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "composer/installers": "1.7.0",
+    "composer/installers": "^1 || ^2",
     "drupal/adminimal_theme": "^1.4",
     "drupal/allow_iframed_site": "^2.0",
     "drupal/better_exposed_filters": "4.0-alpha1",
@@ -38,17 +38,15 @@
     "drupal/token": "^1.6",
     "drupal/userprotect": "^1.0",
     "drupal/views_data_export": "^1.0@beta",
-    "drush/drush": "~10",
-    "oomphinc/composer-installers-extender": "1.1.2",
-    "rvtraveller/qs-composer-installer": "1.1",
-    "wikimedia/composer-merge-plugin": "~1.4",
     "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
     "writecrow/highlighter": "dev-master",
     "writecrow/lorem_gutenberg": "^1.1",
     "writecrow/rest_feedback_endpoint": "^1.0@alpha",
-    "writecrow/tag_converter": "~1.0",
-    "zaporylie/composer-drupal-optimizations": "^1.1"
+    "writecrow/tag_converter": "~1.0"
+  },
+  "require-dev": {
+    "drush/drush": "~10"
   },
   "config": {
     "platform": {
