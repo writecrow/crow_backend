@@ -5,7 +5,10 @@ dependencies:
   config:
     - node.type.text
 id: node_type_text
+entity_type_id: node_type
+entity_id: text
 action: access_denied
 allow_override: 0
 redirect: ''
 redirect_code: 301
+redirect_fallback_action: access_denied
