@@ -11,7 +11,7 @@ field_name: field_project_description
 entity_type: user
 bundle: user
 label: 'Project description'
-description: 'Please provide a description (minimum 100 characters) of the research or pedagogical project that you plan to use Crow for (e.g., examining hedges in Chinese argumentative essays; exploring assignments to create a new assignment sheet for my first year writing class). If you would like full text or export access, please provide justification for that level of access in your description.'
+description: "Please provide a description (minimum 100 characters) of the research or pedagogical project that you plan to use Crow for (e.g., examining hedges in Chinese argumentative essays; exploring assignments to create a new assignment sheet for my first year writing class). \r\n<ul>\r\n<li>If you are a student, please write that in your description.</li>\r\n<li>If you want to use Crow in a course (as either a student or instructor), please describe the course, including the number of students.</li>\r\n<li>If you would like full text or export access, please provide justification for that level of access in your description.</li></ul>"
 required: false
 translatable: false
 default_value: {  }
