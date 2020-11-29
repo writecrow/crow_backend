@@ -39,6 +39,7 @@
     "drupal/token": "^1.6",
     "drupal/userprotect": "^1.0",
     "drupal/views_data_export": "^1.0@beta",
+    "moxiecode/plupload": "2.1.9",
     "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
     "writecrow/highlighter": "dev-master",
@@ -111,13 +112,32 @@
       ],
       "themes/custom/{$name}": [
         "type:drupal-custom-theme"
+      ],
+      "libraries/{$name}": [
+        "type:drupal-library"
       ]
     }
   },
   "repositories": {
-    "drupal": {
+    "0": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    },
+    "1": {
+      "type": "package",
+      "package": {
+        "name": "moxiecode/plupload",
+        "version": "2.1.9",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/moxiecode/plupload.git",
+          "type": "git",
+          "reference": "v2.1.9"
+        },
+        "require": {
+          "composer/installers": "~1.0"
+        }
+      }
     }
   }
 }

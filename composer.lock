@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf216bb86c71c1004a94d71e7383967b",
+    "content-hash": "077148b7e7747e47b5446ade0ba065f4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3827,6 +3827,19 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.x"
             },
             "time": "2017-09-04T12:26:28+00:00"
+        },
+        {
+            "name": "moxiecode/plupload",
+            "version": "2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moxiecode/plupload.git",
+                "reference": "v2.1.9"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "paragonie/random_compat",
