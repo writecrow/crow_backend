@@ -42,11 +42,6 @@ class ExcerptEmbed extends CorpusSearch {
           border-collapse: collapse;
           width: 100%;
         }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
-        }
         tr:nth-child(even) {
           background-color: #f5f5f5;
         }
@@ -84,10 +79,10 @@ class ExcerptEmbed extends CorpusSearch {
           $first = $one[0];
         }
         $second = empty($two[0]) ? ' ' : $two[0];
-        $lines[] = [$first, $second, $three[0], $trailing[2], $trailing[3] . '<br>'];
+        $lines[] = ['<tr><td>' . $first, $second, $three[0], $trailing[2], $trailing[3] . '</td></tr>'];
       }
       $json_lines = json_encode($lines);
-      $output .= '</head><body><div id="concordance_lines"></div>
+      $output .= '</head><body><table id="concordance_lines"></table>
         <script>
         lines = ' . $json_lines . ' 
 
