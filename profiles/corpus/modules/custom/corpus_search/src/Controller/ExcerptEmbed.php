@@ -50,6 +50,14 @@ class ExcerptEmbed extends CorpusSearch {
         tr:nth-child(even) {
           background-color: #f5f5f5;
         }
+        #concordance_lines {
+          overflow-y: auto;
+        }
+        @media only screen and (max-width: 600px) {
+          body {
+            font-size: 12px;
+          }
+        }
       </style>";
     if (!empty($results['search_results'])) {
       $inc = 0;
