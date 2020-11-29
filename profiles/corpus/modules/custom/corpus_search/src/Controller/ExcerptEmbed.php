@@ -85,7 +85,7 @@ class ExcerptEmbed extends CorpusSearch {
         $lines[] = ['<tr><td>' . $first, $second, $three[0], $trailing[2], $trailing[3] . '</td></tr>'];
       }
       $json_lines = json_encode($lines);
-      $output .= '</head><body><table id="concordance_lines"></table>
+      $output .= '</head><body><table><tbody id="concordance_lines"></tbody></table>
         <script>
         lines = ' . $json_lines . ' 
 
@@ -125,7 +125,7 @@ class ExcerptEmbed extends CorpusSearch {
           sorted_lines = lines.sort(comparator_before);
 
           const conc_line_div = document.getElementById("concordance_lines");
-          conc_line_div.innerHTML = "The lines below are sorted by the word right <strong>before</strong> the key word in context. <a href=\"#\" onclick=\"sort_after();return false;\">Sort by the word after</a>.<hr>";
+          conc_line_div.innerHTML = "<tr><td>The lines below are sorted by the word right <strong>before</strong> the key word in context. <a href=\"#\" onclick=\"sort_after();return false;\">Sort by the word after</a>.</td></tr>";
 
           for (const line of sorted_lines) {
             conc_line_div.innerHTML += line.join(" ");
