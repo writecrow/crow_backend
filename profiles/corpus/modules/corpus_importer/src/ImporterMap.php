@@ -145,6 +145,7 @@ class ImporterMap {
     '106' => 'ENGL 106',
     '107' => 'ENGL 107',
     '108' => 'ENGL 108',
+    'ENGL 106i' => 'ENGL 106INTL',
   ];
 
   /**
