@@ -41,7 +41,9 @@ class ExcerptEmbed extends CorpusSearch {
           white-space: pre;
           border-collapse: collapse;
           width: 100%;
+          margin-top: 2rem;
         }
+        tr:first-child > td:first-child { padding-bottom: 2rem; }
         tr:nth-child(even) {
           background-color: #f5f5f5;
         }
@@ -53,7 +55,31 @@ class ExcerptEmbed extends CorpusSearch {
         }
         @media only screen and (max-width: 600px) {
           body {
-            font-size: 12px;
+            font-size: 16px;
+            width: -webkit-fill-available;
+          }
+          table {
+            white-space: normal;
+          }
+          td {
+            white-space: normal
+          }
+          ::-webkit-scrollbar {
+            width: 30px;
+          }
+          /* Track */
+          ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+            border-radius: 10px;
+          }
+          /* Handle */
+          ::-webkit-scrollbar-thumb {
+            background: red; 
+            border-radius: 10px;
+          }
+          /* Handle on hover */
+          ::-webkit-scrollbar-thumb:hover {
+            background: #b30000; 
           }
         }
       </style>";
