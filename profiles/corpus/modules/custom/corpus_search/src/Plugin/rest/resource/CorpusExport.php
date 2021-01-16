@@ -93,11 +93,8 @@ class CorpusExport extends ResourceBase {
   public function get($type = NULL) {
     $data = Corpus::search($this->currentRequest);
     $user = User::load(\Drupal::currentUser()->id());
-    $do_excerpt = TRUE;
-    if ($user->hasRole('full_text_access')) {
-      $do_excerpt = FALSE;
-    }
-    $output = Excerpt::getExcerptOrFullText($data['matching_texts'], $data['tokens'], $data['facet_map'], 500, 0, $do_excerpt);
+    $is_excerpt = TRUE;
+    $output = Excerpt::getExcerptOrFullText($data['matching_texts'], $data['tokens'], $data['facet_map'], 500, 0, $is_excerpt);
     $response = new ResourceResponse($output);
     $response->getCacheableMetadata()->addCacheContexts(['url.query_args']);
     return $response;
