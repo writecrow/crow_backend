@@ -22,6 +22,7 @@ function crow_users_cron() {
   $cron_last = \Drupal::state()->get('system.cron_last', time() - 24 * 60 * 60 * 7);
   // Only send data once a week.
   if (time() > ($cron_last + 24 * 60 * 60 * 7)) {
+    $base_url = Settings::get('base_url');
     $data = UserReport::prepareData();
     $params['message'] = 'This email provides a summary of the current metrics on Crow users.' . PHP_EOL . PHP_EOL;
     foreach ($data['table']['#rows'] as $row) {
@@ -33,7 +34,7 @@ function crow_users_cron() {
       $line .= PHP_EOL;
       $params['message'] .= $line;
     }
-    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at https://api.corporaproject.org/admin/config/user-report';
+    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report';
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
