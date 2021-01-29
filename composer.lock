@@ -6576,16 +6576,16 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "1.0.0-alpha.1",
+            "version": "1.0.0-alpha.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "4b5be00030b4b3b152c3d4c90659aa91d79a9e07"
+                "reference": "422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/4b5be00030b4b3b152c3d4c90659aa91d79a9e07",
-                "reference": "4b5be00030b4b3b152c3d4c90659aa91d79a9e07",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e",
+                "reference": "422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e",
                 "shasum": ""
             },
             "require": {
@@ -6605,7 +6605,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2020-10-04T16:59:10+00:00"
+            "time": "2021-01-29T19:21:27+00:00"
         },
         {
             "name": "writecrow/tag_converter",
