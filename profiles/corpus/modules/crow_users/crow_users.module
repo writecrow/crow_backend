@@ -33,7 +33,7 @@ function crow_users_cron() {
       $line .= PHP_EOL;
       $params['message'] .= $line;
     }
-    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at https://crow.corporaproject.org/admin/config/user-report';
+    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at https://api.corporaproject.org/admin/config/user-report';
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
