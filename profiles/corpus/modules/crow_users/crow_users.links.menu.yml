@@ -3,3 +3,8 @@ crow_users.settings:
   description: 'Manage user notification settings'
   parent: user.admin_index
   route_name: crow_users.settings
+crow_users.report:
+  title: 'Corpus user report'
+  description: 'User report'
+  parent: user.admin_index
+  route_name: crow_users.report

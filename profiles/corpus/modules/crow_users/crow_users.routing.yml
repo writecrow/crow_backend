@@ -12,3 +12,10 @@ crow_users.settings:
     _title: 'Corpus User Settings'
   requirements:
     _permission: 'administer basecamp api'
+crow_users.report:
+  path: '/admin/config/user-report'
+  defaults:
+    _controller: '\Drupal\crow_users\Controller\UserReport::content'
+    _title: 'Corpus User Report'
+  requirements:
+    _permission: 'administer people'
