@@ -2,6 +2,7 @@
 
 namespace Drupal\corpus_importer;
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
@@ -78,7 +79,7 @@ class ImporterService {
       // The UI-based importer. This is outdated currently.
       // Convert files into machine-readable array.
       $texts = self::convert($files);
-      drupal_set_message(count($files) . ' files found.');
+      \Drupal::messenger()->addStatus(count($files) . ' files found.');
 
       // Perform validation logic on each row.
       $texts = array_filter($texts, ['self', 'preSave']);
@@ -413,8 +414,8 @@ class ImporterService {
       $file->save();
       $file_content = file_get_contents($original_file);
       $directory = 'public://resources/';
-      file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
-      file_save_data($file_content, $directory . basename($original_file), FILE_EXISTS_REPLACE);
+      \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+      file_save_data($file_content, $directory . basename($original_file), FileSystemInterface::EXISTS_REPLACE);
       return $file;
     }
     else {
@@ -429,13 +430,13 @@ class ImporterService {
   public static function finish($success, $results, $operations) {
     if (!$success) {
       $message = t('Finished, with possible errors.');
-      drupal_set_message($message, 'warning');
+      \Drupal::messenger()->addWarning($message);
     }
     if (isset($results['updated'])) {
-      drupal_set_message(count($results['updated']) . ' texts updated.');
+      \Drupal::messenger()->addStatus(count($results['updated']) . ' texts updated.');
     }
     if (isset($results['created'])) {
-      drupal_set_message(count($results['created']) . ' texts created.');
+      \Drupal::messenger()->addStatus(count($results['created']) . ' texts created.');
     }
 
   }
