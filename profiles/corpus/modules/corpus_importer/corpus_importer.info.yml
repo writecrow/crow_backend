@@ -2,6 +2,7 @@ name: Corpus Importer
 type: module
 description: Importer tool for tagged text files to a Drupal entity
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: Corpus
 dependencies:
   - plupload
