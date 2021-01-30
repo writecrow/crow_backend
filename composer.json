@@ -14,27 +14,26 @@
   "require": {
     "composer/installers": "^1 || ^2",
     "drupal/adminimal_theme": "^1",
-    "drupal/allow_iframed_site": "^2",
+    "drupal/allow_iframed_site": "^3",
     "drupal/better_exposed_filters": "^4",
     "drupal/captcha": "^1",
     "drupal/config_filter": "^2",
-    "drupal/core-composer-scaffold": "8.9.x-dev",
-    "drupal/core-recommended": "^8.9",
+    "drupal/core-composer-scaffold": "^9",
+    "drupal/core-recommended": "9.0.11",
     "drupal/facets": "^1",
     "drupal/features": "^3",
     "drupal/honeypot": "^1",
     "drupal/login_emailusername": "^1",
     "drupal/mailsystem": "^4",
-    "drupal/nocurrent_pass": "^1",
     "drupal/plupload": "^1",
     "drupal/rabbit_hole": "^1",
-    "drupal/recaptcha": "^2",
+    "drupal/recaptcha": "^3",
     "drupal/redirect_after_login": "^2",
     "drupal/reroute_email": "^1",
     "drupal/restui": "^1",
     "drupal/role_delegation": "^1",
     "drupal/search_api": "^1",
-    "drupal/simple_oauth": "^3",
+    "drupal/simple_oauth": "^5",
     "drupal/smtp": "^1",
     "drupal/token": "^1",
     "drupal/userprotect": "^1",
@@ -49,9 +48,6 @@
     "writecrow/tag_converter": "~1.0"
   },
   "config": {
-    "platform": {
-      "php": "7.2.26"
-    },
     "sort-packages": true,
     "process-timeout": 0
   },
