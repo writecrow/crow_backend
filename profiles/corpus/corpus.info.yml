@@ -16,7 +16,6 @@ dependencies:
   - contextual
   - datetime
   - dynamic_page_cache
-  - entity_reference
   - image
   - node
   - options
