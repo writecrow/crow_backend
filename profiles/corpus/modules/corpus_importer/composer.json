@@ -23,5 +23,12 @@
   "require": {
     "writecrow/lorem_gutenberg": "@dev",
     "writecrow/tag_converter": "@dev"
+  },
+  "extra": {
+      "drush": {
+          "services": {
+              "drush.services.yml": "^10"
+          }
+      }
   }
 }
