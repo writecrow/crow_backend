@@ -125,7 +125,6 @@ function drush_corpus_importer_corpus_wipe() {
   $institution_id = drush_get_option('institution', NULL);
   $filename = drush_get_option('filename', NULL);
   ini_set("memory_limit", "4096M");
-  $corpus_deleted = FALSE;
   $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
   $query->condition('type', 'text');
   if ($institution_id !== NULL) {

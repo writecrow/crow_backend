@@ -1,0 +1,5 @@
+services:
+  corpus_importer.commands:
+    class: \Drupal\corpus_importer\Commands\CorpusImporterCommands
+    tags:
+      - { name: drush.command }

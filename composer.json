@@ -39,6 +39,7 @@
     "drupal/token": "^1.6",
     "drupal/userprotect": "^1.0",
     "drupal/views_data_export": "^1.0@beta",
+    "drush/drush": "^10",
     "moxiecode/plupload": "2.1.9",
     "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
@@ -46,9 +47,6 @@
     "writecrow/lorem_gutenberg": "^1.1",
     "writecrow/rest_feedback_endpoint": "^1.0@alpha",
     "writecrow/tag_converter": "~1.0"
-  },
-  "require-dev": {
-    "drush/drush": "~10"
   },
   "config": {
     "platform": {

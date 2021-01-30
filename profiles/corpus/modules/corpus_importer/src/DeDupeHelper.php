@@ -35,6 +35,9 @@ class DeDupeHelper {
       $prev_body = '';
       foreach ($nids as $nid) {
         $node = \Drupal::entityManager()->getStorage('node')->load($nid);
+        if (!$node->hasField('field_body')) {
+          continue;
+        }
         $body = $node->get('field_body')->getValue();
         if ($prev_body !== '') {
           if ($body !== $prev_body) {
