@@ -66,7 +66,7 @@ class CorpusImporterCommands extends DrushCommands {
     if ($delete) {
       foreach ($duplicate_corpus_nodes['all_matches'] as $file) {
         if (isset($file[1])) {
-          $node = \Drupal::entityManager()->getStorage('node')->load($file[1]);
+          $node = \Drupal::entityTypeManager()->getStorage('node')->load($file[1]);
           $node->delete();
           $this->output()->writeln('Deleted node ' . $file[1]);
         }
