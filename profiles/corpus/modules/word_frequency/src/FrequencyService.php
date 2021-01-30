@@ -207,7 +207,7 @@ class FrequencyService {
     else {
       // Convert files into machine-readable array.
       $texts = self::retrieve();
-      drupal_set_message(count($texts) . ' texts analyzed.');
+      \Drupal::messenger()->addStatus(count($texts) . ' texts analyzed.');
 
       // Save valid texts.
       foreach ($texts as $text) {
@@ -319,13 +319,13 @@ class FrequencyService {
   public static function finish($success, $results, $operations) {
     if (!$success) {
       $message = t('Finished, with possible errors.');
-      drupal_set_message($message, 'warning');
+      \Drupal::messenger()->addWarning($message);
     }
     if (isset($results['updated'])) {
-      drupal_set_message(count($results['updated']) . ' texts updated.');
+      \Drupal::messenger()->addStatus(count($results['updated']) . ' texts updated.');
     }
     if (isset($results['created'])) {
-      drupal_set_message(count($results['created']) . ' texts analyzed.');
+      \Drupal::messenger()->addStatus(count($results['created']) . ' texts analyzed.');
     }
 
   }
