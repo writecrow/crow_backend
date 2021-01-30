@@ -1,3 +1,6 @@
 'on': 1
 notification_email: collaborate@writecrow.org
 subject_line_prefix: 'Crow user feedback: '
+basecamp_project: '116626'
+basecamp_list: '3424432613'
+basecamp_assignee_ids: '9638776'

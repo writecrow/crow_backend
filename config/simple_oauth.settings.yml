@@ -6,3 +6,6 @@ _core:
 public_key: null
 private_key: null
 token_cron_batch_size: 0
+authorization_code_expiration: 300
+use_implicit: true
+disable_openid_connect: false
