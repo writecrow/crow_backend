@@ -34,7 +34,7 @@ class DeDupeHelper {
     foreach ($filenames as $filename => $nids) {
       $prev_body = '';
       foreach ($nids as $nid) {
-        $node = \Drupal::entityManager()->getStorage('node')->load($nid);
+        $node = \Drupal::service('entity_type.manager')->getStorage('node')->load($nid);
         if (!$node->hasField('field_body')) {
           continue;
         }

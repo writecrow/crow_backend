@@ -55,7 +55,7 @@ class SearchService {
           $word_matches = $sums;
         }
       }
-      \Drupal::cache()->set($cache_id, $word_matches, REQUEST_TIME + (2500000));
+      \Drupal::cache()->set($cache_id, $word_matches, \Drupal::time()->getRequestTime() + (2500000));
     }
     // Limit list to intersected NIDs from condition search & token search.
     $intersected_text_ids = array_intersect(array_unique(array_keys($word_matches)), array_keys($condition_matches));
@@ -188,7 +188,7 @@ class SearchService {
       $query = self::applyConditions($query, $conditions);
     }
     $results = $query->execute()->fetchCol();
-    \Drupal::cache()->set($cache_id, $results, REQUEST_TIME + (2500000));
+    \Drupal::cache()->set($cache_id, $results, \Drupal::time()->getRequestTime() + (2500000));
     return $results;
   }
 

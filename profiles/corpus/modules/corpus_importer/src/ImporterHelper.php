@@ -260,7 +260,7 @@ class ImporterHelper {
       'name' => $name,
       'vid' => $vid,
     ];
-    $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties($properties);
+    $terms = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadByProperties($properties);
     $term = reset($terms);
     return !empty($term) ? $term->id() : 0;
   }
@@ -289,7 +289,7 @@ class ImporterHelper {
     if (empty($tids)) {
       return;
     }
-    $controller = \Drupal::entityManager()
+    $controller = \Drupal::service('entity_type.manager')
       ->getStorage('taxonomy_term');
     $entities = $controller->loadMultiple($tids);
     $controller->delete($entities);
