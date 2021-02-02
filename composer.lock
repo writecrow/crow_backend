@@ -8430,16 +8430,16 @@
         },
         {
             "name": "writecrow/basecamp_api",
-            "version": "1.0.0-alpha.3",
+            "version": "1.0.0-alpha.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/basecamp_api.git",
-                "reference": "5fa3996b265262cbb708585aa784ae54c4e2a9ed"
+                "reference": "cfcbbf4584b5e6e5d339d20a1133b3034e0c188f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/5fa3996b265262cbb708585aa784ae54c4e2a9ed",
-                "reference": "5fa3996b265262cbb708585aa784ae54c4e2a9ed",
+                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/cfcbbf4584b5e6e5d339d20a1133b3034e0c188f",
+                "reference": "cfcbbf4584b5e6e5d339d20a1133b3034e0c188f",
                 "shasum": ""
             },
             "require": {
@@ -8459,7 +8459,7 @@
                 "issues": "https://github.com/writecrow/basecamp_api/issues",
                 "source": "https://github.com/writecrow/basecamp_api"
             },
-            "time": "2020-10-04T17:35:39+00:00"
+            "time": "2021-01-30T18:07:42+00:00"
         },
         {
             "name": "writecrow/country_code_converter",
@@ -8606,16 +8606,16 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "1.0.0-alpha.3",
+            "version": "1.0.0-alpha.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e"
+                "reference": "6445cc13f5bcb63b535bd214955f93ab147dd032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e",
-                "reference": "422edde6c7dfe19e4ffe81dd635a28e8b64e5e7e",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/6445cc13f5bcb63b535bd214955f93ab147dd032",
+                "reference": "6445cc13f5bcb63b535bd214955f93ab147dd032",
                 "shasum": ""
             },
             "require": {
@@ -8635,7 +8635,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2021-01-29T19:21:27+00:00"
+            "time": "2021-01-30T18:15:56+00:00"
         },
         {
             "name": "writecrow/tag_converter",
