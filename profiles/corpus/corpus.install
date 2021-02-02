@@ -6,6 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 
 /**
  * Implements hook_preprocess_install_page().
@@ -27,7 +28,7 @@ function corpus_install() {
   // Restrict user registration to admin role creation.
   \Drupal::configFactory()
     ->getEditable('user.settings')
-    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
+    ->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)
     ->save(TRUE);
 
   // Assign user 1 the "administrator" role.
