@@ -74,9 +74,14 @@ function crow_users_mail($key, &$message, $params) {
  * Display modifications to the user profile form.
  */
 function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Hide the current password fields.
-  $form['account']['current_pass_required_values']['#access'] = FALSE;
-  $form['account']['current_pass']['#access'] = FALSE;
+  $account = \Drupal::service('current_route_match')->getParameter('user');
+  // If this is not the Superadmin's edit page
+  if ( !empty($account) && ($account->id() != 1) ) {
+    // Turn off Current password field's validation
+    $form_state->set('user_pass_reset', 1);
+    // Hide the Current password fields
+    $form['account']['current_pass']['#access'] = FALSE;
+  }
 
   if ($form_id != 'user_register_form') {
     $request_fields = [
