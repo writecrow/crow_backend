@@ -70,24 +70,14 @@ function crow_users_mail($key, &$message, $params) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
- * Remove the current password field from the user_profile_form form (user/%/edit).
- */
-function crow_users_form_user_profile_form_alter(&$form, &$form_state) {
-  $key = array_search('user_validate_current_pass', $form['#validate']);
-  if ($key !== FALSE) {
-    unset($form['#validate'][$key]);
-  }
-  // Hide the current password fields.
-  $form['account']['current_pass_required_values']['#access'] = FALSE;
-  $form['account']['current_pass']['#access'] = FALSE;
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
  *
  * Display modifications to the user profile form.
  */
 function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Hide the current password fields.
+  $form['account']['current_pass_required_values']['#access'] = FALSE;
+  $form['account']['current_pass']['#access'] = FALSE;
+
   if ($form_id != 'user_register_form') {
     $request_fields = [
       'field_account_type',
