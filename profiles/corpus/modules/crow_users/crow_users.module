@@ -8,6 +8,65 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\basecamp_api\Basecamp;
+use Drupal\crow_users\Controller\UserReport;
+use Drupal\Component\Utility\Html;
+use GuzzleHttp\Exception\RequestException;
+
+/**
+ * Implements hook_cron().
+ *
+ * Prepares info sends an email once a week.
+ */
+function crow_users_cron() {
+  // Retrieve time of last cron run.
+  $cron_last = \Drupal::state()->get('crow_users.report_time', time());
+  // Only send data once a week.
+  if (time() > ($cron_last + 24 * 60 * 60 * 7)) {
+    \Drupal::state()->set('crow_users.report_time', time());
+    $base_url = Settings::get('base_url');
+    $data = UserReport::prepareData();
+    $params['message'] = 'This email provides a summary of the current metrics on Crow users.' . PHP_EOL . PHP_EOL;
+    foreach ($data['table']['#rows'] as $row) {
+      $number = $row[1] ?? 0;
+      $line = strtoupper($row[0]) . ': ' . $number;
+      if ($row[2]) {
+        $line .= ' (' . $row[2] . ')';
+      }
+      $line .= PHP_EOL;
+      $params['message'] .= $line;
+    }
+    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report';
+    try {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'crow_users';
+      $key = 'user_report';
+      $to = \Drupal::config('system.site')->get('mail');
+      $params['title'] = 'Crow user weekly report';
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
+      $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    }
+    catch (RequestException $e) {
+      \Drupal::logger('crow_users')->error($e);
+    }
+  }
+}
+
+/**
+* Implements hook_mail().
+*/
+function crow_users_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+   case 'user_report':
+     $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+     $message['body'][] = $params['message'];
+     break;
+ }
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().

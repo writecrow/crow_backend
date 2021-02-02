@@ -1,6 +1,7 @@
 name: corpus
 # core: 8.x
 type: profile
+core_version_requirement: ^8 || ^9
 description: 'A minimal configuration for a corpus web application.'
 distribution:
   name: Corpus

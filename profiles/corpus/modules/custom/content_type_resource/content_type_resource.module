@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\File\FileSystemInterface;
 /**
  * @file
  * Module file for content_type_resource.
@@ -24,8 +25,8 @@ function _content_type_resource_generate_demo_files() {
   $test_file = __DIR__ . '/assets/blank.pdf';
   $file_content = file_get_contents($test_file);
   $directory = 'public://resources/';
-  file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
-  $file_image = file_save_data($file_content, $directory . basename($test_file), FILE_EXISTS_REPLACE);
+  \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+  $file_image = file_save_data($file_content, $directory . basename($test_file), FileSystemInterface::EXISTS_REPLACE);
 }
 
 /**

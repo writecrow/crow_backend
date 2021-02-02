@@ -50,7 +50,7 @@ class CorpusSearch extends ControllerBase {
       }
     }
     $search_data = self::search($request, $excerpt_type);
-    \Drupal::cache()->set($cache_id, $search_data['output'], REQUEST_TIME + (2500000));
+    \Drupal::cache()->set($cache_id, $search_data['output'], \Drupal::time()->getRequestTime() + (2500000));
     return $search_data['output'];
   }
 

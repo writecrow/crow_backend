@@ -2,6 +2,7 @@ name: Search API Lemma Processor
 type: module
 description: Search index lemmatizer processor for Search API
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: Search
 dependencies:
   - search_api

@@ -2,4 +2,5 @@ name: Corpus Search
 type: module
 description: Search API for a Corpus Dataset
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: Custom
