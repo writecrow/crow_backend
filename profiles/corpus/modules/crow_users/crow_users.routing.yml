@@ -18,4 +18,4 @@ crow_users.report:
     _controller: '\Drupal\crow_users\Controller\UserReport::content'
     _title: 'Corpus User Report'
   requirements:
-    _permission: 'administer people'
+    _permission: 'administer users'
