@@ -39,6 +39,7 @@
     "drupal/userprotect": "^1",
     "drupal/views_data_export": "^1",
     "drush/drush": "^10",
+    "lcobucci/jwt": "3.3.3",
     "moxiecode/plupload": "2.1.9",
     "writecrow/basecamp_api": "^1.0@alpha",
     "writecrow/country_code_converter": "dev-master",
