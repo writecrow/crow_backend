@@ -70,7 +70,6 @@ module:
   userprotect: 0
   views_data_export: 0
   views_ui: 0
-  word_frequency: 0
   views: 10
   corpus: 1000
 theme:
