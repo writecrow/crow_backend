@@ -18,6 +18,10 @@ use GuzzleHttp\Exception\RequestException;
  * Prepares info sends an email once a week.
  */
 function crow_users_cron() {
+  $config = \Drupal::config('crow_users.settings');
+  if (!$config->get('on')) {
+    return;
+  }
   // Retrieve time of last cron run.
   $cron_last = \Drupal::state()->get('crow_users.report_time', time());
   // Only send data once a week.
