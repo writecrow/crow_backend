@@ -265,7 +265,7 @@ class CorpusSearch extends ControllerBase {
     if (!empty($tokens)) {
       // Determine whether to do a phrase or word search & case-sensitivity.
       foreach ($tokens as $token) {
-        if (!ctype_alpha($token)) {
+        if (ctype_space($token)) {
           continue;
         }
         $length = strlen($token);
