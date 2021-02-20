@@ -37,7 +37,7 @@ class FrequencyService {
     // add extra detail to this query object: a condition, fields and a range.
     $connection = \Drupal::database();
     $query = $connection->select('word_frequency', 'f')->fields('f', ['count', 'ids']);
-    $query->condition('word', db_like($word), 'LIKE BINARY');
+    $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');
     $result = $query->execute();
     $counts = $result->fetchAssoc();
     if (!$counts['count']) {
@@ -47,10 +47,10 @@ class FrequencyService {
     if ($case == 'insensitive') {
       $query = $connection->select('word_frequency', 'f')->fields('f', ['count', 'ids']);
       if (ctype_lower($word)) {
-        $query->condition('word', db_like(ucfirst($word)), 'LIKE BINARY');
+        $query->condition('word', $connection->escapeLike(ucfirst($word)), 'LIKE BINARY');
       }
       else {
-        $query->condition('word', db_like(strtolower($word)), 'LIKE BINARY');
+        $query->condition('word', $connection->escapeLike(strtolower($word)), 'LIKE BINARY');
       }
       $result = $query->execute();
       $item = $result->fetchAssoc();
@@ -95,7 +95,7 @@ class FrequencyService {
     foreach ($words as $word => $type) {
       $ids = [];
       $query = $connection->select('word_frequency', 'f')->fields('f', ['ids']);
-      $query->condition('word', db_like($word), 'LIKE BINARY');
+      $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');
       $result = $query->execute();
       $id_string = $result->fetchField();
       if (!empty($id_string)) {
@@ -105,10 +105,10 @@ class FrequencyService {
       if ($type == 'standard') {
         $query = $connection->select('word_frequency', 'f')->fields('f', ['ids']);
         if (ctype_lower($word)) {
-          $query->condition('word', db_like(ucfirst($word)), 'LIKE BINARY');
+          $query->condition('word', $connection->escapeLike(ucfirst($word)), 'LIKE BINARY');
         }
         else {
-          $query->condition('word', db_like(strtolower($word)), 'LIKE BINARY');
+          $query->condition('word', $connection->escapeLike(strtolower($word)), 'LIKE BINARY');
         }
         $result = $query->execute();
         $id_string = $result->fetchField();

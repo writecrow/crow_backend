@@ -18,6 +18,10 @@ use GuzzleHttp\Exception\RequestException;
  * Prepares info sends an email once a week.
  */
 function crow_users_cron() {
+  $config = \Drupal::config('crow_users.settings');
+  if (!$config->get('on')) {
+    return;
+  }
   // Retrieve time of last cron run.
   $cron_last = \Drupal::state()->get('crow_users.report_time', time());
   // Only send data once a week.
@@ -74,6 +78,15 @@ function crow_users_mail($key, &$message, $params) {
  * Display modifications to the user profile form.
  */
 function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $account = \Drupal::service('current_route_match')->getParameter('user');
+  // If this is not the Superadmin's edit page
+  if ( !empty($account) && ($account->id() != 1) ) {
+    // Turn off Current password field's validation
+    $form_state->set('user_pass_reset', 1);
+    // Hide the Current password fields
+    $form['account']['current_pass']['#access'] = FALSE;
+  }
+
   if ($form_id != 'user_register_form') {
     $request_fields = [
       'field_account_type',

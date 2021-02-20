@@ -26,7 +26,7 @@ class SearchService {
         $tokens = CorpusLemmaFrequency::getVariants($lemma);
         $connection = \Drupal::database();
         $query = $connection->select('corpus_lemma_frequency', 'f')->fields('f', ['ids']);
-        $query->condition('word', db_like($lemma), 'LIKE BINARY');
+        $query->condition('word', $connection->escapeLike($lemma), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
         $word_matches = self::arrangeTextCountResults($result['ids']);
       }
@@ -34,17 +34,17 @@ class SearchService {
         $tokens = [$word];
         $connection = \Drupal::database();
         $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
-        $query->condition('word', db_like($word), 'LIKE BINARY');
+        $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
         $word_matches = self::arrangeTextCountResults($result['ids']);
         if ($case == 'insensitive') {
           $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
           $uppercased = preg_match('~^\p{Lu}~u', $word);
           if (!$uppercased) {
-            $query->condition('word', db_like(mb_ucfirst($word)), 'LIKE BINARY');
+            $query->condition('word', $connection->escapeLike(mb_ucfirst($word)), 'LIKE BINARY');
           }
           else {
-            $query->condition('word', db_like(mb_strtolower($word)), 'LIKE BINARY');
+            $query->condition('word', $connection->escapeLike(mb_strtolower($word)), 'LIKE BINARY');
           }
           $result = $query->execute()->fetchAssoc();
           $insensitive = self::arrangeTextCountResults($result['ids']);

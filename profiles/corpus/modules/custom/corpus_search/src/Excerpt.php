@@ -57,11 +57,14 @@ class Excerpt {
     foreach ($sliced_matches as $id => $metadata) {
       $excerpts[$id]['filename'] = $metadata['filename'];
       $excerpts[$id]['wordcount'] = $metadata['wordcount'];
+      // Check if the metadata includes a description & append that.
       foreach ($metadata_groups as $field) {
-        $facet_data = self::getFacetData($metadata[$field], $field, $facet_map);
-        $excerpts[$id][$field] = $facet_data['name'];
-        if (isset($facet_data['description'])) {
-          $excerpts[$id][$field . '_description'] = $facet_data['description'];
+        if (isset($metadata[$field])) {
+          $facet_data = self::getFacetData($metadata[$field], $field, $facet_map);
+          $excerpts[$id][$field] = $facet_data['name'];
+          if (isset($facet_data['description'])) {
+            $excerpts[$id][$field . '_description'] = $facet_data['description'];
+          }
         }
       }
       if ($do_excerpt) {

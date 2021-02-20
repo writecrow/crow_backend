@@ -769,6 +769,5 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
-$config_directories['sync'] = 'config/';
-
+$settings["config_sync_directory"] = "config/";
 $settings['config_exclude_modules'] = ['smtp', 'sendgrid_integration'];

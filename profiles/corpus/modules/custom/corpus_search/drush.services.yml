@@ -1,0 +1,5 @@
+services:
+  corpus_search.commands:
+    class: \Drupal\corpus_search\Commands\CorpusSearchCommands
+    tags:
+      - { name: drush.command }
