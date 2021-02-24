@@ -13,6 +13,7 @@
   ],
   "require": {
     "composer/installers": "^1 || ^2",
+    "cweagans/composer-patches": "^1.7",
     "drupal/adminimal_theme": "^1",
     "drupal/allow_iframed_site": "^3",
     "drupal/better_exposed_filters": "^4",
@@ -62,6 +63,11 @@
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
   },
   "extra": {
+    "patches": {
+      "drupal/captcha": {
+        "Captcha Session ID broken with cacheable captcha backends": "https://git.drupalcode.org/project/captcha/-/merge_requests/1.diff"
+      }
+    },
     "drupal-scaffold": {
       "allowed-packages": [
         "drupal/core"
