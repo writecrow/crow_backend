@@ -38,7 +38,7 @@ class UserReport extends ControllerBase {
     $rows['last_week'] = [];
     $users = $userStorage->loadMultiple($uids);
     foreach ($users as $user) {
-      $name = $user->getUsername();
+      $name = $user->getAccountName();
       if (!$name) {
         continue;
       }
