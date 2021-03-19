@@ -62,6 +62,7 @@ class ExcerptEmbed extends CorpusSearch {
           }
           ::-webkit-scrollbar {
             width: 30px;
+            height: 30px;
           }
           /* Track */
           ::-webkit-scrollbar-track {
