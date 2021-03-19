@@ -10,8 +10,8 @@ id: user.user.field_no_download
 field_name: field_no_download
 entity_type: user
 bundle: user
-label: 'I will not download full texts from the Crow servers for research purposes.'
-description: 'If researchers are interested in having full text access to the corpus for off-line use, they should contact us at collaborate@writecrow.org. Instructors may download limited texts (no more than 10 per assignment) for pedagogical purposes (non-commercial).'
+label: 'I will not download full texts from the Crow web interface for research purposes.'
+description: 'Instructors may download limited texts (no more than 10 per assignment) for pedagogical purposes (non-commercial). Researchers interested having full text access to the corpus for off-line use should check "Download entire corpus for offline research" above. Please note additional training and verification will be required.'
 required: true
 translatable: false
 default_value:

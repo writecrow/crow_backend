@@ -73,6 +73,78 @@ function crow_users_mail($key, &$message, $params) {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function crow_users_form_alter(&$form, &$form_state, $form_id) {
+  // For now we just want the user registration form. Will continue to develop
+  // additional functionality, possibly including the user_account_form().
+  $user_forms = ['user_register_form'];
+
+  if (in_array($form_id, $user_forms)) {
+    // Add a new validation handler to the form.
+    $form['#validate'][] = '_crow_users_registration_validate';
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = '_crow_users_basecamp_todo';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * 
+ * Display modifications to the user registration form.
+ */
+function crow_users_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['account']['name']['#title'] = "Account login name";
+  $form['account']['name']['#description'] = 'This field will be used for signing in.';
+  $form['field_requested_access_level']['#access'] = FALSE;
+  $form['web_access'] = [
+    '#prefix' => '<div class="web-access-wrapper">',
+    '#suffix' => '</div>',
+    '#weight' => 4,
+  ];
+  $form['web_access']['base'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Web interface access',
+  ];
+  $form['web_access']['base']['options'] = [
+    '#type' => 'radios',
+    '#options' => [
+      'standard' => 'Standard',
+      'full' => 'Full',
+    ],
+    '#default_value' => 'standard',
+    '#description' => 'By default, only 500 characters are shown. "Full" access displays the entire text of student writing in the online interface.',
+  ];
+  $form['web_access']['additional'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Additional web access request',
+  ];
+  $form['web_access']['additional']['excerpt'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Export search excerpt results',
+    '#default_value' => FALSE,
+    '#description' => 'Export excerpted search results from the interface to a spreadsheet (similar to concordance line output).',
+  ];
+  $form['download_wrapper'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Corpus download access',
+    '#weight' => 4,
+  ];
+  $form['download_wrapper']['offline'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Download entire corpus for offline research',
+    '#default_value' => FALSE,
+    '#description' => 'Download full corpus. This option is intended for users who would like to use the corpus for their own research, particularly if they would like to annotate the corpus, use concordancing software (e.g., Antconc or LancsBox), or create their own programs to analyze the data. Note: additional training and verification is required.',
+  ];
+  $form['#attached']['library'][] = 'crow_users/registration';
+}
+
+
+
+/**
  * Implements hook_form_FORM_ID_alter().
  *
  * Display modifications to the user profile form.
@@ -90,11 +162,13 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
   if ($form_id != 'user_register_form') {
     $request_fields = [
       'field_account_type',
+      'field_requested_access_level',
       'field_affiliation',
       'field_institution',
-      'field_requested_access_level',
       'field_project_complete_date',
       'field_project_description',
+    ];
+    $suppress_fields = [
       'field_read_terms',
       'field_no_download',
     ];
@@ -149,26 +223,10 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
       $form['notification_preferences'][$field] = $form[$field];
       unset($form[$field]);
     }
-    $form['#attributes']['novalidate'] = 'novalidate';
-  }
-}
-
-/**
- * Implements hook_form_alter().
- */
-function crow_users_form_alter(&$form, &$form_state, $form_id) {
-  // For now we just want the user registration form. Will continue to develop
-  // additional functionality, possibly including the user_account_form().
-  $user_forms = ['user_register_form'];
-
-  if (in_array($form_id, $user_forms)) {
-    // Add a new validation handler to the form.
-    $form['#validate'][] = '_crow_users_registration_validate';
-    foreach (array_keys($form['actions']) as $action) {
-      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-        $form['actions'][$action]['#submit'][] = '_crow_users_basecamp_todo';
-      }
+    foreach ($suppress_fields as $field) {
+      $form[$field]['#access'] = FALSE;
     }
+    $form['#attributes']['novalidate'] = 'novalidate';
   }
 }
 

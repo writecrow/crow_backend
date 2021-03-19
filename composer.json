@@ -21,6 +21,7 @@
     "drupal/config_filter": "^2",
     "drupal/core-composer-scaffold": "^9",
     "drupal/core-recommended": "^9",
+    "drupal/devel_kint_extras": "^1.0",
     "drupal/facets": "^1",
     "drupal/features": "^3",
     "drupal/honeypot": "^1",
@@ -140,5 +141,8 @@
         }
       }
     }
+  },
+  "require-dev": {
+    "drupal/devel": "^4.1"
   }
 }

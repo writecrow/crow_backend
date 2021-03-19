@@ -1,0 +1,32 @@
+.web-access-wrapper {
+  border: 1px solid #c0c0c0;
+}
+fieldset#edit-base,
+fieldset#edit-additional {
+  border: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+fieldset#edit-base .form-item,
+fieldset#edit-additional .form-item {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+fieldset#edit-base legend,
+fieldset#edit-additional legend,
+fieldset#edit-download-wrapper legend {
+  text-transform: none;
+  letter-spacing: inherit;
+}
+.fieldset-wrapper {
+  margin-top: 0.5rem;
+}
+
+#edit-options.form-radios > .form-item {
+  display: inline;
+  padding-right: 2rem;
+}
+.layout-container {
+  max-width: 960px;
+  margin: auto;
+}

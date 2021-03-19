@@ -34,7 +34,7 @@ content:
     type: options_buttons
     region: content
   field_affiliation:
-    weight: 4
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -57,7 +57,7 @@ content:
     type: string_textfield
     region: content
   field_institution:
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -81,13 +81,13 @@ content:
     type: boolean_checkbox
     region: content
   field_project_complete_date:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_project_description:
-    weight: 5
+    weight: 6
     settings:
       rows: 2
       placeholder: ''
@@ -102,7 +102,7 @@ content:
     type: boolean_checkbox
     region: content
   field_requested_access_level:
-    weight: 7
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
