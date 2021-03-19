@@ -1,0 +1,14 @@
+uuid: 1d07b25e-e31b-49fe-8ef3-5395493275d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.offline
+  module:
+    - user
+id: user_add_role_action.offline
+label: 'Add the Offline role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: offline

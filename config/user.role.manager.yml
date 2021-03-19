@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: manager
 label: 'Account Manager'
-weight: 6
+weight: -3
 is_admin: null
 permissions:
   - 'access content overview'
@@ -15,7 +15,7 @@ permissions:
   - 'assign content_manager role'
   - 'assign export_access role'
   - 'assign full_text_access role'
-  - 'assign manager role'
+  - 'assign offline role'
   - 'bypass honeypot protection'
   - 'edit any page content'
   - 'edit own page content'

@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: export_access
-label: 'Export Access'
-weight: 5
+label: Export
+weight: -5
 is_admin: null
 permissions:
   - 'restful get corpus_export'

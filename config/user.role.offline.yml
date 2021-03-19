@@ -1,0 +1,9 @@
+uuid: 13f1009f-96db-4a22-9dbc-5659d6e972e8
+langcode: en
+status: true
+dependencies: {  }
+id: offline
+label: Offline
+weight: -4
+is_admin: null
+permissions: {  }

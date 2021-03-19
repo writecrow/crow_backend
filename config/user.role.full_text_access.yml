@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: full_text_access
-label: 'Full Text Access'
-weight: 3
+label: Full
+weight: -6
 is_admin: null
 permissions:
   - 'restful get corpus_search'

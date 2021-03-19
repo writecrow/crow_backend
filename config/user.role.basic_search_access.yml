@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: basic_search_access
-label: 'Basic Search Access'
-weight: 4
+label: Standard
+weight: -7
 is_admin: null
 permissions:
   - 'restful get corpus_search'
