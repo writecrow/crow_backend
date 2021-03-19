@@ -49,20 +49,16 @@ class ExcerptEmbed extends CorpusSearch {
         }
         td {
           white-space: nowrap;
+          padding-top: 0.2rem;
+          padding-bottom:0.2rem;
         }
         #concordance_lines {
           overflow-y: auto;
         }
         @media only screen and (max-width: 600px) {
-          body {
-            font-size: 16px;
-            width: -webkit-fill-available;
-          }
           table {
             white-space: normal;
-          }
-          td {
-            white-space: normal
+            font-size: 16px;
           }
           ::-webkit-scrollbar {
             width: 30px;
@@ -74,7 +70,7 @@ class ExcerptEmbed extends CorpusSearch {
           }
           /* Handle */
           ::-webkit-scrollbar-thumb {
-            background: red; 
+            background: #3d3d3d; 
             border-radius: 10px;
           }
           /* Handle on hover */
