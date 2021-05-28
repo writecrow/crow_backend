@@ -177,6 +177,7 @@ AddEncoding gzip svgz
       # Force proxies to cache gzipped & non-gzipped css/js files separately.
       Header append Vary Accept-Encoding
     </FilesMatch>
+    Header set Cache-Control "max-age=0,no-store"
   </IfModule>
 </IfModule>
 
