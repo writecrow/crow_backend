@@ -11,9 +11,9 @@ id: user.user.field_institution
 field_name: field_institution
 entity_type: user
 bundle: user
-label: Institution/Organization
+label: 'Academic Institution or Organization'
 description: 'The institution or organization with which this account is associated.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
