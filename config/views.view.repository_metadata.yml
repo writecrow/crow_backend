@@ -58,7 +58,7 @@ display:
             basic_search_access: basic_search_access
             export_access: export_access
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
