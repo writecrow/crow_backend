@@ -36,6 +36,11 @@ class UserReport extends ControllerBase {
     $rows['joined_this_month'] = [];
     $rows['last_month'] = [];
     $rows['last_week'] = [];
+    $rows['total'] = 0;
+    $rows['individual'] = 0;
+    $rows['institutional'] = 0;
+    $rows['full_text_access'] = 0;
+    $rows['offline_access'] = 0;
     $users = $userStorage->loadMultiple($uids);
     foreach ($users as $user) {
       $name = $user->getAccountName();
