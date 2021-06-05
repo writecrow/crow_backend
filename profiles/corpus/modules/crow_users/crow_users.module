@@ -49,7 +49,7 @@ function crow_users_cron() {
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
       $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-      \Drupal::logger('crow_users')->error('Weekly user report emailed!');
+      \Drupal::logger('crow_users')->notice('Weekly user report emailed!');
     }
     catch (RequestException $e) {
       \Drupal::logger('crow_users')->error($e);
