@@ -24,8 +24,8 @@ function crow_users_cron() {
   }
   // Retrieve time of last cron run.
   $cron_last = \Drupal::state()->get('crow_users.report_time', time());
-  // Only send data once a week.
-  if (time() > ($cron_last + 24 * 60 * 60 * 7)) {
+  // Only send data once a week, on first cron run on Saturday.
+  if (date('D') == ('Sat') && (time() > ($cron_last + 24 * 60 * 60 * 2))) {
     \Drupal::state()->set('crow_users.report_time', time());
     $base_url = Settings::get('base_url');
     $data = UserReport::prepareData();
@@ -49,6 +49,7 @@ function crow_users_cron() {
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
       $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      \Drupal::logger('crow_users')->error('Weekly user report emailed!');
     }
     catch (RequestException $e) {
       \Drupal::logger('crow_users')->error($e);
