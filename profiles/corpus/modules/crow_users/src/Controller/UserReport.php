@@ -5,7 +5,7 @@ namespace Drupal\crow_users\Controller;
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Defines UserReport.
+ * Defines methods for creating the user report.
  */
 class UserReport extends ControllerBase {
 
@@ -85,11 +85,27 @@ class UserReport extends ControllerBase {
       '#header' => ['Metric', 'Count', 'Notes'],
       '#rows' => [
         ['Active accounts', $rows['total'] - count($rows['pending']), ''],
-        ['Pending accounts', count($rows['pending']), implode(', ', $rows['pending'])],
+        [
+          'Pending accounts',
+          count($rows['pending']),
+          implode(', ', $rows['pending']),
+        ],
         ['Institutions served', count($institutions)],
-        ['Joined in the last month', count($rows['joined_this_month']), implode(', ', $rows['joined_this_month'])],
-        ['Active in the last week', count($rows['last_week']), implode(', ', $rows['last_week'])],
-        ['Active in the last month', count($rows['last_month']) + count($rows['last_week']), implode(', ', $rows['last_month'])],
+        [
+          'Joined in the last month',
+          count($rows['joined_this_month']),
+          implode(', ', $rows['joined_this_month']),
+        ],
+        [
+          'Active in the last week',
+          count($rows['last_week']),
+          implode(', ', $rows['last_week']),
+        ],
+        [
+          'Active in the last month',
+          count($rows['last_month']) + count($rows['last_week']),
+          implode(', ', $rows['last_month']),
+        ],
         ['Institutional accounts', $rows['institutional'], ''],
         ['Individual accounts', $rows['individual'], ''],
         ['Accounts with full text access', $rows['full_text_access'], ''],
