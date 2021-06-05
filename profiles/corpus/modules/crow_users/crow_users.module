@@ -44,7 +44,7 @@ function crow_users_cron() {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
       $key = 'user_report';
-      $to = \Drupal::config('system.site')->get('mail');
+      $to = Settings::get('corpus_users_bcc_email');
       $params['title'] = 'Crow user weekly report: ' . date('F j, Y');
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
