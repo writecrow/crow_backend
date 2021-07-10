@@ -2,6 +2,7 @@
 php_errorlog
 private.key
 public.key
+.well-known
 
 # "Built" components
 .csslintrc
