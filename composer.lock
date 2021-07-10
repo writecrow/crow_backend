@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69af7c807645f9c3c0cb7664e17dde32",
+    "content-hash": "dce468645564d2eb8bf2e72a51b3df60",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1010,16 +1010,16 @@
         },
         {
             "name": "cweagans/composer-patches",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "ae02121445ad75f4eaff800cc532b5e6233e2ddf"
+                "reference": "9888dcc74993c030b75f3dd548bb5e20cdbd740c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/ae02121445ad75f4eaff800cc532b5e6233e2ddf",
-                "reference": "ae02121445ad75f4eaff800cc532b5e6233e2ddf",
+                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/9888dcc74993c030b75f3dd548bb5e20cdbd740c",
+                "reference": "9888dcc74993c030b75f3dd548bb5e20cdbd740c",
                 "shasum": ""
             },
             "require": {
@@ -1052,9 +1052,9 @@
             "description": "Provides a way to patch Composer packages.",
             "support": {
                 "issues": "https://github.com/cweagans/composer-patches/issues",
-                "source": "https://github.com/cweagans/composer-patches/tree/1.7.0"
+                "source": "https://github.com/cweagans/composer-patches/tree/1.7.1"
             },
-            "time": "2020-09-30T17:56:20+00:00"
+            "time": "2021-06-08T15:12:46+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -8607,16 +8607,16 @@
         },
         {
             "name": "writecrow/basecamp_api",
-            "version": "1.0.0-alpha.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/basecamp_api.git",
-                "reference": "cfcbbf4584b5e6e5d339d20a1133b3034e0c188f"
+                "reference": "f472b75f651034b5b5f2634aebf3de64442fd124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/cfcbbf4584b5e6e5d339d20a1133b3034e0c188f",
-                "reference": "cfcbbf4584b5e6e5d339d20a1133b3034e0c188f",
+                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/f472b75f651034b5b5f2634aebf3de64442fd124",
+                "reference": "f472b75f651034b5b5f2634aebf3de64442fd124",
                 "shasum": ""
             },
             "require": {
@@ -8636,7 +8636,7 @@
                 "issues": "https://github.com/writecrow/basecamp_api/issues",
                 "source": "https://github.com/writecrow/basecamp_api"
             },
-            "time": "2021-01-30T18:07:42+00:00"
+            "time": "2021-07-10T19:50:09+00:00"
         },
         {
             "name": "writecrow/country_code_converter",
@@ -8874,7 +8874,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "writecrow/basecamp_api": 15,
         "writecrow/country_code_converter": 20,
         "writecrow/highlighter": 20,
         "writecrow/rest_feedback_endpoint": 15
