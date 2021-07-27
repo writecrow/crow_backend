@@ -66,6 +66,9 @@
     "patches": {
       "drupal/captcha": {
         "Captcha Session ID broken with cacheable captcha backends": "https://git.drupalcode.org/project/captcha/-/merge_requests/1.diff"
+      },
+      "drupal/redirect_after_login": {
+        "Headers have already been sent after upgrade to Drupal 9.2 (can't login)": "https://www.drupal.org/files/issues/2021-06-20/3214949.patch"
       }
     },
     "drupal-scaffold": {
