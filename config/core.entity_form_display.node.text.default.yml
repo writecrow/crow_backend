@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.text.field_year_in_school
     - node.type.text
   module:
-    - path
     - text
 _core:
   default_config_hash: AYQFnYnsxqZvD2o2hRPjGBmxI5Rl2FR18Ok7PS6LZAc
@@ -35,24 +34,18 @@ targetEntityType: node
 bundle: text
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_assignment:
-    weight: 131
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_body:
-    weight: 128
+    weight: 20
     settings:
       rows: 5
       placeholder: ''
@@ -60,57 +53,57 @@ content:
     type: text_textarea
     region: content
   field_college:
-    weight: 140
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_country:
-    weight: 129
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_course:
-    weight: 139
+    weight: 2
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_draft:
-    weight: 138
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_gender:
-    weight: 130
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_id:
-    weight: 122
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -118,167 +111,130 @@ content:
     type: string_textfield
     region: content
   field_institution:
-    weight: 136
+    weight: 1
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_instructor:
-    weight: 137
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_l1:
-    weight: 142
+    weight: 10
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_program:
-    weight: 134
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_semester:
-    weight: 132
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_toefl_listening:
-    weight: 123
+    weight: 15
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_toefl_reading:
-    weight: 124
+    weight: 16
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_toefl_speaking:
-    weight: 126
+    weight: 18
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_toefl_total:
-    weight: 127
+    weight: 19
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_toefl_writing:
-    weight: 125
+    weight: 17
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_wordcount:
-    weight: 141
+    weight: 21
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_year:
-    weight: 133
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_year_in_school:
-    weight: 135
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 15
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 120
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
-    region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: -5
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
     weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       match_limit: 10
-    region: content
     third_party_settings: {  }
-hidden: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_year_in_school:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
