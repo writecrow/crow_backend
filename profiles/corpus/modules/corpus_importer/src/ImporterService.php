@@ -253,7 +253,15 @@ class ImporterService {
       }
     }
 
-    $node->set('field_id', ['value' => $text['Student ID']]);
+    // Convert student IDs to array for storage normalization.
+    if (!is_array($text['Student ID'])) {
+      $text['Student ID'] = [$text['Student ID']];
+    }
+    foreach ($text['Student ID'] as $student_id) {
+      $node->field_id[] = ['value' => $student_id];
+    }
+
+
     $node->set('field_toefl_total', ['value' => $text['TOEFL total']]);
     $node->set('field_toefl_writing', ['value' => $text['TOEFL writing']]);
     $node->set('field_toefl_speaking', ['value' => $text['TOEFL speaking']]);

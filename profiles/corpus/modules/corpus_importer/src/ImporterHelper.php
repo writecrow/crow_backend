@@ -51,6 +51,9 @@ class ImporterHelper {
         $tids = [];
         foreach ($text[$name] as $term) {
           $term_data = self::getOrCreateTidFromName($term, $machine_name, $options);
+          if (!$term_data) {
+            continue;
+          }
           $tids[] = $term_data['tid'];
           // Report any terms newly created.
           if (!empty($term_data['message'])) {
@@ -62,6 +65,9 @@ class ImporterHelper {
       else {
         // Save a single value.
         $term_data = self::getOrCreateTidFromName($text[$name], $machine_name, $options);
+        if (!$term_data) {
+          continue;
+        }
         $fields[$machine_name] = $term_data['tid'];
         // Report any terms newly created.
         if (!empty($term_data['message'])) {
@@ -90,6 +96,12 @@ class ImporterHelper {
    */
   public static function getOrCreateTidFromName($label, $vocabulary, $options) {
     $output = [];
+
+    // Skip N/A values.
+    if (in_array($label, ImporterMap::$notAvailableValues)) {
+      return FALSE;
+    }
+
     $output['tid'] = self::getTidByName($label, $vocabulary);
     if ($output['tid'] == 0) {
       $output['message'] = 'New ' . $vocabulary . ' created: ' . $label;
