@@ -8816,20 +8816,21 @@
         },
         {
             "name": "writecrow/tag_converter",
-            "version": "1.4",
+            "version": "1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/tag_converter.git",
-                "reference": "51bf182ebbb8b4d07d41e36ba4defa85cc2c6904"
+                "reference": "90afd3ccdbef17dd55713a3a351e50bff4c196f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/tag_converter/zipball/51bf182ebbb8b4d07d41e36ba4defa85cc2c6904",
-                "reference": "51bf182ebbb8b4d07d41e36ba4defa85cc2c6904",
+                "url": "https://api.github.com/repos/writecrow/tag_converter/zipball/90afd3ccdbef17dd55713a3a351e50bff4c196f7",
+                "reference": "90afd3ccdbef17dd55713a3a351e50bff4c196f7",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "~4"
+                "brianium/paratest": "^3.0",
+                "phpunit/phpunit": "~7"
             },
             "suggest": {
                 "ext-mbstring": "For best performance",
@@ -8867,7 +8868,7 @@
                 "issues": "https://github.com/writecrow/tag_converter/issues",
                 "source": "https://github.com/writecrow/tag_converter"
             },
-            "time": "2019-10-11T02:15:07+00:00"
+            "time": "2021-08-01T18:27:48+00:00"
         }
     ],
     "packages-dev": [],
