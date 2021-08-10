@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Copy a settings file.
+# Skips if the destination file already exists.
+# @param $1 source file
+# @param $2 destination file
+copy_settings_file()
+{
+  local source="$1"
+  local dest="$2"
+
+  if [[ ! -f $dest ]]; then
+    echo "Copying ${dest}..."
+    cp $source $dest
+  else
+    echo "${dest} already in place."
+  fi
+}
+
+# Fix file/folder permissions
+fix_permissions ()
+{
+	echo "Making site directory writable..."
+	chmod 755 "${SITEDIR_PATH}"
+}
+
+create_dir()
+{
+  local dir="$1"
+  if [[ ! -d $dir ]]; then
+    echo "Making directory: ${dir}..."
+    mkdir $dir
+  else
+    echo "Directory ${dir} already exists."
+  fi
+}
