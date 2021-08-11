@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-130278011-1'></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-130278011-1');
+    </script>
+    <meta charset='utf-8'>
+    <title>Crow: Corpus & Repository of Writing</title>
+    <style>{{ css|raw }}</style>
+    <script>before = {{ sorted_before|raw }}</script>
+    <script>after = {{ sorted_after|raw }}</script>
+  </head>
+  <body>
+  <div id="label"></div>
+  <div id="table"></div>
+  <script>{{ script|raw }}</script>
+  </body>
+
+</html>

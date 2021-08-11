@@ -8,19 +8,19 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
- * Implements hook_help().
+ *  Implements hook_theme().
  */
-function corpus_search_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the corpus_search module.
-    case 'help.page.corpus_search':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Search API for a Corpus Dataset') . '</p>';
-      return $output;
-
-    default:
-  }
+function corpus_search_theme($existing, $type, $theme, $path) {
+  return [
+    'corpus_concordance' => [
+      'variables' => [
+        'sorted_before' => NULL,
+        'sorted_after' => NULL,
+        'css' => NULL,
+        'script' => NULL,
+      ],
+    ],
+  ];
 }
 
 if (!function_exists('mb_ucfirst')) {

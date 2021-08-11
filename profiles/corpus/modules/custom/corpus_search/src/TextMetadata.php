@@ -90,8 +90,8 @@ class TextMetadata {
     $facet_results = [];
     foreach ($matching_texts as $id => $elements) {
       foreach (array_keys(self::$facetIDs) as $group) {
-        if (isset($elements[$group]) && isset($facet_map['by_id'][$group]{$elements[$group]})) {
-          $name = $facet_map['by_id'][$group]{$elements[$group]}['name'];
+        if (isset($elements[$group]) && isset($facet_map['by_id'][$group][$elements[$group]])) {
+          $name = $facet_map['by_id'][$group][$elements[$group]]['name'];
           if (!isset($facet_results[$group][$name]['count'])) {
             $facet_results[$group][$name]['count'] = 1;
           }
