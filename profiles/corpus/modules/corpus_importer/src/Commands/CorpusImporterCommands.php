@@ -33,7 +33,7 @@ class CorpusImporterCommands extends DrushCommands {
     $dryrun_value = $this->getOption($options, 'dryryn');
     $dryrun = $dryrun_value ? TRUE : FALSE;
     if (!file_exists($path)) {
-      $this->logger()->warning("Path $path doesn't exist", 'error');
+      $this->logger()->warning("Path $path doesn't exist");
       exit;
     }
     if ($dryrun === TRUE) {
@@ -143,7 +143,7 @@ class CorpusImporterCommands extends DrushCommands {
    * @option filename
    *   Limit the wipe by corpus text filename
    * @usage 0
-   *   drush corpus-wipe --institution="7"
+   *   drush corpus-wipe --institution="147"
    *
    * @command corpus:wipe
    * @aliases c-wipe,corpus-wipe

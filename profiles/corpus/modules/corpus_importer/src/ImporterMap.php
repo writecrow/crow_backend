@@ -16,6 +16,7 @@ class ImporterMap {
     'NA',
     'N/A',
     'NAN',
+    '',
   ];
 
   /**
@@ -59,6 +60,7 @@ class ImporterMap {
    */
   public static $assignments = [
     "AB" => "Annotated Bibliography",
+    "AD" => "Digital Autobiography",
     "AR" => "Argumentative Paper",
     "AN" => "Analytical Essay",
     "BE" => "Belief Exploration",
@@ -66,6 +68,7 @@ class ImporterMap {
     "CS" => "Case Study",
     "DA" => "Visual Design Analysis",
     "DE" => "Description and Explanation",
+    "EM" => "Email",
     "FA" => "Film Analysis",
     "GA" => "Genre Analysis",
     "GR" => "Genre Redesign",
@@ -77,17 +80,20 @@ class ImporterMap {
     "NR" => "Narrative",
     "OL" => "Open Letter",
     "PA" => "Public Argument",
-    "PO" => "Reflection/Portfolio",
+    "PO" => "Reflection",
     "PR" => "Profile",
     "PS" => "Position Argument",
     "RA" => "Rhetorical Analysis",
+    "RB" => "Researcher Beliefs",
     "RE" => "Response",
-    "RF" => "Reflection/Portfolio",
+    "RF" => "Reflection",
     "RR" => "Register Rewrite",
     "RP" => "Research Proposal",
     "RT" => "Research Report",
     "SA" => "Short Argument",
+    "SG" => "Synthesized Genre Analysis",
     "SR" => "Summary and Response",
+    "SU" => "Summary",
     "SY" => "Synthesis",
     "TA" => "Text Analysis",
     "VA" => "Variation Analysis",
@@ -123,8 +129,20 @@ class ImporterMap {
     'TKY' => 'TUR',
     'BRZ' => 'BRA',
     'SDA' => 'SAU',
+    'Iran (Islamic Republic Of)' => 'Iran',
     'Korea, Republic of' => 'South Korea',
     'Korea (South)' => 'South Korea',
+    'Taiwan, Province of China' => 'Taiwan',
+    'United States' => 'United States of America',
+    'Viet Nam' => 'Vietnam',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  public static $institutionFixes = [
+    '' => 'Purdue University',
+    'University of Arizona - cues' => 'University of Arizona',
   ];
 
   /**
@@ -151,8 +169,23 @@ class ImporterMap {
   /**
    * {@inheritdoc}
    */
+  public static $programFixes = [
+    'Visiting Student' => '',
+    'Statistics and...' => 'Statistics and Data Science',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
   public static $semesters = [
     'F' => 'Fall',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  public static $genderFixes = [
+    'G' => 'M',
   ];
 
   /**
@@ -182,6 +215,7 @@ class ImporterMap {
     'College of Ag & Life Sciences' => 'College of Agriculture',
     'College of Soc & Behav Sci' => 'College of Social & Behavioral Sciences',
     'School of Elec & Computer Engr' => 'School of Electrical & Computer Engineering',
+    'Undergrad Non-Degree Seeking' => '',
   ];
 
   /**

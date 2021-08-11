@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+## Initialize stack and site (full reset)
+##
+## Usage: fin init
+
+# PROJECT_ROOT and DOCROOT are set as env variables in cli
+SITE_DIRECTORY="default"
+DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
+SITEDIR_PATH="${DOCROOT_PATH}/sites/${SITE_DIRECTORY}"
+
+# Include helper functions
+. $(dirname "$0")/helper-functions
+
+# Abort if anything fails
+set -e
+
+# Stack initialization
+if [[ $DOCKER_RUNNING == "true" ]]; then
+	fin reset -f
+else
+	fin up
+fi
+
+chmod 755 "${SITEDIR_PATH}"
+
+copy_settings_file "${PROJECT_ROOT}/.docksal/default.settings.php" "${SITEDIR_PATH}/settings.php"
+copy_settings_file "${PROJECT_ROOT}/.docksal/default.settings.local.php" "${SITEDIR_PATH}/settings.local.php"
+
+echo "Waiting for MySQL to initialize...";
+sleep 10
+echo "Containers are up and refreshed!";
+

@@ -11,7 +11,7 @@ id: node.text.field_id
 field_name: field_id
 entity_type: node
 bundle: text
-label: ID
+label: 'Student ID'
 description: ''
 required: true
 translatable: false
