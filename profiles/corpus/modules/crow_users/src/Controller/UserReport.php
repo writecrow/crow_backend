@@ -36,11 +36,14 @@ class UserReport extends ControllerBase {
     $rows['joined_this_month'] = [];
     $rows['last_month'] = [];
     $rows['last_week'] = [];
+    $rows['last_year'] = [];
     $rows['total'] = 0;
     $rows['individual'] = 0;
     $rows['institutional'] = 0;
     $rows['full_text_access'] = 0;
     $rows['offline_access'] = 0;
+    $rows['pending'] = [];
+
     $users = $userStorage->loadMultiple($uids);
     foreach ($users as $user) {
       $name = $user->getAccountName();
@@ -48,9 +51,6 @@ class UserReport extends ControllerBase {
         continue;
       }
       $rows['total']++;
-      if (!$user->isActive()) {
-        $rows['pending'][] = $name;
-      }
       $accessed = $user->getLastAccessedTime();
       if ($accessed > (time() - 604800)) {
         $rows['last_week'][] = $name;
@@ -58,9 +58,15 @@ class UserReport extends ControllerBase {
       elseif ($accessed > (time() - (604800 * 4))) {
         $rows['last_month'][] = $name;
       }
+      if ($accessed > (time() - (604800 * 52))) {
+        $rows['last_year'][] = $name;
+      }
       $created = $user->getCreatedTime();
       if ($created > (time() - (604800 * 4))) {
         $rows['joined_this_month'][] = $name;
+      }
+      if ($created > (time() - (604800 * 8)) && $created < (time() - (604800 * 4))) {
+        $rows['joined_last_month'][] = $name;
       }
       $type = $user->get('field_account_type')->getString();
       if ($type === 'individual') {
@@ -75,6 +81,9 @@ class UserReport extends ControllerBase {
       if ($user->hasRole('offline_access')) {
         $rows['offline_access']++;
       }
+      if (!$user->isActive() && in_array($name, $rows['joined_this_month'])) {
+        $rows['pending'][] = $name;
+      }
     }
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('vid', "account_insitution_organization");
@@ -82,18 +91,19 @@ class UserReport extends ControllerBase {
 
     $markup['table'] = [
       '#type' => 'table',
-      '#header' => ['Metric', 'Count', 'Notes'],
+      '#attributes' => ['class' => [''], 'border' => '1', 'style' => 'border-spacing:0px;text-align: left;'],
+      '#header' => ['Metric', 'Count', 'Details'],
       '#rows' => [
-        ['Active accounts', $rows['total'] - count($rows['pending']), ''],
+        ['Institutions served', count($institutions), ''],
+        ['Total accounts', $rows['total'] - count($rows['pending']), ''],
         [
-          'Pending accounts',
+          'Pending account requests',
           count($rows['pending']),
           implode(', ', $rows['pending']),
         ],
-        ['Institutions served', count($institutions)],
         [
-          'Joined in the last month',
-          count($rows['joined_this_month']),
+          'Joined in the last 4 weeks',
+          count($rows['joined_this_month']) . ' (Previous month: ' . count($rows['joined_last_month']) . ')',
           implode(', ', $rows['joined_this_month']),
         ],
         [
@@ -102,15 +112,23 @@ class UserReport extends ControllerBase {
           implode(', ', $rows['last_week']),
         ],
         [
-          'Active in the last month',
+          'Active in the last 4 weeks',
           count($rows['last_month']) + count($rows['last_week']),
           implode(', ', $rows['last_month']),
+        ],
+        [
+          'Active in the last year',
+          count($rows['last_year']),
+          '',
         ],
         ['Institutional accounts', $rows['institutional'], ''],
         ['Individual accounts', $rows['individual'], ''],
         ['Accounts with full text access', $rows['full_text_access'], ''],
         ['Accounts with offline access', $rows['offline_access'], ''],
       ],
+    ];
+    $markup['footnotes'] = [
+      '#markup' => '<sup>1</sup>: Pending accounts display only those created in the last month.',
     ];
     return $markup;
   }

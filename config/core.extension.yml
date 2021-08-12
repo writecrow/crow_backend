@@ -35,6 +35,7 @@ module:
   file: 0
   filter: 0
   honeypot: 0
+  htmlmail: 0
   image: 0
   inline_form_errors: 0
   language: 0
