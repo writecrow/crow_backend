@@ -10,3 +10,7 @@ modules:
     none:
       formatter: SMTPMailSystem
       sender: SMTPMailSystem
+  crow_users:
+    user_report:
+      formatter: htmlmail
+      sender: SMTPMailSystem

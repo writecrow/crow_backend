@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\basecamp_api\Basecamp;
 use Drupal\crow_users\Controller\UserReport;
-use Drupal\Component\Utility\Html;
+use Drupal\Core\Render\Markup;
 use GuzzleHttp\Exception\RequestException;
 
 /**
@@ -29,17 +29,9 @@ function crow_users_cron() {
     \Drupal::state()->set('crow_users.report_time', time());
     $base_url = Settings::get('base_url');
     $data = UserReport::prepareData();
-    $params['message'] = 'This email provides a summary of the current metrics on Crow users.' . PHP_EOL . PHP_EOL;
-    foreach ($data['table']['#rows'] as $row) {
-      $number = $row[1] ?? 0;
-      $line = strtoupper($row[0]) . ': ' . $number;
-      if ($row[2]) {
-        $line .= ' (' . $row[2] . ')';
-      }
-      $line .= PHP_EOL;
-      $params['message'] .= $line;
-    }
-    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report';
+    $renderer = \Drupal::service('renderer');
+    $table = $renderer->renderPlain($data);
+    $params['message'] = Markup::create('<p>This email provides a summary of the current metrics on Crow users.</p>' . $table . '<p>This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report .</p>');
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
@@ -179,6 +171,9 @@ function crow_users_form_alter(&$form, &$form_state, $form_id) {
  * Control sender/reply-to of outgoing emails.
  */
 function crow_users_mail_alter(&$message) {
+  // Support HTML mail (should be provided by SMTP).
+  // $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+
   // All variables defined in sites/default/settings.local.php.
   $return_path = Settings::get('corpus_users_return_path');
   if ($return_path) {

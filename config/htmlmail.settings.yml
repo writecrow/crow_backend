@@ -1,0 +1,13 @@
+debug: false
+theme: ''
+html_with_plain: false
+use_mail_mime: false
+postfilter: '0'
+test:
+  to: user@example.com
+  subject: 'subject test'
+  body:
+    value: 'body test'
+  class: test
+_core:
+  default_config_hash: Jh_7Qy5GHQxxThw125M0lN5htchRjsy4fQtImF8RBd8
