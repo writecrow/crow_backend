@@ -64,16 +64,16 @@ class ImporterService {
           $messages[] = [$result['id'] => $result['messages']];
         }
       }
-      // echo PHP_EOL;
-      // echo '*** Notifications ***' . PHP_EOL;
-      // echo 'Created ' . count($created) . ' texts.' . PHP_EOL;
-      // if (count($skipped) > 0) {
-      //   echo 'Skipped ' . count($skipped) . ' texts. ' . PHP_EOL;
-      //   print_r($skipped);
-      // }
-      // $prepared_messages = self::prepareMessages($messages);
-      // print_r($prepared_messages);
-      // echo PHP_EOL;
+      echo PHP_EOL;
+      echo '*** Notifications ***' . PHP_EOL;
+      echo 'Created ' . count($created) . ' texts.' . PHP_EOL;
+      if (count($skipped) > 0) {
+        echo 'Skipped ' . count($skipped) . ' texts. ' . PHP_EOL;
+        print_r($skipped);
+      }
+      $prepared_messages = self::prepareMessages($messages);
+      print_r($prepared_messages);
+      echo PHP_EOL;
     }
     else {
       // The UI-based importer. This is outdated currently.
