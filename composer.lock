@@ -8840,16 +8840,16 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "1.0.0-alpha.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "6445cc13f5bcb63b535bd214955f93ab147dd032"
+                "reference": "28def13454b970e8251557d45e7f0de3eb1af05c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/6445cc13f5bcb63b535bd214955f93ab147dd032",
-                "reference": "6445cc13f5bcb63b535bd214955f93ab147dd032",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/28def13454b970e8251557d45e7f0de3eb1af05c",
+                "reference": "28def13454b970e8251557d45e7f0de3eb1af05c",
                 "shasum": ""
             },
             "require": {
@@ -8869,7 +8869,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2021-01-30T18:15:56+00:00"
+            "time": "2021-08-14T16:05:24+00:00"
         },
         {
             "name": "writecrow/tag_converter",
@@ -8941,5 +8941,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
