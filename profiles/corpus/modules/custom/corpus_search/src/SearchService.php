@@ -135,8 +135,8 @@ class SearchService {
     if (isset($non_alpha[0])) {
       $last = 'non_alpha';
     }
-    $rstart = self::$regex{$first}['start'];
-    $rend = self::$regex{$last}['end'];
+    $rstart = self::$regex[$first]['start'];
+    $rend = self::$regex[$last]['end'];
     preg_match_all($rstart . preg_quote($phrase) . $rend, $text, $matches);
     if (isset($matches[0])) {
       return count($matches[0]);
