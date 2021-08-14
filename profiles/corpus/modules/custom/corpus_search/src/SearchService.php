@@ -230,7 +230,7 @@ class SearchService {
     foreach ($comma_separated as $text_and_count) {
       $values = explode(':', $text_and_count);
       if (isset($values[1])) {
-        $output{$values[0]} = $values[1];
+        $output[$values[0]] = $values[1];
       }
 
     }
