@@ -78,7 +78,7 @@ class ExcerptEmbed extends CorpusSearch {
         if (isset($bookends[1])) {
           preg_match('/(\s*)([^\s]*)(.*)/', $bookends[1], $following);
         }
-        $table[$inc]['after'] = $following[0] ?: '';
+        $table[$inc]['after'] = isset($following) ? $following[0] : '';
         // Add spacing to visually make up for short start sections.
         $before_length = mb_strlen($table[$inc]['word_before']);
         $start_length = mb_strlen($table[$inc]['start']);
