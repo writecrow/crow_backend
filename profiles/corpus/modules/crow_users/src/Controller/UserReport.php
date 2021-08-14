@@ -62,10 +62,10 @@ class UserReport extends ControllerBase {
         $rows['last_year'][] = $name;
       }
       $created = $user->getCreatedTime();
-      if ($created > (time() - (604800 * 4))) {
+      if ($created > (time() - (604800 * 4)) && $user->isActive()) {
         $rows['joined_this_month'][] = $name;
       }
-      if ($created > (time() - (604800 * 8)) && $created < (time() - (604800 * 4))) {
+      if ($created > (time() - (604800 * 8)) && $created < (time() - (604800 * 4)) && $user->isActive()) {
         $rows['joined_last_month'][] = $name;
       }
       $type = $user->get('field_account_type')->getString();
@@ -81,7 +81,7 @@ class UserReport extends ControllerBase {
       if ($user->hasRole('offline_access')) {
         $rows['offline_access']++;
       }
-      if (!$user->isActive() && in_array($name, $rows['joined_this_month'])) {
+      if (!$user->isActive() && $created > (time() - (604800 * 4))) {
         $rows['pending'][] = $name;
       }
     }
@@ -97,7 +97,7 @@ class UserReport extends ControllerBase {
         ['Institutions served', count($institutions), ''],
         ['Total accounts', $rows['total'] - count($rows['pending']), ''],
         [
-          'Pending account requests',
+          'Pending account requests*',
           count($rows['pending']),
           implode(', ', $rows['pending']),
         ],
@@ -128,7 +128,7 @@ class UserReport extends ControllerBase {
       ],
     ];
     $markup['footnotes'] = [
-      '#markup' => '<sup>1</sup>: Pending accounts display only those created in the last month.',
+      '#markup' => '*: Pending accounts display only those created in the last month.',
     ];
     return $markup;
   }
