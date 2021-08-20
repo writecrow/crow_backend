@@ -1,4 +1,4 @@
-access_token_expiration: 1800
+access_token_expiration: 7200
 refresh_token_expiration: 1209600
 remember_clients: true
 _core:
