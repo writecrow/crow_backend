@@ -348,22 +348,28 @@ class ImporterService {
             $text[$name] = str_replace("_", " ", $text[$name]);
             $multiples = preg_split("/\s?and\s?/", $text[$name]);
             if (isset($multiples[1])) {
-              array_push($multiples, $text[$name]);
+              $text[$name] = $multiples;
             }
-            $text[$name] = $multiples;
           }
         }
-        $tid = ImporterHelper::getTidByName($text[$name], $machine_name);
-        if ($tid == 0) {
-          ImporterHelper::createTerm($text[$name], $machine_name);
-          $tid = ImporterHelper::getTidByName($text[$name], $machine_name);
+        if (!is_array($text[$name])) {
+          $text[$name] = [$text[$name]];
+        }
+        $tids = [];
+        foreach ($text[$name] as $t) {
+          $tid = ImporterHelper::getTidByName($t, $machine_name);
+          if ($tid == 0) {
+            ImporterHelper::createTerm($t, $machine_name);
+            $tid = ImporterHelper::getTidByName($t, $machine_name);
+          }
+          $tids[] = $tid;
         }
       }
       else {
         $save = FALSE;
       }
       if ($save) {
-        $fields[$machine_name] = $tid;
+        $fields[$machine_name] = $tids;
       }
     }
 
@@ -372,8 +378,17 @@ class ImporterService {
     $node->set('field_file', ['target_id' => $file->id()]);
     $node->set('field_filename', ['value' => $text['filename']]);
     foreach (ImporterMap::$repositoryTaxonomies as $name => $machine_name) {
-      if (!empty($fields[$machine_name])) {
-        $node->set('field_' . $machine_name, ['target_id' => $fields[$machine_name]]);
+      if (isset($fields[$machine_name])) {
+        if (is_array($fields[$machine_name])) {
+          $elements = [];
+          foreach ($fields[$machine_name] as $delta => $term) {
+            $elements[] = ['delta' => $delta, 'target_id' => $term];
+          }
+          $node->set('field_' . $machine_name, $elements);
+        }
+        else {
+          $node->set('field_' . $machine_name, ['target_id' => $fields[$machine_name]]);
+        }
       }
     }
 
