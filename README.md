@@ -1,6 +1,6 @@
 # Corpus/Repository Backend
 
-[![Drupal 8 site](https://img.shields.io/badge/drupal-8-blue.svg)](https://drupal.org)
+[![Drupal 9 site](https://img.shields.io/badge/drupal-9-blue.svg)](https://drupal.org)
 
 ## Overview
 This project contains the canonical resources to build the backend for a
