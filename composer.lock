@@ -3052,17 +3052,17 @@
         },
         {
             "name": "drupal/restui",
-            "version": "1.19.0",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/restui.git",
-                "reference": "8.x-1.19"
+                "reference": "8.x-1.20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/restui-8.x-1.19.zip",
-                "reference": "8.x-1.19",
-                "shasum": "71c9aef89976c273f9b9025c9b6200de8c2d226c"
+                "url": "https://ftp.drupal.org/files/projects/restui-8.x-1.20.zip",
+                "reference": "8.x-1.20",
+                "shasum": "df1d3c486ee0e7b4e9a24e6523a69c9efe73caff"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -3070,8 +3070,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.19",
-                    "datestamp": "1606482499",
+                    "version": "8.x-1.20",
+                    "datestamp": "1616839543",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8852,16 +8852,16 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "28def13454b970e8251557d45e7f0de3eb1af05c"
+                "reference": "7e112635d54f4eef427e26c15fbab971593ae9f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/28def13454b970e8251557d45e7f0de3eb1af05c",
-                "reference": "28def13454b970e8251557d45e7f0de3eb1af05c",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/7e112635d54f4eef427e26c15fbab971593ae9f4",
+                "reference": "7e112635d54f4eef427e26c15fbab971593ae9f4",
                 "shasum": ""
             },
             "require": {
@@ -8881,7 +8881,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2021-08-14T16:05:24+00:00"
+            "time": "2022-01-02T22:57:09+00:00"
         },
         {
             "name": "writecrow/tag_converter",

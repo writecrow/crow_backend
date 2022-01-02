@@ -1,0 +1,40 @@
+uuid: 74c5ad54-6743-4e42-8c5d-222f4b430273
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.body
+    - field.field.node.page.field_path
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: _IFSGy_f5RYR-lyF0cD9__nksLD1ql3KS6rR5puNFjY
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_path:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -185,10 +185,11 @@ Test integration for PHPUnit using Lando, the Docker-based environment tool, is 
 
 Usage:
 ```
-lando test profiles/corpus/tests/src/Functional
+lando test profiles/corpus/tests/src/Functional/BaseLoad.php
 ```
 
 Notes: 
 - the `phpunit.xml` file in the project root controls PHP Unit settings,
 - some of those values are provided as overrides in the `.lando.yml` file
 - The database credentials are explicitly set in `.lando.yml` in part to override the `drupal8` recipe
+- The tests are located in the `corpus` profile, and presume the installation of that profile based on the configuration found in the `config/install` directory.

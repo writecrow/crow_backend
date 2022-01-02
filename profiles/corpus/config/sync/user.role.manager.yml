@@ -1,0 +1,42 @@
+uuid: c6b802c4-3454-49ab-84b8-4e9b9b94a9ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.standard_html
+    - node.type.page
+  module:
+    - captcha
+    - filter
+    - honeypot
+    - node
+    - role_delegation
+    - system
+    - toolbar
+    - userprotect
+id: manager
+label: 'Account Manager'
+weight: 6
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'assign basic_search_access role'
+  - 'assign content_manager role'
+  - 'assign export_access role'
+  - 'assign full_text_access role'
+  - 'assign manager role'
+  - 'bypass honeypot protection'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert page revisions'
+  - 'skip CAPTCHA'
+  - 'use text format standard_html'
+  - userprotect.account.edit
+  - userprotect.mail.edit
+  - userprotect.pass.edit
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

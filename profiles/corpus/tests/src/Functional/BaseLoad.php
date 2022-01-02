@@ -24,7 +24,7 @@ class BaseLoad extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'corpus_theme';
+  protected $defaultTheme = 'crow_theme';
 
    /**
    * {@inheritdoc}
@@ -37,7 +37,7 @@ class BaseLoad extends BrowserTestBase {
    * Tests that the search results return the expected JSON payload.
    */
   public function testSearchResults() {
-    $account = $this->drupalCreateUser(['administer content']);
+    $account = $this->drupalCreateUser(['access content overview']);
     $this->drupalLogin($account);
 
     $this->drupalGet('admin/content');
