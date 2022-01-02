@@ -179,3 +179,16 @@ https://api.writecrow.org/texts/id?id=10533&_format=json
   "search_api_excerpt":"\u2026 or colleagues have to be convincing , more specific and \u003Cstrong\u003Eprofessional\u003C\/strong\u003E. In most cases, Marketing plans are written for \u2026 by attracting their attention as well as explain some \u003Cstrong\u003Eprofessional\u003C\/strong\u003E concepts specifically. Last but not least, by \u2026 majors because they have to be focus on explaining \u003Cstrong\u003Eprofessional\u003C\/strong\u003E concepts and definition in their fields instead \u2026"
 }]}
 ```
+
+## Testing
+Test integration for PHPUnit using Lando, the Docker-based environment tool, is modeled on https://agile.coop/blog/drupal-phpunit-tests-lando/
+
+Usage:
+```
+lando test profiles/corpus/tests/src/Functional
+```
+
+Notes: 
+- the `phpunit.xml` file in the project root controls PHP Unit settings,
+- some of those values are provided as overrides in the `.lando.yml` file
+- The database credentials are explicitly set in `.lando.yml` in part to override the `drupal8` recipe
