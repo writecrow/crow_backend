@@ -1,0 +1,79 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: PR>
+<Draft: 1>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+18 October 2019
+The University of Arizona doesn't have a clear Bachelor's program in cybersecurity. It
+has a Master's program, but nothing much for undergraduates. So where are students to turn if
+they intend to pursue a career in the growing cybersecurity sector? One resource for these
+Their goal, as stated by their Involve UA page, is "to equip [their] members through knowledge,
+experience, and networking opportunities" ("Arizona Information Defenders"). Just how exactly
+do they do this?
+They have meetings every Thursday from 6-8 PM ("University of Arizona Cyber Cats").
+At these meetings, they teach about a multitude of topics relating to cybersecurity: jobs in the
+industry, recent topics in the field, how to prevent hacking, and how to hack. At a recent
+meeting, they discussed cybersecurity news relating to Iran, the energy sector, and i Tunes.
+Additionally, <name> <name> a graduate student at the University of Arizona, gave a brief lecture
+on how to prevent ransomware distributed through Microsoft products. Other members also
+briefly discussed job openings at Raytheon, a Capture the Flag team, and vulnerabilities in
+Linux.
+Before joining the Cyber Cats, students do not need to have a background in computers or
+programming. In fact, a few members are business and system management majors. However,
+having some knowledge of coding and computer systems will be a huge help in understanding
+the material discussed during club meetings. This is because they often use official cybersecurity
+language, which may come off as foreign to people who are going to their first meeting blind.
+For example, they used the terms "botnet," "zero day," "network segmentation," and "host
+isolation" during their last meeting. So, if these words appear foreign, then some light studying
+may be a good option.
+If any students do decide to join, they should not expect to be greeted by a full classroom
+of shadowy figures. At one meeting, there were only 11 people, many of whom were just
+students pursuing their degree. The reason for the small number of people is because of their
+advertising methods; the Cyber Cats do not have any physical posters or flyers. Rather, they rely
+on word of mouth and social media accounts for their advertising. This means that members can
+often work 1-on-1 with professionals from (ISC)2, Raytheon, and the University of Arizona
+itself. If students were looking to work with professors, they may be out of luck. The advisor for
+the club, College of Engineering professor <name> <name> was not present at the last meeting. In
+addition, most members are either working in the industry or are graduate students working
+towards their degree, as stated before.
+If any students were thinking of joining and wanted to gauge where they stand, the
+Cyber Cats have a test game to play. It can be found at https://game.cybercats.io/ . Once these
+students join, they can expect to work on Capture the Flag teams. This is when a website is
+created with vulnerabilities built in and different hacking teams work to try and expose these
+vulnerabilities. The team that does it the fastest wins the Capture the Flag contest. If this sounds
+intriguing, then the Cyber Cats may be a good fit.
+Works Cited
+"Arizona Information Defenders." Involve UA , The University of Arizona,
+https://arizona.campuslabs.com/engage/organization/cybercats .
+"University of Arizona Cyber Cats." Cybercats.io , University of Arizona Cyber Cats,
+https://cybercats.io/ .
+

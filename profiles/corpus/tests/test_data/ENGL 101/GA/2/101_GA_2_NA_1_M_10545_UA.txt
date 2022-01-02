@@ -1,0 +1,120 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: GA>
+<Draft: 2>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+6 December 2019
+ASMRtists on You Tube
+Lack of enough sleep is a problem that affects about 35.2% of adults in the United States
+("Short Sleep Duration"). This lack of sleep can be caused by many factors: stress, depression,
+and insomnia, among many others. What can Americans do to combat these factors and get the
+sleep they need? One way is to watch You Tube videos created by ASMRtists. These online
+creators make ASMR videos: videos that feature quiet sounds, whispering, and soft visuals.
+The purpose of these videos is to activate ASMR, a relatively unknown condition that
+causes a warm tingling sensation in the head, neck, and shoulders when listening or viewing
+certain "triggers." These triggers include soft whispering, tapping on objects, scratching different
+materials, eating, personal attention, brushing hair, and hand movements. What triggers ASMR
+varies widely between different people, so every video is made in different ways.
+However, there are a few common factors in ASMR videos. The main component that
+distinguishes them from other videos is the audio. ASMR videos only contain soft sounds.
+Otherwise, they would defeat the purpose of triggering ASMR. They also feature soft visuals.
+This means the background is dark and out-of-focus, while a soft light is cast on the ASMRtist's
+face. This serves two purposes: it brings more attention to the creator and it also gives off the
+impression of nighttime, when we are naturally sleepier.
+Now, if you are new to ASMR, where do you start? That depends on whether you simply
+want to watch and listen to ASMR or if you want to make it. If you want to watch ASMR videos,
+simply going on You Tube and searching "ASMR" will yield thousands of results. However, if
+you want to become an ASMRtist yourself, it requires a little more work.
+The first thing needed is a camera and a computer. Otherwise, you would not be able to
+record and edit videos. Any camera will do, however it is recommended that it can record in
+1920 by 1080, which is the resolution of most screens. Next, you will need to decide which
+microphone you will use. Since ASMR is a very audio-centric genre, this is a very important
+decision.
+When deciding what microphone to choose, there are three main setups that ASMRtists
+usually use. The first is simply having one microphone in front of them. This is a very simple
+setup that is easy to manage and edit with, but it deprives the creator of one major feature of
+ASMR videos: ear-to-ear sounds. Without ear-to-ear sounds, the audio becomes simplistic,
+which is often not well-received in the ASMR community.
+The next setup is a little more complicated, but overall works very well for ear-to-ear
+sounds. It entails buying two identical microphones and placing one on the left side of the video
+and one on the right side of the video. This way, the ASMRtist can "move" sounds from the left
+ear to the right ear, giving off the illusion that the audience is right there with them. This creates
+a more personal feeling that a lot of ASMR viewers enjoy.
+The last setup is a bit weirder and more expensive, but was created specifically for
+making ASMR videos. Right now, there are two microphones that were made for ASMR videos:
+the 3Dio FS Binaural line ("3Dio") and the wildly expensive Neumann KU 100 ("KU 100").
+These microphones are protected by realistic rubber ears. This may sound odd, and even a little
+creepy, but the reason for it is ingenious. By putting realistic ears around the actual microphones,
+the sound waves bounce around in a similar fashion to how they would with a real ear. This
+creates a more realistic sound that is often perfectly tuned to the range of real human ears.
+Now that any potential ASMRtists have the necessary equipment, another major
+challenge stands in their way: what type of video should they make? Despite what it may sound
+like, there is actually quite a bit of diversity in the types of ASMR videos there are. There are
+certain subgenres, like mukbang, roleplay videos, and hours long no talking videos, just to name
+a few. As a quick overview, mukbang is Korean for "eating broadcast" (Zaman), where
+ASMRtists eat food on camera. Roleplay videos entail the creator portraying a certain
+profession, like a doctor, librarian, or hair stylists, in order to create a more one-on-one feel with
+the audience. There are also ASMR videos that are hours long and do not contain any talking at
+all, in what are simply known as "trigger videos."
+This brings up another good question to ask yourself if making one of these videos: how
+long do you make it? Typically ASMR videos are anywhere from about 10 minutes to multiple
+hours long. This is simply due to the fact that it takes the average person 30 minutes to fall asleep
+(Jones), and ASMRtists want people to fall asleep to their videos.
+Now that you are ready to film your first ASMR video, one last thing stands in your way
+that becomes obvious very quickly: almost every single ASMRtist is female (Allocca). This may
+seem odd at first because ASMR is almost split evenly between men and women, but it skews
+towards women slightly ("Polls about ASMR"). However, there is a growing number of male
+ASMRtists that are challenging this traditionally female-dominated genre. One potential reason
+for this discrepancy is the fact that many people see women as gentler and softer. According to
+ASMRtist Maria Viktorovna, "women themselves are very nurturing creatures by nature, so we
+see them as a softer, more caring gender" (Viktorovna).
+Once you have your video all done, it's time to share it with the world! ASMR is most
+prevalent on You Tube, so that should be your platform of choice. Once the video is published, it
+often takes years to grow a decent following, so overnight success shouldn't be expected. In
+order to grow your channel, consistency is key. Posting anywhere from once a month to multiple
+times every day will slowly increase your following within the ASMR community. Hopefully
+from there, you become the next big ASMRtist.
+Works Cited
+"3Dio." 3Dio , https://3diosound.com/ .
+Allocca, Kevin. "Videocracy." Bloomsbury Publishing, 2018,
+https://books.google.com/books?id=Vcot Dw AAQBAJ .
+Jones, Kirtly. "It Takes Me Hours To Fall Asleep - Am I Normal?" University of Utah Health , 8
+January 2015, healthcare.utah.edu/the-scope/shows.php?shows=0_xa3qjafl .
+"KU 100." Neumann , https://en-de.neumann.com/ku-100 .
+"Polls about ASMR." ASMR University , https://asmruniversity.com/asmr-polls-surveys/ .
+"Short Sleep Duration Among US Adults." Center for Disease Control and Prevention , May 2,
+2017, https://www.cdc.gov/sleep/data_statistics.html .
+Viktorovna, Maria. Interview with Kevin Allocca. Videocracy , By Kevin Allocca.
+https://books.google.com/books?id=Vcot Dw AAQBAJ .
+Zaman, Nabeela. "Mukbang ." Word Press , Aug. 26, 2015,
+goodlucksj.wordpress.com/2015/08/26/mukbang-%EB%A8%B9%EB%B0%A9/ .
+

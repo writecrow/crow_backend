@@ -1,0 +1,127 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: LN>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+26 September 2019
+Showing For Those Who Can't Tell
+Between elementary school and middle school, I switched school districts from <name> <name>
+to their rival, <name> Stepping up from one level of school to the next is always hard, but
+imagine also switching school districts and being the new kid. The popular kids didn't want to
+associate with a nobody, the nerdy kids didn't know what video games I liked, and the athletic
+kids didn't let me join their team because I was short and skinny. I couldn't just jump into
+someone's friend group; that would be rude and intrusive. But being lonely is soul-crushing. The
+thought that nobody wants you got into my head and forced upon me social anxiety. If no one
+wanted me, I could always count on myself, I thought. After a year or so, I did make a few close
+friends that have introduced me to different groups and ideas that allowed me to grow socially.
+To this day, I'm still not an extrovert or socially outgoing by any stretch of the imagination; I
+still spend most of my time by myself. But I am much more confident in myself than I was at age
+12.
+In addition to being socially anxious, I was generally considered to be the smart,
+straight-A's-in-honors-classes kid. This meant one thing, though: my brain worked faster than
+my mouth. I often stumble with words and, when discussing any concept with others, I usually
+have to go back and revise what I said because I thought a few more steps ahead. So when I can't
+let the ideas flow through words, I have to find a more efficient way to let them out.
+The spigot that allows me to let my ideas flow freely came halfway through 8th grade
+English. The last project for our short story unit was simple: make a short film based on a short
+story we read. I only had one friend in that class and "The Treasure of Lemon Brown" only had
+five characters. The math doesn't seem to work, but we made it work by simply playing more
+than one character. I went over to my friend's house with a handheld camcorder from my dad's
+basement and held it up with a tripod made from a cheap telescope mount, paper clips, and
+rubber bands. After filming, I edited the video with the free Windows Movie Maker software.
+While the final video file is long gone by now, at the time of the assignment, we earned a 100%
+on it. Seeing that number opened my eyes to the possibility that maybe I found something that I
+was good at: making films.
+Later that year, I was in a study hall with another friend. I finished my homework early
+and I saw him writing something everyday, so I went over to his table to see what he was doing.
+He said he was writing a book about secret agents that leaked government secrets. Being middle
+schoolers, that was the most thrilling idea ever put to paper in the history of literature to us:
+secret agents, government conspiracies, and walking away from explosions without looking
+back. It was a one-way ticket to being cool.
+With the number 100 still seared in my mind, I brought up another creative possibility:
+we could work together to make it a You Tube series, the only platform where kids like us could
+get recognition. He agreed and we went to work. We quickly found ourselves in a predicament
+because of our limited knowledge of how networks worked: we couldn't join the same online
+server, which meant that we couldn't communicate with each other. Hours of consulting
+unanswered Internet forum posts eventually led us to a solution that allowed us to talk and
+continue on with our plan. However, our discussions led to another problem: creative
+differences. It's a filmmaker's worst nightmare: the vision you had perfected for weeks comes
+crumbling down simply because the other director "didn't like it." After many of these
+compromises that left us both unsatisfied with the final product, we eventually uploaded the pilot
+episode of our show. It's no longer on You Tube, but I still have the original video file, which I
+will never allow to see the light of day again. But this terrible trailer taught me about the
+inherently collaborative nature of films. One cannot make a film by themselves; rather, it
+requires a whole team of people working relentlessly behind the scenes. While this team may not
+agree on every idea, that's part of the fun. Getting to see new ideas come to fruition right before
+you will never cease to make my eyes sparkle with joy.
+At this point, high school was just starting. Armed with friends and confidence, I wanted
+to put myself out into the world of real life filmmaking experience by learning the actual
+techniques used by famous directors. So, I joined <name> Productions, my high school's film
+club. Taught by an English teacher and the head of the TV Studio, I learned the ins and outs of
+camera settings, cinematography, and editing techniques. Based off of the recommendation of
+the teacher, I bought my own camera: the Panasonic G7. It was a young filmmaker's dream
+camera because it provided 4K resolution for cheap. Now, most filmmakers know that resolution
+isn't everything; good video also depends on settings such as dynamic range, recording codecs,
+and data bitrates, but that's outside of the scope of this story. What mattered was that the camera
+was mine and I was about to make the best of it.
+I wanted to put my skills to the test after the then-recent announcement of Star Wars: The
+Force Awakens. I decided to make a short film based on the Star Wars universe. With my
+newfound knowledge and my family as actors, I brought my first original film idea to life.
+During production, I hit a few snags that required the ingenuity of a true filmmaker to
+overcome. For one, I had to create landscapes that I could not access in real life: the inside of a
+TIE fighter, a deserted planet, and the inside of a desolate factory. These could easily be fixed
+through the use of a cheap green screen. Another problem quickly arose: how to get the TIE
+fighter to fly down from the sky and land in my front yard. For this, I had to improvise. I took
+sheets of green colored paper and photographed a toy TIE fighter whose orientation could be
+changed during editing. I will admit, I was quite proud of that solution. But the biggest problem
+came from something that I couldn't take pictures of: lightsabers and laser blasters. For the
+lightsaber, I took sheets of blue colored paper and taped it to a cardboard tube. For the laser
+blaster, I had to look to an independent young filmmaker's best resource: royalty free You Tube
+videos. I found a laser effect on You Tube, which I may or may not have downloaded and put
+into my film without permission from the creator.
+This is the struggle for all filmmakers, regardless of age, experience, or finances. We all
+face problems that require unique solutions. Sometimes, it can be solved using practical methods,
+like the toy TIE fighter. Other times, it requires extensive editing, like the laser blaster. But no
+matter what is being made or who is making it, films are about solving problems. This often
+extends far beyond the film itself. For me, my problem was trouble communicating with others.
+The high school filmmaking community allowed me to express my original ideas without fear
+and create new friends. Like the 100% on the short film assignment, it allowed me to realize that
+there are people out there who would want to hear my ideas. These all gave me the confidence to
+grow as a person, both personally and socially. Now, I am no longer afraid to meet new people
+and put in my two cents.
+As for what I plan on doing with filmmaking, that's a bit easier to say now that I am more
+open about my ideas. I currently have a script written for a feature-length film that I plan to film
+next year. In order to better the look of my films, I am taking a 35 millimeter film camera on
+vacation to Puerto Rico with my family this winter. This will force me to think about every shot
+in advance in order to not waste any film. In addition, I also have an idea for an experimental
+short film that I plan to start writing.
+

@@ -1,0 +1,53 @@
+<Text>
+<Student IDs: 10546>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: GA>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1030>
+<Section: 1065>
+</Text>
+
+<Student 1>
+<Student ID: 10546>
+<Country: NA>
+<L1: Kannada>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+An Analytical Peek Into the World of Science
+We all use documents every day. From notes to worksheets to textbooks to emails to tax forms to instructions to lists and so on, we all use so many different kinds of documents every single day. However, think about it: does anyone really take a second and step back from the documents they look at and examine its features? Does anyone actually examine what goes into creating it or making it look appealing? Nobody actually analyzes how the audience and the purpose of the document affect how the document is created and presented. It would be very interesting to just look at the big picture and see how the document is actually composed and break down each aspect of it. I will be analyzing the genre conventions of a particular document as well as the language and values embedded within the document or field so that I become more aware of how the concepts of writing will be carried into my professional career down the road.
+To begin this project, I first had to interview someone I looked up to in my field of interest. The individual I interviewed was Dr. <name> <name> He is an Associate Professor of Practice in the Department for Chemistry and Biochemistry at the University of Arizona and the Assistant Dean for Academics for the UA Honors college. He also happens to be my Honors Chemistry 161 professor. Although he is not a doctor in the medical field, which is what I aspire to be, he deals a great amount with the sciences behind medicine, so he is a very knowledgeable person to interview. He is the co-author of the award winning and nationally recognized textbook Chemical Thinking. I chose to interview Dr. <name> because I admire all of his accomplishments, he is a very approachable and interesting person, and a lot of what I want to do in the future is involved in his work, so I am hoping to learn more about my field of interest as well as the work that goes into it. The genres I learned about from Dr. <name> included but are not limited to letters, emails, presentations, articles, and textbooks. The most interesting were the notes, presentations, and his own textbook because he makes them so engaging and fit for every audience that learning is enjoyable. I plan to use these genres in a future medical career to communicate, teach, learn, and solve. I learned how much hard work, dedication, and sacrifice goes into a career in the sciences, especially medicine. These are the questions I asked in my interview:
+What type of writing, speaking or presenting do you do on a daily basis in your
+career (genre)? What are their conventions?
+How is this genre/document used in the field?
+Who do you usually present that information to (audience)?
+How does your audience change how you present the information?
+Do you have examples of documents used in the profession/academic major that
+you can share with me?
+What about the sciences initially appealed to you?
+Are you currently conducting any research? If so, what kind?
+How could a college student become actively involved in research on campus?
+How did you become interested in education?
+What are the pros and cons of your work?
+Is education rewarding? If so, how?
+The entire interview went very well. Dr. <name> understood all of the questions and answered each one in great detail to give me as much helpful information as possible. If I could schedule a second interview, something I would have done differently would be asking deeper, specific, more helpful questions. This whole process went very well for me, and the whole interview, questions and answers, went very smoothly. I thoroughly enjoyed talking to an expert in the sciences. Dr. <name> is a very accomplished man with many achievements and skills under his belt. He is extremely knowledgeable in his field, and gave me very insightful answers to all of my questions. He gave me a lot of good advice and pointers for how to succeed in the future if I end up pursuing medicine, and once again reminded me that there is a great amount of hard work, dedication, and sacrifice that must be put in to get the result I want. I learned how many different forms and kinds of documents and genres are used in the sciences, specifically the medical field. I also realized that I am pursuing a career in the sciences for the same reason as Dr. <name> and that is because of the discovery aspect of it. There is always something new to discover and there is so much that is unknown, and having a career in the sciences allows you to explore all of this. Dr. <name> is a very nice, approachable person, and it was almost like talking to a friend. I would absolutely do it again. Some transferrable skills I learned during the interview process are learning how to create an engaging presentation for all audiences and how to present it properly, how to write a professional email to colleagues or professors, and how to stand out as a student wanting to pursue a career in medicine and be noticed by people for doing something different.
+An example of a document of his that I examined were his presentation notes. Every week, he has PDF notes posted on his D2L with the presentation slides that he will be going through in class that week. Next to the presentation slides, he has given lines to take further notes and write on for our own knowledge and understanding. It is in a very simple format, simply the slides with lines next to them, to keep the document basic and easy to use. However, the information on the slides is more important. His slides are created and presented in such a way that almost anyone can read and get a general idea of what it is talking about. Because it is a college level honors chemistry course, it might be harder for some to understand than others, but overall it lays out good details and information on the subject and is very direct and to the point. This makes this document very helpful, especially for his students, his intended audience, because it makes it much easier to understand the difficult material of the course and study for assessments and projects. He also includes very thorough and informational visuals like graphs, diagrams, animations, and videos to not only keep the audience captivated, but to further their knowledge and understanding while keeping it fun and enjoyable, which is a very difficult task. Dr. <name> even includes jokes and puns all over his documents and in class to keep his presentations light and casual and his students interested. He uses bullet points and definitions along with all of the above things to always keep the presentations educational and smooth-sailing. He bolds some things, puts others in different colors, and makes others different sizes to easily point out to his students that some things are more important than others, or some mistakes are easy to make. His notes and presentation slides are extremely thorough and educational and at the same time very enjoyable and understandable.
+All in all, this project was a new and fascinating experience. I really enjoyed interviewing Dr. <name> because he had so much to say, so much advice to give and information to present, and he did it all so casually and easily. I thought that analyzing one of his documents from a different angle was very interesting, because I have never done something like this before and it was very educational to me for my own future. This was a very enjoyable project, and I look forward to not only doing more like it, but use the information and knowledge I got through completing this one in my future career.
+

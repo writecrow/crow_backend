@@ -1,0 +1,76 @@
+<Text>
+<Student IDs: 10548>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: LN>
+<Draft: 1>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1030>
+<Section: 1065>
+</Text>
+
+<Student 1>
+<Student ID: 10548>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: Eller College of Management>
+<Program: Pre-Business>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+1. What real leadership looks like
+a. It's not walking the front, it's pushing from the back, but still being an example
+i. Example of pop-culture george washington on boat
+ii.Personal example (Vegas soccer game)
+1. Taking off armband, showing with actions not words how to lead.
+2. Church disobedience
+iii. What the personal example taught me and how it shaped how I led
+1. It made me realize that the look of it doesn't matter. The personal
+recognition doesn't matter. The team > the individual, and that's
+what so many people get wrong. They think if they're in a
+leadership, they're the most qualified, the best, the shit, but it's
+more the opposite. It's getting the most out of everyone around you
+and raising the cumulative value rather than the individual value
+b. Getting the most out of each individual person
+i. If everyone (in a group of 10) is a 5, and you're a 10, that equals 55. If you
+make everyone a 6, that's a total of 60. A change of 1 in everyone is more
+important than perfection in yourself.
+ii. Get the most out of the people around you, still focus on yourself, but true
+leadership shapes the environment around them
+iii. Use school soccer as a personal reference
+c. Trust > Respect (it's all about the environment)
+i. Trust changes it from boss -> employee to brotherhood.
+ii. Trust brings out the best in people. If you trust them and don't
+micromanage them, and they trust you get shit done for them, it creates a
+circular relationship where everyone is working for one another and it's
+the most productive society.
+iii. It's not the people, it's the environment. Don't create competition create
+cooperation
+1. Find an example in my life where I have seen that change, or at
+least been in a negative atmosphere where I see the negative
+effects
+a. ALTOS IN CHOIR vs the Bass section
+2. Psychological safety
+iv. It all comes down to attitude
+d. How has this impacted my life. What's the change that I've seen from taking
+leadership compared to earning it. Building the right environment. How will it
+impact my future
+Choose a CLEAR audience that you have understanding of leadership in that community, and
+have them understand your viewpoint
+Definition of business
+Leadership should be based on the community and not the individual
+Explain what leadership is/should be
+

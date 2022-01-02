@@ -1,0 +1,36 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: LN>
+<Draft: 1>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+Learning a new skill whether it be a new language, a sport, or even an instrument is hard for everyone in the beginning. Unless someone is a child prodigy who pick up algebra at the age of four or is part of Mensa, there are bound to be mistakes. Speaking from personal experience, there were many moments when I faced frustration and had the option to persevere or give up. When I was in the 8th grade, I used the money from I was given for my 14th birthday to buy a ukulele from e Bay. I was never really a musical child growing up, but I was at the age where I wasna t satisfied with anything about myself and the music that I listened to helped me get through my days. I wanted to do something different that would hopefully help me gain control of what I wanted to do with my life and where I wanted to go.
+After purchasing my first ukulele I then had to learn the slang that related to the instrument. The first thing that became obvious to me was that there were certain anatomical terms that came with it. The body, the neck, the fretboard, the tuning keys, and various other parts. I was so overwhelmed and had no idea where to start. I had never played an instrument and neither had anyone I knew, so I turned to the one thing I did know: You Tube. I found that watching other people play and learning different techniques that worked for them helped me. After practicing for an entire day, I began to form thick, rough, calluses on the tips of my fingers. The melodies\of the strings filled my room day and night for what was months and then years. I soon found myself able to read chord tabs and memorized what positions my fingers needed to be in just by reading a chord.
+

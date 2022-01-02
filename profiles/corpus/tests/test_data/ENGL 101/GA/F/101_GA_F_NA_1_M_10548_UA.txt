@@ -1,0 +1,104 @@
+<Text>
+<Student IDs: 10548>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: GA>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1030>
+<Section: 1065>
+</Text>
+
+<Student 1>
+<Student ID: 10548>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: Eller College of Management>
+<Program: Pre-Business>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+24 October 2019
+As a business major, it seemed almost imperative to analyze a spreadsheet. Spreadsheets
+are everywhere, whether organizing information on customers, payments, income, or whatever
+else that needs to be organized in a grid-like system. And though it seems very specific,
+spreadsheets can be used for almost anything. However, for this specific situation, the
+spreadsheet being analyzed is one that organizes and tracks the revenue of the small business,
+Dogtopia <place>
+For context, Dogtopia <place> is a small dog daycare franchise owned by <name> <name>.
+I interviewed her about the business, and she suggested that I analyze this kind of document
+because it is "vital to anybody interested in pursuing business." Not formally trained herself, she
+believes that it is important to be perceptive of every piece of information that is given. Even the
+smallest details could have an incredibly strong impact going forward. And she also believes that
+the best way to hold and organize these small bits of information is through a spreadsheet.
+To begin, the revenue tracking spreadsheet is not meant to be readily available to the
+entire franchise. If standard employees, customers, or the public had access to revenue records, it
+could very easily influence the way the company is perceived, and how people treat it. For
+example, if the employees see the company is failing, it is very possible they might leave and
+turn their allegiances elsewhere in order to not be associated with a dying organization, much
+less be unemployed if the business fails. On the other side, it could also be an incentive to take
+advantage of the business. If the business is doing exceptionally well, the employees might feel
+inclined to try to find ways to earn more money without working for it by clocking out late, or
+some alternative method. Their excuse could consist of "the company won't notice," or "it's not
+that big of an amount," which could cause major tensions. This being said, in most circumstances
+the only ones to have access to this document are CFO's, general managers, and other major
+officials. In Dogtopia's case, the only one with access to this document is Mrs. <name>, the
+general manager. In addition, she is the only one with access to most records including money
+because her position doubles as the financial officer. She tracks all of the information for herself,
+to be able to see areas of weakness and strength within the business and to try to correct them. It
+also can be compared to months past to see progress and understand how the business is
+operating.
+Spreadsheets tend to be very consistent in their layout, but yet still have a lot of
+customization options. In most cases, Excel holds a large set of data in a table, easily navigated
+by various headings which label the information in columns and rows. However, the various
+customization options allow the owner of the document to color coordinate, easily shift the
+information around, create charts, and various other ways of expressing the data at hand.
+Specifically, Mrs. <name>, in the revenue tracking sheet, she has hundreds of separate
+measures to count the data. She utilizes the spreadsheet's versatility to keep track of everything
+that she might need for revenue. Revenue has so many different variables, especially for a dog
+daycare business, that it seems the only way she could keep track of it is through a spreadsheet.
+In the same document, she has to calculate daily gross revenue, sales quantity, referral
+information, daycare pass statistics, month totals for all, projections, general information, and
+weekly sales reports. But even with all of this information, the spreadsheet allows it all to be
+easily accessible for quick analyzing and understanding of the data.
+Spreadsheets tend to be formal documents, used in important situations where the data at
+hand is very valuable. Business information, personal budgeting, list organizing, they all tend to
+use spreadsheets to their advantage. However, a spreadsheet can be used for entirely informal
+purposes if need be. It all comes down to the individual and what they need out of the document.
+This being said, there is definitely not a lot of room to make the document informal, as there isn't
+really any tone or anything to make it "official," it mainly comes down to the content that one is
+organizing. If one is organizing business information like money, the spreadsheet tends to be
+perceived as formal, but if one is using it for something like organizing character stats for
+Dungeons and Dragons, then it would likely be perceived as informal.
+One of the greatest tools a spreadsheet has to offer is that it can very easily convert
+information to various different kinds of charts. This allows data to be displayed in many helpful
+formats to help the reader understand the importance of the data and how it compares to itself. It
+helps the reader visualize how significant changes in the data are, and trends over time. This can
+be very useful because it shows the scale of decline in more of a way than a simple ratio. It helps
+people who don't necessarily know what is going on within the spreadsheet to still read and
+understand the information presented to them. In this situation, it allows a greater sized audience
+to process the information, though in most business documents like stated before only a few have
+access to this information. Charts help presentations as well because it becomes easier to openly
+talk about and explain charts rather than a plethora of numbers that have minimal meaning to the
+people reading it.
+Overall, the spreadsheet genre is very wide; it allows for an infinite amount of
+customizations, uses, and organizations for important or unimportant information. It allows the
+writer to organize their information any way that they want, and keep it all centralized and easy
+to access. It appeals to various different groups, mainly involving business, and is a universal
+way to arrange data. It gives so many options, and thus there will always be a very efficient way
+to store and assemble all of the data needed.
+

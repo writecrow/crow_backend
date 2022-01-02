@@ -1,0 +1,120 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: PR>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+24 October 2019
+The University of Arizona doesn't have a clear Bachelor's program in cybersecurity. It
+has a Master's program, but it's Bachelor's programs are scattered online, in the Eller College of
+Management, and in two different areas of study in the College of Engineering. Because of the
+rapid pace technology is being created and integrated, there is an increasing need for
+professionals who know how to protect these technologies. In fact, the cybersecurity job market
+has "negative unemployment," meaning that there are more available jobs than qualified people
+going into these jobs (Lloyd). So where are undergraduate students to turn if they intend to
+pursue a career in the growing cybersecurity sector?
+One resource for these students is the University of Arizona Information Defenders club,
+better known as the "Cyber Cats." Their goal is to give students with an interest in cybersecurity
+the resources, knowledge, and connections to get a head start in their cybersecurity career. The
+club's Involve UA page captures this perfectly, stating that their goal is "to equip [their] members
+through knowledge, experience, and networking opportunities" ("Arizona Information
+Defenders"). They strive to meet this goal by holding weekly meetings in conjunction with
+(ISC)2.
+These weekly meetings occur every Thursday from 6 PM to 8 PM in the <place> building,
+("University of Arizona Cyber Cats"). These meetings are co-sponsored by the
+University of Arizona and the Phoenix chapter of the (ISC)2 ("University of Arizona
+Cyber Cats"), which stands for the International Information System Security Certification
+Consortium. The (ISC)2's goal is to standardize the education and certifications of cybersecurity
+professionals in order to keep the methods of securing data systems up to date and free of any
+vulnerabilities. ("Our Vision"). So, by reaching out to university students interested in
+cybersecurity before they go into the industry, they are able to provide them with the tools
+necessary to get a head start in their careers straight out of college. This is a great opportunity for
+students because the scattered University of Arizona classes makes it very difficult to take
+classes that teach the standards already in place in the cybersecurity field.
+At these meetings, they teach about a multitude of topics relating to cybersecurity: jobs
+available in the industry, recent major events in the field, how to prevent malware and viruses,
+and how to hack websites. For example, at a recent meeting, they discussed cybersecurity news
+relating to a cybersecurity attack in Iran, jobs in the energy sector, and vulnerabilities in Apple
+i Tunes. Additionally, <name> <name> a graduate student at the University of Arizona, gave a small
+lecture on how to prevent viruses from being distributed through Microsoft products. Other
+members also briefly discussed job openings at the defense contractor Raytheon, vulnerabilities
+in the operating system Linux, and the Cyber Cat's Capture the Flag team. For those unfamiliar,
+Capture the Flag in cybersecurity is a competition where members of the club attempt to hack a
+website built to have vulnerabilities in it.
+Before joining the Cyber Cats, students do not need to have a background in computers or
+programming. In fact, a few members are business and system management majors. However,
+having some knowledge of coding and computer systems will be a huge help in understanding
+the material discussed during club meetings. This is because they often use official cybersecurity
+language, which may come off as foreign to people who are going to their first meeting blind.
+For example, members used the terms "botnet," "zero day," "network segmentation," and "host
+isolation" during their last meeting. So, if these words appear foreign, then some light studying
+may be a good option.
+However, if an interested student does have a background in cybersecurity, whether it be
+from prior independent research or cybersecurity courses they have taken, they may be in luck.
+Because many other Cyber Cat members are directly involved with the University of Arizona's
+information technology services, they may be able to use these connections to get a position with
+them. By simply working with these other members and (ISC)2, students will be able to obtain
+the skills and certifications necessary to possibly gain a position on their team. This would allow
+them to gain useful, hands-on experience in the local cybersecurity field. From here, they can use
+this experience to advance quickly in their future career. This is especially useful in the 21st
+century because many higher up positions in both the government and technology companies are
+willing to pay large amounts to students who have previous experience.
+If any students do decide to join, they should not expect to be greeted by a classroom full
+of shadowy figures. At one meeting, there were only 11 people, many of whom were just
+students pursuing their degree or professionals in the cybersecurity industry. The reason for the
+small number of members is because of their advertising methods; the Cyber Cats do not have
+any physical posters or flyers. Rather, they rely on word of mouth and social media accounts for
+their advertising <name> This small group means that members can often work 1-on-1 with
+professionals from (ISC)2, Raytheon, and the University of Arizona itself. If students were
+looking to work with professors, however, they may be out of luck. The advisor for the club,
+College of Engineering professor <name> <name> was not present at the last meeting.
+If any students were thinking of joining and wanted to gauge where their hacking skills
+stand, the Cyber Cats have a test game to play. It can be found at https://game.cybercats.io/ . Once
+more interested students join, they can expect to work on Capture the Flag teams <name>
+From there, the Cyber Cats Capture the Flag teams hope to attend Cactus Con, a 2 day conference
+in Mesa, Arizona that focuses on information technology and security ("What We Do"). If any
+students would like to advance their cybersecurity career, participate in hacking competitions, or
+just learn more about the topic, then the University of Arizona Cyber Cats may be a good fit. Any
+questions or concerns can be directed to the Cyber Cat's official email, <email>
+Works Cited
+"Arizona Information Defenders." Involve UA , The University of Arizona,
+https://arizona.campuslabs.com/engage/organization/cybercats .
+Lloyd, Mike. "Negative Unemployment: That Giant Sucking Sound In Security." Forbes , Forbes
+Media LLC, 21 March 2017.
+https://www.forbes.com/sites/forbestechcouncil/2017/03/21/negative-unemployment-that-giant-s
+ucking-sound-in-security/ .
+"Our Vision." (ISC)2 , International Information System Security Certification Consortium,
+https://www.isc2.org/About .
+<name> <name> "Re: Cyber Cats Interview." Received by <name> <name>, 17 Oct. 2019.
+"University of Arizona Cyber Cats." Cybercats.io , University of Arizona Cyber Cats,
+https://cybercats.io/ .
+"What We Do." Cactus Con , Cactus Con, https://www.cactuscon.com/what-we-do .
+

@@ -1,0 +1,40 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: PR>
+<Draft: 1>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+November 19, 2019
+A group that is well known but most often overlooked is a group commonly referred to as "geeks" or comic book fanatics. The media has often portrayed these individuals as antisocial, unattractive, and intelligent while lacking common knowledge. These stereotypes have been accepted by many who lack the means of receiving the truth, but the fact is, those cliches may be true for some people, but more often than not, it's far from the truth. Universities are considered to be prestigious institutions where scholars seek higher education, and if the stereotypes about geeks are correct, what does that say about students who read comic books in their free time? Despite the absence of a major club dedicated to comic books on campus, there is an abundance of students as well as Tucson residents who are major fans of "geek culture".
+"Geek Culture" is often used to refer to the subculture of fanatics which are connected to Japanese Animation, science fiction, comic books, video games, etc. The term "geek" is often used as a way to denote the community, but now, not so much. Many members of the comic book community take pride in find family within the community itself. To get a more of an inside look into the comic book geek community in the Tucson Community, I decided to visit s. <name> <name> A local shopper at Fantasy comics commented on the community saying, "It's a cool thing to be able to communicate with like-minded people and share opinions about comics. I honestly don't mind being called a geek, because there's nothing wrong with being a geek!" <name> <name> who is in his 20s, also mentioned that he had been reading comics since he was 11. Like <name> most people get into comic books through some sort of personal need.
+Some of the most common answers I received when asked why members entered into the community were: the visuals, the storyline, and the nostalgia. In a particular interview at Bookmans with a man named <name> <name> he shared that the main reason he began to read comics was sobriety. "I was 17 when I was going through probation, and I had a lot of free time, so I started to branch out my hobbies." At first, <name> was attracted to the dark graphics of the comic book cover, but soon fell in love with comic books in general when he found he was able to relate to the characters and resonate with their struggles. Unlike what <name> said, most students I surveyed from campus noted that they enjoyed reading comic books because it gave them a way to escape the reality of mundane college life. There are also numerous events held in Tucson for the Tucson Geek community.
+One of the main and more massive events held in Tucson is the Tucson Comic-Con. The Tucson Comic-Con Official Website states, "Tucson Comic-Con is dedicated to bringing an epic community-based pop culture experience for all that reflects today's fandom and the unique nature of Tucson, Arizona, and the American Southwest." Events at this convention include Costume contests, comic seminars/workshops, artist panels/autographs, and various games. <name> <name> and her boyfriend <name> <name> are both students at the University of Arizona who recently attended the convention. The last comic con held was November 1-3, of this year. The couple themselves don't dress up or what is referred to as "cosplay" but they said they enjoy seeing those who choose to and bring the comic book characters to life. I asked them what their favorite part of the convention was and <name> answered, "We both met through friends who also liked comics, so going to Tucson Comic-Con gave us to do that we both enjoyed." <name> added, "This year was our first year going, but I liked just looking around and being surrounded by people with the same interests." Other than the Tucson Comic-Con, there is another smaller group that is geared more towards those who enjoy creating comics. The Group has 142 members and is open to everyone.
+

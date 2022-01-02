@@ -1,0 +1,42 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: LN>
+<Draft: 2>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+September 18,2019
+Practice, Patience, and The Pursuit of Ukulele Mastery
+Learning a new skill whether it be a new language, a sport, or even an instrument is hard for everyone in the beginning. Unless someone is a child prodigy who pick up algebra at the age of four or is part of some highly intelligent group., there are bound to be mistakes. Speaking from personal experience, there were many moments when I faced frustration and had the option to persevere or give up. When I was in the 8th grade, I used the money from I was given for my 14th birthday to buy a ukulele from e Bay. I was never really a musical child growing up, but I was at the age where I wasn't satisfied with anything about myself and the music that I listened to helped me get through my days. I wanted to do something different that would hopefully help me gain control of what I wanted to do with my life and where I wanted to go. I knew what I wanted wasn't something that would come easily to me, but I was willing to put in the time and effort in order to achieve my goal.
+After purchasing my first ukulele I then had to learn the slang that related to the instrument. The first thing that became obvious to me was that there were certain anatomical terms that came with it. The body, the neck, the fretboard, the tuning keys, and various other parts. I was so overwhelmed and had no idea where to start. I had never played an instrument and neither had anyone I knew, so I turned to the one thing I did know: You Tube. I found that watching other people play and learning different techniques that worked for them helped me. After practicing for an entire day, I began to form thick, rough, calluses on the tips of my fingers. The melodies of the strings filled my room day and night for what was months and then years. I soon found myself able to read chord tabs and memorized what positions my fingers needed to be in just by reading a chord. To quote Chimamanda Adichie "They stirred my imagination. They opened up new words for me." Every song I learned on the ukulele inspired mw to do more and do better. I knew I had to practice as much as I could if I wanted to see improvement. My practice continued to get more intense and serious when I felt discouragement from those closest to me.
+I had been wanting a ukulele for several months before I my birthday came around. Whenever I had brought up wanting to buy one, my family threw negative comments at me such as, "Why buy it if it's just going to sit in your room?" or "You're too lazy to learn an instrument." My mother had even snarled at me, "That was such a waste of money" when I informed her of my purchase. Music had never been a part of my family so something foreign to them seemed impossible. Every time looked at my Ukulele, all the hope I had built up would begin to fade. Everyone I was close with didn't believe that I could possibly teach myself how to play an instrument because in their eyes I was lazy and unmotivated. Little did they know that their constant degradation only pushed me further and motivated me to prove everyone wrong. This motivation caused me to reach goals that I never thought would happen so soon.
+After 7 months of buying my ukulele, I started learning but I somehow ended up being asked to play at a local coffee shop in my town. My friend would be singing, and I accompanied her with my ukulele. I remember the dimmed lights of the cafe made all the faces glaring at me stand out. It was my first official performance besides my friends, and I wasn't even sure if I had prepared enough at that point to perform. My thoughts and overwhelming fear were soon interrupted by the mumbles and hushing of the crowed as I sat on what was meant to be a stage. The months of practice and several restless nights were for a goal that I wasn't sure about until I sat in front of the 25 or so people that filled the cafe. The satisfaction I had after performing was something like no other. Being able to see the months of practice finally pay off made me even more determined to continue and get better.
+Even after my first big milestone, I continued to practice and continued to get better. I was motivated to go off and participate in my school's talent show for the next few years. Everyone at school knew me as the girl who could play the ukulele. I found myself reading chords with no hassle and I went from needing a week to learn a full song to being able to learn a song within the same day. This of course would not have been able to happen if it weren't for the wonders of time. Time allowed me have patience in myself and practice consistently. Despite having a difficult time towards the beginning of my journey, I found that if I was motivated enough and dedicated to learning the ukulele, I pushed through any obstacle until I improved.
+

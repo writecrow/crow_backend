@@ -1,0 +1,44 @@
+<Text>
+<Student IDs: 10546>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: LN>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1030>
+<Section: 1065>
+</Text>
+
+<Student 1>
+<Student ID: 10546>
+<Country: NA>
+<L1: Kannada>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+Topic: playing the piano
+Thesis: Being literate in music and being able to show it off is a beautiful way to connect with anyone or anything in your surroundings.
+Personal as the Social (I am an example - there are other people): rough patch in piano
+Who is the audience: me, Prof. <name>, struggling and frustrated musicians, and other interested readers
+The 'Key' to My Musical Understanding
+It was the summer of 2007. I was six years old, just going into first grade. My family had just moved to Arizona after living in Connecticut for five years, and everything was new to me. I was very excited for everything that was to come. School started soon after, and I was loving it. It was a great school with all of my favorite subjects taught by wonderful teachers. One day, during the second week of school, a renowned musician came to our school to play the piano for us. I had always loved how the piano sounded, and I always thought that it was so complicated to learn. I must mention that my family has a lot of musical background. My mother took Carnatic vocal lessons and veena lessons for many years as a kid, teen, and young adult, and she still plays and performs for enjoyment all the time. She would always sing to me when I was in bed or when I was upset, and it would always soothe me and make me feel a whole different level of happiness. My mom's voice always worked its magic and made me forget about everything around me. Of course, because of this, I was nothing less than ecstatic when I heard about the pianist coming to our school. She walked into our music classroom and sat down at the piano. When she started playing, I felt a connection with the instrument that I had never felt before with any other music. It was so beautiful and serene that I never wanted it to stop. That is what music has that nothing else does, it is a universal language that anyone, anywhere, can understand and relate to. Being literate in music and being able to show it off is a beautiful way to connect with anyone or anything in your surroundings. That was the moment I realized that I wanted to learn how to play the piano. It was a life-altering decision, and if I had not made it, I would be a very different person today.
+On August 22nd, 2006, I started playing the piano and taking lessons at <name> Piano Academy under a one of a kind teacher named <name> <name> Somehow I was a natural at reading music and getting the basics down, and it was just like learning another language. It has its own kind of alphabet, its own tonalities, and it requires a lot of practice. I started to pick up on different techniques and more difficult pieces as time went by, and soon enough it felt like I could express myself through a language that everyone can understand, but not many can utilize themselves.
+However, a caution with something like music is that it begins to get more and more challenging the more you learn and the farther you go, which might discourage some people and yet push others to even more exclusive boundaries. I am a good example of the former, and I slowly grew into the latter. There was a time during my middle school years in 6th, 7th, and 8th grade when playing the piano got very difficult to balance with all of the other activities I was involved in. Every song seemed impossible and practicing felt like an unneeded chore, and I became extremely discouraged. I disliked playing the piano for a good two or three years, and I almost felt like I wanted to give up and just let it all go. I felt like it was not worth it and it would get me nothing. It all felt hopeless, that it could only go down from there, and I felt like none of it mattered anyway because I knew I was not going to be a professional, so why even bother? Nonetheless my teacher always kept me on my toes, always kept pushing me, and always believed in me, and my mom was largely responsible for turning me around 180 degrees. My mom changed my whole way of thinking in middle school, and I became a whole different person with a completely revamped mindset in high school. Whenever I did not want to practice, she would always say, "Come on, trust me, <name>, this will benefit you in the future. Music has an amazing power to heal people and bring them together, and it is such a valuable thing to have. You are one of the most talented young pianists I have ever seen, and I think it will only do good to you to keep going. Never give up, and if you need anything, I'm always right here." Deep down, I knew she was right every single time, so I practiced, and I played, and I worked, and I suffered. I soon realized that although I sometimes did not want to play the piano or just did not want to think about music, it would do a lot of good for me in the future and it is something that inside me I knew I wanted to continue. I knew that my mom was right, but I had no idea as to the level at which it was true.
+In my freshman year of high school, something in me just clicked. I realized the significance and importance of music and the role it plays in my life, and I was eternally thankful to my mom for helping me tough out those difficult moments. It was absolutely worth it. I began to challenge myself further, and pick up harder and harder pieces. I continued participating in all sorts of competitions and adjudications, earning gold medals and superior with honors distinctions every time. I even won a bronze medal in an international music competition and was invited to perform in a recital at the Carnegie Hall in New York! Over the course of these events, music and playing the piano have also spiritually affected me. I have become calmer and happier through continuing to play the piano, as it keeps me in a good state of mind and helps distract me from all of the stress and work around me. Music has an unreal healing power, and as I am thinking of pursuing a career in medicine, it would pair unbelievably well. I volunteered at a hospice nursing home for three hours every Sunday for two years, and they had a grand piano in the lobby there. Many times I would sit down at the piano and just play for hours on end with no regard for time simply to communicate with the patients on a deeper level and give them hope and happiness through my universal language. There is no feeling in the world that beats seeing the smiles on the patients' faces after playing for them. Even just casually playing at home had its own healing power. When my brother was little, he would be upset and cry, but whenever he heard the sound of my piano, he calmed down and looked happy as ever. Whenever my mom was stressed over her work, she would hear me play in the other room and immediately come over to listen and relieve her stress. This was when I truly realized how fortunate I am to be literate in music and be able to affect people on a spiritual level through my piano playing.
+Retaining the language of music has probably been the blessing of a lifetime for me even up to this very moment. It has affected me greatly as a human being, and I cannot even imagine my life without playing the piano. It has shaped my entire life and is now an essential part of who I am. Being literate in a universal language is an absolute gift, and there is no way that I am putting it to waste. Playing the piano and being involved in music is something I will continue doing for the rest of my life.
+

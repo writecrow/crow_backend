@@ -1,0 +1,52 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: PR>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+22 November 2019
+Member of the community <name> 2019)
+A group that is well known but most often disregarded is a collective commonly referred to as "geeks" or comic book fanatics. The media typically portrays these individuals as antisocial and poor social skills, unattractive, and intelligent though lacking common knowledge (Gamedetective 2015). These stereotypes have been accepted by many who lack the means of receiving the truth. The fact is simply that while those cliches may be true for some people, more often than not, it's far from the truth. Universities are considered to be prestigious institutions where scholars seek higher education, and if the stereotypes about geeks are correct, what does that say about students who read comic books in their free time? Despite the absence of a major club dedicated to comic books on campus, there is an abundance of students as well as Tucson residents who are major fans of "geek culture". This term has been coined online and on social media websites to refer to the subculture of fanatics which are connected to Japanese animation, science fiction, comic books, video games, etc. (Mccain, Gentile, & Campbell 2015). The term "geek" is often used to denote the community, but in recent times it has fallen into disuse. Many members of the comic book community take pride in find family within the community. To gain more insight into the comic book community in the Tucson area and why/how certain individuals assimilated into this particular community, I decided to visit various comic bookstores and additional stores that carry comics in Tucson.
+<name> <name> A local shopper at Fantasy comics commented on the community saying, "It's a cool thing to be able to communicate with like-minded people and share opinions about comics. I honestly don't mind being called a geek, because there's nothing wrong with being a geek!" <name> <name> who is in his 20s, also mentioned that he had been reading comics since he was 11. Like <name> most people get into comic books through some sort of personal need. <name> stated that he wasn't a "smart" kid while growing up and didn't enjoy reading lengthy books such as novels. Comic books were the only form of media that intrigued him enough to pick up and read all the way through. One day while his 5th grade class visited the school's library, he happened to stumble upon a Calvin and Hobbes book and found the first book he was ever fascinated with. At Fantasy Comics, Davis wasn't searching for a particular comic, but rather just enjoyed being in a place that brought him joy. I was very interested in the answers that <name> responded with, but I was curious to know if most geeks found their way into the community at such a young age (Ray 2019).
+During a particular interview at Bookmans with a man named <name> <name> he shared that the main reason he began to read comics was sobriety in his late teens. "I was 17 when I was going through probation and I had a lot of free time, so I started to branch out my hobbies." At first, <name> was attracted to the dark graphics of the comic book cover, but soon fell in love with comic books in general when he found he was able to relate to the characters and resonate with their struggles. <name> prefers to read his <name> online and reads a Japanese style of comics known as Manga. Jesse referred to the first manga he read, Berserk, as an example of how he relating to the characters of the stories only enhances his fascination. ". Our predicaments are not our own faults, we were born to be slowly thrown into a life of darkness, yet we both try our best to get through every day and no one knows because we don't show it." <name> 2019). Unlike <name> attitude towards the community, most students I surveyed from campus noted that they enjoyed reading comic books because it gave them a way to escape the reality of mundane college life. Tucson often holds events that attract many to Geek Culture and its community as well.
+Group Photo from Tucson Comic Con 2019 <name> 2019)
+One of the main and more massive events held in Tucson is the Tucson Comic-Con. The Tucson Comic-Con Official Website describes the even as, ".dedicated to bringing an epic community-based pop culture experience for all that reflects today's fandom and the unique nature of Tucson, Arizona, and the American Southwest." <name> 2019). Events at this convention include Costume contests, comic seminars/workshops, artist panels/autographs, and various games. <name> <name> and her boyfriend <name> <name> are both students at the University of Arizona who recently attended the convention. The last comic con held was November 1-3, of this year. The couple themselves don't dress up or what is referred to as "cosplay," but they said they enjoy seeing those who choose to and bring the comic book characters to life. I asked them what their favorite part of the convention was and <name> answered, "We both met through friends who also liked comics, so going to Tucson Comic-Con gave us something to do that we both enjoyed." <name> added, "This year was our first year going, but I liked just looking around and being surrounded by people with the same interests." <name> <name> 2019) Tucson Comic Con has been around since 2008 and has continued to grow over an attendance of 10,000 fans.
+From the interviews I conducted within the community, I found that my interviewees gravitated towards comics because of their visuals, storyline, and the connections they personally made while reading. With the prominent presence of this community in Tucson, it is odd that there is no major group or club on campus. Reading comics are a form of entertainment that students need to relax from the stressful college life they all go through. The smart, social, and confident members of this community find comfort with each. "Geek culture" grows every day and as well as the bonds that brings the community together.
+Works Cited
+<name> <name> Personal interview. 15 November 2019
+Davies, Mike. "A Pair-A-Dice for the Campbell River Geek Community." Vancouver Island Free Daily, Vancouver Island Free Daily, 31 Jan. 2019, www.vancouverislandfreedaily.com/business/a-pair-a-dice-for-the-campbell-river-geek-community/.
+Gamedetective. "Four Common Geek Stereotypes: Myths and Realities." The Game Detective, 1 July 2015, gamedetective.wordpress.com/2015/07/01/four-common-geek-stereotypes-myths-and-realities/.
+<name> <name> and <name> <name> Personal Interview. 15 November 2019.
+Mc Cain, Jessica, et al. "A Psychological Exploration of Engagement in Geek Culture." Plos One, vol. 10, no. 11, 2015, doi:10.1371/journal.pone.0142200.
+<name> <name> About Tucson Comic-Con: Tucson Comic, 2019. Zia Records, www.tucsoncomic-con.com/about-tucson-comic-con/.
+<name> <name> Personal interview. 15 November 2019
+Tao, Daniel. "Daniel @ Tao Photo AZ." Flickr, Yahoo!, 22 Nov. 2019, www.flickr.com/photos/daniel_sennett/albums.
+

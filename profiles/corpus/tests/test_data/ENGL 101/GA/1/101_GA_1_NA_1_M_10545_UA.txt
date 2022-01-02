@@ -1,0 +1,101 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: GA>
+<Draft: 1>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+13 November 2019
+ASMR Videos on You Tube
+You may have been scrolling through your You Tube recommendations when you
+stumble upon those four letters: ASMR. What does that mean? ASMR, which stands for
+Autonomous Sensory Meridian Response, is the tingling sensation that some people get in their
+head, neck, and shoulders when listening to certain sounds or looking at certain visuals. The best
+way it can be described is the feeling that you get when your foot falls asleep, but instead of
+feeling like pins and needles, it feels like a warm massage.
+The "triggers," as they are called, that typically cause ASMR include, but are not limited
+to, soft whispering, ear-to-ear sounds, chewing gum, personal attention, flipping paper, tapping
+and scratching certain objects or materials, brushing, and hand movements. Since ASMR is a
+relaxing feeling, many people on the Internet create videos in order to intentionally cause
+ASMR. These creators are known as ASMRtists.
+Typically, people watch these videos in order to relax after a stressful day, help relieve
+depression or anxiety, or fall asleep. With stress levels steadily rising in America (Ray), where
+most You Tube viewers are (Migiro), it only makes sense that more and more people would want
+to combat this stress with relaxing videos. As a result, the popularity of ASMR videos on
+You Tube has skyrocketed.
+Types of ASMR Videos
+After viewing dozens of ASMR videos, I believe that they can be broken down into five
+main categories: mukbang, roleplay, normal sounds, talking, and no talking. Mukbang, which
+translates from Korean to "eating broadcast" (Zaman), is just that; eating food on camera to
+trigger ASMR. This is appealing to some because of the mouth sounds created while eating.
+Another type of ASMR video is roleplay, in which ASMRtists will pretend to be a certain
+profession, such as a doctor or librarian. Some people like this because of the personal attention
+aspect that goes along with it. Others like it simply because of the triggers in the video. For
+example, a librarian roleplay video may contain typing sounds, paper flipping, and soft
+whispering. Finally, normal sounds videos are just videos that contain regular ASMR sounds and
+do not contain aspects of the other two categories. This usually involves the creator focusing on
+certain triggers or types of objects, such as keyboards or wooden objects.
+The next two categories are mutually exclusive; ASMR videos will either contain talking
+or not. If they contain talking, it is almost always whispered from ear-to-ear. This goes hand in
+hand with roleplay videos because the speaker can focus their attention on the audience to create
+the aspect of personal attention. If no talking is present, then the creator can put the other sounds
+and objects at the forefront of their video. As stated before, they may choose to only create
+certain sounds and triggers, or they may have multiple sections planned out.
+Common Features
+ASMR is different for everybody. Some people enjoy certain sounds, whereas others will
+despise them. In mukbang, for example, some people love eating and mouth sounds, but others
+hate it. However, some triggers are almost universal in ASMR videos. Soft whispering is
+extremely common because it gives off the feeling of a parental figure talking you to sleep or
+reassuring you that everything is going to be fine. Ear-to-ear sounds are also common because it
+allows the audience to immerse themselves into the scene created in the video.
+These triggers often go along with personal attention. In a world that is increasingly busy,
+there is very little time for people to focus on themselves. These videos give people the time they
+need to focus on themselves. It also makes them feel like someone out there cares about them
+and their wellbeing. Personal attention often entails the creator asking questions about the
+audience or their day. These questions could be a part of roleplay, or they could be genuine
+questions about the audience. For example, a doctor would ask you about your name, address, or
+what symptoms you are experiencing. Other times, the speaker just wants to make sure you are
+doing alright and assures you that there are people out there who care about them.
+Another feature you may realize is that the lighting is often soft and neutral. Rarely will
+you see an ASMR video that features bright neon lights. The soft light gives off the illusion of
+dusk and nighttime. This will naturally make the audience unwind and feel sleepy.
+Finally, ASMR videos are always devoid of harsh noises. Otherwise, they wouldn't be
+ASMR videos. Since the purpose of ASMR is to relax the audience and help them fall asleep,
+any loud noises would immediately negate this purpose. Rather, as stated before, ASMRtists
+only use soft noises and whispering to activate ASMR. This is the main feature that differentiates
+other You Tube videos from ASMR videos.
+Works Cited
+Migiro, Geoffrey. "Which Countries Watch the Most You Tube?" World Atlas , Nov. 30, 2018,
+worldatlas.com/articles/which-countries-watch-the-most-youtube.html.
+Ray, Julie. "Americans' Stress, Worry and Anger Intensified in 2018." Gallup , April 25, 2019,
+news.gallup.com/poll/249098/americans-stress-worry-anger-intensified-2018.aspx .
+Zaman, Nabeela. "Mukbang ." Word Press , Aug. 26, 2015,
+https://goodlucksj.wordpress.com/2015/08/26/mukbang-%EB%A8%B9%EB%B0%A9/ .
+

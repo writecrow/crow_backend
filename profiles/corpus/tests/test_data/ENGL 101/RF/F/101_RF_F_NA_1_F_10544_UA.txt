@@ -1,0 +1,70 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: RF>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+<background picture>
+<name> <name> ENGLISH 101 PORTFOLIO
+2019 Fall Semester
+<background picture>
+Table of Contents
+Observation and Inferences
+<background picture>
+Critical Thinking and Composing
+Reflection and Revision
+<background picture>
+<student artifact>
+While comparing the literacy narrative of both Amy Tan and Chimamanda and Ngozi Adichie, I struggled in figuring out their similarities. At the time, I didn't realize that a literacy narrative meant the story of learning any skill in general and not just becoming literate. From further analyzing the texts I became aware of many of the conventions that were similar and made the genre a Literacy Narrative. This honestly increased my understanding and use of Goal 3. For example, both contain details that are more showing than telling and contain some sort of plot as to how they achieved their "literacy". Looking back at this comparison, I realize I could have elaborated more on the rhetorical situation that this genre has and that the two share. Both authors showed a purpose or importance of their incidences in becoming literate, and this helped me realize that I too should have importance when I would later write my literacy analysis, so it would have been a strong point to have made in this homework assignment.
+<background picture>
+Graphic Designer Rhetorical Situation
+<student artifact>
+Although this was a small and quick homework activity, it helped me develop my knowledge of rhetorical situations and how it ties into the genre. Goal 1 was shown in this aspect as it relates to rhetorical awareness. This activity was assigned during our genre analysis, and I was having trouble breaking down the genre into the main components of its rhetorical situation. By doing this, I was able to see that any genre and every genre has a rhetorical situation with a purpose, audience, and context. The Graphic Designer that was the main focus described how and why their designs were created to look the way they did, and this was all due to the rhetorical situation. If I were to redo this assignment, I would have probably structured it differently such as a paragraph format. It currently is done in what I would describe as almost a bullet point format where I answered the main points of a rhetorical situation in quick sentences with a quote from the text. For example, under the context section, I only used a quote as an answer when I could have talked about how that specific context contributed and changed the cover art. I could have done more to satisfy goal 4 which has an SLO about "identifying the collaborative and social aspects of writing processes.
+<background picture>
+Observations and Inferences
+<student artifact>
+This assignment was an extra credit opportunity, however, I found it very helpful in identifying and differentiating an observation from an inference. These observations were taken from an example genre analysis and were used to help us in analyzing our chosen genre for our genre analysis. Before this assignment, I was treating my project as a rhetorical analysis instead of a genre analysis, but I learned how to properly analyze the genre itself in a similar way that the author observed her genre of parent texting and to create her analysis. This assignment is set up as in a T-table which I think is an effective way of grouping the two. After reading the entire text in one go, I went back and tried to locate pieces of information that were either raw data that the author collected or quotes from the text messages, which were then identified as observations. These observations were often used to support the author's inferences such as "many parents have difficulties communicating via text". Gathering information and creating inferences based on this relate to Goal 2 which I believe was shown through in this assignment. The only difficulty I had with this assignment would be fitting all the information in a single chart. The analysis wasn't exactly short, and I didn't and still don't know what to call relevant information and what to call irrelevant.
+<link to student artifact>
+<background picture>
+Literacy Narrative
+<student artifact>
+This project helped in my understanding of conventions that made up a genre as well as the rhetorical situation in multiple different genres which can be associated with course goals 1 and 3. I had not heard about a literacy narrative until this semester so writing my literacy narrative was a challenge for me. It was hard deciding on a topic to write about because I didn't quite understand what it was, and even as I wrote it, I was still very skeptical about my decision to write about my topic and whether I was doing it correctly. I knew I was using the same conventions as the other readings in this unit as well rhetorical situation that I had in mind, so I knew I couldn't have been far off from what was required. During the writing process, we as a class did a reverse outline of our peers' first drafts, and this thought me different ways to revise my works which meets course goal 4. Although I received an A on this project, it was my lowest score out of all 3 of the major written projects. Because of this, I chose to revise this paper because it had more room to improve such as adding in more information that would satisfy the needs of my audience and make a more cohesive narrative.
+<link to student artifact>
+<background picture>
+Genre Analysis
+<student artifact>
+Throughout the entire semester, we had been studying genre, but I was still had a difficult time deciding on a genre and differentiating between a topic and a genre. My genre, comic book covers, was a very specific way comic book artists communicate with their audience which I learned was an important part of a genre. I was confused at the idea of analyzing a genre without only analyzing the rhetorical aspects of it, but then I remembered the aspects that were included in one of our textbooks (How Writing Works) and realized we were observing the genre itself and making inferences about the components and why they were used for the genre's specific rhetorical situation. I faced a huge challenge in this project with the outlining and organizing of the paper. I had no idea what to put as the headings or what to include in each paragraph. In my structure section, I debated on which parts of a comic book cover would be relevant to mention in terms of the comic book cover's rhetorical situation, and I believed that the bar code on the bottom of the page wasn't as important as other aspects, but in my feedback, I was told it would be been useful to include. Majority of points I lost from this paper were from course goal 1 and 4 which mostly due to me being unfamiliar with this type of writing.
+<link to student artifact>
+<background picture>
+Community Profile
+<student artifact>
+The community profile was honestly was the easiest of the projects because the majority of information that was included in my paper was from research, both primary research and secondary research. I had trouble with my actual interviews because I wanted to focus my community to be comic book readers on campus, but there was no student club, so I had to branch out to the Tucson community in general. I was pleased with the feedback my professor gave on my community profile. One of the main points that stood out was that some parts of my paper didn't fit clearly or were not captivating. I satisfied all of the course goals in this paper except losing a few points in goal 3. This was probably due to not being familiar with this genre of writing which impacted the outline and flow of my topics. I enjoyed interviewing members of this community and being able to relay their information in a formal written way, and if I were to do something like this again, I would include more information that would be relatable to the reader to make the paper more captivating.
+<link to student artifact>
+

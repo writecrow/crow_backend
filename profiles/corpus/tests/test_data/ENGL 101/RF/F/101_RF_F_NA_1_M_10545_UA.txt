@@ -1,0 +1,76 @@
+<Text>
+<Student IDs: 10545>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: RF>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1029>
+<Section: 1064>
+</Text>
+
+<Student 1>
+<Student ID: 10545>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: No>
+<Year in School: 1>
+<Gender: M>
+<College: College of Science>
+<Program: Physics>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+12 December 2019
+SLO 1A
+Going in order of the SLOs, the first that I accomplished was 1A. It says that the student can identify the purposes, audiences, and arguments in a text given the context. This ties in perfectly with course goal 1, which is to develop strategies for analyzing the rhetorical situation of texts. The writing in which I accomplished this was <student artifact>. This writing asked us to take the genre we were going to analyze (in my case, ASMR) and find the purpose, creators, audience, and context of our genre. This allowed us to better write our rough draft, which required us to discuss the reasons the creators create this genre (the context) and why certain audiences read or listen to it.
+The first thing I did was find the purpose of ASMR videos. This was fairly simply, as most ASMR videos will explicitly say that they are meant to help relax the audience and help them fall asleep. The next question that arose was who was this audience? Writing from experience, I know that the audience is anyone with ASMR. This is actually why I picked ASMR as my genre: I already had some background knowledge of the genre and wanted to share the truth of it through my writing, seeing as there is a lot of misinformation on the genre. In analyzing the genre through the preliminary analysis, I met course goal 1.
+SLO 2B
+The next SLO that I met was 2B. It asks that the student learns to support their ideas with evidence from multiple sources. This and the next SLO are a part of course goal 2, which asks students to think critically about their reading and writing in order to fully understand a community. In my <student artifact>, I had to make many claims about ASMR, ranging from where most You Tube viewers live to if ASMR has any real medical benefits. These claims have to be backed up by credible sources. I knew that the variety of claims I made would require a variety of different sources. Otherwise, it would seem like I was biased if I only used one source. So, I had to find sources from Google, scientific studies, news articles, and videos on You Tube.
+Some of these claims I already had suspicions about. For example, I guessed that most You Tuber views come from the United States. I just had to find a credible source that agreed with that statement. Other claims, like the ones relating to the actual medical benefits of ASMR, I had no idea what the truth was. So, I found a scientific study relating to the demonstrable effects of ASMR on the body, and made claims from what I read. In order to make these claims, I had to look back on ASMR and think about why creators did what they did. This required critical thinking about the larger purpose of the genre, which fulfills course goal 2.
+SLO 2C
+The third SLO I met this semester was 2C. This one was originally intended for English 102 and 108 students, but I feel like I have made progress towards meeting this one. It asks students to use a variety of research methods, including primary and secondary research. I had to use this SLO as part of my process in writing my <student artifact> This SLO was needed because it required us to synthesize information from multiple sources into a coherent essay about a particular discourse community. I chose the University of Arizona Cyber Cats.
+For primary research, I emailed the leader of the club and conducted an email interview with him. This way, I could use this entirely new information to bring new insights into the discourse community. For example, what the Cyber Cats intend on doing once more members join. In addition, I went to one of the Cyber Cat's club meetings to make my own observations. That way, I can relate to the readers what they can expect for a typical meeting. For secondary research, I used the club's official website to find any publicly available information that I may not have found through my primary research.
+SLO 3A
+Course goal 3 is to understand how conventions relate to the rhetorical analysis. A subset of this goal was SLO 3A. It entails following the appropriate conventions for grammar, punctuation, and spelling. While I would have already considered myself well-educated in these fields, I did learn some of the intricacies of a sentence's grammatical structure on the meaning of the sentence. I learned this through <student artifact>, which asked us to take a sentence and rewrite it with a different subject, essentially changing the meaning.
+Most of the sentences contained a subject, verb, and then a prepositional phrase. What I did for most of the sentences was to make the prepositional phrase the subject and work around that. By changing the subject of the sentence, I found that it shifts the reader's attention to a different person, organization, or noun. While still following the proper grammatical rules, it allows me as a writer to better control what my readers think about and how they interpret information. This shifting of meaning meant that I had to think about what I actually wanted to say in order to find the right way of relaying that information to the audience. FG Exercise 1 was a good way of learning about course goal 3.
+SLO 4C
+The fourth and final course goal was to learn how writing is a collaborative process that requires reflection on one's own writings. One part of this is SLO 4C, which asks students to suggest both global and local revisions for other writers. I used this SLO throughout the course, but my first introduction to it was in <student artifact>. Peer review, as I see it, is the process in which people come together and use an outsider's perspective to clear up any confusion the reader may experience while reading a writing. This way, the author can make their writing clear, concise, and informative.
+By having dedicated time for peer review for each major project, this SLO was heavily emphasized. We learned what made comments substantial and how to provide these helpful comments. In particular, I learned that we should not just say whether or not we liked an aspect of the other author's writing, but also why we like or dislike it, and how it can be improved upon if we disliked it. After three projects with this, I feel that I have learned how to get the most out of peer review and how to be the most helpful I can be when peer reviewing others' writings. Thus, peer review has taught me how collaborating when writing can vastly improve it, and that you can use your knowledge of previous writings to improve over time. As a result, I have worked towards course goal 4.
+SLO 4D
+The final SLO that I feel I have accomplished was 4D. It asks students to realize the inherently collaborative nature of the writing process. I learned this in two ways: by reading the articles on Reddit's male fashion advice and R-Ladies and through <student artifact>. Reading the articles made me realize how many people it takes to get a discourse community together. One person has to have an idea, then a few people have to get together, then they usually publicize it for others to join, until it grows into a larger community with its own genres.
+In addition to reading the articles, the class got into small groups to collaboratively analyze the rhetorical situations of the articles. While I may have my own ideas about them, other people had to come together in order to find the most complete picture of the rhetorical situation. This is because of people's limited viewpoints; I can easily see things from my own experiences, but if someone had different experiences, they will have different ideas. I learned that this is part of the process of any writing; from bouncing your preliminary ideas off of other people to peer review, writers have to discuss with others in order to improve their ideas.
+ASMRtists on You Tube
+Lack of enough sleep is a problem that affects about 35.2% of adults in the United States ("Short Sleep Duration"). This lack of sleep can be caused by many factors: stress, depression, and insomnia, among many others. What can Americans do to combat these factors and get the sleep they need? One way is to watch You Tube videos created by ASMRtists. These online creators make ASMR videos: videos that feature quiet sounds, whispering, and soft visuals.
+The purpose of these videos is to activate ASMR, a relatively unknown condition that causes a warm tingling sensation in the head, neck, and shoulders when listening or viewing certain "triggers." These triggers include soft whispering, tapping on objects, scratching different materials, eating, personal attention, brushing hair, and hand movements. What triggers ASMR varies widely between different people, so every video is made in different ways.
+However, there are a few common factors in ASMR videos. The main component that distinguishes them from other videos is the audio. ASMR videos only contain soft sounds. Otherwise, they would defeat the purpose of triggering ASMR. They also feature soft visuals. This means the background is dark and out-of-focus, while a soft light is cast on the ASMRtist's face. This serves two purposes: it brings more attention to the creator and it also gives off the impression of nighttime, when we are naturally sleepier.
+Now, if you are new to ASMR, where do you start? That depends on whether you simply want to watch and listen to ASMR or if you want to make it. If you want to watch ASMR videos, simply going on You Tube and searching "ASMR" will yield thousands of results. However, if you want to become an ASMRtist yourself, it requires a little more work.
+The first thing needed is a camera and a computer. Otherwise, you would not be able to record and edit videos. Any camera will do, however it is recommended that it can record in 1920 by 1080, which is the resolution of most screens. Next, you will need to decide which microphone you will use. Since ASMR is a very audio-centric genre, this is a very important decision.
+When deciding what microphone to choose, there are three main setups that ASMRtists usually use. The first is simply having one microphone in front of them. This is a very simple setup that is easy to manage and edit with, but it deprives the creator of one major feature of ASMR videos: ear-to-ear sounds. Without ear-to-ear sounds, the audio becomes simplistic, which is often not well-received in the ASMR community.
+The next setup is a little more complicated, but overall works very well for ear-to-ear sounds. It entails buying two identical microphones and placing one on the left side of the video and one on the right side of the video. This way, the ASMRtist can "move" sounds from the left ear to the right ear, giving off the illusion that the audience is right there with them. This creates a more personal feeling that a lot of ASMR viewers enjoy.
+The last setup is a bit weirder and more expensive, but was created specifically for making ASMR videos. Right now, there are two microphones that were made for ASMR videos: the 3Dio FS Binaural line ("3Dio") and the wildly expensive Neumann KU 100 ("KU 100"). These microphones are protected by realistic rubber ears. This may sound odd, and even a little creepy, but the reason for it is ingenious. By putting realistic ears around the actual microphones, the sound waves bounce around in a similar fashion to how they would with a real ear. This creates a more realistic sound that is often perfectly tuned to the range of real human ears.
+Now that any potential ASMRtists have the necessary equipment, another major challenge stands in their way: what type of video should they make? Despite what it may sound like, there is actually quite a bit of diversity in the types of ASMR videos there are. There are certain subgenres, like mukbang, roleplay videos, and hours long no talking videos, just to name a few. As a quick overview, mukbang is Korean for "eating broadcast" (Zaman), where ASMRtists eat food on camera. Roleplay videos entail the creator portraying a certain profession, like a doctor, librarian, or hair stylists, in order to create a more one-on-one feel with the audience. There are also ASMR videos that are hours long and do not contain any talking at all, in what are simply known as "trigger videos."
+This brings up another good question to ask yourself if making one of these videos: how long do you make it? Typically ASMR videos are anywhere from about 10 minutes to multiple hours long. This is simply due to the fact that it takes the average person 30 minutes to fall asleep (Jones), and ASMRtists want people to fall asleep to their videos.
+Now that you are ready to film your first ASMR video, one last thing stands in your way that becomes obvious very quickly: almost every single ASMRtist is female (Allocca). This may seem odd at first because ASMR is almost split evenly between men and women, but it skews towards women only slightly ("Polls about ASMR"). However, there is a growing number of male ASMRtists that are challenging this traditionally female-dominated genre. One potential reason for this discrepancy is the fact that many people see women as gentler and softer. According to ASMRtist Maria Viktorovna, "women themselves are very nurturing creatures by nature, so we see them as a softer, more caring gender" (Viktorovna).
+Once you have your video all done, it's time to share it with the world! ASMR is most prevalent on You Tube, so that should be your platform of choice. Once the video is published, it often takes years to grow a decent following, so overnight success shouldn't be expected. In order to grow your channel, consistency is key. Posting anywhere from once a month to multiple times every day will slowly increase your following within the ASMR community. Hopefully from there, you become the next big ASMRtist.
+Works Cited
+"3Dio." 3Dio, https://3diosound.com/.
+Allocca, Kevin. "Videocracy." Bloomsbury Publishing, 2018, https://books.google.com/books?id=Vcot Dw AAQBAJ.
+Jones, Kirtly. "It Takes Me Hours To Fall Asleep - Am I Normal?" University of Utah Health, 8 January 2015, healthcare.utah.edu/the-scope/shows.php?shows=0_xa3qjafl.
+"KU 100." Neumann, https://en-de.neumann.com/ku-100.
+"Polls about ASMR." ASMR University, https://asmruniversity.com/asmr-polls-surveys/.
+"Short Sleep Duration Among US Adults." Center for Disease Control and Prevention, May 2, 2017, https://www.cdc.gov/sleep/data_statistics.html.
+Viktorovna, Maria. Interview with Kevin Allocca. Videocracy, By Kevin Allocca. https://books.google.com/books?id=Vcot Dw AAQBAJ.
+Zaman, Nabeela. "Mukbang <Korean>." Word Press, Aug. 26, 2015, goodlucksj.wordpress.com/2015/08/26/mukbang-%EB%A8%B9%EB%B0%A9/.
+

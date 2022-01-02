@@ -1,0 +1,54 @@
+<Text>
+<Student IDs: 10544>
+<Group ID: NA>
+<Institution: University of Arizona>
+<Course: ENGL 101>
+<Mode: Face to Face>
+<Length: 16 weeks>
+<Assignment: GA>
+<Draft: F>
+<Course Year: 2019>
+<Course Semester: Fall>
+<Instructor: 1019>
+<Section: 1063>
+</Text>
+
+<Student 1>
+<Student ID: 10544>
+<Country: NA>
+<L1: NA>
+<Heritage Spanish Speaker: Yes>
+<Year in School: 1>
+<Gender: F>
+<College: College of Medicine>
+<Program: Physiology & Medical Sciences>
+<Proficiency Exam: NA>
+<Exam total: NA>
+<Exam reading: NA>
+<Exam listening: NA>
+<Exam speaking: NA>
+<Exam writing: NA>
+</Student 1>
+<End Header>
+
+English 101
+October 18, 2018
+Genre is seen as a means of communication for an author or a creator through any medium that can get across a specific message and achieve a goal. Certain genres differ depending on the "rules" that have been previously agreed on. Common situations can be responded to with a certain form of organized writing, which is why genre is an important part of writing to this day. Within the various types of rhetorical situations, genre has grown into various categories as well as sub-categories. An example of this is the use of comic book covers. Although they aren't a genre that first comes to mind, they contain all the correct components to be considered a genre on their own. Comic book covers utilized by comic artists share similar conventions and rhetoric which begs the question: why do artists create comic book covers? At first glance, the cover of a comic book seems to be only that, a cover. It may also add an extra "wow" factor, however, as I analyzed the similarities between covers, it appeared that there was indeed a goal the creators of these covers had in mind.
+Audience and Purpose
+All comic books are created to attract the comic community and those who read comic books or are interested in reading comic books. Usually, comic books fluctuate with a specific target audience such as adults and children. Artists tend to use colors and graphics in their covers to appeal to a range of audiences. Soft graphics with light colors such as pink (Figure 1) are typically used to appeal to children, specifically girls, whereas harsher lines and dark colors (Figure 2) are usually used for adults and/or boys. When the audience glances at the cover, they should be shown the title of the comic which alludes to the plot, the main character(s) of the comic, and at times speech from the characters in the form of text bubbles. Comics that are found in stores should also all include the price which they are being sold for, the company which is producing the comic, and the date it was published. All of the information which is contained on the covers of comic books should all be used to inform the audience of the main comic and also persuade them in purchasing it.
+Structure
+With comic book covers specifically, all the information on it is structured in ways that make it possible for the comic artist to convey their message as wells as for their audience to obtain it. It is quite easy to tell the difference between a comic book cover and a textbook cover, and that is through the use of organization and design. A comic book cover is usually 6-5/8 inches wide by 10-1/4 inches tall, but there is no set exact dimension. Titles are more than often found on the upper-middle portion of the page with large and form of Comic Sans font. The total design of the cover is meant to be a basis for the topic of the comic book. In a Fantastic Four Comic, the two main characters are shown in the middle of the cover with text bubbles foreshadowing a scene from the comic. (Figure 3). <name> <name> a first-year art student at Cochise College, as well as a frequent comic book reader/artist said in an interview,
+"Covers vary incredibly. Mainstream comics usually stay in a specific format for their covers because that's just what has always worked and what will continue to work. However, when you enter into the more alternative stories and the indie companies, cover design starts getting unique, so it depends on what publisher you're analyzing. Mainstream covers are jampacked with characters, almost like a movie poster, while other covers display the characters in a more symbolic way such as a Dare Devil cover (Figure 4)." <name> 2019)
+Relationship to Context
+Comic book covers are very unique in terms of all the conventions that make up their structure and the audience they are created for. All of the elements allow the reader to observe what is being provided on the front cover and predict the outcomes of the comic without even have read a single page of the actual book. Authors keep in mind the context in which these books will first be seen and that is most likely in a store. When comic books are placed out for people to see, the first thing that will catch their eye is the bright colors or the dark graphics, along with the huge font and the recognizable characters in the center of the cover. The suspense that is created from just a single glance that motivates the reader to pick up the comic book is what the author tries to capture when creating a cover. A simple but effective example can be found in the walking dead comic book cover. A tombstone with the name Lori is seen, and in blood "AND RICK?" is also found (Figure 5). Readers of this comic might be intrigued by the implication of the death of one of the main characters.
+Conclusion
+From observing and the 5 artifacts, I first inferred that comic book covers were used as a way for comic book artists to communicate to comic book readers to persuade them to buy the comic book itself. After interviewing a comic book artist/reader and learning the different components that go into making a successful cover, I learned that even though that initial hypothesis was correct; there is much more to a comic book cover. Artists utilize common conventions such as visuals, design layout, and organization to accomplish their purpose of the cover. Similarly, among all artists, companies, and the comic book series, the purpose of the cover is to attract the reader. However, depending on those conditions, how the reader is attracted fluctuates. From the conventions stated, emotion is one of the possible reasons that cause the reader to gravitate towards a comic such as the example that was given about the Walking dead cover. Another way to do this is by captivating onlookers using an aesthetic value that needs no action in their cover. As stated in Navigating Genres, "These similarities within genres help us to communicate successfully." (Dirk, 2010). Comic book covers are considered to be the most important aspect of a comic that connects the creators with readers and is also the only genre that will allow the creators to do so. It is important to realize that the conventions used help the comic book community stay in tune with the companies and artists that produce the genre to provide to the needs of the reader.
+Works Cited
+<name> <name> "Comic Book Cover Interview." Comic Book Cover Interview, 14 Oct. 2019.
+Dirk, Kerry. "Writing Spaces." Navigating Genres | Writing Spaces, Parlor Press and WAC Clearninghouse, 3 May 2010, http://writingspaces.org/essays/navigating-genres.
+Appendix
+(Figure 1) (Figure 2)
+(Figure 3) (Figure 4)
+Appendix
+(Figure 5)
+
