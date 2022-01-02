@@ -3,6 +3,7 @@
 namespace Drupal\Tests\corpus\Functional;
 
 use Drupal\Tests\BrowserTestBase;
+use Drupal\corpus_importer\ImporterService;
 
 /**
  * Tests that the initial page load returns expected JSON data.
@@ -42,6 +43,9 @@ class BaseLoad extends BrowserTestBase {
 
     $this->drupalGet('admin/content');
     $this->assertSession()->statusCodeEquals(200);
-
+    $data = drupal_get_path('profile', 'corpus') . '/tests/test_data';
+    $this->assertEquals('profiles/corpus/tests/test_data', $data);
+    $this->assertEquals(TRUE, file_exists($data));
+    ImporterService::import($data, ['lorem' => FALSE, 'dryrun' => FALSE]);
   }
 }

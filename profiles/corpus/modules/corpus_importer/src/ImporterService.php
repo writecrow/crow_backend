@@ -25,82 +25,53 @@ class ImporterService {
    */
   public static function import($files, $options = []) {
 
-    if (PHP_SAPI == 'cli' && function_exists('drush_main')) {
-      ini_set("memory_limit", "4096M");
-      array_slice(scandir($files), 2);
-      $absolute_paths = [];
-      $repository_candidates = [];
-      $objects = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($files));
-      foreach ($objects as $filepath => $object) {
-        if (stripos($filepath, '.txt') !== FALSE) {
-          $absolute_paths[]['tmppath'] = $filepath;
-        }
-        if (stripos($filepath, '.txt') === FALSE) {
-          $path_parts = pathinfo($filepath);
-          // Get a filelist of repository materials eligible for upload.
-          $repository_candidates[$path_parts['filename']] = $filepath;
-        }
+    ini_set("memory_limit", "4096M");
+    array_slice(scandir($files), 2);
+    $absolute_paths = [];
+    $repository_candidates = [];
+    $objects = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($files));
+    foreach ($objects as $filepath => $object) {
+      if (stripos($filepath, '.txt') !== FALSE) {
+        $absolute_paths[]['tmppath'] = $filepath;
       }
-      $texts = self::convert($absolute_paths);
-      $skipped = [];
-      $created = [];
-      foreach ($texts as $text) {
-        if ($text['type'] == 'corpus') {
-          $text = ImporterHelper::validateCorpusText($text);
-          $result = self::saveCorpusNode($text, $options);
-        }
-        if ($text['type'] == 'repository') {
-          $result = self::saveRepositoryNode($text, $repository_candidates, $options);
-        }
-        if ($result['status'] === FALSE) {
-          $skipped[] = $result['id'];
-        }
-        elseif ($result['status'] === TRUE) {
-          $created[] = $result['id'];
-          echo $result['id'] . PHP_EOL;
-        }
-
-        if (!empty($result['messages'])) {
-          $messages[] = [$result['id'] => $result['messages']];
-        }
+      if (stripos($filepath, '.txt') === FALSE) {
+        $path_parts = pathinfo($filepath);
+        // Get a filelist of repository materials eligible for upload.
+        $repository_candidates[$path_parts['filename']] = $filepath;
       }
-      echo PHP_EOL;
-      echo '*** Notifications ***' . PHP_EOL;
-      echo 'Created ' . count($created) . ' texts.' . PHP_EOL;
-      if (count($skipped) > 0) {
-        echo 'Skipped ' . count($skipped) . ' texts. ' . PHP_EOL;
-        print_r($skipped);
-      }
-      $prepared_messages = self::prepareMessages($messages);
-      print_r($prepared_messages);
-      echo PHP_EOL;
     }
-    else {
-      // The UI-based importer. This is outdated currently.
-      // Convert files into machine-readable array.
-      $texts = self::convert($files);
-      \Drupal::messenger()->addStatus(count($files) . ' files found.');
-
-      // Perform validation logic on each row.
-      $texts = array_filter($texts, ['self', 'preSave']);
-
-      // Save valid texts.
-      foreach ($texts as $text) {
-        $operations[] = [
-          ['\Drupal\corpus_importer\ImporterService', 'save'],
-          [$text, $options],
-        ];
+    $texts = self::convert($absolute_paths);
+    $skipped = [];
+    $created = [];
+    foreach ($texts as $text) {
+      if ($text['type'] == 'corpus') {
+        $text = ImporterHelper::validateCorpusText($text);
+        $result = self::saveCorpusNode($text, $options);
       }
-
-      $batch = [
-        'title' => t('Saving Texts'),
-        'operations' => $operations,
-        'finished' => ['\Drupal\corpus_importer\ImporterService', 'finish'],
-        'file' => drupal_get_path('module', 'corpus_importer') . '/corpus_importer.module',
-      ];
-
-      batch_set($batch);
+      if ($text['type'] == 'repository') {
+        $result = self::saveRepositoryNode($text, $repository_candidates, $options);
+      }
+      if ($result['status'] === FALSE) {
+        $skipped[] = $result['id'];
+      }
+      elseif ($result['status'] === TRUE) {
+        $created[] = $result['id'];
+        echo $result['id'] . PHP_EOL;
+      }
+      if (!empty($result['messages'])) {
+        $messages[] = [$result['id'] => $result['messages']];
+      }
     }
+    echo PHP_EOL;
+    echo '*** Notifications ***' . PHP_EOL;
+    echo 'Created ' . count($created) . ' texts.' . PHP_EOL;
+    if (count($skipped) > 0) {
+      echo 'Skipped ' . count($skipped) . ' texts. ' . PHP_EOL;
+      print_r($skipped);
+    }
+    $prepared_messages = self::prepareMessages($messages);
+    print_r($prepared_messages);
+    echo PHP_EOL;
   }
 
   /**
