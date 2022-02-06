@@ -62,7 +62,9 @@ class CorpusSearch extends ControllerBase {
     $facet_map = TextMetadata::getFacetMap();
     // Get all facet/filter conditions.
     $conditions = self::getConditions($request->query->all(), $facet_map);
-    $offset = $request->query->get('offset') ?? 0;
+    if (!isset($conditions['filenames'])) {
+      $offset = $request->query->get('offset') ?? 0;
+    }
     $all_texts_metadata = TextMetadata::getAll();
     $ratio = 1;
     $token_data = [];
@@ -104,7 +106,7 @@ class CorpusSearch extends ControllerBase {
       }
     }
     else {
-      // Perform a non-text string search.
+      // Perform a non-keyword (i.e., only conditions such as facets) search.
       $global['text_ids'] = $condition_match_ids;
       $matching_texts = $condition_matches;
     }
@@ -231,6 +233,10 @@ class CorpusSearch extends ControllerBase {
     }
     if (isset($parameters['id'])) {
       $conditions['id'] = Xss::filter($parameters['id']);
+    }
+    if (isset($parameters['filenames'])) {
+      // Convert filenames to array. If this is present, it will bypass facet filters, etc.
+      $conditions['filenames'] = explode(' ', Xss::filter($parameters['filenames']));
     }
     if (isset($parameters['toefl_total_min'])) {
       $conditions['toefl_total_min'] = Xss::filter($parameters['toefl_total_min']);

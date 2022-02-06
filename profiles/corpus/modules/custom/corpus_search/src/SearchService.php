@@ -183,8 +183,12 @@ class SearchService {
     $query = $connection->select('node_field_data', 'n')
       ->fields('n', ['nid', 'title', 'type'])
       ->condition('n.type', 'text', '=');
-    // Apply facet/filter conditions.
-    if (!empty($conditions)) {
+    if (!empty($conditions['filenames'])) {
+      // Return a filename-based (title) query only.
+      $query->condition('n.title', $conditions['filenames'], 'IN');
+    }
+    elseif (!empty($conditions)) {
+      // Apply facet/filter conditions.
       $query = self::applyConditions($query, $conditions);
     }
     $results = $query->execute()->fetchCol();
