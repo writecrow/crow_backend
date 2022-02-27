@@ -6,6 +6,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\user\Entity\User;
+use Drupal\corpus_search\Controller\CorpusSearch;
+use writecrow\Highlighter\HighlightExcerpt;
 
 /**
  * Return full or excerpted text, based on the user role.
@@ -56,16 +58,21 @@ class CorpusText extends FieldPluginBase {
     $user = User::load(\Drupal::currentUser()->id());
     $text = htmlentities(strip_tags($text_object[0]['value'], "<name><date><place>"));
 
+    $param = \Drupal::request()->query->all();
+    if (isset($param['search'])) {
+      $tokens = CorpusSearch::getTokens($param['search']);
+      $text = HighlightExcerpt::highlight($text, array_keys($tokens), FALSE);
+    }
     if ($user->hasRole('full_text_access')) {
-      return nl2br($text);
+      return '<div class="panel">' . nl2br($text) . '</div>';
     }
     // Default to returning a truncated version of the text.
     if (strlen($text) > 600) {
-      $output = '<h3>(Excerpted)</h3><p>Displaying first 600 characters. For fulltext, apply for an account by emailing <a href="mailto:collaborate@writecrow.org">collaborate@writecrow.org</a></p><hr />';
-      $output .= nl2br(preg_replace('/\s+?(\S+)?$/', '', substr($text, 0, 600)) . '...');
+      $output = '<div class="panel"><em>This account is limited to viewing excerpts. Displaying first 600 characters. For fulltext, apply for an account by emailing <a href="mailto:collaborate@writecrow.org">collaborate@writecrow.org</a></em></div>';
+      $output .= '<div class="panel">' . nl2br(preg_replace('/\s+?(\S+)?$/', '', substr($text, 0, 600)) . '...') . '</div>';
     }
     else {
-      $output = nl2br($text);
+      $output ='<div class="panel">' . nl2br($text) . '</div>';
     }
     return $output;
   }
