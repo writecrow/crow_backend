@@ -38,7 +38,7 @@ assert_options(ASSERT_ACTIVE, TRUE);
 /**
  * Enable local development services.
  */
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
 
 /**
  * Show all error messages, with backtrace information.
@@ -153,3 +153,28 @@ $settings['skip_permissions_hardening'] = TRUE;
  * the language or field module.
  */
 # $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+
+$lando_info = json_decode(getenv('LANDO_INFO'), TRUE);
+
+$databases['default']['default'] = [
+  'database' => $lando_info['database']['creds']['database'],
+  'username' => $lando_info['database']['creds']['user'],
+  'password' => $lando_info['database']['creds']['password'],
+  'host' => $lando_info['database']['internal_connection']['host'],
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+];
+
+$config['simple_oauth.settings'] = [
+  'access_token_expiration' => '7200',
+  'authorization_code_expiration' => '300',
+  'refresh_token_expiration' => '1209600',
+  'token_cron_batch_size' => '0',
+  'public_key' => 'public.key',
+  'private_key' => 'private.key',
+  'remember_clients' => 'true',
+  'use_implicit' => 'true',
+  'disable_openid_connect' => 'false',
+];
