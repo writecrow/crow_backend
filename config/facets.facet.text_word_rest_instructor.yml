@@ -6,23 +6,25 @@ _core:
   default_config_hash: 3UT6vyE8rZ8W3YDk6dGHbOVD2xfJ8ESv2F5vMdQaRbw
 id: text_word_rest_instructor
 name: text_word_rest_instructor
-url_alias: instructor
 weight: 0
 min_count: 1
-show_only_one_result: false
-field_identifier: instructor
+url_alias: instructor
 facet_source_id: 'search_api:views_rest__texts_by_word__rest_export_1'
+field_identifier: instructor
+query_operator: or
+hard_limit: 0
+exclude: false
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
 widget:
   type: array
   config:
     show_numbers: true
-query_operator: or
-use_hierarchy: false
-expand_hierarchy: false
-enable_parent_when_child_gets_disabled: true
-hard_limit: 0
-exclude: false
+empty_behavior:
+  behavior: none
 only_visible_when_facet_source_is_visible: true
+show_only_one_result: false
 processor_configs:
   display_value_widget_order:
     processor_id: display_value_widget_order
@@ -46,5 +48,3 @@ processor_configs:
       pre_query: -10
       build: -10
     settings: {  }
-empty_behavior:
-  behavior: none

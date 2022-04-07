@@ -1,10 +1,23 @@
 uuid: c6b802c4-3454-49ab-84b8-4e9b9b94a9ab
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.standard_html
+    - node.type.page
+  module:
+    - captcha
+    - corpus_search
+    - filter
+    - honeypot
+    - node
+    - role_delegation
+    - system
+    - toolbar
+    - userprotect
 id: manager
 label: 'Account Manager'
-weight: 6
+weight: -6
 is_admin: null
 permissions:
   - 'access content overview'
@@ -16,9 +29,11 @@ permissions:
   - 'assign export_access role'
   - 'assign full_text_access role'
   - 'assign manager role'
+  - 'assign offline role'
   - 'bypass honeypot protection'
   - 'edit any page content'
   - 'edit own page content'
+  - 'manage offline corpus'
   - 'revert page revisions'
   - 'skip CAPTCHA'
   - 'use text format standard_html'

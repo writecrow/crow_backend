@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+langcode: en
 uuid: 6d2e9e27-31ab-492c-95e9-d422c6387687
 name: Crow
 mail: writecroworg@gmail.com
@@ -8,8 +11,5 @@ page:
   front: /frontpage
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
 default_langcode: en
-_core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
 mail_notification: collaborate@writecrow.org

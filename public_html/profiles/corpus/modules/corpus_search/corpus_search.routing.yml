@@ -1,0 +1,23 @@
+corpus_search.search:
+  path: '/corpus_search'
+  defaults:
+    _controller: '\Drupal\corpus_search\Controller\CorpusSearch::endpoint'
+    _title: 'Main Search'
+  requirements:
+    _permission: 'administer content'
+corpus_search.excerpts:
+  path: '/corpus/excerpts'
+  defaults:
+    _controller: '\Drupal\corpus_search\Controller\ExcerptEmbed::endpoint'
+    _title: 'Crow Excerpts'
+  requirements:
+    _permission: 'access content'
+corpus_search.offline_upload_form:
+  path: '/admin/config/media/import'
+  defaults:
+    _form: '\Drupal\corpus_search\Form\OfflineUploadForm'
+    _title: 'Offline Corpus Upload'
+  requirements:
+    _permission: 'manage offline corpus'
+  options:
+    _admin_route: TRUE

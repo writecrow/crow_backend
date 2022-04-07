@@ -1,0 +1,5 @@
+corpus_search.offline_upload_form:
+  title: "Manage Offline Corpus"
+  route_name: corpus_search.offline_upload_form
+  description: 'Replace offline corpus (zip file)'
+  parent: system.admin_config_content

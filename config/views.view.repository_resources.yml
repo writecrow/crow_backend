@@ -26,81 +26,12 @@ base_table: search_api_index_resource_index
 base_field: search_api_id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: role
-        options:
-          role:
-            full_text_access: full_text_access
-            basic_search_access: basic_search_access
-      cache:
-        type: search_api_tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          bypass_access: false
-          skip_access: false
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 100
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            assignment: assignment
-          info:
-            assignment:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
-      row:
-        type: fields
+      title: 'Repository Search'
       fields:
         id:
           id: id
@@ -109,6 +40,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: ID
           exclude: false
           alter:
@@ -171,7 +103,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         assignment:
           id: assignment
           table: search_api_index_resource_index
@@ -179,6 +110,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Assignment
           exclude: false
           alter:
@@ -241,7 +173,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         course:
           id: course
           table: search_api_index_resource_index
@@ -249,6 +180,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Course
           exclude: false
           alter:
@@ -311,7 +243,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         document_type:
           id: document_type
           table: search_api_index_resource_index
@@ -319,6 +250,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Document Type'
           exclude: false
           alter:
@@ -381,7 +313,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         institution:
           id: institution
           table: search_api_index_resource_index
@@ -389,6 +320,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Institution
           exclude: false
           alter:
@@ -451,7 +383,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         instructor:
           id: instructor
           table: search_api_index_resource_index
@@ -459,6 +390,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Instructor
           exclude: false
           alter:
@@ -521,7 +453,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         mode:
           id: mode
           table: search_api_index_resource_index
@@ -529,6 +460,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Mode
           exclude: false
           alter:
@@ -591,7 +523,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         semester:
           id: semester
           table: search_api_index_resource_index
@@ -599,6 +530,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Semester
           exclude: false
           alter:
@@ -661,7 +593,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         year:
           id: year
           table: search_api_index_resource_index
@@ -669,6 +600,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Year
           exclude: false
           alter:
@@ -731,7 +663,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         raw_text:
           id: raw_text
           table: search_api_index_resource_index
@@ -739,6 +670,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Raw Text'
           exclude: true
           alter:
@@ -800,7 +732,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         search_api_excerpt:
           id: search_api_excerpt
           table: search_api_index_resource_index
@@ -808,6 +739,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api
           label: Excerpt
           exclude: false
           alter:
@@ -853,7 +785,6 @@ display:
           use_highlighting: false
           multi_type: separator
           multi_separator: ', '
-          plugin_id: search_api
         file:
           id: file
           table: search_api_index_resource_index
@@ -861,6 +792,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: file
           exclude: false
           alter:
@@ -922,7 +854,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         filename:
           id: filename
           table: search_api_index_resource_index
@@ -930,6 +861,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Filename
           exclude: false
           alter:
@@ -992,7 +924,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         file_type:
           id: file_type
           table: search_api_index_resource_index
@@ -1000,6 +931,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'File Type'
           exclude: false
           alter:
@@ -1062,7 +994,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         course_length:
           id: course_length
           table: search_api_index_resource_index
@@ -1070,6 +1001,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: ''
           exclude: false
           alter:
@@ -1132,7 +1064,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         topic:
           id: topic
           table: search_api_index_resource_index
@@ -1140,6 +1071,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: Topic
           exclude: false
           alter:
@@ -1202,7 +1134,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         assignment_description:
           id: assignment_description
           table: search_api_index_resource_index
@@ -1210,6 +1141,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Assignment Description'
           exclude: false
           alter:
@@ -1271,7 +1203,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
         course_description:
           id: course_description
           table: search_api_index_resource_index
@@ -1279,6 +1210,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_field
           label: 'Course Description'
           exclude: false
           alter:
@@ -1340,7 +1272,62 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          plugin_id: search_api_field
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 100
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: role
+        options:
+          role:
+            full_text_access: full_text_access
+            basic_search_access: basic_search_access
+      cache:
+        type: search_api_tag
+        options: {  }
+      empty: {  }
+      sorts:
+        id:
+          id: id
+          table: search_api_index_resource_index
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: id
+          exposed: false
+      arguments: {  }
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -1349,6 +1336,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_fulltext
           operator: or
           value: ''
           group: 1
@@ -1359,6 +1347,8 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: search
             required: false
             remember: false
@@ -1367,8 +1357,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1384,26 +1372,39 @@ display:
           parse_mode: terms
           min_length: null
           fields: {  }
-          plugin_id: search_api_fulltext
-      sorts:
-        id:
-          id: id
-          table: search_api_index_resource_index
-          field: id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-      title: 'Repository Search'
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            assignment: assignment
+          default: '-1'
+          info:
+            assignment:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+      relationships: {  }
       header: {  }
       footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1418,17 +1419,17 @@ display:
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
   page_1:
-    display_plugin: page
     id: page_1
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: repository
       cache:
         type: none
       defaults:
         cache: false
+      display_extenders: {  }
+      path: repository
     cache_metadata:
       max-age: -1
       contexts:
@@ -1442,13 +1443,35 @@ display:
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
   rest_export_1:
-    display_plugin: rest_export
     id: rest_export_1
     display_title: 'REST export'
+    display_plugin: rest_export
     position: 2
     display_options:
-      display_extenders: {  }
-      path: repository
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 100
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      cache:
+        type: search_api_tag
+        options: {  }
       style:
         type: facets_serializer_corpora
         options:
@@ -1457,10 +1480,6 @@ display:
             json: json
             xml: xml
           show_facets: 1
-      defaults:
-        style: false
-        row: false
-        cache: false
       row:
         type: data_field
         options:
@@ -1516,30 +1535,12 @@ display:
             course_description:
               alias: ''
               raw_output: false
-      pager:
-        type: full
-        options:
-          items_per_page: 100
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      cache:
-        type: search_api_tag
-        options: {  }
+      defaults:
+        cache: false
+        style: false
+        row: false
+      display_extenders: {  }
+      path: repository
       auth:
         - oauth2
     cache_metadata:

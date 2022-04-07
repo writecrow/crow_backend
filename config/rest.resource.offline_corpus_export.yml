@@ -1,0 +1,18 @@
+uuid: efd2ecc4-7eea-44a7-b7c8-81a572751e58
+langcode: en
+status: true
+dependencies:
+  module:
+    - corpus_search
+    - serialization
+    - simple_oauth
+id: offline_corpus_export
+plugin_id: offline_corpus_export
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - oauth2

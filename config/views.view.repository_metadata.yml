@@ -45,84 +45,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: role
-        options:
-          role:
-            full_text_access: full_text_access
-            basic_search_access: basic_search_access
-            export_access: export_access
-      cache:
-        type: none
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 10
-          offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            title: title
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
-      row:
-        type: 'entity:node'
-        options:
-          view_mode: teaser
+      title: 'Repository by metadata'
       fields:
         title:
           id: title
@@ -131,6 +59,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -186,9 +117,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
         field_assignment:
           id: field_assignment
           table: node__field_assignment
@@ -196,6 +124,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Assignment
           exclude: false
           alter:
@@ -251,7 +180,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_course:
           id: field_course
           table: node__field_course
@@ -259,6 +187,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Course
           exclude: false
           alter:
@@ -314,7 +243,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_course_length:
           id: field_course_length
           table: node__field_course_length
@@ -322,6 +250,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Course Length'
           exclude: false
           alter:
@@ -377,7 +306,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_document_type:
           id: field_document_type
           table: node__field_document_type
@@ -385,6 +313,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Document Type'
           exclude: false
           alter:
@@ -440,7 +369,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_file:
           id: field_file
           table: node__field_file
@@ -448,6 +376,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: file
           exclude: false
           alter:
@@ -502,7 +431,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_file_type:
           id: field_file_type
           table: node__field_file_type
@@ -510,6 +438,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'File Type'
           exclude: false
           alter:
@@ -565,7 +494,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_filename:
           id: field_filename
           table: node__field_filename
@@ -573,6 +501,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Filename
           exclude: false
           alter:
@@ -628,7 +557,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_institution:
           id: field_institution
           table: node__field_institution
@@ -636,6 +564,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Institution
           exclude: false
           alter:
@@ -691,7 +620,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_instructor:
           id: field_instructor
           table: node__field_instructor
@@ -699,6 +627,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Instructor
           exclude: false
           alter:
@@ -754,7 +683,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_mode:
           id: field_mode
           table: node__field_mode
@@ -762,6 +690,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Mode
           exclude: false
           alter:
@@ -817,7 +746,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_semester:
           id: field_semester
           table: node__field_semester
@@ -825,6 +753,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Semester
           exclude: false
           alter:
@@ -880,7 +809,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_year:
           id: field_year
           table: node__field_year
@@ -888,6 +816,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Year
           exclude: false
           alter:
@@ -943,7 +872,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         filesize:
           id: filesize
           table: file_managed
@@ -951,6 +879,9 @@ display:
           relationship: field_file_target_id
           group_type: group
           admin_label: ''
+          entity_type: file
+          entity_field: filesize
+          plugin_id: field
           label: 'File size'
           exclude: false
           alter:
@@ -1005,9 +936,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: file
-          entity_field: filesize
-          plugin_id: field
         highlighted_repository_text:
           id: highlighted_repository_text
           table: node
@@ -1015,6 +943,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: repository_highlighted
           label: 'Highlighted Repository Text'
           exclude: false
           alter:
@@ -1056,8 +986,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          entity_type: node
-          plugin_id: repository_highlighted
         field_topic:
           id: field_topic
           table: node__field_topic
@@ -1065,6 +993,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Topic
           exclude: false
           alter:
@@ -1120,7 +1049,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         description__value:
           id: description__value
           table: taxonomy_term_field_data
@@ -1128,6 +1056,9 @@ display:
           relationship: field_assignment
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: description
+          plugin_id: field
           label: 'Assignment Description'
           exclude: false
           alter:
@@ -1182,9 +1113,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: taxonomy_term
-          entity_field: description
-          plugin_id: field
         description__value_1:
           id: description__value_1
           table: taxonomy_term_field_data
@@ -1192,6 +1120,9 @@ display:
           relationship: field_course
           group_type: group
           admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: description
+          plugin_id: field
           label: 'Course Description'
           exclude: false
           alter:
@@ -1246,32 +1177,83 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: taxonomy_term
-          entity_field: description
-          plugin_id: field
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: role
+        options:
+          role:
+            full_text_access: full_text_access
+            basic_search_access: basic_search_access
+            export_access: export_access
+      cache:
+        type: none
+        options: {  }
+      empty: {  }
+      sorts:
+        field_year_target_id:
+          id: field_year_target_id
+          table: node__field_year
+          field: field_year_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_year_target_id
+          exposed: false
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: node_field_data
           field: status
-          plugin_id: boolean
           entity_type: node
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         type:
           id: type
           table: node_field_data
           field: type
-          value:
-            resource: resource
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          value:
+            resource: resource
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1282,6 +1264,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1292,6 +1275,8 @@ display:
             description: ''
             use_operator: false
             operator: field_assignment_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: assignment
             required: false
             remember: false
@@ -1305,8 +1290,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1320,12 +1303,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: assignment
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_course_target_id:
           id: field_course_target_id
           table: node__field_course
@@ -1333,6 +1315,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1343,6 +1326,8 @@ display:
             description: ''
             use_operator: false
             operator: field_course_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: course
             required: false
             remember: false
@@ -1356,8 +1341,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1371,12 +1354,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: course
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_institution_target_id:
           id: field_institution_target_id
           table: node__field_institution
@@ -1384,6 +1366,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1394,6 +1377,8 @@ display:
             description: ''
             use_operator: false
             operator: field_institution_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: institution
             required: false
             remember: false
@@ -1407,8 +1392,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1422,12 +1405,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: institution
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_semester_target_id:
           id: field_semester_target_id
           table: node__field_semester
@@ -1435,6 +1417,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1445,6 +1428,8 @@ display:
             description: ''
             use_operator: false
             operator: field_semester_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: semester
             required: false
             remember: false
@@ -1458,8 +1443,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1473,12 +1456,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: semester
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         title:
           id: title
           table: node_field_data
@@ -1486,6 +1468,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: string
           operator: '='
           value: ''
           group: 1
@@ -1496,6 +1481,8 @@ display:
             description: ''
             use_operator: false
             operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id
             required: false
             remember: false
@@ -1509,8 +1496,6 @@ display:
               export_access: '0'
               manager: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1523,9 +1508,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: title
-          plugin_id: string
         field_year_target_id:
           id: field_year_target_id
           table: node__field_year
@@ -1533,6 +1515,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1543,6 +1526,8 @@ display:
             description: ''
             use_operator: false
             operator: field_year_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: year
             required: false
             remember: false
@@ -1556,8 +1541,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1571,12 +1554,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: year
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_instructor_target_id:
           id: field_instructor_target_id
           table: node__field_instructor
@@ -1584,6 +1566,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1594,6 +1577,8 @@ display:
             description: ''
             use_operator: false
             operator: field_instructor_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: instructor
             required: false
             remember: false
@@ -1607,8 +1592,6 @@ display:
               export_access: '0'
               manager: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1622,12 +1605,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: instructor
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         title_1:
           id: title_1
           table: node_field_data
@@ -1635,6 +1617,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: string
           operator: '!='
           value: ''
           group: 1
@@ -1645,6 +1630,8 @@ display:
             description: ''
             use_operator: false
             operator: title_1_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: exclude_id
             required: false
             remember: false
@@ -1658,8 +1645,6 @@ display:
               export_access: '0'
               manager: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1672,26 +1657,41 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: title
-          plugin_id: string
-      sorts:
-        field_year_target_id:
-          id: field_year_target_id
-          table: node__field_year
-          field: field_year_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      title: 'Repository by metadata'
-      header: {  }
-      footer: {  }
-      empty: {  }
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: 'entity:node'
+        options:
+          view_mode: teaser
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
       relationships:
         field_file_target_id:
           id: field_file_target_id
@@ -1700,8 +1700,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'file from field_file'
-          required: false
           plugin_id: standard
+          required: false
         field_assignment:
           id: field_assignment
           table: node__field_assignment
@@ -1709,8 +1709,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_assignment: Taxonomy term'
-          required: false
           plugin_id: standard
+          required: false
         field_course:
           id: field_course
           table: node__field_course
@@ -1718,9 +1718,10 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_course: Taxonomy term'
-          required: false
           plugin_id: standard
-      arguments: {  }
+          required: false
+      header: {  }
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1747,9 +1748,9 @@ display:
         - 'config:field.storage.node.field_topic'
         - 'config:field.storage.node.field_year'
   page_1:
-    display_plugin: page
     id: page_1
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
@@ -1779,12 +1780,11 @@ display:
         - 'config:field.storage.node.field_topic'
         - 'config:field.storage.node.field_year'
   rest_export_1:
-    display_plugin: rest_export
     id: rest_export_1
     display_title: 'REST export'
+    display_plugin: rest_export
     position: 2
     display_options:
-      display_extenders: {  }
       row:
         type: data_field
         options:
@@ -1843,6 +1843,7 @@ display:
             description__value_1:
               alias: course_description
               raw_output: false
+      display_extenders: {  }
       path: repository/metadata
       auth:
         - oauth2

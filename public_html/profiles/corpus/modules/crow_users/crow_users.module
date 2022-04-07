@@ -1,0 +1,346 @@
+<?php
+
+/**
+ * @file
+ * Defines user registration modifications.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\basecamp_api\Basecamp;
+use Drupal\crow_users\Controller\UserReport;
+use GuzzleHttp\Exception\RequestException;
+
+/**
+ * Implements hook_cron().
+ *
+ * Prepares info sends an email once a week.
+ */
+function crow_users_cron() {
+  $config = \Drupal::config('crow_users.settings');
+  if (!$config->get('on')) {
+    return;
+  }
+  // Retrieve time of last cron run.
+  $cron_last = \Drupal::state()->get('crow_users.report_time', time());
+  // Only send data once a week.
+  if (time() > ($cron_last + 24 * 60 * 60 * 7)) {
+    \Drupal::state()->set('crow_users.report_time', time());
+    $base_url = Settings::get('base_url');
+    $data = UserReport::prepareData();
+    $params['message'] = 'This email provides a summary of the current metrics on Crow users.' . PHP_EOL . PHP_EOL;
+    foreach ($data['table']['#rows'] as $row) {
+      $number = $row[1] ?? 0;
+      $line = strtoupper($row[0]) . ': ' . $number;
+      if ($row[2]) {
+        $line .= ' (' . $row[2] . ')';
+      }
+      $line .= PHP_EOL;
+      $params['message'] .= $line;
+    }
+    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report';
+    try {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'crow_users';
+      $key = 'user_report';
+      $to = \Drupal::config('system.site')->get('mail');
+      $params['title'] = 'Crow user weekly report';
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
+      $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    }
+    catch (RequestException $e) {
+      \Drupal::logger('crow_users')->error($e);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Display modifications to the user registration form.
+ */
+function crow_users_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['account']['name']['#title'] = "Account login name";
+  $form['account']['name']['#description'] = t('This field will be used for signing in.');
+  $form['field_requested_access_level']['#access'] = FALSE;
+  $form['web_access'] = [
+    '#prefix' => '<div class="web-access-wrapper">',
+    '#suffix' => '</div>',
+    '#weight' => 5,
+  ];
+  $form['web_access']['base'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Web interface access',
+  ];
+  $form['web_access']['base']['base_options'] = [
+    '#type' => 'radios',
+    '#options' => [
+      'standard' => t('Standard'),
+      'full_text' => t('Full'),
+    ],
+    '#default_value' => 'standard',
+    '#description' => t('By default, only 500 characters are shown. "Full" access displays the entire text of student writing in the online interface.'),
+  ];
+  $form['web_access']['additional'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Additional web access request',
+  ];
+  $form['web_access']['additional']['excerpt'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Export search excerpt results',
+    '#default_value' => FALSE,
+    '#description' => t('Export excerpted search results from the interface to a spreadsheet (similar to concordance line output).'),
+  ];
+  $form['download_wrapper'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Corpus download access',
+    '#weight' => 5,
+  ];
+  $form['download_wrapper']['offline'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Download a representative corpus for offline research',
+    '#default_value' => FALSE,
+    '#description' => t('Download a subset of the texts available in the online corpus. This option is intended for users who would like to use the corpus for their own research, particularly if they would like to annotate the corpus, use concordancing software (e.g., Antconc or LancsBox), or create their own programs to analyze the data. The offline corpus has been curated by the Crow team to ensure a representative sample from the first year writing context. Note: additional training and verification is required.'),
+  ];
+  $form['#attached']['library'][] = 'crow_users/registration';
+  $form['#validate'][] = '_crow_users_registration_validate';
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = '_crow_users_basecamp_todo';
+    }
+  }
+}
+
+/**
+ * Form validation handler for \Drupal\user\RegisterForm.
+ *
+ * The validation_counter variable stores how many registrations have been
+ * blocked by this module. This is added to the status report page.
+ *
+ * @see \Drupal\user\RegisterForm
+ */
+function _crow_users_registration_validate($form, &$form_state) {
+  $error = 'Please enter a project description of at least 100 characters.';
+  $description = $form_state->getValue('field_project_description');
+  if (strlen($description[0]['value']) < 100) {
+    // Files an error on the mail element and provides an error message.
+    $form_state->setErrorByName('field_project_description', $error);
+    // Log the error message.
+    \Drupal::logger('crow_users')->notice($error);
+  }
+  // Take values from "fake" fields and put them into the "real" field.
+  $base = $form_state->getValue('base_options');
+  $requests = [$base];
+  $excerpt = $form_state->getValue('excerpt');
+  if ($excerpt) {
+    $requests[] = 'export';
+  }
+  $offline = $form_state->getValue('offline');
+  if ($offline) {
+    $requests[] = 'offline';
+  }
+  $form_state->setValue('field_requested_access_level', $requests);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Display modifications to the user profile form.
+ */
+function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $account = \Drupal::service('current_route_match')->getParameter('user');
+  // If this is not the Superadmin's edit page.
+  if (!empty($account) && ($account->id() != 1)) {
+    // Turn off Current password field's validation.
+    $form_state->set('user_pass_reset', 1);
+    // Hide the Current password fields.
+    $form['account']['current_pass']['#access'] = FALSE;
+  }
+
+  if ($form_id != 'user_register_form') {
+    $request_fields = [
+      'field_account_type',
+      'field_requested_access_level',
+      'field_affiliation',
+      'field_institution',
+      'field_project_complete_date',
+      'field_project_description',
+    ];
+    $suppress_fields = [
+      'field_read_terms',
+      'field_no_download',
+    ];
+    $basic_fields = [
+      'field_full_name',
+      'mail',
+      'name',
+      'pass',
+    ];
+    $notification_fields = [
+      'field_email_updates',
+      'field_notifications',
+    ];
+    $form['tabs'] = [
+      '#type' => 'vertical_tabs',
+    ];
+    $form['basic'] = [
+      '#type' => 'details',
+      '#title' => t('Account information'),
+      '#group' => 'tabs',
+    ];
+    $form['original_request'] = [
+      '#type' => 'details',
+      '#title' => t('Access request information'),
+      '#group' => 'tabs',
+    ];
+    $form['notification_preferences'] = [
+      '#type' => 'details',
+      '#title' => t('Notification preferences'),
+      '#group' => 'tabs',
+    ];
+    foreach ($basic_fields as $field) {
+      if (isset($form['account'][$field])) {
+        $form['basic'][$field] = $form['account'][$field];
+        unset($form['account'][$field]);
+      }
+      if (isset($form[$field])) {
+        $form['basic'][$field] = $form[$field];
+        unset($form[$field]);
+      }
+    }
+    $current_user = \Drupal::currentUser();
+    $manager = $current_user->hasPermission('administer users');
+    foreach ($request_fields as $field) {
+      if (!$manager) {
+        $form[$field]['#disabled'] = TRUE;
+      }
+      $form['original_request'][$field] = $form[$field];
+      unset($form[$field]);
+    }
+    foreach ($notification_fields as $field) {
+      $form['notification_preferences'][$field] = $form[$field];
+      unset($form[$field]);
+    }
+    foreach ($suppress_fields as $field) {
+      $form[$field]['#access'] = FALSE;
+    }
+    $form['#attributes']['novalidate'] = 'novalidate';
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * Control sender/reply-to of outgoing emails.
+ */
+function crow_users_mail_alter(&$message) {
+  $account = $message['params']['account'];
+  // All variables defined in sites/default/settings.local.php.
+  $return_path = Settings::get('corpus_users_return_path');
+  if ($return_path) {
+    $message['headers']['Return-Path'] = $return_path;
+  }
+  $sender = Settings::get('corpus_users_sender');
+  if ($sender) {
+    $message['headers']['Sender'] = $sender;
+  }
+  $reply_to = Settings::get('corpus_users_reply_to');
+  if ($reply_to) {
+    $message['headers']['Reply-To'] = $reply_to;
+  }
+  $from = Settings::get('corpus_users_from');
+  if ($from) {
+    $message['headers']['From'] = $from;
+  }
+
+  $bcc_mail = Settings::get('corpus_users_bcc_email');
+  if (in_array($message['id'], [
+    'user_register_admin_created',
+    'user_status_activated',
+    'user_register_pending_approval',
+  ])) {
+    if ($bcc_mail) {
+      $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
+      $message['headers']['Bcc'] = implode(' ', array_merge(explode(' ', $existing_bcc), [$bcc_mail]));
+    }
+  }
+  switch ($message['id']) {
+    case 'user_register_pending_approval':
+      $levels = $account->get('field_requested_access_level')->getValue();
+      foreach ($levels as $level) {
+        if ($level['value'] === 'offline') {
+          $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
+          $survey = $url . '?' . http_build_query(['CrowEmailName' => $account->getEmail(), 'CrowUsername' => $account->getAccountName()]);
+          $message['body'] = str_replace('Your application is currently being reviewed. Once it has been approved,', 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed,', $message['body']);
+        }
+      }
+      break;
+
+    case 'user_status_activated':
+      if ($account->hasRole('offline')) {
+        $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . 'Best regards', $message['body']);
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function crow_users_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'user_report':
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * Helper function to create basecamp todos from user access requests.
+ */
+function _crow_users_basecamp_todo(&$form, &$form_state) {
+  $config = \Drupal::config('crow_users.settings');
+  if (!$config->get('on')) {
+    return;
+  }
+  $base_url = \Drupal::request()->getSchemeAndHttpHost();
+  \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
+  $values = $form_state->getValues();
+  $levels = [];
+  $message = '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
+  $message = '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
+  $message .= '<p><hr /></p>';
+  $message = '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
+  $message .= '<p><strong>Email: </strong>' . $values['mail'] . '</p>';
+  $message .= '<p><strong>Project description: </strong>' . $values['field_project_description'][0]['value'] . '</p>';
+  $message .= '<p><hr /></p>';
+  $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/' . $values['uid'] . '/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Standard")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
+  $data = [
+    'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
+    'description' => $message,
+    'due_on' => date('Y-m-d', strtotime('+7 days')),
+    'notify' => TRUE,
+  ];
+  if (in_array('offline', $values['field_requested_access_level'])) {
+    $data['description'] .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
+    $data['content'] .= ' (Offline Access)';
+  }
+  $assignee_ids = $config->get('assignee_ids');
+  if (!empty($assignee_ids)) {
+    $data['assignee_ids'] = explode(',', $assignee_ids);
+  }
+  $project = $config->get('project');
+  $list = $config->get('list');
+  if (!empty($list) && !empty($project)) {
+    Basecamp::createTodo($project, $list, $data);
+  }
+  else {
+    \Drupal::logger('basecamp_api')->error('Todo not added to Basecamp. Missing project ID or todolist ID.');
+  }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef9a03f26df993f9ec84967eeeedeaff",
+    "content-hash": "5383836b9e88d4731e56b51d7aa4298e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2693,87 +2693,6 @@
             }
         },
         {
-            "name": "drupal/plupload",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/plupload.git",
-                "reference": "4b27778f8ae9a989ac4640bf6320cea1361cf559"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta2+2-dev",
-                    "datestamp": "1611258686",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "David_Rothstein",
-                    "homepage": "https://www.drupal.org/user/124982"
-                },
-                {
-                    "name": "JacobSingh",
-                    "homepage": "https://www.drupal.org/user/68912"
-                },
-                {
-                    "name": "budalokko",
-                    "homepage": "https://www.drupal.org/user/788636"
-                },
-                {
-                    "name": "effulgentsia",
-                    "homepage": "https://www.drupal.org/user/78040"
-                },
-                {
-                    "name": "greggles",
-                    "homepage": "https://www.drupal.org/user/36762"
-                },
-                {
-                    "name": "justintime",
-                    "homepage": "https://www.drupal.org/user/99149"
-                },
-                {
-                    "name": "muri",
-                    "homepage": "https://www.drupal.org/user/1358960"
-                },
-                {
-                    "name": "paranojik",
-                    "homepage": "https://www.drupal.org/user/19501"
-                },
-                {
-                    "name": "paulocs",
-                    "homepage": "https://www.drupal.org/user/3640109"
-                },
-                {
-                    "name": "slashrsm",
-                    "homepage": "https://www.drupal.org/user/744628"
-                },
-                {
-                    "name": "vingborg",
-                    "homepage": "https://www.drupal.org/user/259657"
-                }
-            ],
-            "description": "Provides a plupload Form API element.",
-            "homepage": "https://www.drupal.org/project/plupload",
-            "support": {
-                "source": "https://git.drupalcode.org/project/plupload"
-            }
-        },
-        {
             "name": "drupal/rabbit_hole",
             "version": "1.0.0-beta10",
             "source": {
@@ -4920,19 +4839,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.7.5"
             },
             "time": "2021-07-01T14:25:37+00:00"
-        },
-        {
-            "name": "moxiecode/plupload",
-            "version": "2.1.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moxiecode/plupload.git",
-                "reference": "v2.1.9"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library"
         },
         {
             "name": "nikic/php-parser",
@@ -8953,5 +8859,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

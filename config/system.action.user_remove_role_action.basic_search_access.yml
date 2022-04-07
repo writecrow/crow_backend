@@ -7,7 +7,7 @@ dependencies:
   module:
     - user
 id: user_remove_role_action.basic_search_access
-label: 'Remove the Basic Search Access role from the selected user(s)'
+label: 'Remove Standard Access role from the selected user(s)'
 type: user
 plugin: user_remove_role_action
 configuration:

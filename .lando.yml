@@ -1,5 +1,7 @@
 name: api
-recipe: drupal8
+recipe: drupal9
+config:
+  webroot: public_html
 services:
   phpmyadmin:
     type: phpmyadmin
@@ -12,7 +14,10 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php
+    type: php:7.4
+    via: apache
+    version: 2.4
+    webroot: public_html
   source_database:
     type: mysql
 tooling:

@@ -1,12 +1,16 @@
 uuid: 4deda856-7669-46c3-ba08-555b3f2d58af
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - rest.resource.corpus_search
+    - rest.resource.corpus_search_user_roles
+  module:
+    - rest
 id: basic_search_access
-label: 'Basic Search Access'
-weight: 4
+label: Standard
+weight: -10
 is_admin: null
 permissions:
   - 'restful get corpus_search'
   - 'restful get corpus_search_user_roles'
-  - 'restful post feedback_endpoint_bug_report'
