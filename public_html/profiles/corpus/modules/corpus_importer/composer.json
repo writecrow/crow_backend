@@ -1,0 +1,34 @@
+{
+  "name": "writecrow/corpus_importer",
+  "type": "drupal-module",
+  "description": "Importer tool for tagged text files to a database entity",
+  "keywords": ["Drupal", "Corpus"],
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Mark Fullmer",
+          "email": "mark.writecrow@gmail.com",
+          "homepage": "https://markfullmer.com",
+          "role": "Developer"
+      }
+  ],
+  "support": {
+      "email": "mark.writecrow@gmail.com",
+      "issues": "https://github.com/writecrow/corpus_importer/issues",
+      "source": "https://github.com/writecrow/corpus_importer"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "homepage": "https://github.com/writecrow/corpus_importer",
+  "require": {
+    "writecrow/lorem_gutenberg": "@dev",
+    "writecrow/tag_converter": "@dev"
+  },
+  "extra": {
+      "drush": {
+          "services": {
+              "drush.services.yml": "^10"
+          }
+      }
+  }
+}

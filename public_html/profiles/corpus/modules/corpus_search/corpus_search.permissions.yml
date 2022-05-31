@@ -1,0 +1,4 @@
+manage offline corpus:
+  title: 'Manage offline corpus'
+  description: 'Upload a zip file of the offline corpus'
+  restrict access: true

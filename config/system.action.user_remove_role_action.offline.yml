@@ -1,0 +1,14 @@
+uuid: 80a68f7f-4f12-4f3e-abc3-07ee0b38dfb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.offline
+  module:
+    - user
+id: user_remove_role_action.offline
+label: 'Remove the Offline role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: offline

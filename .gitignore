@@ -3,57 +3,90 @@ php_errorlog
 private.key
 public.key
 .well-known
+/webstats/
+
+## Explicitly ignore configuration that we do not want to version
+config/smtp.settings.yml
+
+# Ignore test data
+/corpus_data
+/repository_data
+/2019_data
+/private
 
 # "Built" components
-.csslintrc
-.drush-lock-update
-.editorconfig
-.eslintignore
-.eslintrc.json
-.gitattributes
-README.txt
-autoload.php
-core/
-drush/
-example.gitignore
-index.php
-libraries/
-/modules/contrib
-robots.txt
-/themes/contrib
-update.php
-vendor/
-web.config
+
+# Generally you should only ignore the root vendor directory. It's important
+# that core/assets/vendor and any other vendor directories within contrib or
+# custom module, theme, etc., are not ignored unless you purposely do so.
+/vendor/
+
 config/.htaccess
-.ftpquota
+/.drush-lock-update
 
-# Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
-files/*
+/public_html/.csslintrc
+/public_html/.editorconfig
+/public_html/.eslintignore
+/public_html/.eslintrc.json
+/public_html/.gitattributes
+/public_html/.gitignore
+/public_html/.ht.router.php
+/public_html/.htaccess
+/public_html/INSTALL.txt
+/public_html/README.txt
+/public_html/autoload.php
+/public_html/example.gitignore
+/public_html/index.php
+/public_html/robots.txt
+/public_html/update.php
+/public_html/web.config
+/public_html/core
+/public_html/libraries
+/public_html/modules/contrib
+/public_html/modules/custom
+/public_html/modules/README.txt
+/public_html/profiles/README.txt
+/public_html/themes/contrib
+/public_html/themes/custom
+/public_html/sites/README.txt
+/public_html/sites/default/default.services.yml
+/public_html/sites/default/default.settings.php
+/public_html/sites/default/config/.htaccess
+/public_html/sites/default/config/README
+/public_html/sites/development.services.yml
+/public_html/sites/example.settings.local.php
+/public_html/sites/example.sites.php
+/public_html/themes/README.txt
 
-# Place local settings in settings.local.php
-sites/*/settings.local.php
+# Ignore sensitive information
+/public_html/sites/*/settings.local.php
+
+# Ignore Drupal's file directory
+/public_html/sites/*/files/
 
 # Note that services.local.yml is not loaded by default. If you would like
 # to use this file add the following to your settings.local.php file:
 #   $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
-sites/*/services.local.yml
+/public_html/sites/*/services.local.yml
 
 # ** Only works in OSs that support newer versions of fnmatch (Bash 4+)
 /sites/default/**/files
 /sites/default/**/private
 
 # Ignore SimpleTest multi-site environment.
-sites/simpletest
+/public_html/sites/simpletest
 
-## Explicitly ignore configuration that we do not want to version
-config/smtp.settings.yml
+# Other common rules
+# ------------------
+# Local Build Scripts #
+#######################
+p.sh
+bup.sh
+dcc.sh
 
-# Ignore test data
-corpus_data
-repository_data
-2019_data
+# .ddev Drush Commands #
+########################
+web/sites/all/drush
 
 # Packages #
 ############
@@ -67,6 +100,7 @@ repository_data
 *.tar
 *.zip
 *.tgz
+*.csv
 
 # Logs and databases #
 ######################
@@ -77,7 +111,6 @@ repository_data
 ######################
 .DS_Store*
 ehthumbs.db
-
 Thumbs.db
 ._*
 
