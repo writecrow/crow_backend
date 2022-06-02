@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: rLKGzzC9TqjbEZiBoiyMpOSyZgldADa5SzvbA2gQDxE
 format: standard_html
 name: Crow
 mail: writecroworg@gmail.com
@@ -9,5 +11,3 @@ preserve_class: false
 advanced:
   incoming: false
   key: OlZkBAq60h-KFlwPlupF34y2AHqR2nd_2C7Bc1VBqEQ
-_core:
-  default_config_hash: rLKGzzC9TqjbEZiBoiyMpOSyZgldADa5SzvbA2gQDxE

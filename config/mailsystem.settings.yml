@@ -1,16 +1,16 @@
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 theme: current
 defaults:
   sender: SMTPMailSystem
   formatter: SMTPMailSystem
-_core:
-  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 modules:
   sendgrid_integration: {  }
   smtp:
     none:
-      formatter: SMTPMailSystem
       sender: SMTPMailSystem
+      formatter: SMTPMailSystem
   crow_users:
     user_report:
-      formatter: mime_mail
       sender: SMTPMailSystem
+      formatter: mime_mail

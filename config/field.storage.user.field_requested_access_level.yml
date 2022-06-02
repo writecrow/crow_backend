@@ -16,14 +16,17 @@ settings:
       label: Standard
     -
       value: full_text
-      label: 'Full text'
+      label: Full
     -
       value: export
-      label: 'Data export'
+      label: 'Export search excerpt results'
+    -
+      value: offline
+      label: 'Download entire corpus for offline research*'
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

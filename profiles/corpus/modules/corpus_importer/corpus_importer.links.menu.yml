@@ -1,4 +1,0 @@
-corpus_importer.corpus_import_form:
-  title: "Import Texts"
-  route_name: corpus_importer.corpus_import_form
-  parent: system.admin_config_content
