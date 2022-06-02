@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5383836b9e88d4731e56b51d7aa4298e",
+    "content-hash": "2be55a40aa85a18eb9357988fb505707",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8666,19 +8666,18 @@
         },
         {
             "name": "writecrow/highlighter",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/highlighter.git",
-                "reference": "4e8d08d0ef6ac85d1b231010a5f8414dc09280c9"
+                "reference": "033f7ddb18209402359d23acc238c1a595c69758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/4e8d08d0ef6ac85d1b231010a5f8414dc09280c9",
-                "reference": "4e8d08d0ef6ac85d1b231010a5f8414dc09280c9",
+                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/033f7ddb18209402359d23acc238c1a595c69758",
+                "reference": "033f7ddb18209402359d23acc238c1a595c69758",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -8704,7 +8703,7 @@
                 "issues": "https://github.com/writecrow/highlighter/issues",
                 "source": "https://github.com/writecrow/highlighter"
             },
-            "time": "2019-09-07T18:05:41+00:00"
+            "time": "2022-06-02T16:44:14+00:00"
         },
         {
             "name": "writecrow/lorem_gutenberg",
@@ -8852,7 +8851,6 @@
     "stability-flags": {
         "drupal/mimemail": 15,
         "writecrow/country_code_converter": 20,
-        "writecrow/highlighter": 20,
         "writecrow/rest_feedback_endpoint": 15
     },
     "prefer-stable": true,
