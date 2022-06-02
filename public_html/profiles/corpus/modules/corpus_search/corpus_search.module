@@ -16,6 +16,8 @@ function corpus_search_theme($existing, $type, $theme, $path) {
       'variables' => [
         'sorted_before' => NULL,
         'sorted_after' => NULL,
+        'target_asc' => NULL,
+        'target_desc' => NULL,
         'css' => NULL,
         'script' => NULL,
       ],

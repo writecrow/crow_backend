@@ -37,13 +37,27 @@ class ExcerptEmbed extends CorpusSearch {
       '#rows' => $output['sorted_after'],
       '#header_columns' => 1,
     ];
+    $target_asc_array = [
+      '#type' => 'table',
+      '#rows' => $output['target_asc'],
+      '#header_columns' => 1,
+    ];
+    $target_desc_array = [
+      '#type' => 'table',
+      '#rows' => $output['target_desc'],
+      '#header_columns' => 1,
+    ];
     $sorted_before = $renderer->renderPlain($sorted_before_array);
     $sorted_after = $renderer->renderPlain($sorted_after_array);
+    $target_asc = $renderer->renderPlain($target_asc_array);
+    $target_desc = $renderer->renderPlain($target_desc_array);
     $build = [
       'page' => [
         '#theme' => 'corpus_concordance',
         '#sorted_before' => json_encode($sorted_before),
         '#sorted_after' => json_encode($sorted_after),
+        '#target_desc' => json_encode($target_desc),
+        '#target_asc' => json_encode($target_asc),
         '#css' => file_get_contents($module_path . '/css/concordance_lines.css'),
         '#script' => file_get_contents($module_path . '/js/concordance_lines.js'),
       ],
@@ -96,6 +110,14 @@ class ExcerptEmbed extends CorpusSearch {
         return mb_strtolower($a['after']) <=> mb_strtolower($b['after']);
       });
       $sorted['sorted_after'] = $table;
+      usort($table, function ($a, $b) {
+        return mb_strtolower($a['keyword']) <=> mb_strtolower($b['keyword']);
+      });
+      $sorted['target_asc'] = $table;
+      usort($table, function ($a, $b) {
+        return mb_strtolower($b['keyword']) <=> mb_strtolower($a['keyword']);
+      });
+      $sorted['target_desc'] = $table;
 
       $inc = 0;
       foreach ($sorted['sorted_before'] as $key => $values) {
@@ -110,6 +132,24 @@ class ExcerptEmbed extends CorpusSearch {
       foreach ($sorted['sorted_after'] as $key => $values) {
         $number = $numbering == 1 ? $inc : '';
         $output['sorted_after'][] = [
+          $number,
+          Markup::create($values['start'] . $values['word_before'] . '&nbsp;' . $values['keyword'] . $values['after']),
+        ];
+        $inc--;
+      }
+      $inc = 0;
+      foreach ($sorted['target_asc'] as $key => $values) {
+        $inc++;
+        $number = $numbering == 1 ? $inc : '';
+        $output['target_asc'][] = [
+          $number,
+          Markup::create($values['start'] . $values['word_before'] . '&nbsp;' . $values['keyword'] . $values['after']),
+        ];
+      }
+      $inc = count($sorted['target_desc']);
+      foreach ($sorted['target_desc'] as $key => $values) {
+        $number = $numbering == 1 ? $inc : '';
+        $output['target_desc'][] = [
           $number,
           Markup::create($values['start'] . $values['word_before'] . '&nbsp;' . $values['keyword'] . $values['after']),
         ];
