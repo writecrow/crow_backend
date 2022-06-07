@@ -148,6 +148,13 @@ class ImporterMap {
   /**
    * {@inheritdoc}
    */
+  public static $modeFixes = [
+    'Live Online' => 'Synchronous Online',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
   public static $draftFixes = [
     'D1' => '1',
     'D2' => '2',

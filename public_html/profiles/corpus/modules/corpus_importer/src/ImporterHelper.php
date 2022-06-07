@@ -151,6 +151,12 @@ class ImporterHelper {
           }
           break;
 
+        case 'mode':
+          if (in_array($value, array_keys(ImporterMap::$modeFixes))) {
+            $text[$name][$key] = ImporterMap::$modeFixes[$value];
+          }
+          break;
+
         case 'country':
           if (in_array($value, array_keys(ImporterMap::$countryFixes))) {
             $text[$name][$key] = ImporterMap::$countryFixes[$value];

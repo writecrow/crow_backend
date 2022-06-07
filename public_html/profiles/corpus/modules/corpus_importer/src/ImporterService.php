@@ -339,6 +339,12 @@ class ImporterService {
           }
           $text['Document Type'] = ImporterMap::$docTypes[$doc_code];
         }
+        if ($machine_name == 'mode') {
+          $mode = $text['Mode'];
+          if (in_array($mode, array_keys(ImporterMap::$modeFixes))) {
+            $text[$name] = ImporterMap::$modeFixes[$mode];
+          }
+        }
         if ($machine_name == 'assignment') {
           $assignment_code = $text['Assignment'];
           $text['Assignment'] = ImporterMap::$assignments[$assignment_code];
