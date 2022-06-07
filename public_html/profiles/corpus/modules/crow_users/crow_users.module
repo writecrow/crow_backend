@@ -92,6 +92,7 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#default_value' => FALSE,
     '#description' => t('Export excerpted search results from the interface to a spreadsheet (similar to concordance line output).'),
   ];
+  /*
   $form['download_wrapper'] = [
     '#type' => 'fieldset',
     '#title' => 'Corpus download access',
@@ -103,6 +104,7 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#default_value' => FALSE,
     '#description' => t('Download a subset of the texts available in the online corpus. This option is intended for users who would like to use the corpus for their own research, particularly if they would like to annotate the corpus, use concordancing software (e.g., Antconc or LancsBox), or create their own programs to analyze the data. The offline corpus has been curated by the Crow team to ensure a representative sample from the first year writing context. Note: additional training and verification is required.'),
   ];
+  */
   $form['#attached']['library'][] = 'crow_users/registration';
   $form['#validate'][] = '_crow_users_registration_validate';
   foreach (array_keys($form['actions']) as $action) {
