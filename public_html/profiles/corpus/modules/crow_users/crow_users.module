@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\Core\Render\Markup;
 use Drupal\basecamp_api\Basecamp;
 use Drupal\crow_users\Controller\UserReport;
 use GuzzleHttp\Exception\RequestException;
@@ -23,31 +24,24 @@ function crow_users_cron() {
   }
   // Retrieve time of last cron run.
   $cron_last = \Drupal::state()->get('crow_users.report_time', time());
-  // Only send data once a week.
-  if (time() > ($cron_last + 24 * 60 * 60 * 7)) {
+  // Only send data once a week, on first cron run on Saturday.
+  if (date('D') == ('Sat') && (time() > ($cron_last + 24 * 60 * 60 * 2))) {
     \Drupal::state()->set('crow_users.report_time', time());
     $base_url = Settings::get('base_url');
     $data = UserReport::prepareData();
-    $params['message'] = 'This email provides a summary of the current metrics on Crow users.' . PHP_EOL . PHP_EOL;
-    foreach ($data['table']['#rows'] as $row) {
-      $number = $row[1] ?? 0;
-      $line = strtoupper($row[0]) . ': ' . $number;
-      if ($row[2]) {
-        $line .= ' (' . $row[2] . ')';
-      }
-      $line .= PHP_EOL;
-      $params['message'] .= $line;
-    }
-    $params['message'] .= PHP_EOL . 'This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report';
+    $renderer = \Drupal::service('renderer');
+    $table = $renderer->renderPlain($data);
+    $params['message'] = Markup::create('<p>This email provides a summary of the current metrics on Crow users.</p>' . $table . '<p>This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report .</p>');
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
       $key = 'user_report';
-      $to = \Drupal::config('system.site')->get('mail');
-      $params['title'] = 'Crow user weekly report';
+      $to = Settings::get('corpus_users_bcc_email');
+      $params['title'] = 'Crow user weekly report: ' . date('F j, Y');
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
       $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      \Drupal::logger('crow_users')->notice('Weekly user report emailed!');
     }
     catch (RequestException $e) {
       \Drupal::logger('crow_users')->error($e);
