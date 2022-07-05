@@ -275,7 +275,7 @@ function crow_users_mail_alter(&$message) {
 
     case 'user_status_activated':
       if ($account->hasRole('offline')) {
-        $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . 'Best regards', $message['body']);
+        $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in to the interface at https://crow.corporaproject.org, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . 'Best regards', $message['body']);
       }
       break;
   }
