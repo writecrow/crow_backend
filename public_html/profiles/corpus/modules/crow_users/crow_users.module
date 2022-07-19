@@ -267,7 +267,7 @@ function crow_users_mail_alter(&$message) {
       foreach ($levels as $level) {
         if ($level['value'] === 'offline') {
           $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
-          $survey = $url . '?' . http_build_query(['CrowEmailName' => $account->getEmail(), 'CrowUsername' => $account->getAccountName()]);
+          $survey = $url . '?' . http_build_query(['CrowEmail' => $account->getEmail(), 'CrowUsername' => $account->getAccountName(), 'CrowName' => $account->get('field_full_name')->getString()]);
           $message['body'] = str_replace('Your application is currently being reviewed. Once it has been approved,', 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed,', $message['body']);
         }
       }
@@ -275,7 +275,7 @@ function crow_users_mail_alter(&$message) {
 
     case 'user_status_activated':
       if ($account->hasRole('offline')) {
-        $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in to the interface at https://crow.corporaproject.org, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . 'Best regards', $message['body']);
+        $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in to the interface at https://crow.corporaproject.org, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . PHP_EOL . 'Best regards', $message['body']);
       }
       break;
   }
