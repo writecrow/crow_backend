@@ -34,6 +34,10 @@ class OfflineUploadForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $fid = \Drupal::state()->get('offline_file_id');
+    if (!$fid) {
+      $fid = 0;
+    }
+    // $file = File::load($fid);
     $form['file'] = [
       '#type' => 'managed_file',
       '#upload_location' => 'private://',
@@ -42,7 +46,7 @@ class OfflineUploadForm extends ConfigFormBase {
       '#upload_validators' => [
         'file_validate_extensions' => ['zip'],
       ],
-      '#default_value' => [$fid] ?? 0,
+      '#default_value' => [$fid],
       '#title' => $this->t('Upload a zip file'),
     ];
     $form['submit'] = [
