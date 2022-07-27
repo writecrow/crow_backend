@@ -1,0 +1,9 @@
+options:
+  # Specify the base_url that should be used when generating links.
+  uri: 'https://api.lndo.site'
+command:
+  sql:
+    dump:
+      options:
+        # Uncomment to omit cache and similar tables (including during a sql:sync).
+        structure-tables-key: common

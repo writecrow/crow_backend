@@ -23,6 +23,7 @@ config/smtp.settings.yml
 
 config/.htaccess
 /.drush-lock-update
+/drush/drush.yml
 
 /public_html/.csslintrc
 /public_html/.editorconfig
