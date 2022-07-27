@@ -14,18 +14,9 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php:7.4
+    type: php:8.0
     via: apache
     version: 2.4
     webroot: public_html
   source_database:
     type: mysql
-tooling:
-  uli:
-    service: appserver
-    description: one-time login command
-    cmd: drush uli --uri=https://api.lndo.site
-  cr:
-    service: appserver
-    description: clear the Drupal cache
-    cmd: /app/scripts/lando/cr.sh
