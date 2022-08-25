@@ -3,7 +3,7 @@
 namespace Drupal\corpus_search;
 
 /**
- * Class CorpusLemmaFrequency.
+ * Provide lemma-based search.
  *
  * @package Drupal\corpus_search
  */
@@ -82,14 +82,14 @@ class CorpusLemmaFrequency {
       $id_pairs = explode(',', $existing[0]);
       foreach ($id_pairs as $pair) {
         $nid_and_count = explode(':', $pair);
-        $old_text_ids{$nid_and_count[0]} = $nid_and_count[1];
+        $old_text_ids[$nid_and_count[0]] = $nid_and_count[1];
       }
       $new_text_ids = [];
       // The ids are stored in the format NID:COUNT,NID:COUNT.
       $id_pairs = explode(',', $texts);
       foreach ($id_pairs as $pair) {
         $nid_and_count = explode(':', $pair);
-        $new_text_ids{$nid_and_count[0]} = $nid_and_count[1];
+        $new_text_ids[$nid_and_count[0]] = $nid_and_count[1];
       }
       foreach ($old_text_ids as $id => $count) {
         if (isset($new_text_ids[$id])) {
