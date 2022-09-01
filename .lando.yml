@@ -14,7 +14,7 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php:8.0
+    type: php:7.4
     via: apache
     version: 2.4
     webroot: public_html
