@@ -20,6 +20,7 @@ dependencies:
     - node.type.resource
     - taxonomy.vocabulary.assignment
     - taxonomy.vocabulary.course
+    - taxonomy.vocabulary.document_type
     - taxonomy.vocabulary.institution
     - taxonomy.vocabulary.instructor
     - taxonomy.vocabulary.semester
@@ -1254,60 +1255,10 @@ display:
           plugin_id: bundle
           value:
             resource: resource
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        field_assignment_target_id:
-          id: field_assignment_target_id
-          table: node__field_assignment
-          field: field_assignment_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
           group: 1
-          exposed: true
           expose:
-            operator_id: field_assignment_target_id_op
-            label: 'Assignment (field_assignment)'
-            description: ''
-            use_operator: false
-            operator: field_assignment_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: assignment
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: assignment
-          type: textfield
-          hierarchy: false
-          limit: true
-          error_message: true
         field_course_target_id:
           id: field_course_target_id
           table: node__field_course
@@ -1616,7 +1567,7 @@ display:
           field: title
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Excluded ID'
           entity_type: node
           entity_field: title
           plugin_id: string
@@ -1638,12 +1589,13 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
               basic_search_access: '0'
+              full_text_access: '0'
               export_access: '0'
+              offline: '0'
               manager: '0'
+              content_manager: '0'
+              anonymous: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1657,6 +1609,271 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_instructor_target_id_1:
+          id: field_instructor_target_id_1
+          table: node__field_instructor
+          field: field_instructor_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Excluded Instructor'
+          plugin_id: taxonomy_index_tid
+          operator: not
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_instructor_target_id_1_op
+            label: 'Instructor (field_instructor)'
+            description: ''
+            use_operator: false
+            operator: field_instructor_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: excluded_instructor
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: instructor
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
+        field_document_type_target_id:
+          id: field_document_type_target_id
+          table: node__field_document_type
+          field: field_document_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Excluded Document type'
+          plugin_id: taxonomy_index_tid
+          operator: not
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_document_type_target_id_op
+            label: 'Document Type (field_document_type)'
+            description: ''
+            use_operator: false
+            operator: field_document_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: excluded_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: document_type
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
+        field_assignment_target_id_1:
+          id: field_assignment_target_id_1
+          table: node__field_assignment
+          field: field_assignment_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Excluded assignment'
+          plugin_id: taxonomy_index_tid
+          operator: not
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_assignment_target_id_1_op
+            label: 'Assignment (field_assignment)'
+            description: ''
+            use_operator: false
+            operator: field_assignment_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: excluded_assignment
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: assignment
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
+        field_assignment_target_id:
+          id: field_assignment_target_id
+          table: node__field_assignment
+          field: field_assignment_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Assignment is'
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 2
+          exposed: true
+          expose:
+            operator_id: field_assignment_target_id_op
+            label: 'Assignment (field_assignment)'
+            description: ''
+            use_operator: false
+            operator: field_assignment_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: assignment
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: assignment
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
+        field_document_type_target_id_1:
+          id: field_document_type_target_id_1
+          table: node__field_document_type
+          field: field_document_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'or is of type...'
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 2
+          exposed: true
+          expose:
+            operator_id: field_document_type_target_id_1_op
+            label: 'Document Type (field_document_type)'
+            description: ''
+            use_operator: false
+            operator: field_document_type_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: or_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: document_type
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
       style:
         type: table
         options:

@@ -2087,6 +2087,58 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_instructor_target_id_1:
+          id: field_instructor_target_id_1
+          table: node__field_instructor
+          field: field_instructor_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Excluded Instructor'
+          plugin_id: taxonomy_index_tid
+          operator: not
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_instructor_target_id_1_op
+            label: 'Excluded instructor'
+            description: 'Excluded Instructor'
+            use_operator: false
+            operator: field_instructor_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: excluded_instructor
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              basic_search_access: '0'
+              full_text_access: '0'
+              export_access: '0'
+              offline: '0'
+              manager: '0'
+              content_manager: '0'
+              anonymous: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: instructor
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: false
       style:
         type: default
       row:
