@@ -107,6 +107,7 @@
         "[project-root]/.editorconfig": false,
         "[project-root]/.gitattributes": false,
         "[web-root]/robots.txt": false,
+        "[web-root]/.htaccess": false,
         "[web-root]/.csslintrc": false,
         "[web-root]/.editorconfig": false,
         "[web-root]/.eslintignore": false,

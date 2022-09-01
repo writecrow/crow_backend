@@ -32,7 +32,6 @@ config/.htaccess
 /public_html/.gitattributes
 /public_html/.gitignore
 /public_html/.ht.router.php
-/public_html/.htaccess
 /public_html/INSTALL.txt
 /public_html/README.txt
 /public_html/autoload.php
