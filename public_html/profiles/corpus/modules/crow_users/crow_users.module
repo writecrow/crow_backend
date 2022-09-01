@@ -61,7 +61,7 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
   $form['web_access'] = [
     '#prefix' => '<div class="web-access-wrapper">',
     '#suffix' => '</div>',
-    '#weight' => 5,
+    '#weight' => 4,
   ];
   $form['web_access']['base'] = [
     '#type' => 'fieldset',
@@ -86,10 +86,19 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#default_value' => FALSE,
     '#description' => t('Export excerpted search results from the interface to a spreadsheet (similar to concordance line output).'),
   ];
+  $form['web_access']['additional']['excerpt_note'] = [
+    '#type' => 'item',
+    '#markup' => '<strong>Note: Please ensure that you provide justification for export access in your project description, below.</strong>',
+    '#states'   => [
+      'visible' => [
+        ':input[name="excerpt"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
   $form['download_wrapper'] = [
     '#type' => 'fieldset',
     '#title' => 'Corpus download access',
-    '#weight' => 5,
+    '#weight' => 4,
   ];
   $form['download_wrapper']['offline'] = [
     '#type' => 'checkbox',
