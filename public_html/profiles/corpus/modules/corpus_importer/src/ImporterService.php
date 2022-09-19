@@ -399,6 +399,8 @@ class ImporterService {
     }
 
     $body = trim(html_entity_decode($text['text']));
+    // One more chance to enforce utf-8
+    $body = mb_convert_encoding($body, 'UTF-8', mb_list_encodings());
     // Remove unnecessary <End Header> text.
     $body = str_replace('<End Header>', '', $body);
     $node->set('field_raw_text', ['value' => $body, 'format' => 'plain_text']);

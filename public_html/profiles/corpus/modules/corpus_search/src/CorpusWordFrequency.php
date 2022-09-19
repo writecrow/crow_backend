@@ -57,7 +57,8 @@ class CorpusWordFrequency {
     $query->condition('n.entity_id', $node_id, '=');
     $result = $query->execute()->fetchCol();
     if (!empty($result[0])) {
-      $tokens = self::tokenize(strip_tags($result[0]));
+      $text = mb_convert_encoding($result[0], 'UTF-8', mb_list_encodings());
+      $tokens = self::tokenize(strip_tags($text));
       foreach ($tokens as $word) {
         if (isset($frequency[$word])) {
           $frequency[$word]++;
