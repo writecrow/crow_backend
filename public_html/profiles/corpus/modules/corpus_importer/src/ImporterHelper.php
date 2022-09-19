@@ -157,6 +157,12 @@ class ImporterHelper {
           }
           break;
 
+        case 'l1':
+          if (in_array($value, array_keys(ImporterMap::$languageFixes))) {
+            $text[$name][$key] = ImporterMap::$languageFixes[$value];
+          }
+          break;
+
         case 'country':
           if (in_array($value, array_keys(ImporterMap::$countryFixes))) {
             $text[$name][$key] = ImporterMap::$countryFixes[$value];

@@ -65,6 +65,7 @@ class ImporterMap {
     "AN" => "Analytical Essay",
     "BE" => "Belief Exploration",
     "CA" => "Controversy Analysis",
+    "CO" => "Counterstory",
     "CS" => "Case Study",
     "DA" => "Visual Design Analysis",
     "DE" => "Description and Explanation",
@@ -132,9 +133,18 @@ class ImporterMap {
     'Iran (Islamic Republic Of)' => 'Iran',
     'Korea, Republic of' => 'South Korea',
     'Korea (South)' => 'South Korea',
+    'Russian Federation' => 'Russia',
     'Taiwan, Province of China' => 'Taiwan',
     'United States' => 'United States of America',
     'Viet Nam' => 'Vietnam',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  public static $languageFixes = [
+    'Uzbek language' => 'Uzbek',
+    'Mauritian Kreole' => 'Mauritian Creole',
   ];
 
   /**
@@ -179,6 +189,7 @@ class ImporterMap {
   public static $programFixes = [
     'Visiting Student' => '',
     'Statistics and...' => 'Statistics and Data Science',
+    'No Major Selected A-Center' => 'Undecided',
   ];
 
   /**
@@ -199,6 +210,7 @@ class ImporterMap {
    * {@inheritdoc}
    */
   public static $collegeGeneral = [
+    'A-Center' => '',
     'EU' => 'College of Education',
     'A' => 'College of Agriculture & Life Sciences',
     'HH' => 'College of Health & Human Sciences',
