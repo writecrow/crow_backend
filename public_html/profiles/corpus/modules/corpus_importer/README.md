@@ -11,3 +11,4 @@ a database entity.
 1. Import the new dataset (`drush corpus-import /app/repository_import`)
 1. Wipe old indexing: `drush cww` && `drush clw`
 1. Rebuild the new index `drush cwc` && `drush clc`.
+1. For the frontend, make sure the latest base data is present in `src/app/corpus/corpus-base.json` (retrieve from `/corpus_search`)
