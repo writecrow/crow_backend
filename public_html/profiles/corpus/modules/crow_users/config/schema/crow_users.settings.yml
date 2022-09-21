@@ -17,4 +17,11 @@ crow_users.settings:
     list:
       type: text
       label: 'List'
-
+    description_standard:
+      type: text
+    description_offline:
+      type: text
+    description_full_text_access:
+      type: text
+    description_export:
+      type: text

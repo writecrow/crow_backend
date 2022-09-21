@@ -64,6 +64,26 @@ class Settings extends ConfigFormBase {
       '#description' => $this->t('Comma-separated list'),
       '#default_value' => $config->get('assignee_ids'),
     ];
+    $form['description_standard'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Standard role description'),
+      '#default_value' => $config->get('description_standard'),
+    ];
+    $form['description_full_text_access'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Full text role description'),
+      '#default_value' => $config->get('description_full_text_access'),
+    ];
+    $form['description_export'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Export role description'),
+      '#default_value' => $config->get('description_export'),
+    ];
+    $form['description_offline'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Offline role description'),
+      '#default_value' => $config->get('description_offline'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -78,6 +98,10 @@ class Settings extends ConfigFormBase {
       ->set('list', $form_state->getValue('list'))
       ->set('project', $form_state->getValue('project'))
       ->set('offline_survey', $form_state->getValue('offline_survey'))
+      ->set('description_standard', $form_state->getValue('description_standard'))
+      ->set('description_full_text_access', $form_state->getValue('description_full_text_access'))
+      ->set('description_export', $form_state->getValue('description_export'))
+      ->set('description_offline', $form_state->getValue('description_offline'))
       ->save();
     parent::submitForm($form, $form_state);
   }

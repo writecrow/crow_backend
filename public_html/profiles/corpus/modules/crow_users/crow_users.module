@@ -5,6 +5,7 @@
  * Defines user registration modifications.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Render\Markup;
@@ -233,12 +234,79 @@ function crow_users_form_user_form_alter(&$form, FormStateInterface $form_state,
 }
 
 /**
+ * Implements hook_entity_presave().
+ */
+function crow_users_entity_presave(EntityInterface $entity) {
+  // If an *active* user's roles are changed, send an email clarifying this.
+  if ($entity->bundle() !== 'user') {
+    return;
+  }
+  if (!$entity->original->isActive() || !$entity->isActive()) {
+    // Don't send an email if the user was previously inactive or will be.
+    // i.e., only proceed if the user was already active and still is.
+    \Drupal::logger('crow_users')->notice('The user with id ' . $entity->id() . ' was previously inactive');
+    return;
+  }
+  $old_roles = $entity->original->getRoles();
+  $new_roles = $entity->getRoles();
+  if ($old_roles != $new_roles) {
+    $config = \Drupal::config('crow_users.settings');
+    $name = $entity->get('field_full_name')->getString();
+    $text = [$name . ','];
+    $text[] = '';
+    $text[] = 'Your access level for the Corpus & Repository of Writing (https://crow.corporaproject.org) has changed. Below is a summary of your account capabilities.';
+    $text[] = '';
+    foreach ($new_roles as $role) {
+      if ($role === 'basic_search_access') {
+        $text[] = 'STANDARD ACCESS';
+        $text[] = $config->get('description_standard');
+        $text[] = '';
+      }
+      elseif ($role === 'full_text_access') {
+        $text[] = 'FULL TEXT VIEWING';
+        $text[] = $config->get('description_full_text_access');
+        $text[] = '';
+      }
+      elseif ($role === 'export_access') {
+        $text[] = 'EXPORT SEARCH EXCERPTS';
+        $text[] = $config->get('description_export');
+        $text[] = '';
+      }
+      elseif ($role === 'offline') {
+        $text[] = 'OFFLINE DOWNLOAD';
+        $text[] = $config->get('description_offline');
+        $text[] = '';
+      }
+    }
+    $text[] = 'Best regards,';
+    $text[] = 'Crow team';
+    $text[] = 'collaborate@writecrow.org';
+    $params = [];
+    $params['message'] = implode(PHP_EOL, $text);
+    $params['account'] = $entity;
+    try {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'crow_users';
+      $key = 'role_change';
+      $to = $entity->getEmail();
+      $params['title'] = 'Your Crow access level has changed';
+      $langcode = $entity->getPreferredLangcode();
+      $send = TRUE;
+      $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      \Drupal::logger('crow_users')->notice('User ' . $name . ' has been emailed updated roles.');
+    }
+    catch (RequestException $e) {
+      \Drupal::logger('crow_users')->error($e);
+    }
+  }
+}
+
+/**
  * Implements hook_mail_alter().
  *
  * Control sender/reply-to of outgoing emails.
  */
 function crow_users_mail_alter(&$message) {
-  $account = $message['params']['account'];
   // All variables defined in sites/default/settings.local.php.
   $return_path = Settings::get('corpus_users_return_path');
   if ($return_path) {
@@ -248,13 +316,15 @@ function crow_users_mail_alter(&$message) {
   if ($sender) {
     $message['headers']['Sender'] = $sender;
   }
-  $reply_to = Settings::get('corpus_users_reply_to');
-  if ($reply_to) {
-    $message['headers']['Reply-To'] = $reply_to;
-  }
-  $from = Settings::get('corpus_users_from');
-  if ($from) {
-    $message['headers']['From'] = $from;
+  if (!isset($message['headers']['Reply-To'])) {
+    $reply_to = Settings::get('corpus_users_reply_to');
+    if ($reply_to) {
+      $message['headers']['Reply-To'] = $reply_to;
+    }
+    $from = Settings::get('corpus_users_from');
+    if ($from) {
+      $message['headers']['From'] = $from;
+    }
   }
 
   $bcc_mail = Settings::get('corpus_users_bcc_email');
@@ -262,6 +332,7 @@ function crow_users_mail_alter(&$message) {
     'user_register_admin_created',
     'user_status_activated',
     'user_register_pending_approval',
+    'role_change',
   ])) {
     if ($bcc_mail) {
       $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
@@ -270,17 +341,23 @@ function crow_users_mail_alter(&$message) {
   }
   switch ($message['id']) {
     case 'user_register_pending_approval':
+      $account = $message['params']['account'];
       $levels = $account->get('field_requested_access_level')->getValue();
       foreach ($levels as $level) {
         if ($level['value'] === 'offline') {
           $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
-          $survey = $url . '?' . http_build_query(['CrowEmail' => $account->getEmail(), 'CrowUsername' => $account->getAccountName(), 'CrowName' => $account->get('field_full_name')->getString()]);
+          $survey = $url . '?' . http_build_query([
+            'CrowEmail' => $account->getEmail(),
+            'CrowUsername' => $account->getAccountName(),
+            'CrowName' => $account->get('field_full_name')->getString(),
+          ]);
           $message['body'] = str_replace('Your application is currently being reviewed. Once it has been approved,', 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed,', $message['body']);
         }
       }
       break;
 
     case 'user_status_activated':
+      $account = $message['params']['account'];
       if ($account->hasRole('offline')) {
         $message['body'] = str_replace('Best regards', PHP_EOL . 'After you have signed in to the interface at https://crow.corporaproject.org, you can download the corpus for offline use at https://crow.corporaproject.org/download .' . PHP_EOL . PHP_EOL . 'Best regards', $message['body']);
       }
@@ -301,6 +378,11 @@ function crow_users_mail($key, &$message, $params) {
       $message['subject'] = t('@title', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
+
+    case 'role_change':
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
   }
 }
 
@@ -315,7 +397,6 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
   $values = $form_state->getValues();
-  $levels = [];
   $message = '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
   $message = '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
   $message .= '<p><hr /></p>';

@@ -1,5 +1,10 @@
 'on': true
+offline_survey: ''
 assignee_ids: '605725,552909,9638776'
 project: '3403924'
 list: '3014864272'
+description_standard: 'You have access to view the corpus and repository at https://crow.corporaproject.org'
+description_offline: 'You can download a subset of the texts available in the online corpus. The offline corpus has been curated by the Crow team to ensure a representative sample from the first year writing context. After you have signed in to the interface at https://crow.corporaproject.org, you can download the corpus for offline use at https://crow.corporaproject.org/download .'
+description_full_text_access: 'You have access to view the entire text of student writing in the online interface.'
+description_export: 'You may export excerpted search results from the interface to a spreadsheet (similar to concordance line output).'
 users_notify: '605725,552909'
