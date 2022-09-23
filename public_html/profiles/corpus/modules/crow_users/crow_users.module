@@ -241,6 +241,10 @@ function crow_users_entity_presave(EntityInterface $entity) {
   if ($entity->bundle() !== 'user') {
     return;
   }
+  if (!$entity->original) {
+    // Don't act on new user accounts.
+    return;
+  }
   if (!$entity->original->isActive() || !$entity->isActive()) {
     // Don't send an email if the user was previously inactive or will be.
     // i.e., only proceed if the user was already active and still is.
