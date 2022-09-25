@@ -44,7 +44,6 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
-  phpmailer_smtp: 0
   rabbit_hole: 0
   recaptcha: 0
   redirect_after_login: 0
@@ -65,6 +64,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  update: 0
   user: 0
   userprotect: 0
   views_data_export: 0
