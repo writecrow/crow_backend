@@ -57,7 +57,7 @@ $settings['config_sync_directory'] = $app_root . '/../config';
  * useful in a configuration file for a vhost or directory, rather than
  * the default settings.php.
  */
-$settings['config_exclude_modules'] = ['smtp', 'phpmailer_smtp.settings'];
+$settings['config_exclude_modules'] = ['smtp', 'phpmailer_smtp'];
 
 /**
  * Fast 404 pages:
