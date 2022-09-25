@@ -2,15 +2,15 @@ _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 theme: current
 defaults:
-  sender: SMTPMailSystem
-  formatter: SMTPMailSystem
+  sender: phpmailer_smtp
+  formatter: phpmailer_smtp
 modules:
   sendgrid_integration: {  }
   smtp:
     none:
-      sender: SMTPMailSystem
-      formatter: SMTPMailSystem
+      sender: phpmailer_smtp
+      formatter: phpmailer_smtp
   crow_users:
     user_report:
-      sender: SMTPMailSystem
+      sender: phpmailer_smtp
       formatter: mime_mail

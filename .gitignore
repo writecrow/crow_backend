@@ -7,6 +7,7 @@ public.key
 
 ## Explicitly ignore configuration that we do not want to version
 config/smtp.settings.yml
+config/phpmailer_smtp.settings.yml
 
 # Ignore test data
 /corpus_data

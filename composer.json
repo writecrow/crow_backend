@@ -33,6 +33,7 @@
     "drupal/login_emailusername": "^1",
     "drupal/mailsystem": "^4",
     "drupal/mimemail": "^1.0@alpha",
+    "drupal/phpmailer_smtp": "^2.1",
     "drupal/rabbit_hole": "^1",
     "drupal/recaptcha": "^3",
     "drupal/redirect_after_login": "^2",
