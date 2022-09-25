@@ -1413,11 +1413,13 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
       tags:
         - 'config:field.storage.node.field_file'
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
+        - 'config:search_api.index.resource_index'
   page_1:
     id: page_1
     display_title: Page
@@ -1437,11 +1439,13 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
       tags:
         - 'config:field.storage.node.field_file'
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
+        - 'config:search_api.index.resource_index'
   rest_export_1:
     id: rest_export_1
     display_title: 'REST export'
@@ -1551,8 +1555,21 @@ display:
         - request_format
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:facets.facet.repository_rest_assignment'
+        - 'config:facets.facet.repository_rest_course'
+        - 'config:facets.facet.repository_rest_course_length'
+        - 'config:facets.facet.repository_rest_document_type'
+        - 'config:facets.facet.repository_rest_file_type'
+        - 'config:facets.facet.repository_rest_institution'
+        - 'config:facets.facet.repository_rest_instructor'
+        - 'config:facets.facet.repository_rest_mode'
+        - 'config:facets.facet.repository_rest_semester'
+        - 'config:facets.facet.repository_rest_year'
+        - 'config:facets.facet.topic'
         - 'config:field.storage.node.field_file'
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
+        - 'config:search_api.index.resource_index'

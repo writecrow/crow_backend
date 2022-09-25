@@ -35,6 +35,10 @@ module:
   honeypot: 0
   image: 0
   inline_form_errors: 0
+  jquery_ui: 0
+  jquery_ui_datepicker: 0
+  jquery_ui_slider: 0
+  jquery_ui_touch_punch: 0
   language: 0
   login_emailusername: 0
   mailsystem: 0
@@ -64,7 +68,6 @@ module:
   text: 0
   token: 0
   toolbar: 0
-  update: 0
   user: 0
   userprotect: 0
   views_data_export: 0

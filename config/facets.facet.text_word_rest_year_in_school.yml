@@ -8,6 +8,8 @@ id: text_word_rest_year_in_school
 name: text_word_rest_year_in_school
 weight: 0
 min_count: 1
+missing: false
+missing_label: others
 url_alias: year_in_school
 facet_source_id: 'search_api:views_rest__texts_by_word__rest_export_1'
 field_identifier: year_in_school
@@ -15,6 +17,10 @@ query_operator: or
 hard_limit: 0
 exclude: false
 use_hierarchy: false
+keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
@@ -25,6 +31,7 @@ empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: true
 show_only_one_result: false
+show_title: null
 processor_configs:
   display_value_widget_order:
     processor_id: display_value_widget_order
