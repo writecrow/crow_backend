@@ -122,6 +122,11 @@ class ImporterHelper {
     if (is_string($text[$name])) {
       $text[$name] = [$text[$name]];
     }
+    if (!isset($text[$name])) {
+      // Some texts don't have all metadata. For example, older Purdue texts
+      // have no L1.
+      return [];
+    }
     foreach ($text[$name] as $key => $value) {
 
       switch ($machine_name) {

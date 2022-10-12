@@ -152,6 +152,7 @@ class ImporterMap {
    */
   public static $institutionFixes = [
     '' => 'Purdue University',
+    'Purdue' => 'Purdue University',
     'University of Arizona - cues' => 'University of Arizona',
   ];
 
