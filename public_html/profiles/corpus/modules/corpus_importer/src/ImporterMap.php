@@ -137,6 +137,7 @@ class ImporterMap {
     'Taiwan, Province of China' => 'Taiwan',
     'United States' => 'United States of America',
     'Viet Nam' => 'Vietnam',
+    'Macao' => 'Macau',
   ];
 
   /**
