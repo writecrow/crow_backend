@@ -32,8 +32,8 @@ class Excerpt {
       return [];
     }
     $connection = \Drupal::database();
-    $query = $connection->select('node__field_excerpt', 'n')
-      ->fields('n', ['entity_id', 'field_excerpt_value'])
+    $query = $connection->select('node__field_body', 'n')
+      ->fields('n', ['entity_id', 'field_body_value'])
       ->condition('n.entity_id', array_keys($matching_texts), 'IN');
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
@@ -66,13 +66,29 @@ class Excerpt {
         }
       }
       if ($excerpt_display === 'plain') {
-        $excerpts[$id]['text'] = $results[$id];
+        $excerpts[$id]['text'] = self::generatePlainExcerpt($results[$id]);
       }
       else {
         $excerpts[$id]['text'] = Highlighter::process($results[$id], $tokens, FALSE, $excerpt_display);
       }
     }
     return array_values($excerpts);
+  }
+
+  public static function generatePlainExcerpt($body) {
+    $excerpt = '';
+    $separator = "\r\n";
+    $line = strtok($body, $separator);
+    while ($line !== FALSE) {
+      $line = strtok($separator);
+      if (mb_strlen($excerpt) > 300) {
+        return mb_substr($excerpt, 0, 300) . '...';
+      }
+      if (mb_strlen($line) < 50) {
+        continue;
+      }
+      $excerpt .= $line . ' ';
+    }
   }
 
   /**

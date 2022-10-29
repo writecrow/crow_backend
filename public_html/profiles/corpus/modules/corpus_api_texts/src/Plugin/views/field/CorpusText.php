@@ -60,7 +60,7 @@ class CorpusText extends FieldPluginBase {
     $param = \Drupal::request()->query->all();
     if (isset($param['search'])) {
       $tokens = CorpusSearch::getTokens($param['search']);
-      $text = Highlighter::process($text, array_keys($tokens), FALSE);
+      $text = Highlighter::process($text, array_keys($tokens), FALSE,  'all');
     }
     if ($user->hasRole('full_text_access')) {
       return '<div class="panel">' . nl2br($text) . '</div>';

@@ -78,34 +78,6 @@ class CorpusImporterCommands extends DrushCommands {
    * Delete all terms from the stated taxonomy vocabulary.
    *
    * @usage 0
-   *   drush generate-excerpts
-   *
-   * @command generate:excerpts
-   * @aliases gex,
-   */
-  public function generateExcerpts() {
-    ini_set("memory_limit", "4096M");
-    $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-    $query->condition('type', 'text');
-    $items = array_values($query->execute());
-    if (count($items) != 0) {
-      $this->output()->writeln(count($items) . " matching corpus nodes exist...");
-      $this->output()->writeln('This may take a few moments...');
-      $storage_handler = \Drupal::entityTypeManager()
-        ->getStorage('node');
-      $entities = $storage_handler
-        ->loadMultiple($items);
-      foreach ($entities as $entity) {
-        ImporterHelper::generateExcerpt($entity);
-        $this->output()->writeln('Excerpt created: ' . $entity->id());
-      }
-    }
-  }
-
-  /**
-   * Delete all terms from the stated taxonomy vocabulary.
-   *
-   * @usage 0
    *   drush taxonomy-wipe country
    *
    * @command taxonomy:wipe

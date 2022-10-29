@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.text.field_country
     - field.field.node.text.field_course
     - field.field.node.text.field_draft
-    - field.field.node.text.field_excerpt
     - field.field.node.text.field_gender
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
@@ -82,13 +81,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 118
-    region: content
-  field_excerpt:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 123
     region: content
   field_gender:
     type: entity_reference_label

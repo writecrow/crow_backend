@@ -12,25 +12,6 @@ use writecrow\CountryCodeConverter\CountryCodeConverter;
  */
 class ImporterHelper {
 
-  public static function generateExcerpt($entity) {
-    $excerpt = '';
-    $body = $entity->get('field_body')->getString();
-    $separator = "\r\n";
-    $line = strtok($body, $separator);
-    while ($line !== FALSE) {
-      $line = strtok($separator);
-      if (mb_strlen($excerpt) > 300) {
-        $entity->set('field_excerpt', mb_substr($excerpt, 0, 300) . '...');
-        $entity->save();
-        break;
-      }
-      if (mb_strlen($line) < 50) {
-        continue;
-      }
-      $excerpt .= $line . ' ';
-    }
-  }
-
   /**
    * Ensure that a taxonomy term exists from the given data.
    *

@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.text.field_country
     - field.field.node.text.field_course
     - field.field.node.text.field_draft
-    - field.field.node.text.field_excerpt
     - field.field.node.text.field_gender
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
@@ -48,7 +47,6 @@ hidden:
   field_country: true
   field_course: true
   field_draft: true
-  field_excerpt: true
   field_gender: true
   field_id: true
   field_institution: true
