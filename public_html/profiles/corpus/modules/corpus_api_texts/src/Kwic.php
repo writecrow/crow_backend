@@ -2,7 +2,7 @@
 
 namespace Drupal\corpus_api_texts;
 
-use writecrow\Highlighter\HighlightExcerpt;
+use writecrow\Highlighter\Highlighter;
 use Drupal\corpus_search\Controller\CorpusSearch;
 use Drupal\corpus_api_texts\Sentence;
 
@@ -35,7 +35,7 @@ class Kwic {
       if (count($instances) >= $inc) {
         break;
       }
-      $sentence = HighlightExcerpt::highlight($sentence, array_keys($keywords), FALSE, "fixed");
+      $sentence = Highlighter::process($sentence, array_keys($keywords), FALSE, "kwic");
       if (mb_strpos($sentence, '<mark>') !== FALSE) {
         $instances[] = $sentence;
       }

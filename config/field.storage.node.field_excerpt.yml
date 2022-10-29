@@ -1,0 +1,19 @@
+uuid: d976a3e9-7c8e-47b8-a6fe-8a040688888c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_excerpt
+field_name: field_excerpt
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bb8abe892af1cfc031d95211436afc5",
+    "content-hash": "796f7628d11a9a6fd263ae52973631f6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8889,16 +8889,16 @@
         },
         {
             "name": "writecrow/highlighter",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/highlighter.git",
-                "reference": "033f7ddb18209402359d23acc238c1a595c69758"
+                "reference": "8416c015c66a8457f75bdb588be0df016c9e0cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/033f7ddb18209402359d23acc238c1a595c69758",
-                "reference": "033f7ddb18209402359d23acc238c1a595c69758",
+                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/8416c015c66a8457f75bdb588be0df016c9e0cf2",
+                "reference": "8416c015c66a8457f75bdb588be0df016c9e0cf2",
                 "shasum": ""
             },
             "type": "library",
@@ -8926,7 +8926,7 @@
                 "issues": "https://github.com/writecrow/highlighter/issues",
                 "source": "https://github.com/writecrow/highlighter"
             },
-            "time": "2022-06-02T16:44:14+00:00"
+            "time": "2022-10-29T00:06:37+00:00"
         },
         {
             "name": "writecrow/lorem_gutenberg",
@@ -9083,5 +9083,5 @@
     "platform-overrides": {
         "php": "7.4.30"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }

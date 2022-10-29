@@ -2,7 +2,7 @@
 
 namespace Drupal\corpus_search;
 
-use writecrow\Highlighter\HighlightExcerpt;
+use writecrow\Highlighter\Highlighter;
 
 /**
  * Class Excerpt.
@@ -24,18 +24,16 @@ class Excerpt {
    *   The number of results to return.
    * @param int $offset
    *   Pagination functionality (translates to SQL offset).
-   * @param bool $do_excerpt
-   *   Should an excerpt be returned?
-   * @param string $excerpt_type
+   * @param string $excerpt_display
    *   Provide concatenated results or keyed (for iDDL)?
    */
-  public static function getExcerptOrFullText(array $matching_texts, array $tokens, array $facet_map, $limit = 20, $offset = 0, $do_excerpt = TRUE, $excerpt_type = "concat") {
+  public static function getExcerpt(array $matching_texts, array $tokens, array $facet_map, $limit = 20, $offset = 0, $excerpt_display = "concat") {
     if (empty($matching_texts)) {
       return [];
     }
     $connection = \Drupal::database();
-    $query = $connection->select('node__field_body', 'n')
-      ->fields('n', ['entity_id', 'field_body_value'])
+    $query = $connection->select('node__field_excerpt', 'n')
+      ->fields('n', ['entity_id', 'field_excerpt_value'])
       ->condition('n.entity_id', array_keys($matching_texts), 'IN');
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
@@ -67,11 +65,11 @@ class Excerpt {
           }
         }
       }
-      if ($do_excerpt) {
-        $excerpts[$id]['text'] = HighlightExcerpt::highlight($results[$id], $tokens, '300', $excerpt_type) . '...';
+      if ($excerpt_display === 'plain') {
+        $excerpts[$id]['text'] = $results[$id];
       }
       else {
-        $excerpts[$id]['text'] = $results[$id];
+        $excerpts[$id]['text'] = Highlighter::process($results[$id], $tokens, FALSE, $excerpt_display);
       }
     }
     return array_values($excerpts);

@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\corpus_search\Controller\CorpusSearch;
-use writecrow\Highlighter\HighlightExcerpt;
+use writecrow\Highlighter\Highlighter;
 
 /**
  * Return highlighted text, based on query parameters.
@@ -59,7 +59,7 @@ class RepositoryHighlighted extends FieldPluginBase {
     $param = \Drupal::request()->query->all();
     if (isset($param['search'])) {
       $tokens = CorpusSearch::getTokens($param['search']);
-      $text = HighlightExcerpt::highlight($text, array_keys($tokens), FALSE);
+      $text = Highlighter::process($text, array_keys($tokens), FALSE);
     }
     return nl2br($text);
   }

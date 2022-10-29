@@ -7,7 +7,7 @@ use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\user\Entity\User;
 use Drupal\corpus_search\Controller\CorpusSearch;
-use writecrow\Highlighter\HighlightExcerpt;
+use writecrow\Highlighter\Highlighter;
 
 /**
  * Return full or excerpted text, based on the user role.
@@ -57,11 +57,10 @@ class CorpusText extends FieldPluginBase {
     $text_object = $entity->get('field_body')->getValue();
     $user = User::load(\Drupal::currentUser()->id());
     $text = htmlentities(strip_tags($text_object[0]['value'], "<name><date><place>"));
-
     $param = \Drupal::request()->query->all();
     if (isset($param['search'])) {
       $tokens = CorpusSearch::getTokens($param['search']);
-      $text = HighlightExcerpt::highlight($text, array_keys($tokens), FALSE);
+      $text = Highlighter::process($text, array_keys($tokens), FALSE);
     }
     if ($user->hasRole('full_text_access')) {
       return '<div class="panel">' . nl2br($text) . '</div>';

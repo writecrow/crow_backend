@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.text.field_country
     - field.field.node.text.field_course
     - field.field.node.text.field_draft
+    - field.field.node.text.field_excerpt
     - field.field.node.text.field_gender
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
@@ -90,6 +91,14 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_excerpt:
+    type: string_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_gender:
