@@ -1,0 +1,19 @@
+uuid: a0127eeb-7212-43f3-8758-bebfe81aa0ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_offline_justification
+field_name: field_offline_justification
+entity_type: user
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

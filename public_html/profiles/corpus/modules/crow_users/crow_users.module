@@ -107,6 +107,13 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#default_value' => FALSE,
     '#description' => t('Download a subset of the texts available in the online corpus. This option is intended for users who would like to use the corpus for their own research, particularly if they would like to annotate the corpus, use concordancing software (e.g., Antconc or LancsBox), or create their own programs to analyze the data. The offline corpus has been curated by the Crow team to ensure a representative sample from the first year writing context. Note: additional training and verification is required.'),
   ];
+  $form['download_wrapper']['justification'] = $form['field_offline_justification'];
+  $form['download_wrapper']['justification']['#states'] = [
+    'visible' => [
+      ':input[name="offline"]' => ['checked' => TRUE],
+    ],
+  ];
+  unset($form['field_offline_justification']);
   $form['#attached']['library'][] = 'crow_users/registration';
   $form['#validate'][] = '_crow_users_registration_validate';
   foreach (array_keys($form['actions']) as $action) {
@@ -125,13 +132,10 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
  * @see \Drupal\user\RegisterForm
  */
 function _crow_users_registration_validate($form, &$form_state) {
-  $error = 'Please enter a project description of at least 100 characters.';
+  $error = 'Please enter a description of at least 100 characters.';
   $description = $form_state->getValue('field_project_description');
   if (strlen($description[0]['value']) < 100) {
-    // Files an error on the mail element and provides an error message.
     $form_state->setErrorByName('field_project_description', $error);
-    // Log the error message.
-    \Drupal::logger('crow_users')->notice($error);
   }
   // Take values from "fake" fields and put them into the "real" field.
   $base = $form_state->getValue('base_options');
@@ -143,6 +147,10 @@ function _crow_users_registration_validate($form, &$form_state) {
   $offline = $form_state->getValue('offline');
   if ($offline) {
     $requests[] = 'offline';
+    $description = $form_state->getValue('field_offline_justification');
+    if (strlen($description[0]['value']) < 100) {
+      $form_state->setErrorByName('field_offline_justification', $error);
+    }
   }
   $form_state->setValue('field_requested_access_level', $requests);
 }
@@ -417,6 +425,7 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   ];
   if (in_array('offline', $values['field_requested_access_level'])) {
     $data['description'] .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
+    $data['description'] .= '<p><strong>Justification for offline use</strong>:' . $values['field_offline_justification'][0]['value'] . '</p>';
     $data['content'] .= ' (Offline Access)';
   }
   $assignee_ids = $config->get('assignee_ids');

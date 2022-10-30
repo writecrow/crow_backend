@@ -1,0 +1,20 @@
+uuid: a4314db2-eda5-4bc4-a1e7-e1caf481267d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_offline_justification
+  module:
+    - user
+id: user.user.field_offline_justification
+field_name: field_offline_justification
+entity_type: user
+bundle: user
+label: 'Intended use of offline corpus'
+description: 'Summarize how you will use the downloaded corpus for research and/or pedagogical purposes.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
