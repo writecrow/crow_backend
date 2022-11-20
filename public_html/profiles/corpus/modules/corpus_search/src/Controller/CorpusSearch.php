@@ -41,7 +41,7 @@ class CorpusSearch extends ControllerBase {
    *
    * Provides an array of data for search results output & for CSV exporting.
    */
-  public static function getSearchResults(Request $request, $excerpt_type = "concat") {
+  public static function getSearchResults(Request $request) {
     // Check for presence of cached data.
     $cache_id = self::getCacheString($request);
     if ($cache = \Drupal::cache()->get($cache_id)) {
@@ -49,7 +49,7 @@ class CorpusSearch extends ControllerBase {
         return $cache->data;
       }
     }
-    $search_data = self::search($request, $excerpt_type);
+    $search_data = self::search($request);
     \Drupal::cache()->set($cache_id, $search_data['output'], \Drupal::time()->getRequestTime() + (2500000));
     return $search_data['output'];
   }
@@ -57,7 +57,7 @@ class CorpusSearch extends ControllerBase {
   /**
    * Given a search string in query parameters, return full results.
    */
-  public static function search(Request $request, $excerpt_type = "concat") {
+  public static function search(Request $request) {
     // @todo: limit facet map to just Text matches (& cache?).
     $facet_map = TextMetadata::getFacetMap();
     // Get all facet/filter conditions.
@@ -67,6 +67,7 @@ class CorpusSearch extends ControllerBase {
     }
     $all_texts_metadata = TextMetadata::getAll();
     $ratio = 1;
+    $excerpt_display = 'plain';
     $token_data = [];
     $op = 'or';
     $tokens = [];
@@ -90,7 +91,9 @@ class CorpusSearch extends ControllerBase {
     foreach ($condition_matches as $t) {
       $global['subcorpus_wordcount'] += $t['wordcount'];
     }
+    // If there is a search string, use this to refine results.
     if ($search_string = strip_tags(urldecode($request->query->get('search')))) {
+      $excerpt_display = $request->query->get('display') ?? 'crowcordance';
       $tokens = self::getTokens($search_string);
       // Is this and "and" or "or" text search?
       $op = Xss::filter($request->query->get('op'));
@@ -168,7 +171,7 @@ class CorpusSearch extends ControllerBase {
     }
     // This runs after the frequency data to take advantage of the
     // updated $tokens, if any, from a lemma search.
-    $results['search_results'] = Excerpt::getExcerptOrFullText($matching_texts, $excerpt_tokens, $facet_map, 20, $offset, TRUE, $excerpt_type);
+    $results['search_results'] = Excerpt::getExcerpt($matching_texts, $excerpt_tokens, $facet_map, 20, $offset, $excerpt_display);
     // Build the output for use in the search data and for CSV exporting.
     $search_results['output'] = $results;
     $search_results['matching_texts'] = $matching_texts;

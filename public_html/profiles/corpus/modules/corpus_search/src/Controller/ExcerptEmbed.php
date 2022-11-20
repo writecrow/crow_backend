@@ -25,6 +25,7 @@ class ExcerptEmbed extends CorpusSearch {
     $module_path = $module_handler->getModule('corpus_search')->getPath();
     $response = new CacheableResponse('', 200);
     $renderer = \Drupal::service('renderer');
+    $display = $request->query->get('display') ?? 'kwic';
 
     $output = self::getResults($request);
     $sorted_before_array = [
@@ -62,6 +63,9 @@ class ExcerptEmbed extends CorpusSearch {
         '#script' => file_get_contents($module_path . '/js/concordance_lines.js'),
       ],
     ];
+    if ($display === 'crowcordance') {
+      $build['page']['#css'] = file_get_contents($module_path . '/css/crowcordance.css');
+    }
     $html = \Drupal::service('renderer')->renderRoot($build);
     $response->setContent($html);
     $response->getCacheableMetadata()->addCacheContexts(['url.query_args']);
@@ -70,7 +74,7 @@ class ExcerptEmbed extends CorpusSearch {
 
   private static function getResults($request) {
     $numbering = \Drupal::request()->query->get('numbering');
-    $results = self::getSearchResults($request, "fixed");
+    $results = self::getSearchResults($request);
     $output = [];
     $table = [];
     if (!empty($results['search_results'])) {
@@ -81,6 +85,7 @@ class ExcerptEmbed extends CorpusSearch {
         }
         $inc++;
         $table[$inc]['number'] = '';
+        $result['text'] = strip_tags($result['text'], '<mark>');
         // Put the highlighted keyword into an array.
         preg_match('/<mark>([^<]*)<\/mark>(.[^\w]*)/u', $result['text'], $keyword_matches);
         $bookends = preg_split('/<mark>([^<]*)<\/mark>(.[^\w]*)/u', $result['text'], 2);

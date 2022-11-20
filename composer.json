@@ -49,7 +49,7 @@
         "lcobucci/jwt": "3.3.3",
         "writecrow/basecamp_api": "^1.0",
         "writecrow/country_code_converter": "dev-main",
-        "writecrow/highlighter": "^1.0",
+        "writecrow/highlighter": "^2",
         "writecrow/lorem_gutenberg": "^1.1",
         "writecrow/rest_feedback_endpoint": "^1.0@alpha",
         "writecrow/tag_converter": "~1.0"

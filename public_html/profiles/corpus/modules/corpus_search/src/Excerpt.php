@@ -2,7 +2,7 @@
 
 namespace Drupal\corpus_search;
 
-use writecrow\Highlighter\HighlightExcerpt;
+use writecrow\Highlighter\Highlighter;
 
 /**
  * Class Excerpt.
@@ -24,12 +24,10 @@ class Excerpt {
    *   The number of results to return.
    * @param int $offset
    *   Pagination functionality (translates to SQL offset).
-   * @param bool $do_excerpt
-   *   Should an excerpt be returned?
-   * @param string $excerpt_type
+   * @param string $excerpt_display
    *   Provide concatenated results or keyed (for iDDL)?
    */
-  public static function getExcerptOrFullText(array $matching_texts, array $tokens, array $facet_map, $limit = 20, $offset = 0, $do_excerpt = TRUE, $excerpt_type = "concat") {
+  public static function getExcerpt(array $matching_texts, array $tokens, array $facet_map, $limit = 20, $offset = 0, $excerpt_display = "concat") {
     if (empty($matching_texts)) {
       return [];
     }
@@ -67,14 +65,30 @@ class Excerpt {
           }
         }
       }
-      if ($do_excerpt) {
-        $excerpts[$id]['text'] = HighlightExcerpt::highlight($results[$id], $tokens, '300', $excerpt_type) . '...';
+      if ($excerpt_display === 'plain') {
+        $excerpts[$id]['text'] = self::generatePlainExcerpt($results[$id]);
       }
       else {
-        $excerpts[$id]['text'] = $results[$id];
+        $excerpts[$id]['text'] = Highlighter::process($results[$id], $tokens, FALSE, $excerpt_display);
       }
     }
     return array_values($excerpts);
+  }
+
+  public static function generatePlainExcerpt($body) {
+    $excerpt = '';
+    $separator = "\r\n";
+    $line = strtok($body, $separator);
+    while ($line !== FALSE) {
+      $line = strtok($separator);
+      if (mb_strlen($excerpt) > 300) {
+        return mb_substr($excerpt, 0, 300) . '...';
+      }
+      if (mb_strlen($line) < 50) {
+        continue;
+      }
+      $excerpt .= $line . ' ';
+    }
   }
 
   /**
