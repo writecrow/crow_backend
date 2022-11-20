@@ -5,6 +5,7 @@ namespace Drupal\corpus_search\Controller;
 use Drupal\Core\Cache\CacheableResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Render\Markup;
+use Drupal\corpus_importer\ImporterHelper;
 
 /**
  * Corpus Search excerpt embed endpoint.
@@ -27,6 +28,11 @@ class ExcerptEmbed extends CorpusSearch {
     $renderer = \Drupal::service('renderer');
     $display = $request->query->get('display') ?? 'kwic';
 
+    // Change legacy courses to new IDs (e.g., ENGL 101 --> ENGL 101-UA).
+    $course = $request->query->get('course');
+    if ($course) {
+      $request->query->set('course', ImporterHelper::getLegacyInstitutionalCourse($course));
+    }
     $output = self::getResults($request);
     $sorted_before_array = [
       '#type' => 'table',

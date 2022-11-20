@@ -6,6 +6,7 @@ dependencies:
     - filter.format.standard_html
     - node.type.page
   module:
+    - basecamp_api
     - captcha
     - corpus_search
     - filter
@@ -23,6 +24,7 @@ permissions:
   - 'access content overview'
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer basecamp api'
   - 'administer users'
   - 'assign basic_search_access role'
   - 'assign content_manager role'

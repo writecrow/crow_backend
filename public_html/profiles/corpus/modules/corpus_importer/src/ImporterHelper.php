@@ -128,7 +128,7 @@ class ImporterHelper {
       return [];
     }
     foreach ($text[$name] as $key => $value) {
-
+      $institution = $text['Institution'];
       switch ($machine_name) {
         case 'assignment':
           if (in_array($value, array_keys(ImporterMap::$assignments))) {
@@ -137,7 +137,6 @@ class ImporterHelper {
           break;
 
         case 'college':
-          $institution = $text['Institution'];
           if (in_array($value, array_keys(ImporterMap::$collegeGeneral))) {
             // The text metadata uses a college acronymn.
             // The college name is shared across institutions.
@@ -154,6 +153,7 @@ class ImporterHelper {
           if (in_array($value, array_keys(ImporterMap::$courseFixes))) {
             $text[$name][$key] = ImporterMap::$courseFixes[$value];
           }
+          $text[$name][$key] = self::getInstitutionalCourse($text[$name][$key], $institution);
           break;
 
         case 'mode':
@@ -250,6 +250,50 @@ class ImporterHelper {
       }
     }
     return $text;
+  }
+
+  /**
+   * Append institutional suffix to course ID.
+   *
+   * @param string $course
+   *   The course identifier, e.g., ENGL 106.
+   * @param string $institution
+   *   The institution, e.g., 'University of Arizona'.
+   *
+   * @return string
+   *   The complete course ID.
+   */
+  public static function getInstitutionalCourse($course, $institution) {
+    if (strpos($course, '-') !== FALSE) {
+      // This likely already has a course suffix.
+      return $course;
+    }
+    if ($institution === 'University of Arizona') {
+      $course .= '-UA';
+    }
+    elseif ($institution === 'Purdue' || $institution === 'Purdue University') {
+      $course .= '-PRD';
+    }
+    elseif ($institution === 'Northern Arizona University') {
+      $course .= '-NAU';
+    }
+    return $course;
+  }
+
+  /**
+   * Append institutional suffix to course ID.
+   *
+   * @param string $course
+   *   The course identifier, e.g., ENGL 106.
+   *
+   * @return string
+   *   The complete course ID.
+   */
+  public static function getLegacyInstitutionalCourse($course) {
+    if (in_array($course, array_keys(ImporterMap::$legacyCourseFixes))) {
+      return ImporterMap::$legacyCourseFixes[$course];
+    }
+    return $course;
   }
 
   /**

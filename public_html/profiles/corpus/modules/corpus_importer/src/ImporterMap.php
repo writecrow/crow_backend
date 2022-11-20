@@ -188,6 +188,26 @@ class ImporterMap {
   /**
    * {@inheritdoc}
    */
+  public static $legacyCourseFixes = [
+    '106' => 'ENGL 106-UA',
+    '107' => 'ENGL 107-UA',
+    '108' => 'ENGL 108-UA',
+    'ENGL 101' => 'ENGL 101-UA',
+    'ENGL 101A' => 'ENGL 101A-UA',
+    'ENGL 102' => 'ENGL 102-UA',
+    'ENG 105' => 'ENG 105-NAU',
+    'ENGL 106' => 'ENGL 106-UA',
+    'ENGL 106INTL' => 'ENGL 106INTL-PRD',
+    'ENGL 106i' => 'ENGL 106INTL-PRD',
+    'ENGL 107' => 'ENGL 107-UA',
+    'ENGL 108' => 'ENGL 108-UA',
+    'ENGL 109H' => 'ENGL 109H-UA',
+  ];
+
+
+  /**
+   * {@inheritdoc}
+   */
   public static $programFixes = [
     'Visiting Student' => '',
     'Statistics and...' => 'Statistics and Data Science',
