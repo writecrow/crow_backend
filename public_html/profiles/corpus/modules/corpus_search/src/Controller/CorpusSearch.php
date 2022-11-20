@@ -2,6 +2,7 @@
 
 namespace Drupal\corpus_search\Controller;
 
+use Drupal\corpus_importer\ImporterHelper;
 use Drupal\corpus_search\SearchService as Search;
 use Drupal\corpus_search\CorpusWordFrequency as Frequency;
 use Drupal\corpus_search\TextMetadata;
@@ -42,6 +43,11 @@ class CorpusSearch extends ControllerBase {
    * Provides an array of data for search results output & for CSV exporting.
    */
   public static function getSearchResults(Request $request) {
+    // Change legacy courses to new IDs (e.g., ENGL 101 --> ENGL 101-UA).
+    $course = $request->query->get('course');
+    if ($course) {
+      $request->query->set('course', ImporterHelper::getLegacyInstitutionalCourse($course));
+    }
     // Check for presence of cached data.
     $cache_id = self::getCacheString($request);
     if ($cache = \Drupal::cache()->get($cache_id)) {
