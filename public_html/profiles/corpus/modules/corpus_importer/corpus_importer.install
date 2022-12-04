@@ -27,3 +27,22 @@ function corpus_importer_update_9101() {
   $engl108->setDescription('ENGL 108: 3-credit Foundations Writing Course for English as an Additional Language Students (3 of 3) at UA');
   $engl108->save();
 }
+
+/**
+ * Move UA 108 repository items to correct term.
+ */
+function corpus_importer_update_9107() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('type', 'resource')
+    ->condition('field_institution.entity.name', 'University of Arizona')
+    ->condition('field_course.entity.name', 'ENGL 108-PRD');
+  $nids = $query->execute();
+  \Drupal::logger('corpus_importer')->notice('Converting ' . (count($nids)) . ' resources to ENGL 108-UA');
+  $engl108ua = ImporterHelper::getOrCreateTidFromName('ENGL 108-UA', 'course', []);
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  foreach ($node_storage as $node){
+    $node->set('field_course', ['target_id' => $engl108ua['tid']]);
+    $node->save();
+  }
+}
