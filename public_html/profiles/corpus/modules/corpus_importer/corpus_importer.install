@@ -1,0 +1,29 @@
+<?php
+
+use Drupal\corpus_importer\ImporterHelper;
+
+/**
+ * Move UA 108 courses to a different taxonomy.
+ */
+function corpus_importer_update_9101() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('type', 'text')
+    ->condition('field_institution.entity.name', 'University of Arizona')
+    ->condition('field_course.entity.name', 'ENGL 108');
+  $nids = $query->execute();
+  \Drupal::logger('corpus_importer')->notice('Converting ' . (count($nids)) . ' nodes to ENGL 108-UA');
+  $engl108ua = ImporterHelper::getOrCreateTidFromName('ENGL 108-UA', 'course', []);
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  foreach ($node_storage as $node){
+    $node->set('field_course', ['target_id' => $engl108ua['tid']]);
+    $node->save();
+  }
+  $engl108prd = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load('200');
+  $engl108prd->setName('ENGL 108-PRD');
+  $engl108prd->setDescription('ENGL 108: 3-credit Accelerated Writing Course at Purdue, No Required Conferencing');
+  $engl108prd->save();
+  $engl108 = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($engl108ua['tid']);
+  $engl108->setDescription('ENGL 108: 3-credit Foundations Writing Course for English as an Additional Language Students (3 of 3) at UA');
+  $engl108->save();
+}
