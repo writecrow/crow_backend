@@ -63,4 +63,3 @@ hidden:
   field_year: true
   field_year_in_school: true
   langcode: true
-  search_api_excerpt: true
