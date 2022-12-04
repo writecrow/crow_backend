@@ -38,7 +38,7 @@ assert_options(ASSERT_ACTIVE, TRUE);
 /**
  * Enable local development services.
  */
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
 
 /**
  * Show all error messages, with backtrace information.
@@ -170,3 +170,6 @@ $databases['default']['default'] = [
 $settings['trusted_host_patterns'] = [
   '^api\.lndo\.site$',
 ];
+
+$config['simple_oauth.settings']['public_key'] = "/app/public.key";
+$config['simple_oauth.settings']['private_key'] = "/app/private.key";
