@@ -22,11 +22,16 @@ class CorpusLemmaFrequency {
         if (!empty($words)) {
           $inc = 0;
           foreach ($words as $word => $texts) {
-            if ($inc < 100000) {
+            if ($inc < 200000) {
+              print_r('Trying word: '. $word . PHP_EOL);
               $result = self::count($word, $texts, $module_path);
               if ($result) {
                 print_r($result . PHP_EOL);
               }
+            }
+            else {
+              print_r('Hit lemma limit of 200000');
+              break;
             }
             $inc++;
           }
