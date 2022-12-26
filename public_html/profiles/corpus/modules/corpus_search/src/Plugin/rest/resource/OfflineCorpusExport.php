@@ -4,12 +4,14 @@ namespace Drupal\corpus_search\Plugin\rest\resource;
 
 
 use Drupal\rest\Plugin\ResourceBase;
+use Drupal\rest\ModifiedResourceResponse;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\file\Entity\File;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Psr\Log\LoggerInterface;
+use Drupal\user\Entity\User;
 
 /**
  * Provides a resource to get corpus search results.
@@ -89,13 +91,19 @@ class OfflineCorpusExport extends ResourceBase {
    *   Throws exception expected.
    */
   public function get() {
+    $user = User::load($this->currentUser->id());
+    $roles = $user->getRoles();
+    if (!in_array('offline', $roles)) {
+      return new ModifiedResourceResponse([], 403);
+    }
     $data = '';
     $fid = \Drupal::state()->get('offline_file_id');
     $file = File::load($fid);
     if ($file) {
       $data = file_get_contents($file->getFileUri());
     }
-    $response = new Response();
+    // Using ModifiedResourceResponse will enforce no caching in browser.
+    $response = new ModifiedResourceResponse();
     $response->headers->set('Content-Type', 'application/zip');
     $response->headers->set('Content-Disposition', 'attachment; filename="crow_corpus.zip');
     $response->setContent($data);

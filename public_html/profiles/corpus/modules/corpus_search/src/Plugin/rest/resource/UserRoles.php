@@ -4,6 +4,7 @@ namespace Drupal\corpus_search\Plugin\rest\resource;
 
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
+use Drupal\rest\ModifiedResourceResponse;
 use Drupal\Core\Session\AccountProxyInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -78,8 +79,13 @@ class UserRoles extends ResourceBase {
   public function get($type = NULL) {
     $user = User::load($this->currentUser->id());
     $data = $user->getRoles();
-    $response = new ResourceResponse($data);
-    $response->getCacheableMetadata()->addCacheContexts(['user']);
+    $build = array(
+      '#cache' => array(
+      'max-age' => 0,
+      ),
+    );
+    // Using ModifiedResourceResponse will enforce no caching in browser.
+    $response = new ModifiedResourceResponse($data, 200);
     return $response;
   }
 

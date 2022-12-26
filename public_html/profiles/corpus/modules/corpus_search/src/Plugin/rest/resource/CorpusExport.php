@@ -5,6 +5,7 @@ namespace Drupal\corpus_search\Plugin\rest\resource;
 
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
+use Drupal\rest\ModifiedResourceResponse;
 use Drupal\corpus_search\Controller\CorpusSearch as Corpus;
 use Drupal\corpus_search\Excerpt;
 use Drupal\Core\Session\AccountProxyInterface;
@@ -12,6 +13,7 @@ use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
+
 
 /**
  * Provides a resource to get corpus search results.
@@ -91,10 +93,15 @@ class CorpusExport extends ResourceBase {
    *   Throws exception expected.
    */
   public function get($type = NULL) {
+    $user = User::load($this->currentUser->id());
+    $roles = $user->getRoles();
+    if (!in_array('offline', $roles)) {
+      return new ModifiedResourceResponse([], 403);
+    }
     $data = Corpus::search($this->currentRequest);
     $output = Excerpt::getExcerpt($data['matching_texts'], $data['tokens'], $data['facet_map'], 500, 0);
-    $response = new ResourceResponse($output);
-    $response->getCacheableMetadata()->addCacheContexts(['url.query_args']);
+    // Using ModifiedResourceResponse will enforce no caching in browser.
+    $response = new ModifiedResourceResponse($output, 200);
     return $response;
   }
 
