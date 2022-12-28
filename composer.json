@@ -20,7 +20,6 @@
     "require": {
         "composer/installers": "^1 || ^2",
         "cweagans/composer-patches": "^1.7",
-        "drupal/adminimal_theme": "^1",
         "drupal/allow_iframed_site": "^3",
         "drupal/better_exposed_filters": "^6",
         "drupal/captcha": "^1",
