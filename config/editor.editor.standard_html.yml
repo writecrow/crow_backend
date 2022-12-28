@@ -1,49 +1,46 @@
-uuid: b5408fc0-42d9-4773-bf85-b22a5fc55270
+uuid: 41f305e7-7551-4b2a-bd69-f3ef0cb41e7b
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.standard_html
   module:
-    - ckeditor
-_core:
-  default_config_hash: 6N41p1fug-EjZzxvFn2sw9YOYu2SjT3_QjlANuwesAQ
+    - ckeditor5
 format: standard_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalImage
-        -
-          name: Tools
-          items:
-            - Source
-  plugins: {  }
+    items:
+      - heading
+      - bold
+      - italic
+      - link
+      - blockQuote
+      - bulletedList
+      - numberedList
+      - insertTable
+      - drupalInsertImage
+      - sourceEditing
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_imageResize:
+      allow_resize: true
 image_upload:
-  status: true
+  status: false
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: null
-    height: null
+    width: 0
+    height: 0
