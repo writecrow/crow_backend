@@ -27,7 +27,6 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-recommended": "^9",
         "drupal/facets": "^2",
-        "drupal/features": "^3",
         "drupal/honeypot": "^1",
         "drupal/login_emailusername": "^1",
         "drupal/mailsystem": "^4",
