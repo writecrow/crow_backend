@@ -77,4 +77,6 @@ module:
 theme:
   claro: 0
   crow_theme: 0
+  seven: 0
+  adminimal_theme: 0
 profile: corpus
