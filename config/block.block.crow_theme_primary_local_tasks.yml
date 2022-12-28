@@ -1,17 +1,15 @@
-uuid: 669377ea-387e-4456-9433-624e8549543c
+uuid: 06efbe98-a3d2-4fe0-b921-db4b67a12ca9
 langcode: en
 status: true
 dependencies:
-  module:
-    - system
   theme:
     - crow_theme
 _core:
-  default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
+  default_config_hash: ACjBZI5shAMiiUpsz-inLYVXDqNNXRnSzAWV3kV_8Hw
 id: crow_theme_primary_local_tasks
 theme: crow_theme
 region: header
-weight: -2
+weight: 0
 provider: null
 plugin: local_tasks_block
 settings:
@@ -21,9 +19,4 @@ settings:
   provider: core
   primary: true
   secondary: false
-visibility:
-  request_path:
-    id: request_path
-    negate: true
-    context_mapping: {  }
-    pages: "/user/register\r\n/user/password"
+visibility: {  }

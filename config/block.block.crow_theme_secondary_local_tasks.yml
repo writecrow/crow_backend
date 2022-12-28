@@ -1,11 +1,11 @@
-uuid: 17d58f5b-cfaa-43a4-b369-0fadcde0c206
+uuid: bdc0f458-1a56-428f-8347-febdfe5dbb41
 langcode: en
 status: true
 dependencies:
   theme:
     - crow_theme
 _core:
-  default_config_hash: DJ7Om1C2xWr2GI8CjZaZtyWpP-0S3hRR3oROZl1oesc
+  default_config_hash: 2L0geP-ixCbCkEpW6BVF6H7vDUZN4ea07_Y9CociQm4
 id: crow_theme_secondary_local_tasks
 theme: crow_theme
 region: pre_content

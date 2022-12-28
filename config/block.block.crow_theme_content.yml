@@ -1,4 +1,4 @@
-uuid: 1b4e8f01-ad9e-4c6c-add3-e29c8120e186
+uuid: fa5ffb34-e25b-4a68-83f7-c7a13fd775c0
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   theme:
     - crow_theme
 _core:
-  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
 id: crow_theme_content
 theme: crow_theme
 region: content

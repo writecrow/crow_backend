@@ -1,10 +1,9 @@
 name: Crow
 type: theme
 description: Administrative theme for Crow organization
-core: 8.x
 core_version_requirement: '^8 || ^9'
 # Defines the base theme
-base theme: adminimal_theme
+base theme: claro
 
 libraries:
   - crow_theme/global-styling
