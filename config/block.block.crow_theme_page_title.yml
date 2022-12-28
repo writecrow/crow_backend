@@ -1,17 +1,15 @@
-uuid: 0d1290e2-c5dd-4297-9c4f-1a5dda6c07f4
+uuid: 082932be-aacf-44d2-9c4c-a77a9c90ae57
 langcode: en
 status: true
 dependencies:
-  module:
-    - system
   theme:
     - crow_theme
 _core:
-  default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
+  default_config_hash: fNwDdW063tk_ktzSWzZVeQS9wzvLooVO280BQ9WrsIs
 id: crow_theme_page_title
 theme: crow_theme
 region: header
-weight: -3
+weight: -30
 provider: null
 plugin: page_title_block
 settings:
@@ -19,9 +17,4 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility:
-  request_path:
-    id: request_path
-    negate: true
-    context_mapping: {  }
-    pages: "/user/register\r\n/user/password"
+visibility: {  }

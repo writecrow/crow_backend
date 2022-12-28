@@ -1,13 +1,13 @@
-uuid: 98da7f3d-cf6d-4a46-9d18-ad906fab3738
+uuid: a8bbbc7c-c4bf-4814-a515-00a2c30e4a49
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
   theme:
     - crow_theme
 _core:
-  default_config_hash: 8by5KRsb7ZpmjHj0ms1d7xAG_xH54AWsOX6spDLJ59U
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
 id: crow_theme_breadcrumbs
 theme: crow_theme
 region: breadcrumb

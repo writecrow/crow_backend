@@ -1,14 +1,28 @@
 .logo-wrapper .logo {
   width: 350px;
 }
-header nav.crow {
+.content-header {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+.content-header nav.crow {
   float: right;
 }
-header nav.crow a {
+.content-header nav.crow a {
   font-size: 1.3rem;
   padding-left: 1rem;
   display: inline-block;
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 300;
+}
+a.tabs__link {
+  color: #fff;
+}
+
+a.tabs__link.is-active {
+  color: rgb(163, 163, 163);
+}
+.is-horizontal .tabs__link.is-active::before {
+  border-bottom: 3px solid #fff;
 }

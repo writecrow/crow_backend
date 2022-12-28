@@ -71,10 +71,10 @@ module:
   user: 0
   userprotect: 0
   views_data_export: 0
+  views_ui: 0
   views: 10
   corpus: 1000
 theme:
-  seven: 0
-  adminimal_theme: 0
+  claro: 0
   crow_theme: 0
 profile: corpus
