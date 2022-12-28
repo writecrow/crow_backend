@@ -24,6 +24,7 @@
         "drupal/better_exposed_filters": "^6",
         "drupal/captcha": "^1",
         "drupal/config_filter": "^2",
+        "drupal/config_update": "^1.7",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-recommended": "^9",
         "drupal/facets": "^2",
