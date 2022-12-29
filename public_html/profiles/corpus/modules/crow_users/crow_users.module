@@ -401,24 +401,26 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
   $values = $form_state->getValues();
-  $message = '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
-  $message = '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
+  $message = '';
+  $title = 'User access request: ' . $values['field_full_name'][0]['value'];
+  if (in_array('offline', $values['field_requested_access_level'])) {
+    $message .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
+    $title .= ' (Offline Access)';
+  }
+  $message .= '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
+  $message .= '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
   $message .= '<p><hr /></p>';
-  $message = '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
+  $message .= '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
   $message .= '<p><strong>Email: </strong>' . $values['mail'] . '</p>';
   $message .= '<p><strong>Project description: </strong>' . $values['field_project_description'][0]['value'] . '</p>';
-  $message .= '<p><hr /></p>';
+  $message .= '<h3>Review and approval</h3>';
   $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/' . $values['uid'] . '/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Standard")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
   $data = [
-    'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
+    'content' => $title,
     'description' => $message,
     'due_on' => date('Y-m-d', strtotime('+7 days')),
     'notify' => TRUE,
   ];
-  if (in_array('offline', $values['field_requested_access_level'])) {
-    $data['description'] .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
-    $data['content'] .= ' (Offline Access)';
-  }
   $assignee_ids = $config->get('assignee_ids');
   if (!empty($assignee_ids)) {
     $data['assignee_ids'] = explode(',', $assignee_ids);
