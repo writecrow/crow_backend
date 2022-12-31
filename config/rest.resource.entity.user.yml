@@ -3,7 +3,6 @@ langcode: en
 status: false
 dependencies:
   module:
-    - csv_serialization
     - serialization
     - simple_oauth
     - user
@@ -13,10 +12,7 @@ granularity: resource
 configuration:
   methods:
     - GET
-    - POST
   formats:
-    - csv
     - json
-    - xml
   authentication:
     - oauth2
