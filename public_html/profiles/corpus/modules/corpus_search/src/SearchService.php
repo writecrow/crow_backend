@@ -79,17 +79,17 @@ class SearchService {
   }
 
   /**
-   * Query the node__field_body table for exact matches.
+   * Query the body table for exact matches.
    */
   public static function phraseSearch($phrase, $condition_matches) {
     $connection = \Drupal::database();
-    $query = $connection->select('node__field_body', 'f');
-    $query->fields('f', ['entity_id', 'field_body_value', 'bundle']);
+    $query = $connection->select('node__' . TextMetadata::$body_field, 'f');
+    $query->fields('f', ['entity_id', TextMetadata::$body_field . '_value', 'bundle']);
     $query->condition('f.bundle', 'text', '=');
 
     // Apply text conditions.
     $and_condition_1 = $query->orConditionGroup()
-      ->condition('field_body_value', "%" . $connection->escapeLike($phrase) . "%", 'LIKE BINARY');
+      ->condition(TextMetadata::$body_field . '_value', "%" . $connection->escapeLike($phrase) . "%", 'LIKE BINARY');
     $result = $query->condition($and_condition_1)->execute();
 
     $phrase_matches = $result->fetchAllKeyed(0, 1);

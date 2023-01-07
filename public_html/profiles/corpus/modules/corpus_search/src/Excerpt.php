@@ -32,31 +32,17 @@ class Excerpt {
       return [];
     }
     $connection = \Drupal::database();
-    $query = $connection->select('node__field_body', 'n')
-      ->fields('n', ['entity_id', 'field_body_value'])
+    $query = $connection->select('node__' . TextMetadata::$body_field, 'n')
+      ->fields('n', ['entity_id', TextMetadata::$body_field . '_value'])
       ->condition('n.entity_id', array_keys($matching_texts), 'IN');
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
     $sliced_matches = array_intersect_key($matching_texts, $results);
-    // @see TextMetadata::populateTextMetadata().
-    $metadata_groups = [
-      'filename',
-      'institution',
-      'course',
-      'assignment',
-      'program',
-      'college',
-      'draft',
-      'gender',
-      'semester',
-      'year',
-      'toefl_total',
-    ];
     foreach ($sliced_matches as $id => $metadata) {
       $excerpts[$id]['filename'] = $metadata['filename'];
       $excerpts[$id]['wordcount'] = $metadata['wordcount'];
       // Check if the metadata includes a description & append that.
-      foreach ($metadata_groups as $field) {
+      foreach (TextMetadata::$metadata_groups as $field) {
         if (isset($metadata[$field])) {
           $facet_data = self::getFacetData($metadata[$field], $field, $facet_map);
           $excerpts[$id][$field] = $facet_data['name'];

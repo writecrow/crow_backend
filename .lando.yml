@@ -14,9 +14,17 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php:7.4
+    type: php:8.0
     via: apache
     version: 2.4
     webroot: public_html
   source_database:
     type: mysql
+tooling:
+  setup:
+    service: appserver
+    description: Perform setup stuff for local development
+    cmd:
+      - cp drush/example.drush.yml drush/drush.yml
+      - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
+      - composer install
