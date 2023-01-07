@@ -36,3 +36,4 @@ $config['simple_oauth.settings']['private_key'] = "/app/private.key";
 
 $config['phpmailer_smtp.settings']['smtp_username'] = '';
 $config['phpmailer_smtp.settings']['smtp_password'] = '';
+$config['system.mail']['interface']['default'] = 'test_mail_collector';
