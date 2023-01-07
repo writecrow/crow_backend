@@ -160,7 +160,7 @@ abstract class TextMetadataBase {
       'wordcount' => $result->field_wordcount_value,
     ];
     if (in_array('toefl_total', TextMetadata::$metadata_groups)) {
-      $metadata = ['toefl_total'] = $result->field_toefl_total_value;
+      $metadata['toefl_total'] = $result->field_toefl_total_value;
     }
     foreach (array_keys(self::$facetIDs) as $field) {
       $target = 'field_' . $field . '_target_id';
