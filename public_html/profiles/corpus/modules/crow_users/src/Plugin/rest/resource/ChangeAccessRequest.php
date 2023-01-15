@@ -121,6 +121,7 @@ class ChangeAccessRequest extends ResourceBase {
         if (!empty($assignees)) {
           $data['assignee_ids'] = explode(',', $assignees);
         }
+        \Drupal::logger('access_level_change_request')->notice('Sending todo for ' . $params['title']);
         Basecamp::createTodo($project, $todolist, $data);
       }
     }
