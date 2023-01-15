@@ -94,7 +94,7 @@ class ChangeAccessRequest extends ResourceBase {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'crow_users';
       $key = 'change_access_request';
-      $to = $config->get('notification_email');
+      $to = Settings::get('corpus_users_bcc_email');
       $params['message'] = 'The user ' . $name . ' has requested an access level change.' . PHP_EOL . PHP_EOL;
       $params['message'] .= 'ROLE Requested: ' . $data['role'] . PHP_EOL . PHP_EOL;
       $params['message'] .= 'JUSTIFICATION: ' . Html::escape($data['description']) . PHP_EOL . PHP_EOL;
