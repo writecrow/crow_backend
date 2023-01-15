@@ -337,6 +337,7 @@ function crow_users_mail_alter(&$message) {
     'user_status_activated',
     'user_register_pending_approval',
     'role_change',
+    'change_access_request',
   ])) {
     if ($bcc_mail) {
       $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
@@ -379,6 +380,11 @@ function crow_users_mail($key, &$message, $params) {
 
   switch ($key) {
     case 'user_report':
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'change_access_request':
       $message['subject'] = t('@title', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
