@@ -109,9 +109,12 @@ class ChangeAccessRequest extends ResourceBase {
       // @todo: add email for requestor.
 
       // Basecamp integration.
-      $project = $config->get('basecamp_project');
-      $todolist = $config->get('basecamp_list');
-      $assignees = $config->get('basecamp_assignee_ids');
+      $assignee_ids = $config->get('assignee_ids');
+      if (!empty($assignee_ids)) {
+        $data['assignee_ids'] = explode(',', $assignee_ids);
+      }
+      $project = $config->get('project');
+      $todolist = $config->get('list');
       if ($project && $todolist) {
         $data = [
           'content' => $params['title'],
@@ -119,9 +122,6 @@ class ChangeAccessRequest extends ResourceBase {
           'due_on' => date('Y-m-d', strtotime('+7 days')),
           'notify' => TRUE,
         ];
-        if (!empty($assignees)) {
-          $data['assignee_ids'] = explode(',', $assignees);
-        }
         \Drupal::logger('access_level_change_request')->notice('Sending todo for ' . $params['title']);
         Basecamp::createTodo($project, $todolist, $data);
       }
