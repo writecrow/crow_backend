@@ -5,6 +5,7 @@ namespace Drupal\crow_users\Plugin\rest\resource;
 use Drupal\basecamp_api\Basecamp;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Site\Settings;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Drupal\user\Entity\User;
