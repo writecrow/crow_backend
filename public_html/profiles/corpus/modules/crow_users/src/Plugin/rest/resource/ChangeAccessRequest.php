@@ -79,12 +79,12 @@ class ChangeAccessRequest extends ResourceBase {
     // Permission to access this endpoint is determined via
     // Drupal permissioning, at /admin/people/permissions#module-rest.
     $response_status['status'] = FALSE;
-    \Drupal::logger('crow_users')->notice(serialize($data));
+    \Drupal::logger('access_level_change_request')->notice(serialize($data));
     $config = \Drupal::config('crow_users.settings');
     if (!$config->get('on')) {
       return new ResourceResponse($response_status);
     }
-    if (!empty($data['roles']) && !empty($data['description'])) {
+    if (!empty($data['role']) && !empty($data['description'])) {
       $user = User::load($this->currentUser->id());
       $roles = $user->getRoles();
       $full_name = $user->get('field_full_name')->getString();
@@ -96,7 +96,7 @@ class ChangeAccessRequest extends ResourceBase {
       $key = 'change_access_request';
       $to = $config->get('notification_email');
       $params['message'] = 'The user ' . $name . ' has requested an access level change.' . PHP_EOL . PHP_EOL;
-      $params['message'] .= 'ROLE(S) Requested: ' . $data['roles'] . PHP_EOL . PHP_EOL;
+      $params['message'] .= 'ROLE Requested: ' . $data['role'] . PHP_EOL . PHP_EOL;
       $params['message'] .= 'JUSTIFICATION: ' . Html::escape($data['description']) . PHP_EOL . PHP_EOL;
       $params['message'] .= 'CURRENT ROLES: ' . implode(', ', $reported_roles) . PHP_EOL . PHP_EOL;
       $params['message'] .= 'TIMESTAMP: ' . date('F j, Y g:ia', time()) . PHP_EOL . PHP_EOL;
@@ -104,6 +104,8 @@ class ChangeAccessRequest extends ResourceBase {
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
       $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+      // @todo: add email for requestor.
 
       // Basecamp integration.
       $project = $config->get('basecamp_project');
