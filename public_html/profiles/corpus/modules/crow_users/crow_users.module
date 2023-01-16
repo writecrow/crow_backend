@@ -337,6 +337,8 @@ function crow_users_mail_alter(&$message) {
     'user_status_activated',
     'user_register_pending_approval',
     'role_change',
+    'change_access_request',
+    'change_access_requestor',
   ])) {
     if ($bcc_mail) {
       $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
@@ -349,12 +351,7 @@ function crow_users_mail_alter(&$message) {
       $levels = $account->get('field_requested_access_level')->getValue();
       foreach ($levels as $level) {
         if ($level['value'] === 'offline') {
-          $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
-          $survey = $url . '?' . http_build_query([
-            'CrowEmail' => $account->getEmail(),
-            'CrowUsername' => $account->getAccountName(),
-            'CrowName' => $account->get('field_full_name')->getString(),
-          ]);
+          $survey = _get_crow_offline_survey($account);
           $message['body'] = str_replace('Your application is currently being reviewed. Once it has been approved,', 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed,', $message['body']);
         }
       }
@@ -369,6 +366,16 @@ function crow_users_mail_alter(&$message) {
   }
 }
 
+function _get_crow_offline_survey($account) {
+  $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
+  $survey = $url . '?' . http_build_query([
+    'CrowEmail' => $account->getEmail(),
+    'CrowUsername' => $account->getAccountName(),
+    'CrowName' => $account->get('field_full_name')->getString(),
+  ]);
+  return $survey;
+}
+
 /**
  * Implements hook_mail().
  */
@@ -379,6 +386,12 @@ function crow_users_mail($key, &$message, $params) {
 
   switch ($key) {
     case 'user_report':
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'change_access_request':
+    case 'change_access_requestor':
       $message['subject'] = t('@title', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
@@ -401,24 +414,26 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   \Drupal::logger('crow_users')->notice(serialize($form_state->getValues()));
   $values = $form_state->getValues();
-  $message = '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
-  $message = '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
+  $message = '';
+  $title = 'User access request: ' . $values['field_full_name'][0]['value'];
+  if (in_array('offline', $values['field_requested_access_level'])) {
+    $message .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
+    $title .= ' (Offline Access)';
+  }
+  $message .= '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
+  $message .= '<p><strong>Access level(s) requested: ' . implode(',', $values['field_requested_access_level']);
   $message .= '<p><hr /></p>';
-  $message = '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
+  $message .= '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
   $message .= '<p><strong>Email: </strong>' . $values['mail'] . '</p>';
   $message .= '<p><strong>Project description: </strong>' . $values['field_project_description'][0]['value'] . '</p>';
-  $message .= '<p><hr /></p>';
+  $message .= '<h3>Review and approval</h3>';
   $message .= '<p>To review the application details, sign in with your managerial account at ' . $base_url . '/user and then go to the following URL:</p><p>' . $base_url . '/user/' . $values['uid'] . '/edit</p><p>To make the account active, you will need to do two things:</p><p>&nbsp;</p>1. Change the "Status" field from "Blocked" to "Active"<br />2. Select one or more "Roles" (at a minimum, you must tick "Standard")</p><p>You do *not* need to set a password for the account.</p><p>&nbsp;</p><p>After pressing "Save," your work is done. An email will be automatically sent to the requestor, with instructions for creating a password.</p>';
   $data = [
-    'content' => 'User access request: ' . $values['field_full_name'][0]['value'],
+    'content' => $title,
     'description' => $message,
     'due_on' => date('Y-m-d', strtotime('+7 days')),
     'notify' => TRUE,
   ];
-  if (in_array('offline', $values['field_requested_access_level'])) {
-    $data['description'] .= '<p><strong>Note: this user has requested offline corpus access. They have been emailed a link to the Qualtrics form. This account should not be activated until the Qualtrics form has been successfully submitted.</strong></p>';
-    $data['content'] .= ' (Offline Access)';
-  }
   $assignee_ids = $config->get('assignee_ids');
   if (!empty($assignee_ids)) {
     $data['assignee_ids'] = explode(',', $assignee_ids);

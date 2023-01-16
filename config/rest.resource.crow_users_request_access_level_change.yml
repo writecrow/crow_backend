@@ -1,17 +1,17 @@
-uuid: 101a2023-8f1b-4c25-b0ed-f4886a64125a
+uuid: cd429dd5-276b-450a-b97b-71cd713ad67c
 langcode: en
-status: false
+status: true
 dependencies:
   module:
+    - crow_users
     - serialization
     - simple_oauth
-    - user
-id: entity.user
-plugin_id: 'entity:user'
+id: crow_users_request_access_level_change
+plugin_id: crow_users_request_access_level_change
 granularity: resource
 configuration:
   methods:
-    - GET
+    - POST
   formats:
     - json
   authentication:
