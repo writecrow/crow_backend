@@ -7,7 +7,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\rest\Plugin\ResourceBase;
-use Drupal\rest\ResourceResponse;
+use Drupal\rest\ModifiedResourceResponse;
 use Drupal\user\Entity\User;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -83,51 +83,76 @@ class ChangeAccessRequest extends ResourceBase {
     \Drupal::logger('access_level_change_request')->notice(serialize($data));
     $config = \Drupal::config('crow_users.settings');
     if (!$config->get('on')) {
-      return new ResourceResponse($response_status);
+      return new ModifiedResourceResponse(['Email delivery disabled'], 500);
     }
-    if (!empty($data['role']) && !empty($data['description'])) {
-      $user = User::load($this->currentUser->id());
-      $roles = $user->getRoles();
-      $full_name = $user->get('field_full_name')->getString();
-      $name = $full_name ?? $this->currentUser->getDisplayName();
-      $reported_roles = array_diff($roles, ['authenticated', 'administrator']);
-
-      $mailManager = \Drupal::service('plugin.manager.mail');
-      $module = 'crow_users';
-      $key = 'change_access_request';
-      $to = Settings::get('corpus_users_bcc_email');
-      $params['message'] = 'The user ' . $name . ' has requested an access level change.' . PHP_EOL . PHP_EOL;
-      $params['message'] .= 'ROLE Requested: ' . $data['role'] . PHP_EOL . PHP_EOL;
-      $params['message'] .= 'JUSTIFICATION: ' . Html::escape($data['description']) . PHP_EOL . PHP_EOL;
-      $params['message'] .= 'CURRENT ROLES: ' . implode(', ', $reported_roles) . PHP_EOL . PHP_EOL;
-      $params['message'] .= 'TIMESTAMP: ' . date('F j, Y g:ia', time()) . PHP_EOL . PHP_EOL;
-      $params['title'] = 'Access level change request: ' . $name;
-      $langcode = \Drupal::currentUser()->getPreferredLangcode();
-      $send = TRUE;
-      $response_status['status'] = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-
-      // @todo: add email for requestor.
-
-      // Basecamp integration.
-      $assignee_ids = $config->get('assignee_ids');
-      if (!empty($assignee_ids)) {
-        $data['assignee_ids'] = explode(',', $assignee_ids);
-      }
-      $project = $config->get('project');
-      $todolist = $config->get('list');
-      if ($project && $todolist) {
-        $data = [
-          'content' => $params['title'],
-          'description' => $params['message'],
-          'due_on' => date('Y-m-d', strtotime('+7 days')),
-          'notify' => TRUE,
-        ];
-        \Drupal::logger('access_level_change_request')->notice('Sending todo for ' . $params['title']);
-        Basecamp::createTodo($project, $todolist, $data);
-      }
+    if (empty($data['role']) && empty($data['description'])) {
+      return new ModifiedResourceResponse(['Role or description not present in request'], 500);
     }
-    $response = new ResourceResponse($response_status);
-    return $response;
+    $user = User::load($this->currentUser->id());
+    $roles = $user->getRoles();
+    $full_name = $user->get('field_full_name')->getString();
+    $name = $full_name ?? $this->currentUser->getDisplayName();
+    $current_roles = implode(', ', array_diff($roles, ['authenticated', 'administrator']));
+
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $send = TRUE;
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $module = 'crow_users';
+    // Email admins.
+    $key = 'change_access_request';
+    $to = Settings::get('corpus_users_bcc_email');
+    $params['message'] = $this->getAdminEmailText($name, $data['role'], $data['description'], $current_roles);
+    $params['title'] = 'Access level change request: ' . $name;
+    $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+    // Email requestor.
+    $key = 'change_access_requestor';
+    $params['message'] = $this->getRequestorEmailText($name, $data['role'], $user);
+    $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+    // Basecamp integration.
+    $assignee_ids = $config->get('assignee_ids');
+    if (!empty($assignee_ids)) {
+      $data['assignee_ids'] = explode(',', $assignee_ids);
+    }
+    $project = $config->get('project');
+    $todolist = $config->get('list');
+    if ($project && $todolist) {
+      $data = [
+        'content' => $params['title'],
+        'description' => $params['message'],
+        'due_on' => date('Y-m-d', strtotime('+7 days')),
+        'notify' => TRUE,
+      ];
+      $transaction = Basecamp::createTodo($project, $todolist, $data);
+    }
+    if (!$transaction) {
+      return new ModifiedResourceResponse(['Could not communicate with Basecamp'], 500);
+    }
+    return new ModifiedResourceResponse(['Sent'], 200);
+  }
+
+  public function getAdminEmailText($name, $requested_role, $justification, $current_roles) {
+    $body = [];
+    $body[] = 'The user ' . $name . ' has requested an access level change.';
+    $body[] = 'ROLE Requested: ' . $requested_role;
+    $body[] = 'JUSTIFICATION: ' . Html::escape($description);
+    $body[] = 'CURRENT ROLES: ' . $current_roles;
+    $body[] = 'REQUESTED ON: ' . date('F j, Y g:ia', time());
+    return implode(PHP_EOL . PHP_EOL, $body);
+  }
+
+  public function getRequestorEmailText($name, $account) {
+    $body = [];
+    $body[] = $name . ',';
+    $body[] = 'We have received your request for ' . $requested_role . 'access.';
+    if ($request_role === 'offline') {
+      $survey = _get_crow_offline_survey($account);
+      $body[] = 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed, our team will continue evaluating your request.';
+    }
+    $body[] = 'Regards,';
+    $body[] = 'Crow team';
+    return implode(PHP_EOL . PHP_EOL, $body);
   }
 
 }
