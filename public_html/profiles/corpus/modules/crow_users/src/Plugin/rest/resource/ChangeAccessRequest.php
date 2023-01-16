@@ -144,7 +144,7 @@ class ChangeAccessRequest extends ResourceBase {
     return implode(PHP_EOL . PHP_EOL, $body);
   }
 
-  public function getRequestorEmailText($name, $account) {
+  public function getRequestorEmailText($name, $requested_role, $account) {
     $body = [];
     $body[] = $name . ',';
     $body[] = 'We have received your request for ' . $requested_role . 'access.';
