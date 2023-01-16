@@ -98,10 +98,12 @@ class ChangeAccessRequest extends ResourceBase {
     $send = TRUE;
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $module = 'crow_users';
+
     // Email admins.
     $key = 'change_access_request';
     $to = Settings::get('corpus_users_bcc_email');
-    $params['message'] = $this->getAdminEmailText($name, $data['role'], $data['description'], $current_roles);
+    $admin_email = $this->getAdminEmailText($name, $data['role'], $data['description'], $current_roles);
+    $params['message'] = $admin_email;
     $params['title'] = 'Access level change request: ' . $name;
     $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
@@ -120,7 +122,7 @@ class ChangeAccessRequest extends ResourceBase {
     if ($project && $todolist) {
       $data = [
         'content' => $params['title'],
-        'description' => $params['message'],
+        'description' => $admin_email,
         'due_on' => date('Y-m-d', strtotime('+7 days')),
         'notify' => TRUE,
       ];
@@ -136,8 +138,8 @@ class ChangeAccessRequest extends ResourceBase {
     $body = [];
     $body[] = 'The user ' . $name . ' has requested an access level change.';
     $body[] = 'ROLE Requested: ' . $requested_role;
-    $body[] = 'JUSTIFICATION: ' . Html::escape($description);
-    $body[] = 'CURRENT ROLES: ' . $current_roles;
+    $body[] = 'JUSTIFICATION: ' . Html::escape($justification);
+    $body[] = 'CURRENT ROLE(S): ' . $current_roles;
     $body[] = 'REQUESTED ON: ' . date('F j, Y g:ia', time());
     return implode(PHP_EOL . PHP_EOL, $body);
   }
@@ -146,7 +148,7 @@ class ChangeAccessRequest extends ResourceBase {
     $body = [];
     $body[] = $name . ',';
     $body[] = 'We have received your request for ' . $requested_role . 'access.';
-    if ($request_role === 'offline') {
+    if ($requested_role === 'offline') {
       $survey = _get_crow_offline_survey($account);
       $body[] = 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed, our team will continue evaluating your request.';
     }
