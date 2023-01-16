@@ -337,6 +337,8 @@ function crow_users_mail_alter(&$message) {
     'user_status_activated',
     'user_register_pending_approval',
     'role_change',
+    'change_access_request',
+    'change_access_requestor',
   ])) {
     if ($bcc_mail) {
       $existing_bcc = isset($message['headers']['Bcc']) ? $message['headers']['Bcc'] : '';
@@ -349,12 +351,7 @@ function crow_users_mail_alter(&$message) {
       $levels = $account->get('field_requested_access_level')->getValue();
       foreach ($levels as $level) {
         if ($level['value'] === 'offline') {
-          $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
-          $survey = $url . '?' . http_build_query([
-            'CrowEmail' => $account->getEmail(),
-            'CrowUsername' => $account->getAccountName(),
-            'CrowName' => $account->get('field_full_name')->getString(),
-          ]);
+          $survey = _get_crow_offline_survey($account);
           $message['body'] = str_replace('Your application is currently being reviewed. Once it has been approved,', 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed,', $message['body']);
         }
       }
@@ -369,6 +366,16 @@ function crow_users_mail_alter(&$message) {
   }
 }
 
+function _get_crow_offline_survey($account) {
+  $url = \Drupal::config('crow_users.settings')->get('offline_url') ?? 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu';
+  $survey = $url . '?' . http_build_query([
+    'CrowEmail' => $account->getEmail(),
+    'CrowUsername' => $account->getAccountName(),
+    'CrowName' => $account->get('field_full_name')->getString(),
+  ]);
+  return $survey;
+}
+
 /**
  * Implements hook_mail().
  */
@@ -379,6 +386,12 @@ function crow_users_mail($key, &$message, $params) {
 
   switch ($key) {
     case 'user_report':
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'change_access_request':
+    case 'change_access_requestor':
       $message['subject'] = t('@title', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
