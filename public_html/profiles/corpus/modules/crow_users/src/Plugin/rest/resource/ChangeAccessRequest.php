@@ -137,7 +137,10 @@ class ChangeAccessRequest extends ResourceBase {
   public function getAdminEmailText($name, $requested_role, $justification, $current_roles) {
     $body = [];
     $body[] = 'The user ' . $name . ' has requested an access level change.';
-    $body[] = 'ROLE Requested: ' . $requested_role;
+    $body[] = 'ACCESS REQUEST: ' . $requested_role;
+    if ($requested_role === 'offline') {
+      $body[] = 'This person has been emailed the offline training link.';
+    }
     $body[] = 'JUSTIFICATION: ' . Html::escape($justification);
     $body[] = 'CURRENT ROLE(S): ' . $current_roles;
     $body[] = 'REQUESTED ON: ' . date('F j, Y g:ia', time());
@@ -150,7 +153,9 @@ class ChangeAccessRequest extends ResourceBase {
     $body[] = 'We have received your request for ' . $requested_role . 'access.';
     if ($requested_role === 'offline') {
       $survey = _get_crow_offline_survey($account);
-      $body[] = 'Since you have requested offline access, you will now need to complete a training, at  ' . $survey . ' . Once that has been completed and reviewed, our team will continue evaluating your request.';
+      $body[] = 'Since you have requested offline access, you will now need to complete a training:';
+      $body[] = $survey;
+      $body[] = 'Once that has been completed and reviewed, our team will continue evaluating your request.';
     }
     $body[] = 'Regards,';
     $body[] = 'Crow team';
