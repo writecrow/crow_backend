@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2bf2016e37edde97a03e152613f8df8",
+    "content-hash": "cc80d194419fbb3d1d31bd5339df12cd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8845,21 +8845,22 @@
         },
         {
             "name": "writecrow/rest_feedback_endpoint",
-            "version": "1.0.3",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "deb208ee9f1f02791f9b6dd60e9bc96aa1afe4ca"
+                "reference": "f89d23d0c1db03780ea910c173c827bc1ad2a024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/deb208ee9f1f02791f9b6dd60e9bc96aa1afe4ca",
-                "reference": "deb208ee9f1f02791f9b6dd60e9bc96aa1afe4ca",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/f89d23d0c1db03780ea910c173c827bc1ad2a024",
+                "reference": "f89d23d0c1db03780ea910c173c827bc1ad2a024",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1 || ^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -8874,7 +8875,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2022-06-24T19:47:29+00:00"
+            "time": "2023-01-31T02:12:10+00:00"
         },
         {
             "name": "writecrow/tag_converter",
@@ -8939,14 +8940,14 @@
     "stability-flags": {
         "drupal/mimemail": 15,
         "writecrow/country_code_converter": 20,
-        "writecrow/rest_feedback_endpoint": 15
+        "writecrow/rest_feedback_endpoint": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.4.30"
+        "php": "8.1.13"
     },
     "plugin-api-version": "2.3.0"
 }
