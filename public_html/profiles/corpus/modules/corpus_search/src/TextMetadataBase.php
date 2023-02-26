@@ -9,8 +9,11 @@ namespace Drupal\corpus_search;
  */
 abstract class TextMetadataBase {
 
+  public static $metadata_file = 'sites/default/files/private/corpus_search_all_texts.json';
+
   public static $facetIDs = [
     'assignment' => 'at',
+    'authorship' => 'au',
     'college' => 'co',
     'country' => 'cy',
     'course' => 'ce',
@@ -38,6 +41,7 @@ abstract class TextMetadataBase {
     'filename',
     'institution',
     'course',
+    'authorship',
     'assignment',
     'program',
     'college',
@@ -52,9 +56,9 @@ abstract class TextMetadataBase {
    * Retrieve metadata for all texts in one go!
    */
   public static function getAll() {
-    $cache_id = md5('corpus_search_all_texts');
-    if ($cache = \Drupal::cache()->get($cache_id)) {
-      return $cache->data;
+    if (file_exists(self::$metadata_file)) {
+      $json_text = file_get_contents(self::$metadata_file);
+      return json_decode($json_text, TRUE);
     }
     $connection = \Drupal::database();
     $query = $connection->select('node_field_data', 'n');
@@ -81,7 +85,8 @@ abstract class TextMetadataBase {
         $texts[$result->nid] = self::populateTextMetadata($result);
       }
     }
-    \Drupal::cache()->set($cache_id, $texts, \Drupal::time()->getRequestTime() + (2500000));
+    $json_texts = json_encode($texts);
+    file_put_contents(self::$metadata_file, $json_texts);
     return $texts;
   }
 

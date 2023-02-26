@@ -3,6 +3,10 @@ recipe: drupal9
 config:
   webroot: public_html
 services:
+  custom_config:
+    type: php
+    config:
+      php: lando/php.ini
   phpmyadmin:
     type: phpmyadmin
     hosts:
@@ -14,7 +18,7 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php:8.0
+    type: php:8.1
     via: apache
     version: 2.4
     webroot: public_html

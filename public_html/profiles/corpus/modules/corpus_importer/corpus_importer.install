@@ -54,3 +54,21 @@ function corpus_importer_update_9108() {
   ImporterHelper::getOrCreateTidFromName('Group-authored', 'authorship', []);
   ImporterHelper::getOrCreateTidFromName('Individually-authored', 'authorship', []);
 }
+
+/**
+ * Add authorship for existing texts.
+ */
+function corpus_importer_update_9109() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('type', 'text');
+  $nids = $query->execute();
+  \Drupal::logger('corpus_importer')->notice('Updating ' . (count($nids)) . ' nodes to individual authorship.');
+  $authorship = ImporterHelper::getOrCreateTidFromName('Individually-authored', 'authorship', []);
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  foreach ($node_storage as $node){
+    $node->set('field_authorship', ['target_id' => $authorship['tid']]);
+    $node->setNewRevision(FALSE);
+    $node->save();
+  }
+}

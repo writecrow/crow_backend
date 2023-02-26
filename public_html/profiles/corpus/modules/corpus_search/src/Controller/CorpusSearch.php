@@ -30,7 +30,6 @@ class CorpusSearch extends ControllerBase {
     // Response.
     $results = self::getSearchResults($request);
     $response = new CacheableJsonResponse([], 200);
-    // $response = new JsonResponse([], 200); .
     $response->setContent(json_encode($results));
     $response->headers->set('Content-Type', 'application/json');
     $response->getCacheableMetadata()->addCacheContexts(['url.query_args']);

@@ -44,6 +44,8 @@ class ImporterService {
       $texts = self::convert($absolute_paths);
       $skipped = [];
       $created = [];
+      $new = 0;
+      $updated = 0;
       foreach ($texts as $text) {
         if ($text['type'] == 'corpus') {
           $text = ImporterHelper::validateCorpusText($text);
@@ -59,30 +61,34 @@ class ImporterService {
           $created[] = $result['id'];
           echo $result['id'] . PHP_EOL;
         }
-
+        if ($result['new_updated'] === 'new') {
+          $new++;
+        }
+        if ($result['new_updated'] === 'updated') {
+          $updated++;
+        }
         if (!empty($result['messages'])) {
           $messages[] = [$result['id'] => $result['messages']];
         }
       }
-      echo PHP_EOL;
-      echo '*** Notifications ***' . PHP_EOL;
-      echo 'Created ' . count($created) . ' texts.' . PHP_EOL;
+      $output = [];
+      $output[] = '*** Notifications ***';
+      $output[] = 'Processed ' . count($created) . ' texts.';
       if (count($skipped) > 0) {
-        echo 'Skipped ' . count($skipped) . ' texts. ' . PHP_EOL;
-        print_r($skipped);
+        $output[] = 'Skipped ' . count($skipped) . ' texts. ';
+        $output[] = $skipped;
       }
+      $output[] = 'New: ' . $new;
+      $output[] = 'Updated: ' . $updated;
       $prepared_messages = self::prepareMessages($messages);
-      print_r($prepared_messages);
-      echo PHP_EOL;
+      $output[] = $prepared_messages;
+      print_r(implode(PHP_EOL, $output));
     }
     else {
       // The UI-based importer. This is outdated currently.
       // Convert files into machine-readable array.
       $texts = self::convert($files);
       \Drupal::messenger()->addStatus(count($files) . ' files found.');
-
-      // Perform validation logic on each row.
-      $texts = array_filter($texts, ['self', 'preSave']);
 
       // Save valid texts.
       foreach ($texts as $text) {
@@ -172,19 +178,6 @@ class ImporterService {
   }
 
   /**
-   * Check for problematic data and remove or clean up.
-   *
-   * @param str[] $text
-   *   Keyed array of texts.
-   *
-   * @return bool
-   *   A TRUE/FALSE value to be used by array_filter.
-   */
-  public static function preSave(array $text) {
-    return TRUE;
-  }
-
-  /**
    * Save an individual entity.
    *
    * @param str[] $text
@@ -221,14 +214,16 @@ class ImporterService {
       ->sort('nid', 'DESC')
       ->range(0, 1)
       ->execute();
-    if (isset($existing_node)) {
-      print_r(reset($existing_node));
+    if (!empty($existing_node)) {
+      $new_updated = 'updated';
       $node = Node::load(reset($existing_node));
     }
     else {
       $node = Node::create(['type' => 'text']);
       $node->set('title', $text['filename']);
+      $new_updated = 'new';
     }
+    $node->setNewRevision(FALSE);
 
     // Set each known field on the node type.
     foreach (ImporterMap::$corpusTaxonomies as $name => $machine_name) {
@@ -295,16 +290,6 @@ class ImporterService {
     $clean = Html::escape(strip_tags($body));
     $node->set('field_wordcount', ['value' => str_word_count($clean)]);
 
-    // If dryrun, stop before actual save, but report messages.
-    if ($options['dryrun'] === TRUE) {
-      // Send back metadata on what happened.
-      return [
-        'id' => $text['filename'],
-        'status' => TRUE,
-        'messages' => $messages,
-      ];
-    }
-
     if ($node->save()) {
       $status = TRUE;
     }
@@ -315,6 +300,7 @@ class ImporterService {
     return [
       'id' => $text['filename'],
       'status' => $status,
+      'new_updated' => $new_updated,
       'messages' => $messages,
     ];
   }

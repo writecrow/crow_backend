@@ -5,6 +5,7 @@ namespace Drupal\corpus_search\Commands;
 use Drush\Commands\DrushCommands;
 use Drupal\corpus_search\CorpusWordFrequency;
 use Drupal\corpus_search\CorpusLemmaFrequency;
+use Drupal\corpus_search\TextMetadata;
 
 /**
  * A Drush commandfile.
@@ -79,6 +80,17 @@ class CorpusSearchCommands extends DrushCommands {
     $module_path = $module_handler->getModule('search_api_lemma')->getPath();
     $lemma = CorpusLemmaFrequency::lemmatize($word, $module_path);
     print_r($word . " => " . $lemma . PHP_EOL);
+  }
+
+  /**
+   * Generate a cached version of the text metadata.
+   *
+   * @command corpus:rebuild-metadata
+   * @aliases remeta
+   */
+  public function rebuildMetadataMap() {
+    unlink(TextMetadata::$metadata_file);
+    TextMetadata::getAll();
   }
 
 }

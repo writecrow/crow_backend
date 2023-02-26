@@ -10,6 +10,7 @@ namespace Drupal\corpus_search;
 class TextMetadata extends TextMetadataBase {
 
   public static $facetIDs = [
+    'authorship' => 'au',
     'assignment' => 'at',
     'college' => 'co',
     'country' => 'cy',
@@ -38,6 +39,7 @@ class TextMetadata extends TextMetadataBase {
     'filename',
     'institution',
     'course',
+    'authorship',
     'assignment',
     'program',
     'college',
