@@ -46,3 +46,11 @@ function corpus_importer_update_9107() {
     $node->save();
   }
 }
+
+/**
+ * Add authorship values.
+ */
+function corpus_importer_update_9108() {
+  ImporterHelper::getOrCreateTidFromName('Group-authored', 'authorship', []);
+  ImporterHelper::getOrCreateTidFromName('Individually-authored', 'authorship', []);
+}

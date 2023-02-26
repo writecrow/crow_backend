@@ -214,11 +214,21 @@ class ImporterService {
     $field_metadata = ImporterHelper::retrieveTaxonomyIds($text, $options);
     $messages = $field_metadata['messages'];
     $fields = $field_metadata['fields'];
-    $node = Node::create(['type' => 'text']);
 
-    // @temporary fix for NAU country filename issue.
-    // $text['filename'] = str_replace('NAN', 'USA', $text['filename']);
-    $node->set('title', $text['filename']);
+    //
+    $existing_node = \Drupal::entityQuery('node')
+      ->condition('title', $text['filename'])
+      ->sort('nid', 'DESC')
+      ->range(0, 1)
+      ->execute();
+    if (isset($existing_node)) {
+      print_r(reset($existing_node));
+      $node = Node::load(reset($existing_node));
+    }
+    else {
+      $node = Node::create(['type' => 'text']);
+      $node->set('title', $text['filename']);
+    }
 
     // Set each known field on the node type.
     foreach (ImporterMap::$corpusTaxonomies as $name => $machine_name) {
@@ -260,7 +270,15 @@ class ImporterService {
     foreach ($text['Student ID'] as $student_id) {
       $node->field_id[] = ['value' => $student_id];
     }
-
+    // Set authorship.
+    $authorship = 'Individually-authored';
+    if (count($text['Student ID']) > 1) {
+      $authorship = 'Group-authored';
+    }
+    $term_data = ImporterHelper::getOrCreateTidFromName($authorship, 'authorship', []);
+    if ($term_data) {
+      $node->set('field_authorship', ['target_id' => $term_data['tid']]);
+    }
 
     $node->set('field_toefl_total', ['value' => $text['TOEFL total']]);
     $node->set('field_toefl_writing', ['value' => $text['TOEFL writing']]);
