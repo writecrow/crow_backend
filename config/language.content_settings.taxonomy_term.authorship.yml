@@ -1,0 +1,11 @@
+uuid: 06b26faf-46ec-4d75-a8c9-1287b12f93b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.authorship
+id: taxonomy_term.authorship
+target_entity_type_id: taxonomy_term
+target_bundle: authorship
+default_langcode: site_default
+language_alterable: false

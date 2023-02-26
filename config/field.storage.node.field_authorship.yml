@@ -1,0 +1,20 @@
+uuid: 78f6637b-174e-4589-bed5-fb5023da5d11
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_authorship
+field_name: field_authorship
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

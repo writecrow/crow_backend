@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.text.field_assignment
+    - field.field.node.text.field_authorship
     - field.field.node.text.field_body
     - field.field.node.text.field_college
     - field.field.node.text.field_country
@@ -42,6 +43,7 @@ content:
     region: content
 hidden:
   field_assignment: true
+  field_authorship: true
   field_body: true
   field_college: true
   field_country: true
@@ -63,3 +65,4 @@ hidden:
   field_year: true
   field_year_in_school: true
   langcode: true
+  search_api_excerpt: true

@@ -1,6 +1,6 @@
 'on': true
 offline_survey: 'https://purdue.ca1.qualtrics.com/jfe/form/SV_7WMVgBVdNjEFhWu'
-assignee_ids: '605725,552909,9638776,605724'
+assignee_ids: '605725,552909,605724'
 project: '3403924'
 list: '3014864272'
 description_standard: 'You have access to view the corpus and repository at https://crow.corporaproject.org'

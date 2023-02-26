@@ -1,0 +1,8 @@
+uuid: a14d3d3b-8697-4cfd-a748-9be312d97b16
+langcode: en
+status: true
+dependencies: {  }
+name: Authorship
+vid: authorship
+description: ''
+weight: 0
