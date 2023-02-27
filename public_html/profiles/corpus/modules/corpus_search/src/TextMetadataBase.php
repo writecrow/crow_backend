@@ -9,8 +9,6 @@ namespace Drupal\corpus_search;
  */
 abstract class TextMetadataBase {
 
-  public static $metadata_file = 'sites/default/files/private/corpus_search_all_texts.json';
-
   public static $facetIDs = [
     'assignment' => 'at',
     'authorship' => 'au',
@@ -52,42 +50,65 @@ abstract class TextMetadataBase {
     'toefl_total',
   ];
 
-  /**
-   * Retrieve metadata for all texts in one go!
-   */
   public static function getAll() {
-    if (file_exists(self::$metadata_file)) {
-      $json_text = file_get_contents(self::$metadata_file);
-      return json_decode($json_text, TRUE);
+    $metadata_cid = 'corpus_search_all_metadata';
+    $cache_id = md5($metadata_cid);
+    if ($cache = \Drupal::cache()->get($cache_id)) {
+      return $cache->data;
     }
+    else {
+      $metadata = self::batchMetadata();
+      \Drupal::cache()->set($cache_id, $metadata, \Drupal::time()->getRequestTime() + (2500000));
+      return $metadata;
+    }
+  }
+
+  /**
+   * Retrieve metadata for all texts in batch.
+   */
+  public static function batchMetadata() {
+    // Set the number of items to process at a time.
+    $limit = 100;
     $connection = \Drupal::database();
-    $query = $connection->select('node_field_data', 'n');
-    $query->condition('n.type', self::$corpusSourceBundle, '=');
-    $query->fields('n', ['title', 'type', 'nid']);
-    // Add non-facet fields.
-    $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
-    $query->fields('id', ['field_id_value']);
-    if (in_array('toefl_total', TextMetadata::$metadata_groups)) {
-      $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
-      $query->fields('tt', ['field_toefl_total_value']);
-    }
-    $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
-    $query->fields('wc', ['field_wordcount_value']);
-    foreach (self::$facetIDs as $field => $alias) {
-      $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
-      $query->fields($alias, ['field_' . $field . '_target_id']);
-    }
-    $result = $query->execute();
-    $matching_texts = $result->fetchAll();
-    $texts = [];
-    if (!empty($matching_texts)) {
-      foreach ($matching_texts as $result) {
-        $texts[$result->nid] = self::populateTextMetadata($result);
+    $metadata = [];
+
+    // Total nodes that must be visited.
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', self::$corpusSourceBundle);
+    $total = $query->count()->execute();
+
+    $offset = 0;
+    while ($offset < $total) {
+      print_r($offset . PHP_EOL);
+      // Build the query (with the Batch limit!).
+      $query = $connection->select('node_field_data', 'n');
+      $query->condition('n.type', self::$corpusSourceBundle, '=');
+      $query->fields('n', ['title', 'type', 'nid']);
+      // Add non-facet fields.
+      $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
+      $query->fields('id', ['field_id_value']);
+      if (in_array('toefl_total', TextMetadata::$metadata_groups)) {
+        $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
+        $query->fields('tt', ['field_toefl_total_value']);
       }
+      $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
+      $query->fields('wc', ['field_wordcount_value']);
+      foreach (self::$facetIDs as $field => $alias) {
+        $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
+        $query->fields($alias, ['field_' . $field . '_target_id']);
+      }
+      $query->range($offset, $limit);
+      $result = $query->execute();
+      $matching_texts = $result->fetchAll();
+      if (!empty($matching_texts)) {
+        foreach ($matching_texts as $result) {
+          $metadata[$result->nid] = self::populateTextMetadata($result);
+        }
+      }
+      $offset = $offset + $limit;
     }
-    $json_texts = json_encode($texts);
-    file_put_contents(self::$metadata_file, $json_texts);
-    return $texts;
+    print_r(count($metadata));
+    return $metadata;
   }
 
   /**
