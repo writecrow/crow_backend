@@ -89,7 +89,7 @@ class CorpusSearchCommands extends DrushCommands {
    * @aliases remeta
    */
   public function rebuildMetadataMap() {
-    TextMetadata::batchMetadata();
+    TextMetadata::getAll();
   }
 
 }

@@ -25,6 +25,8 @@ abstract class TextMetadataBase {
     'l1' => 'l1',
   ];
 
+  public static $metadata_cache_id = 'corpus_metadata_all_search';
+
   public static $corpusSourceBundle = 'text';
 
   /**
@@ -51,15 +53,11 @@ abstract class TextMetadataBase {
   ];
 
   public static function getAll() {
-    $metadata_cid = 'corpus_search_all_metadata';
-    $cache_id = md5($metadata_cid);
-    if ($cache = \Drupal::cache()->get($cache_id)) {
+    if ($cache = \Drupal::cache()->get(self::$metadata_cache_id)) {
       return $cache->data;
     }
     else {
-      $metadata = self::batchMetadata();
-      \Drupal::cache()->set($cache_id, $metadata, \Drupal::time()->getRequestTime() + (2500000));
-      return $metadata;
+      return self::batchMetadata();
     }
   }
 
@@ -67,36 +65,34 @@ abstract class TextMetadataBase {
    * Retrieve metadata for all texts in batch.
    */
   public static function batchMetadata() {
-    // Set the number of items to process at a time.
-    $limit = 100;
     $connection = \Drupal::database();
     $metadata = [];
 
     // Total nodes that must be visited.
     $query = \Drupal::entityQuery('node')
       ->condition('type', self::$corpusSourceBundle);
-    $total = $query->count()->execute();
-
+    // Build the query (with the Batch limit!).
+    $query = $connection->select('node_field_data', 'n');
+    $query->condition('n.type', self::$corpusSourceBundle, '=');
+    $query->fields('n', ['title', 'type', 'nid']);
+    // Add non-facet fields.
+    $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
+    $query->fields('id', ['field_id_value']);
+    if (in_array('toefl_total', TextMetadata::$metadata_groups)) {
+      $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
+      $query->fields('tt', ['field_toefl_total_value']);
+    }
+    $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
+    $query->fields('wc', ['field_wordcount_value']);
+    foreach (self::$facetIDs as $field => $alias) {
+      $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
+      $query->fields($alias, ['field_' . $field . '_target_id']);
+    }
+    $total = $query->countQuery()->execute()->fetchField();
     $offset = 0;
+    // Set the number of items to process at a time.
+    $limit = 100000;
     while ($offset < $total) {
-      print_r($offset . PHP_EOL);
-      // Build the query (with the Batch limit!).
-      $query = $connection->select('node_field_data', 'n');
-      $query->condition('n.type', self::$corpusSourceBundle, '=');
-      $query->fields('n', ['title', 'type', 'nid']);
-      // Add non-facet fields.
-      $query->leftJoin('node__field_id', 'id', 'n.nid = id.entity_id');
-      $query->fields('id', ['field_id_value']);
-      if (in_array('toefl_total', TextMetadata::$metadata_groups)) {
-        $query->leftJoin('node__field_toefl_total', 'tt', 'n.nid = tt.entity_id');
-        $query->fields('tt', ['field_toefl_total_value']);
-      }
-      $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
-      $query->fields('wc', ['field_wordcount_value']);
-      foreach (self::$facetIDs as $field => $alias) {
-        $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
-        $query->fields($alias, ['field_' . $field . '_target_id']);
-      }
       $query->range($offset, $limit);
       $result = $query->execute();
       $matching_texts = $result->fetchAll();
@@ -107,7 +103,7 @@ abstract class TextMetadataBase {
       }
       $offset = $offset + $limit;
     }
-    print_r(count($metadata));
+    \Drupal::cache()->set(self::$metadata_cache_id, $metadata, \Drupal::time()->getRequestTime() + (2500000));
     return $metadata;
   }
 
