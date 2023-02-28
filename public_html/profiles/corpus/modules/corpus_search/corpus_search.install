@@ -96,6 +96,14 @@ function corpus_search_schema() {
         'binary' => TRUE,
         'description' => 'Filename',
       ],
+      'entity_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'normal',
+        'description' => 'The Drupal entity_id',
+      ],
       'text' => [
         'type' => 'text',
         'not null' => FALSE,
@@ -105,7 +113,11 @@ function corpus_search_schema() {
     ],
     'primary key' => ['filename'],
     'unique keys' => [
-      'word' => ['filename'],
+      'filename' => ['filename'],
+    ],
+    'indexes' => [
+      'filename_index' => ['filename'],
+      'id_index' => ['entity_id'],
     ],
   ];
   return $schema;
@@ -126,6 +138,14 @@ function corpus_search_update_9001() {
         'binary' => TRUE,
         'description' => 'Filename',
       ],
+      'entity_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'normal',
+        'description' => 'The Drupal entity_id',
+      ],
       'text' => [
         'type' => 'text',
         'not null' => FALSE,
@@ -139,9 +159,9 @@ function corpus_search_update_9001() {
     ],
     'indexes' => [
       'filename_index' => ['filename'],
+      'id_index' => ['entity_id'],
     ],
   ];
-  $fields = ['filename'];
   $schema = Database::getConnection()->schema();
   $schema->createTable('corpus_texts', $spec);
 }
@@ -168,6 +188,7 @@ function corpus_search_update_9002() {
         ->key('filename', $row->title)
         ->fields([
           'filename' => $row->title,
+          'entity_id' => $row->nid,
           'text' => $row->field_body_value,
         ])->execute();
     }
