@@ -285,7 +285,7 @@ class ImporterService {
     $body = str_replace("¶", "", $body);
     // Remove unnecessary <End Header> text.
     $body = str_replace('<End Header>', '', $body);
-    $node->set('field_body', ['value' => $body, 'format' => 'plain_text']);
+    //$node->set('field_body', ['value' => $body, 'format' => 'plain_text']);
 
     $clean = Html::escape(strip_tags($body));
     $node->set('field_wordcount', ['value' => str_word_count($clean)]);

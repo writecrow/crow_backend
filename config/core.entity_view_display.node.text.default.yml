@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.text.field_assignment
     - field.field.node.text.field_authorship
-    - field.field.node.text.field_body
     - field.field.node.text.field_college
     - field.field.node.text.field_country
     - field.field.node.text.field_course
@@ -51,13 +50,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 123
-    region: content
-  field_body:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 108
     region: content
   field_college:
     type: entity_reference_label
