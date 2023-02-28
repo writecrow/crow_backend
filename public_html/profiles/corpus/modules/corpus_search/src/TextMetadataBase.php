@@ -89,6 +89,8 @@ abstract class TextMetadataBase {
       $query->fields($alias, ['field_' . $field . '_target_id']);
     }
     $total = $query->countQuery()->execute()->fetchField();
+    // print_r($total);
+    // return;
     $offset = 0;
     // Set the number of items to process at a time.
     $limit = 100000;

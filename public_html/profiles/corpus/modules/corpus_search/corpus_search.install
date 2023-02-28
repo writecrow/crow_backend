@@ -5,6 +5,8 @@
  * Install, update and uninstall functions.
  */
 
+use Drupal\Core\Database\Database;
+
 /**
  * Implements hook_schema().
  *
@@ -15,6 +17,7 @@
  * @ingroup corpus_search.
  */
 function corpus_search_schema() {
+  // See https://www.drupal.org/docs/drupal-apis/update-api/updating-database-schema-andor-data-in-drupal-8.
   $schema['corpus_word_frequency'] = [
     'description' => 'Stores frequency data',
     'fields' => [
@@ -82,5 +85,111 @@ function corpus_search_schema() {
       'word' => ['word'],
     ],
   ];
+  $schema['corpus_texts'] = [
+    'description' => 'Stores body for corpus texts',
+    'fields' => [
+      'filename' => [
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'binary' => TRUE,
+        'description' => 'Filename',
+      ],
+      'text' => [
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Text',
+      ],
+    ],
+    'primary key' => ['filename'],
+    'unique keys' => [
+      'word' => ['filename'],
+    ],
+  ];
   return $schema;
+}
+
+/**
+ * Create dedicated database table for corpus texts.
+ */
+function corpus_search_update_9001() {
+  $spec = [
+    'description' => 'Stores body for corpus texts',
+    'fields' => [
+      'filename' => [
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'binary' => TRUE,
+        'description' => 'Filename',
+      ],
+      'text' => [
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Text',
+      ],
+    ],
+    'primary key' => ['filename'],
+    'unique keys' => [
+      'filename' => ['filename'],
+    ],
+    'indexes' => [
+      'filename_index' => ['filename'],
+    ],
+  ];
+  $fields = ['filename'];
+  $schema = Database::getConnection()->schema();
+  $schema->createTable('corpus_texts', $spec);
+}
+
+/**
+ * Relocate corpus body texts to dedicated table.
+ */
+function corpus_search_update_9002() {
+  $total = 20000;
+  $offset = 0;
+  $limit = 100;
+  $connection = \Drupal::database();
+  $query = $connection->select('node_field_data', 'n');
+  $query->condition('n.type', 'text', '=');
+  $query->fields('n', ['title', 'type', 'nid']);
+  $query->leftJoin('node__field_body', 'id', 'n.nid = id.entity_id');
+  $query->fields('id', ['field_body_value']);
+  while ($offset < $total) {
+    $query->range($offset, $limit);
+    $result = $query->execute();
+    $nodes = $result->fetchAll();
+    foreach ($nodes as $row) {
+      $result = $connection->merge('corpus_texts')
+        ->key('filename', $row->title)
+        ->fields([
+          'filename' => $row->title,
+          'text' => $row->field_body_value,
+        ])->execute();
+    }
+    $offset = $offset + $limit;
+  }
+}
+
+/**
+ * Delete old content from node body tables.
+ */
+function corpus_search_update_90011() {
+  $connection = \Drupal::database();
+  $num_updated = $connection->update('node__field_body')
+    ->fields([
+      'field_body_value' => '',
+    ])
+    ->condition('bundle', 'text', '=')
+    ->execute();
+  $num_updated = $connection->update('node_revision__field_body')
+    ->fields([
+      'field_body_value' => '',
+    ])
+    ->condition('bundle', 'text', '=')
+    ->execute();
 }

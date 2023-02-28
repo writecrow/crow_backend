@@ -96,9 +96,7 @@ class ImporterHelper {
     $output['tid'] = self::getTidByName($label, $vocabulary);
     if ($output['tid'] == 0) {
       $output['message'] = 'New ' . $vocabulary . ' created: ' . $label;
-      if (!$options['dryrun']) {
-        self::createTerm($label, $vocabulary);
-      }
+      self::createTerm($label, $vocabulary);
       $output['tid'] = self::getTidByName($label, $vocabulary);
     }
     return $output;
