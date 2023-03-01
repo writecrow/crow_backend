@@ -72,6 +72,8 @@ class ImporterMap {
     "DE" => "Description and Explanation",
     "EM" => "Email",
     "FA" => "Film Analysis",
+    "GAM" => "Remediation Genre analysis ",
+    "GAR" => "Genre analysis-research proposal",
     "GA" => "Genre Analysis",
     "GR" => "Genre Redesign",
     "IR" => "Interview Report",
