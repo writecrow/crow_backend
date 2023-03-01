@@ -32,8 +32,8 @@ class Excerpt {
       return [];
     }
     $connection = \Drupal::database();
-    $query = $connection->select('node__' . TextMetadata::$body_field, 'n')
-      ->fields('n', ['entity_id', TextMetadata::$body_field . '_value'])
+    $query = $connection->select('corpus_texts', 'n')
+      ->fields('n', ['entity_id', 'text'])
       ->condition('n.entity_id', array_keys($matching_texts), 'IN');
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
@@ -42,7 +42,7 @@ class Excerpt {
       $excerpts[$id]['filename'] = $metadata['filename'];
       $excerpts[$id]['wordcount'] = $metadata['wordcount'];
       // Check if the metadata includes a description & append that.
-      foreach (TextMetadata::$metadata_groups as $field) {
+      foreach (TextMetadataConfig::$metadata_groups as $field) {
         if (isset($metadata[$field])) {
           $facet_data = self::getFacetData($metadata[$field], $field, $facet_map);
           $excerpts[$id][$field] = $facet_data['name'];

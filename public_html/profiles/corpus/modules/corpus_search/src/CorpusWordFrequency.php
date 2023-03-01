@@ -52,8 +52,8 @@ class CorpusWordFrequency {
   public static function count($node_id) {
     $result = FALSE;
     $connection = \Drupal::database();
-    $query = $connection->select('node__' . TextMetadata::$body_field, 'n');
-    $query->fields('n', [TextMetadata::$body_field . '_value', 'entity_id']);
+    $query = $connection->select('corpus_texts', 'n');
+    $query->fields('n', ['text', 'entity_id']);
     $query->condition('n.entity_id', $node_id, '=');
     $result = $query->execute()->fetchCol();
     if (!empty($result[0])) {
@@ -72,7 +72,6 @@ class CorpusWordFrequency {
           if (mb_strlen($word) > 25) {
             continue;
           }
-          $connection = \Drupal::database();
           $connection->merge('corpus_word_frequency')
             ->key(['word' => utf8_decode($word)])
             ->fields([

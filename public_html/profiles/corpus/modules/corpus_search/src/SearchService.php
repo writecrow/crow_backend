@@ -83,13 +83,12 @@ class SearchService {
    */
   public static function phraseSearch($phrase, $condition_matches) {
     $connection = \Drupal::database();
-    $query = $connection->select('node__' . TextMetadata::$body_field, 'f');
-    $query->fields('f', ['entity_id', TextMetadata::$body_field . '_value', 'bundle']);
-    $query->condition('f.bundle', 'text', '=');
+    $query = $connection->select('corpus_texts', 'f');
+    $query->fields('f', ['entity_id', 'text']);
 
     // Apply text conditions.
     $and_condition_1 = $query->orConditionGroup()
-      ->condition(TextMetadata::$body_field . '_value', "%" . $connection->escapeLike($phrase) . "%", 'LIKE BINARY');
+      ->condition('text', "%" . $connection->escapeLike($phrase) . "%", 'LIKE BINARY');
     $result = $query->condition($and_condition_1)->execute();
 
     $phrase_matches = $result->fetchAllKeyed(0, 1);
@@ -200,7 +199,7 @@ class SearchService {
    * Helper function to further limit query.
    */
   protected static function applyConditions($query, $conditions) {
-    foreach (TextMetadata::$facetIDs as $name => $abbr) {
+    foreach (TextMetadataConfig::$facetIDs as $name => $abbr) {
       if (isset($conditions[$name])) {
         $query->join('node__field_' . $name, $abbr, 'n.nid = ' . $abbr . '.entity_id');
         $query->fields($abbr, ['field_' . $name . '_target_id']);

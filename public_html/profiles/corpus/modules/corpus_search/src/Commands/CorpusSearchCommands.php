@@ -76,9 +76,7 @@ class CorpusSearchCommands extends DrushCommands {
    * @aliases lem,lemmatize
    */
   public function lemmatize($word) {
-    $module_handler = \Drupal::service('module_handler');
-    $module_path = $module_handler->getModule('search_api_lemma')->getPath();
-    $lemma = CorpusLemmaFrequency::lemmatize($word, $module_path);
+    $lemma = CorpusLemmaFrequency::lemmatize($word);
     print_r($word . " => " . $lemma . PHP_EOL);
   }
 

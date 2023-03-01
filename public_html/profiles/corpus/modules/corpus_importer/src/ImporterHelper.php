@@ -68,9 +68,7 @@ class ImporterHelper {
     }
 
     $output = ['fields' => $fields];
-    if (!empty($messages)) {
-      $output['messages'] = $messages;
-    }
+    $output['messages'] = $messages;
     return $output;
   }
 

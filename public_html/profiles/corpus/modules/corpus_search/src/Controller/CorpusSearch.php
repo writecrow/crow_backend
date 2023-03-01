@@ -6,6 +6,7 @@ use Drupal\corpus_importer\ImporterHelper;
 use Drupal\corpus_search\SearchService as Search;
 use Drupal\corpus_search\CorpusWordFrequency as Frequency;
 use Drupal\corpus_search\TextMetadata;
+use Drupal\corpus_search\TextMetadataConfig;
 use Drupal\corpus_search\Excerpt;
 use Drupal\corpus_search\CorpusLemmaFrequency;
 use Symfony\Component\HttpFoundation\Request;
@@ -228,7 +229,7 @@ class CorpusSearch extends ControllerBase {
    */
   protected static function getConditions($parameters, $facet_map) {
     $conditions = [];
-    foreach (array_keys(TextMetadata::$facetIDs) as $id) {
+    foreach (array_keys(TextMetadataConfig::$facetIDs) as $id) {
       if (isset($parameters[$id])) {
         $condition = self::fixEncodedCharacters(Xss::filter($parameters[$id]));
         $param_list = explode("+", $condition);

@@ -208,7 +208,6 @@ class ImporterService {
     $messages = $field_metadata['messages'];
     $fields = $field_metadata['fields'];
 
-    //
     $existing_node = \Drupal::entityQuery('node')
       ->condition('title', $text['filename'])
       ->sort('nid', 'DESC')
@@ -274,7 +273,7 @@ class ImporterService {
     if ($term_data) {
       $node->set('field_authorship', ['target_id' => $term_data['tid']]);
     }
-
+    // @todo add issets.
     $node->set('field_toefl_total', ['value' => $text['TOEFL total']]);
     $node->set('field_toefl_writing', ['value' => $text['TOEFL writing']]);
     $node->set('field_toefl_speaking', ['value' => $text['TOEFL speaking']]);
@@ -285,13 +284,21 @@ class ImporterService {
     $body = str_replace("¶", "", $body);
     // Remove unnecessary <End Header> text.
     $body = str_replace('<End Header>', '', $body);
-    //$node->set('field_body', ['value' => $body, 'format' => 'plain_text']);
 
     $clean = Html::escape(strip_tags($body));
     $node->set('field_wordcount', ['value' => str_word_count($clean)]);
 
     if ($node->save()) {
       $status = TRUE;
+      // Save the text content to an external table.
+      $connection = \Drupal::database();
+      $connection->merge('corpus_texts')
+        ->key('filename', $text['filename'])
+        ->fields([
+          'filename' => $text['filename'],
+          'entity_id' => $node->id(),
+          'text' => $body,
+        ])->execute();
     }
     else {
       $status = FALSE;
