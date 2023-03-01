@@ -1,4 +1,0 @@
-word_frequency.word_frequency_form:
-  title: "Calculate Frequency"
-  route_name: word_frequency.word_frequency_form
-  parent: system.admin_config_content
