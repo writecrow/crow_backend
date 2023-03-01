@@ -54,10 +54,14 @@ class ConcordanceViewsField extends FieldPluginBase {
   public function render(ResultRow $values) {
     $param = \Drupal::request()->query->all();
     $entity = $values->_entity;
-    $text_object = $entity->get('field_body')->getValue();
-    $text = '';
-    if (isset($text_object[0])) {
-      $text = $text_object[0]['value'];
+    $connection = \Drupal::database();
+    $query = $connection->select('corpus_texts', 'n');
+    $query->fields('n', ['text', 'entity_id']);
+    $query->condition('n.entity_id', $entity->id(), '=');
+    $query->range(0, 1);
+    $text = $query->execute()->fetchField(0);
+    if (!isset($text)) {
+      return '';
     }
     $output = '';
     if (isset($param['search'])) {

@@ -54,9 +54,17 @@ class CorpusText extends FieldPluginBase {
    */
   public function render(ResultRow $values) {
     $entity = $values->_entity;
-    $text_object = $entity->get('field_body')->getValue();
+    $connection = \Drupal::database();
+    $query = $connection->select('corpus_texts', 'n');
+    $query->fields('n', ['text', 'entity_id']);
+    $query->condition('n.entity_id', $entity->id(), '=');
+    $query->range(0, 1);
+    $text = $query->execute()->fetchField(0);
+    if (!isset($text)) {
+      return '';
+    }
     $user = User::load(\Drupal::currentUser()->id());
-    $text = htmlentities(strip_tags($text_object[0]['value'], "<name><date><place>"));
+    $text = htmlentities(strip_tags($text, "<name><date><place>"));
     $param = \Drupal::request()->query->all();
     if (isset($param['search'])) {
       $tokens = CorpusSearch::getTokens($param['search']);

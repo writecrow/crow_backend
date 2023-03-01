@@ -82,6 +82,7 @@ class SearchService {
    * Query the body table for exact matches.
    */
   public static function phraseSearch($phrase, $condition_matches) {
+    // @todo: first do conditional query, then load texts.
     $connection = \Drupal::database();
     $query = $connection->select('corpus_texts', 'f');
     $query->fields('f', ['entity_id', 'text']);
