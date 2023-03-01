@@ -82,7 +82,7 @@ class ImporterService {
       $output[] = 'Updated: ' . $updated;
       $prepared_messages = self::prepareMessages($messages);
       $output[] = $prepared_messages;
-      print_r(implode(PHP_EOL, $output));
+      echo implode(PHP_EOL, $output);
     }
     else {
       // The UI-based importer. This is outdated currently.
@@ -273,12 +273,13 @@ class ImporterService {
     if ($term_data) {
       $node->set('field_authorship', ['target_id' => $term_data['tid']]);
     }
-    // @todo add issets.
-    $node->set('field_toefl_total', ['value' => $text['TOEFL total']]);
-    $node->set('field_toefl_writing', ['value' => $text['TOEFL writing']]);
-    $node->set('field_toefl_speaking', ['value' => $text['TOEFL speaking']]);
-    $node->set('field_toefl_reading', ['value' => $text['TOEFL reading']]);
-    $node->set('field_toefl_listening', ['value' => $text['TOEFL listening']]);
+    if (isset($text['TOEFL total'])) {
+      $node->set('field_toefl_total', ['value' => $text['TOEFL total']]);
+      $node->set('field_toefl_writing', ['value' => $text['TOEFL writing']]);
+      $node->set('field_toefl_speaking', ['value' => $text['TOEFL speaking']]);
+      $node->set('field_toefl_reading', ['value' => $text['TOEFL reading']]);
+      $node->set('field_toefl_listening', ['value' => $text['TOEFL listening']]);
+    }
 
     $body = trim(html_entity_decode($text['text']));
     $body = str_replace("¶", "", $body);

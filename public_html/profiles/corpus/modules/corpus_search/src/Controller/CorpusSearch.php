@@ -98,7 +98,9 @@ class CorpusSearch extends ControllerBase {
       $global['subcorpus_wordcount'] += $t['wordcount'];
     }
     // If there is a search string, use this to refine results.
-    if ($search_string = strip_tags(urldecode($request->query->get('search')))) {
+    $search_query = $request->query->get('search');
+    if (isset($search_query)) {
+      $search_string = strip_tags(urldecode($search_query));
       $excerpt_display = $request->query->get('display') ?? 'crowcordance';
       $tokens = self::getTokens($search_string);
       // Is this and "and" or "or" text search?

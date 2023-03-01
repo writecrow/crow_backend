@@ -114,14 +114,14 @@ class ImporterHelper {
    *   The header, as an array, with mapped values (e.g., "SL" is now "Syllabus").
    */
   public static function mapMetadata(array $text, $name, $machine_name) {
-    // Convert all string values to associative array.
-    if (is_string($text[$name])) {
-      $text[$name] = [$text[$name]];
-    }
     if (!isset($text[$name])) {
       // Some texts don't have all metadata. For example, older Purdue texts
       // have no L1.
       return [];
+    }
+    // Convert all string values to associative array.
+    if (is_string($text[$name])) {
+      $text[$name] = [$text[$name]];
     }
     foreach ($text[$name] as $key => $value) {
       $institution = $text['Institution'];

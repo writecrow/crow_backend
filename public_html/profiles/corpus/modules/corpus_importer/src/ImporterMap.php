@@ -61,6 +61,7 @@ class ImporterMap {
   public static $assignments = [
     "AB" => "Annotated Bibliography",
     "AD" => "Digital Autobiography",
+    "AM" => "Analytical Memo",
     "AR" => "Argumentative Paper",
     "AN" => "Analytical Essay",
     "BE" => "Belief Exploration",
@@ -84,6 +85,7 @@ class ImporterMap {
     "PO" => "Reflection",
     "PR" => "Profile",
     "PS" => "Position Argument",
+    "PW" => "Photowalk",
     "RA" => "Rhetorical Analysis",
     "RB" => "Researcher Beliefs",
     "RE" => "Response",
