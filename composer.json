@@ -46,7 +46,7 @@
         "drush/drush": "^10",
         "writecrow/basecamp_api": "^1.0",
         "writecrow/country_code_converter": "dev-main",
-        "writecrow/highlighter": "^2",
+        "writecrow/highlighter": "dev-main",
         "writecrow/lorem_gutenberg": "^1.1",
         "writecrow/rest_feedback_endpoint": "dev-main",
         "writecrow/tag_converter": "~1.0"
