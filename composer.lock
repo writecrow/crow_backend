@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "657beaea99cf78b82610fd9ce5f1ecea",
+    "content-hash": "ccc898bdd1b3c2e2d85445ade6e850ec",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8969,18 +8969,19 @@
         },
         {
             "name": "writecrow/highlighter",
-            "version": "2.0.1",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/highlighter.git",
-                "reference": "82a71cec9bab3705f373b48b2e721f7065220835"
+                "reference": "8f3740a3a496d9e6f2835bea5fb9b68e0d8c212e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/82a71cec9bab3705f373b48b2e721f7065220835",
-                "reference": "82a71cec9bab3705f373b48b2e721f7065220835",
+                "url": "https://api.github.com/repos/writecrow/highlighter/zipball/8f3740a3a496d9e6f2835bea5fb9b68e0d8c212e",
+                "reference": "8f3740a3a496d9e6f2835bea5fb9b68e0d8c212e",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -9006,7 +9007,7 @@
                 "issues": "https://github.com/writecrow/highlighter/issues",
                 "source": "https://github.com/writecrow/highlighter"
             },
-            "time": "2022-10-29T20:29:31+00:00"
+            "time": "2023-03-02T00:23:46+00:00"
         },
         {
             "name": "writecrow/lorem_gutenberg",
@@ -9155,6 +9156,7 @@
     "stability-flags": {
         "drupal/mimemail": 15,
         "writecrow/country_code_converter": 20,
+        "writecrow/highlighter": 20,
         "writecrow/rest_feedback_endpoint": 20
     },
     "prefer-stable": true,
@@ -9164,5 +9166,5 @@
     "platform-overrides": {
         "php": "8.1.13"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
