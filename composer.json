@@ -78,6 +78,7 @@
             "drupal/core-composer-scaffold": true,
             "composer/installers": true
         },
+        "platform-check": false,
         "platform": {
             "php": "8.1.13"
         }
