@@ -28,7 +28,8 @@ class SearchService {
         $query = $connection->select('corpus_lemma_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($lemma), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
-        $word_matches = self::arrangeTextCountResults($result['ids']);
+        $ids = $result['ids'] ?? '';
+        $word_matches = self::arrangeTextCountResults($ids);
       }
       else {
         $tokens = [$word];
@@ -36,7 +37,8 @@ class SearchService {
         $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
-        $word_matches = self::arrangeTextCountResults($result['ids']);
+        $ids = $result['ids'] ?? '';
+        $word_matches = self::arrangeTextCountResults($ids);
         if ($case == 'insensitive') {
           $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
           $uppercased = preg_match('~^\p{Lu}~u', $word);
@@ -47,7 +49,8 @@ class SearchService {
             $query->condition('word', $connection->escapeLike(mb_strtolower($word)), 'LIKE BINARY');
           }
           $result = $query->execute()->fetchAssoc();
-          $insensitive = self::arrangeTextCountResults($result['ids']);
+          $ids = $result['ids'] ?? '';
+          $insensitive = self::arrangeTextCountResults($ids);
           $sums = [];
           foreach (array_keys($word_matches + $insensitive) as $key) {
             $sums[$key] = (isset($word_matches[$key]) ? $word_matches[$key] : 0) + (isset($insensitive[$key]) ? $insensitive[$key] : 0);

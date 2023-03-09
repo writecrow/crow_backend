@@ -68,9 +68,7 @@ class CorpusSearch extends ControllerBase {
     $facet_map = TextMetadata::getFacetMap();
     // Get all facet/filter conditions.
     $conditions = self::getConditions($request->query->all(), $facet_map);
-    if (!isset($conditions['filenames'])) {
-      $offset = $request->query->get('offset') ?? 0;
-    }
+    $offset = $request->query->get('offset') ?? 0;
     $all_texts_metadata = TextMetadata::getAll();
     $ratio = 1;
     $excerpt_display = 'plain';
@@ -301,8 +299,9 @@ class CorpusSearch extends ControllerBase {
         else {
           // This is a word. Remove punctuation.
           $tokenized = Frequency::tokenize($token);
-          $token = $tokenized[0];
-          $result[strtolower($token)] = 'word';
+          if (isset($tokenized[0])) {
+            $result[strtolower($tokenized[0])] = 'word';
+          }
         }
       }
     }

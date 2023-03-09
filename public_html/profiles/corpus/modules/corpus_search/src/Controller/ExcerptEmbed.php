@@ -91,9 +91,9 @@ class ExcerptEmbed extends CorpusSearch {
         $bookends = preg_split('/<mark>([^<]*)<\/mark>(.[^\w]*)/u', $result['text'], 2);
         preg_match('/[^ ]*$/', trim($bookends[0]), $preceding);
         $before_split = preg_split('/[^ ]*$/', trim($bookends[0]));
-        $table[$inc]['start'] = $before_split[0] ?: '';
-        $table[$inc]['word_before'] = $preceding[0] ?: '';
-        $table[$inc]['keyword'] = $keyword_matches[0] ?: '';
+        $table[$inc]['start'] = $before_split[0] ?? '';
+        $table[$inc]['word_before'] = $preceding[0] ?? '';
+        $table[$inc]['keyword'] = $keyword_matches[0] ?? '';
         if (isset($bookends[1])) {
           preg_match('/(\s*)([^\s]*)(.*)/', $bookends[1], $following);
         }
