@@ -23,7 +23,6 @@ dependencies:
   - page_cache
   - taxonomy
   - text
-  - dblog
   - toolbar
   - file
   - views
