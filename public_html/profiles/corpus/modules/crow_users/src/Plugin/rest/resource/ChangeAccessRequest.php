@@ -110,7 +110,7 @@ class ChangeAccessRequest extends ResourceBase {
     // Email requestor.
     $key = 'change_access_requestor';
     $params['message'] = $this->getRequestorEmailText($name, $data['role'], $user);
-    $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    $mailManager->mail($module, $key, $user->getEmail(), $langcode, $params, NULL, $send);
 
     // Basecamp integration.
     $assignee_ids = $config->get('assignee_ids');
@@ -150,7 +150,7 @@ class ChangeAccessRequest extends ResourceBase {
   public function getRequestorEmailText($name, $requested_role, $account) {
     $body = [];
     $body[] = $name . ',';
-    $body[] = 'We have received your request for ' . $requested_role . 'access.';
+    $body[] = 'We have received your request for ' . $requested_role . ' access.';
     if ($requested_role === 'offline') {
       $survey = _get_crow_offline_survey($account);
       $body[] = 'Since you have requested offline access, you will now need to complete a training:';
