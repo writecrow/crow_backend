@@ -35,7 +35,7 @@ class Kwic {
       if (count($instances) >= $inc) {
         break;
       }
-      $sentence = Highlighter::process($sentence, array_keys($keywords), FALSE, "crowcordance");
+      $sentence = Highlighter::process($sentence, array_keys($keywords), FALSE, 'sentence');
       if (empty($sentence)) {
         continue;
       }
