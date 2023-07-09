@@ -6,11 +6,13 @@ dependencies:
     - rest.resource.corpus_search_user_roles
     - rest.resource.offline_corpus_export
   module:
+    - file
     - rest
 id: offline
 label: Offline
 weight: -7
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'restful get corpus_search_user_roles'
   - 'restful get offline_corpus_export'

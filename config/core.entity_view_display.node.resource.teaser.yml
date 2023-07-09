@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.resource.field_mode
     - field.field.node.resource.field_raw_text
     - field.field.node.resource.field_semester
+    - field.field.node.resource.field_topic
     - field.field.node.resource.field_year
     - node.type.resource
   module:
@@ -45,5 +46,7 @@ hidden:
   field_mode: true
   field_raw_text: true
   field_semester: true
+  field_topic: true
   field_year: true
   langcode: true
+  search_api_excerpt: true

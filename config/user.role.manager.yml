@@ -9,6 +9,7 @@ dependencies:
     - basecamp_api
     - captcha
     - corpus_search
+    - file
     - filter
     - honeypot
     - node
@@ -33,6 +34,7 @@ permissions:
   - 'assign manager role'
   - 'assign offline role'
   - 'bypass honeypot protection'
+  - 'delete own files'
   - 'edit any page content'
   - 'edit own page content'
   - 'manage offline corpus'

@@ -7,6 +7,7 @@ dependencies:
     - rest.resource.crow_users_request_access_level_change
     - rest.resource.rest_feedback_endpoint_submit_issue
   module:
+    - file
     - rest
     - simple_oauth
     - system
@@ -22,6 +23,7 @@ permissions:
   - 'access content'
   - 'access toolbar'
   - 'change own username'
+  - 'delete own files'
   - 'grant simple_oauth codes'
   - 'restful get corpus_search_user_roles'
   - 'restful post crow_users_request_access_level_change'

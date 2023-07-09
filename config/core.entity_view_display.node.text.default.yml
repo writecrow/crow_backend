@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.text.field_year_in_school
     - node.type.text
   module:
-    - text
     - user
 _core:
   default_config_hash: cgoOi6lcrNcWUtC6cnjV-Pte0am8NEEHNAqxg34VU1I

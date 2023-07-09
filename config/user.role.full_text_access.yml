@@ -6,11 +6,13 @@ dependencies:
     - rest.resource.corpus_search
     - rest.resource.corpus_search_user_roles
   module:
+    - file
     - rest
 id: full_text_access
 label: Full
 weight: -9
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'restful get corpus_search'
   - 'restful get corpus_search_user_roles'

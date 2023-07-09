@@ -7,12 +7,14 @@ dependencies:
     - rest.resource.corpus_search
     - rest.resource.corpus_search_user_roles
   module:
+    - file
     - rest
 id: export_access
 label: Export
 weight: -8
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'restful get corpus_export'
   - 'restful get corpus_search'
   - 'restful get corpus_search_user_roles'

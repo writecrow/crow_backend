@@ -7,6 +7,7 @@ dependencies:
     - node.type.page
   module:
     - captcha
+    - file
     - filter
     - honeypot
     - node
@@ -19,6 +20,7 @@ permissions:
   - 'access content overview'
   - 'access user profiles'
   - 'bypass honeypot protection'
+  - 'delete own files'
   - 'edit any page content'
   - 'edit own page content'
   - 'revert page revisions'
