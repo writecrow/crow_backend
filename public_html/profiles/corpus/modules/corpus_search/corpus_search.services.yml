@@ -1,0 +1,7 @@
+services:
+  remove_x_frame_options_subscriber:
+    class: Drupal\corpus_search\EventSubscriber\RemoveXFrameOptionsSubscriber
+    arguments: ['@plugin.manager.condition']
+    tags:
+      - { name: event_subscriber }
+
