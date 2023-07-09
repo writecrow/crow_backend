@@ -44,7 +44,7 @@ class RemoveXFrameOptionsSubscriber implements EventSubscriberInterface {
       try {
         /* @var \Drupal\system\Plugin\Condition\RequestPath $condition */
         $condition = $this->conditionManager->createInstance('request_path');
-        $condition->setConfiguration($page);
+        $condition->setConfiguration([$page]);
         if ($condition->evaluate()) {
           $xframe = TRUE;
         }
