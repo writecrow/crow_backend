@@ -30,6 +30,7 @@ class UserReport extends ControllerBase {
     $userStorage = \Drupal::entityTypeManager()->getStorage('user');
 
     $query = $userStorage->getQuery();
+    $query->accessCheck(FALSE);
     $uids = $query->execute();
 
     $rows = [];
@@ -86,6 +87,7 @@ class UserReport extends ControllerBase {
       }
     }
     $query = \Drupal::entityQuery('taxonomy_term');
+    $query->accessCheck(FALSE);
     $query->condition('vid', "account_insitution_organization");
     $institutions = $query->execute();
 

@@ -335,6 +335,7 @@ class ImporterHelper {
    */
   public static function taxonomyWipe($vid) {
     $tids = \Drupal::entityQuery('taxonomy_term')
+      ->accessCheck(FALSE)
       ->condition('vid', $vid)
       ->execute();
     if (empty($tids)) {

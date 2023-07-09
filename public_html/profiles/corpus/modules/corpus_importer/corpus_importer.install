@@ -7,6 +7,7 @@ use Drupal\corpus_importer\ImporterHelper;
  */
 function corpus_importer_update_9101() {
   $query = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
     ->condition('status', 1)
     ->condition('type', 'text')
     ->condition('field_institution.entity.name', 'University of Arizona')
@@ -33,6 +34,7 @@ function corpus_importer_update_9101() {
  */
 function corpus_importer_update_9107() {
   $query = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
     ->condition('status', 1)
     ->condition('type', 'resource')
     ->condition('field_institution.entity.name', 'University of Arizona')
@@ -60,6 +62,7 @@ function corpus_importer_update_9108() {
  */
 function corpus_importer_update_9109() {
   $query = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
     ->condition('status', 1)
     ->condition('type', 'text');
   $nids = $query->execute();

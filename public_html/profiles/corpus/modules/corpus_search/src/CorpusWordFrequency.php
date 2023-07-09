@@ -36,7 +36,9 @@ class CorpusWordFrequency {
    *   IDs of texts
    */
   protected static function retrieve() {
-    $nids = \Drupal::entityQuery('node')->condition('type', 'text')->execute();
+    $nids = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
+      ->condition('type', 'text')->execute();
     if (!empty($nids)) {
       return(array_values($nids));
     }

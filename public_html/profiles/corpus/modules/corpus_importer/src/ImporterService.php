@@ -102,7 +102,7 @@ class ImporterService {
         'title' => t('Saving Texts'),
         'operations' => $operations,
         'finished' => ['\Drupal\corpus_importer\ImporterService', 'finish'],
-        'file' => drupal_get_path('module', 'corpus_importer') . '/corpus_importer.module',
+        'file' => \Drupal::service('extension.list.module')->getPath('corpus_importer') . '/corpus_importer.module',
       ];
 
       batch_set($batch);
@@ -209,6 +209,7 @@ class ImporterService {
     $fields = $field_metadata['fields'];
 
     $existing_node = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('title', $text['filename'])
       ->sort('nid', 'DESC')
       ->range(0, 1)
@@ -458,7 +459,7 @@ class ImporterService {
       $file_content = file_get_contents($original_file);
       $directory = 'public://resources/';
       \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
-      file_save_data($file_content, $directory . basename($original_file), FileSystemInterface::EXISTS_REPLACE);
+      \Drupal::service('file.repository')->writeData($file_content, $directory . basename($original_file), FileSystemInterface::EXISTS_REPLACE);
       return $file;
     }
     else {

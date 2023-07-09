@@ -115,7 +115,7 @@ class ExcludeConfig extends ConfigFilterBase implements ContainerFactoryPluginIn
         // method to discover dependent config is inspired by what
         // ConfigManager::uninstall() does to find dependent config.
         $config_object_names = $this->configManager->getConfigFactory()->listAll($module_name . '.');
-        $config_entity_names = array_keys($this->configManager->findConfigEntityDependents('module', [$module_name]));
+        $config_entity_names = array_keys($this->configManager->findConfigEntityDependencies('module', [$module_name]));
         $config_item_names = array_merge($config_object_names, $config_entity_names);
 
         // Load all dependent config items.
