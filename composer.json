@@ -141,6 +141,11 @@
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
+        },
+        "patches": {
+            "drush/drush": {
+                "Siteground PHP8.1 tweak": "patches/siteground-drush-php81.patch"
+            }
         }
     }
 }

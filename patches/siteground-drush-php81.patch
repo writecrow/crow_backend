@@ -1,0 +1,10 @@
+diff --git a/drush b/drush
+index 5318cb397..e64b091ab 100755
+--- a/drush
++++ b/drush
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env php
++#!/usr/bin/env php81
+ <?php
+ 
+ require __DIR__ . '/drush.php';
