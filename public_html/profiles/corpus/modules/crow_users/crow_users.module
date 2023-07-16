@@ -149,7 +149,7 @@ function _crow_users_registration_validate($form, &$form_state) {
     $requests[] = 'offline';
   }
   if (empty($requests)) {
-    $requests[] = 'basic';
+    $requests[] = 'standard';
   }
   $form_state->setValue('field_requested_access_level', $requests);
 }
