@@ -39,7 +39,6 @@ module:
   login_emailusername: 0
   mailsystem: 0
   mimemail: 0
-  monolog: 0
   mysql: 0
   node: 0
   options: 0
