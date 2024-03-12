@@ -20,6 +20,7 @@ module:
   crow_users: 0
   csv_serialization: 0
   datetime: 0
+  dblog: 0
   dynamic_page_cache: 0
   editor: 0
   facets: 0
@@ -38,7 +39,6 @@ module:
   login_emailusername: 0
   mailsystem: 0
   mimemail: 0
-  monolog: 0
   mysql: 0
   node: 0
   options: 0
