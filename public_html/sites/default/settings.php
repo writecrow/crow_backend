@@ -74,7 +74,7 @@ $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head>
  * Load services definition file.
  */
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
-$settings['container_yamls'][] = 'sites/default/monolog.services.yml';
+// $settings['container_yamls'][] = 'sites/default/monolog.services.yml';
 
 /**
  * Trusted host configuration.
