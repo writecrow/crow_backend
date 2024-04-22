@@ -62,6 +62,13 @@ function crow_users_cron() {
 function crow_users_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['account']['name']['#title'] = "Account login name";
   $form['account']['name']['#description'] = t('This field will be used for signing in.');
+  $form['account']['mail']['#weight'] = -4;
+  $form['account']['email2'] = [
+    '#type' => 'email',
+    '#required' => TRUE,
+    '#title' => 'Confirm email',
+    '#weight' => -3,
+  ];
   $form['field_requested_access_level']['#access'] = FALSE;
   $form['web_access'] = [
     '#prefix' => '<div class="web-access-wrapper">',
@@ -129,6 +136,9 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
  * @see \Drupal\user\RegisterForm
  */
 function _crow_users_registration_validate($form, &$form_state) {
+  if ($form_state->getValue('mail') !== $form_state->getValue('email2')) {
+    $form_state->setErrorByName('email2', t('Your e-mail address and confirmed e-mail address must match.'));
+  }
   $error = 'Please enter a project description of at least 100 characters.';
   $description = $form_state->getValue('field_project_description');
   if (strlen($description[0]['value']) < 100) {
