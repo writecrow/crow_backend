@@ -68,6 +68,9 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#required' => TRUE,
     '#title' => 'Confirm email',
     '#weight' => -3,
+    '#attributes' => [
+      'onpaste' => 'return false;',
+    ],
   ];
   $form['field_requested_access_level']['#access'] = FALSE;
   $form['web_access'] = [
