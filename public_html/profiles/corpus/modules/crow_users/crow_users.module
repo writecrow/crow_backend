@@ -72,17 +72,32 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
       'onpaste' => 'return false;',
     ],
   ];
+  // $form['field_account_type'];
+  $form['account_wrapper'] = [
+    '#title' => 'Account type and access',
+    '#type' => 'fieldset',
+    '#collapsed' => FALSE,
+    '#collapsible' => FALSE,
+    '#weight' => 4,
+  ];
+  $module_path = \Drupal::service('extension.list.module')->getPath('crow_users');
+  $filepath = '/' . $module_path . '/assets/crow-user-access.pdf';
+  $form['account_wrapper']['info']['#markup'] = Markup::create('<details><summary>Compare account types</summary><iframe style="width:100%; height:700px;" src="' . $filepath . '"></iframe>
+  </details>');
+  $form['account_wrapper']['type'] = $form['field_account_type'];
+  unset($form['field_account_type']);
+
   $form['field_requested_access_level']['#access'] = FALSE;
-  $form['web_access'] = [
+  $form['account_wrapper']['web_access'] = [
     '#prefix' => '<div class="web-access-wrapper">',
     '#suffix' => '</div>',
     '#weight' => 4,
   ];
-  $form['web_access']['base'] = [
+  $form['account_wrapper']['web_access']['base'] = [
     '#type' => 'fieldset',
     '#title' => 'Web interface access',
   ];
-  $form['web_access']['base']['base_options'] = [
+  $form['account_wrapper']['web_access']['base']['base_options'] = [
     '#type' => 'radios',
     '#options' => [
       'standard' => t('Standard'),
@@ -91,17 +106,17 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
     '#default_value' => 'standard',
     '#description' => t('By default, only 500 characters are shown. "Full" access displays the entire text of student writing in the online interface.'),
   ];
-  $form['web_access']['additional'] = [
+  $form['account_wrapper']['web_access']['additional'] = [
     '#type' => 'fieldset',
     '#title' => 'Additional web access request',
   ];
-  $form['web_access']['additional']['excerpt'] = [
+  $form['account_wrapper']['web_access']['additional']['excerpt'] = [
     '#type' => 'checkbox',
     '#title' => 'Export search excerpt results',
     '#default_value' => FALSE,
     '#description' => t('Export excerpted search results from the interface to a spreadsheet (similar to concordance line output).'),
   ];
-  $form['web_access']['additional']['excerpt_note'] = [
+  $form['account_wrapper']['web_access']['additional']['excerpt_note'] = [
     '#type' => 'item',
     '#markup' => '<strong>Note: Please ensure that you provide justification for export access in your project description, below.</strong>',
     '#states'   => [
@@ -110,12 +125,12 @@ function crow_users_form_user_register_form_alter(&$form, FormStateInterface $fo
       ],
     ],
   ];
-  $form['download_wrapper'] = [
+  $form['account_wrapper']['download_wrapper'] = [
     '#type' => 'fieldset',
     '#title' => 'Corpus download access',
     '#weight' => 4,
   ];
-  $form['download_wrapper']['offline'] = [
+  $form['account_wrapper']['download_wrapper']['offline'] = [
     '#type' => 'checkbox',
     '#title' => 'Download a representative corpus for offline research',
     '#default_value' => FALSE,
