@@ -82,6 +82,7 @@ class ImporterMap {
     "LR" => "Literature Review",
     "ME" => "Memo",
     "NR" => "Narrative",
+    "NT" => "Research Report",
     "OL" => "Open Letter",
     "PA" => "Public Argument",
     "PO" => "Reflection",
