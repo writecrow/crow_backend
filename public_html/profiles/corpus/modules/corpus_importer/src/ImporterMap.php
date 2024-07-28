@@ -64,7 +64,7 @@ class ImporterMap {
     "AM" => "Analytical Memo",
     "AR" => "Argumentative Paper",
     "AN" => "Analytical Essay",
-    "BE" => "Belief Exploration",
+    "BE" => "Researcher Beliefs",
     "CA" => "Controversy Analysis",
     "CO" => "Counterstory",
     "CS" => "Case Study",
