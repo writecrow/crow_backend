@@ -124,7 +124,7 @@ class ImporterHelper {
       $text[$name] = [$text[$name]];
     }
     foreach ($text[$name] as $key => $value) {
-      $institution = $text['Institution'];
+      $institution = ImporterMap::$institutionFixes[$text['Institution']];
       switch ($machine_name) {
         case 'assignment':
           if (in_array($value, array_keys(ImporterMap::$assignments))) {
