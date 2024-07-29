@@ -256,11 +256,16 @@ class ImporterService {
         $text['TOEFL listening'] = intval($text['Exam listening']);
       }
     }
-
+    if (!isset($text['Student ID'])) {
+      print_r($text);
+      print_r('This text has no discernable Student ID');
+      die();
+    }
     // Convert student IDs to array for storage normalization.
     if (!is_array($text['Student ID'])) {
       $text['Student ID'] = [$text['Student ID']];
     }
+
     foreach ($text['Student ID'] as $student_id) {
       $node->field_id[] = ['value' => $student_id];
     }
@@ -283,6 +288,7 @@ class ImporterService {
 
     $body = trim(html_entity_decode($text['text']));
     $body = str_replace("¶", "", $body);
+    $body = preg_replace('/¤/', 'a', $body);
     // Remove unnecessary <End Header> text.
     $body = str_replace('<End Header>', '', $body);
 

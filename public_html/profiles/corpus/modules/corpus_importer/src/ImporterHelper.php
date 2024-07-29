@@ -124,7 +124,7 @@ class ImporterHelper {
       $text[$name] = [$text[$name]];
     }
     foreach ($text[$name] as $key => $value) {
-      $institution = ImporterMap::$institutionFixes[$text['Institution']];
+      $institution = $text['Institution'];
       switch ($machine_name) {
         case 'assignment':
           if (in_array($value, array_keys(ImporterMap::$assignments))) {
@@ -264,7 +264,7 @@ class ImporterHelper {
       // This likely already has a course suffix.
       return $course;
     }
-    if ($institution === 'University of Arizona') {
+    if ($institution === 'University of Arizona' || $institution === 'University of Arizona - cues') {
       $course .= '-UA';
     }
     elseif ($institution === 'Purdue' || $institution === 'Purdue University') {

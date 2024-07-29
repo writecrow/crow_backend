@@ -30,3 +30,6 @@ tooling:
       - cp drush/example.drush.yml drush/drush.yml
       - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
       - composer install
+  drush:
+    service: appserver
+    cmd: drush --root=/app --uri=https://api.lndo.site
