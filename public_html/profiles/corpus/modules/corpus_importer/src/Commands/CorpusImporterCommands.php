@@ -59,6 +59,7 @@ class CorpusImporterCommands extends DrushCommands {
    * @aliases c-dedupe,corpus-dedupe
    */
   public function dedupe(array $options = ['delete' => NULL]) {
+    $this->output()->writeln('Starting...');
     $delete_value = $this->getOption($options, 'delete');
     $duplicate_corpus_nodes = DeDupeHelper::audit();
     print_r($duplicate_corpus_nodes);
@@ -72,6 +73,55 @@ class CorpusImporterCommands extends DrushCommands {
         }
       }
     }
+  }
+
+  /**
+   * Find duplicate corpus texts.
+   *
+   * @param array $options
+   *   An associative array of options.
+   * @option delete
+   *   Delete duplicates
+   * @usage 0
+   *   drush corpus-dedupe-provided
+   *
+   * @command corpus:dedupe-provided
+   * @aliases c-dedupe-provided,corpus-dedupe-provided
+   */
+  public function dedupeprovided(array $options = ['delete' => NULL]) {
+    $this->output()->writeln('Starting...');
+    $database = \Drupal::database();
+    $query = $database->query("SELECT title
+      FROM {node_field_data}");
+    $result = $query->fetchAll();
+    $filenames = [];
+    foreach ($result as $i) {
+      $filenames[] = $i->title . '.txt';
+    }
+    // $this->output()->writeln($filenames);
+    // $delete_value = $this->getOption($options, 'delete');
+    // $duplicate_corpus_nodes = DeDupeHelper::audit();
+    if (!file_exists('../provided_files.txt')) {
+      $this->output()->writeln('You must provide a file at ../provided_files');
+    }
+    $file = file_get_contents('../provided_files.txt');
+    $provided_files = explode("\n", str_replace(array("\r\n", "\r"), array("\n", "\n"), $file));
+    foreach ($provided_files as $provided_file) {
+      if (!in_array($provided_file,$filenames)) {
+        $this->output()->writeln("$provided_file should have been imported but was not.");
+      }
+    }
+    // print_r($duplicate_corpus_nodes);
+    // $delete = $delete_value ? TRUE : FALSE;
+    // if ($delete) {
+    //   foreach ($duplicate_corpus_nodes['all_matches'] as $file) {
+    //     if (isset($file[1])) {
+    //       $node = \Drupal::entityTypeManager()->getStorage('node')->load($file[1]);
+    //       $node->delete();
+    //       $this->output()->writeln('Deleted node ' . $file[1]);
+    //     }
+    //   }
+    // }
   }
 
   /**

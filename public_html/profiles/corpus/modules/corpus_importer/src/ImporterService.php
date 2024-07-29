@@ -82,7 +82,7 @@ class ImporterService {
       $output[] = 'Updated: ' . $updated;
       $prepared_messages = self::prepareMessages($messages);
       $output[] = $prepared_messages;
-      echo implode(PHP_EOL, $output);
+      print_r($output);
     }
     else {
       // The UI-based importer. This is outdated currently.
@@ -157,7 +157,7 @@ class ImporterService {
       $file = file_get_contents($uploaded_file['tmppath']);
       $text = TagConverter::php($file);
       $text['filename'] = basename($uploaded_file['tmppath'], '.txt');
-      if (isset($text['Student ID'])) {
+      if (isset($text['Student ID']) || isset($text['Student IDs'])) {
         $text['type'] = 'corpus';
         $data[] = $text;
       }
@@ -207,7 +207,6 @@ class ImporterService {
     $field_metadata = ImporterHelper::retrieveTaxonomyIds($text, $options);
     $messages = $field_metadata['messages'];
     $fields = $field_metadata['fields'];
-
     $existing_node = \Drupal::entityQuery('node')
       ->accessCheck(FALSE)
       ->condition('title', $text['filename'])
