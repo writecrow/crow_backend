@@ -38,6 +38,7 @@ class Excerpt {
     $query->range($offset, $limit);
     $results = $query->execute()->fetchAllKeyed();
     $sliced_matches = array_intersect_key($matching_texts, $results);
+    $excerpts = [];
     foreach ($sliced_matches as $id => $metadata) {
       $excerpts[$id]['filename'] = $metadata['filename'];
       $excerpts[$id]['wordcount'] = $metadata['wordcount'];

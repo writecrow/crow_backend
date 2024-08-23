@@ -68,7 +68,11 @@ class CorpusSearch extends ControllerBase {
     $facet_map = TextMetadata::getFacetMap();
     // Get all facet/filter conditions.
     $conditions = self::getConditions($request->query->all(), $facet_map);
-    $offset = $request->query->get('offset') ?? 0;
+    $offset = 0;
+    // Do not apply offset if the search is targeting specific filenames.
+    if (!$request->query->get('filenames')) {
+      $offset = $request->query->get('offset') ?? 0;
+    }
     $all_texts_metadata = TextMetadata::getAll();
     $ratio = 1;
     $excerpt_display = 'plain';
