@@ -57,6 +57,7 @@ class CorpusWordFrequency {
     $query = $connection->select('corpus_texts', 'n');
     $query->fields('n', ['text', 'entity_id']);
     $query->condition('n.entity_id', $node_id, '=');
+    $query->condition('n.bundle', 'text', '=');
     $result = $query->execute()->fetchCol();
     if (!empty($result[0])) {
       $text = mb_convert_encoding($result[0], 'UTF-8', mb_list_encodings());
@@ -99,6 +100,8 @@ class CorpusWordFrequency {
     // Remove URLs.
     $regex = "@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@";
     $string = preg_replace($regex, ' ', $string);
+    // Lowercase.
+    $string = mb_strtolower($string);
 
     // This regex is similar to any non-word character (\W),
     // but retains the following symbols: @'#$%
@@ -106,6 +109,9 @@ class CorpusWordFrequency {
     $result = [];
     $strip_chars = ":,.!&\?;-\”'()^*";
     foreach ($tokens as $token) {
+      if (is_numeric($token)) {
+        continue;
+      }
       if (strlen($token) == 1) {
         if (!in_array($token, ["a", "i", "I", "A"])) {
           continue;

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - rest.resource.corpus_export
+    - rest.resource.corpus_frequency
     - rest.resource.corpus_search
     - rest.resource.corpus_search_user_roles
   module:
@@ -16,5 +17,6 @@ is_admin: null
 permissions:
   - 'delete own files'
   - 'restful get corpus_export'
+  - 'restful get corpus_frequency'
   - 'restful get corpus_search'
   - 'restful get corpus_search_user_roles'

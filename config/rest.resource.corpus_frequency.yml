@@ -1,0 +1,18 @@
+uuid: 554f21f3-9f07-452e-94e4-975edae1ef8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - corpus_frequency
+    - serialization
+    - simple_oauth
+id: corpus_frequency
+plugin_id: corpus_frequency
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - oauth2

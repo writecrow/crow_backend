@@ -15,6 +15,7 @@ module:
   consumers: 0
   contextual: 0
   corpus_api_texts: 0
+  corpus_frequency: 0
   corpus_importer: 0
   corpus_search: 0
   crow_users: 0

@@ -20,7 +20,8 @@ class FrequencyCommands extends DrushCommands {
   public function frequencyCount() {
     $name = 'Analytical Memo';
     $vocabulary = 'assignment';
-    FrequencyHelper::analyze($name, $vocabulary);
+    $data = FrequencyHelper::analyze($name, $vocabulary);
+    print_r($data);
   }
 
   /**

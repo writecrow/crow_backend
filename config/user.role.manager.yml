@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.standard_html
     - node.type.page
+    - rest.resource.corpus_frequency
   module:
     - basecamp_api
     - captcha
@@ -13,6 +14,7 @@ dependencies:
     - filter
     - honeypot
     - node
+    - rest
     - role_delegation
     - system
     - toolbar
@@ -38,6 +40,7 @@ permissions:
   - 'edit any page content'
   - 'edit own page content'
   - 'manage offline corpus'
+  - 'restful get corpus_frequency'
   - 'revert page revisions'
   - 'skip CAPTCHA'
   - 'use text format standard_html'
