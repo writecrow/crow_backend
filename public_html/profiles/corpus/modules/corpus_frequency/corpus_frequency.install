@@ -1,0 +1,54 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_schema().
+ */
+function corpus_frequency_schema() {
+  $schema['corpus_subset_frequency'] = [
+    'description' => 'Stores frequency data',
+    'fields' => [
+      'category' => [
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'binary' => TRUE,
+        'description' => 'Taxonomy term',
+      ],
+      'wordcount' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'normal',
+        'description' => 'The wordcount of the corpus subset',
+      ],
+      'texts' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1,
+        'size' => 'normal',
+        'description' => 'The number of texts in the subset',
+      ],
+      'data' => [
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Key-value of words & instance counts.',
+      ],
+    ],
+    'primary key' => ['category'],
+    'unique keys' => [
+      'category' => ['category'],
+    ],
+    'indexes' => [
+      'wordcount' => [
+        'wordcount',
+      ],
+    ],
+  ];
+  return $schema;
+}

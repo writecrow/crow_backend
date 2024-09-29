@@ -1,0 +1,8 @@
+corpus_frequency.frequency:
+  path: '/admin/frequency'
+  defaults:
+    _controller: '\Drupal\corpus_frequency\Controller\FrequencyController::endpoint'
+    _title: 'Word Frequency
+    '
+  requirements:
+    _permission: 'administer content'

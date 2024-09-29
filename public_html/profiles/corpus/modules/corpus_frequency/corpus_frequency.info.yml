@@ -1,0 +1,4 @@
+name: Corpus Frequency
+type: module
+description: Word frequency values
+core_version_requirement: '>=9'
