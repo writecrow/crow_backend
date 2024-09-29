@@ -42,9 +42,15 @@ class FrequencyHelper {
     // Sort by count, descending.
     $slice = array_slice($no_stopwords, 0, 1000);
     arsort($slice, SORT_NUMERIC);
+    $inc = 1;
     foreach ($slice as $word => $count) {
-      $results['frequency'][$word]['raw'] = $count;
-      $results['frequency'][$word]['normed'] = $ratio * $count;
+      $results['frequency'][] = [
+        'rank' => $inc,
+        'word' => $word,
+        'raw' => $count,
+        'normed' => $ratio * $count,
+      ];
+      $inc++;
     }
     $results['name'] = $name;
     $results['category'] = $vid;
