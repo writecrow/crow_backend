@@ -24,9 +24,11 @@ class FrequencyHelper {
     }
     $nids = self::getTextsWithTid($tid, $vid);
     $frequency = [];
+    $texts = [];
     $total_words = 0;
     foreach ($nids as $nid) {
-      $data = self::getSingleTextFrequency($nid, $frequency, $total_words);
+      $data = self::getSingleTextFrequency($nid, $frequency, $texts, $total_words);
+      $texts = $data['texts'];
       $frequency = $data['frequency'];
       $total_words = $data['total_words'];
     }
@@ -47,6 +49,7 @@ class FrequencyHelper {
       $results['frequency'][] = [
         'rank' => $inc,
         'word' => $word,
+        'texts' => $texts[$word],
         'raw' => $count,
         'normed' => $ratio * $count,
       ];
@@ -65,7 +68,7 @@ class FrequencyHelper {
    * @param int $nid
    *   An individual node id.
    */
-  public static function getSingleTextFrequency($nid, $frequency, $total_words) {
+  public static function getSingleTextFrequency($nid, $frequency, $texts, $total_words) {
     $connection = \Drupal::database();
     $query = $connection->select('corpus_texts', 'n');
     $query->fields('n', ['text', 'entity_id']);
@@ -83,9 +86,18 @@ class FrequencyHelper {
           $frequency[$word] = 1;
         }
       }
+      foreach (array_unique($tokens) as $word) {
+        if (isset($texts[$word])) {
+          $texts[$word]++;
+        }
+        else {
+          $texts[$word] = 1;
+        }
+      }
     }
     return [
       'frequency' => $frequency,
+      'texts' => $texts,
       'total_words' => $total_words,
     ];
   }
