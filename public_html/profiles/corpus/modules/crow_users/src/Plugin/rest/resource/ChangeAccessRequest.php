@@ -92,6 +92,7 @@ class ChangeAccessRequest extends ResourceBase {
     $roles = $user->getRoles();
     $full_name = $user->get('field_full_name')->getString();
     $name = $full_name ?? $this->currentUser->getDisplayName();
+    $email = $this->currentUser->getEmail();
     $current_roles = implode(', ', array_diff($roles, ['authenticated', 'administrator']));
 
     $mailManager = \Drupal::service('plugin.manager.mail');
@@ -102,7 +103,7 @@ class ChangeAccessRequest extends ResourceBase {
     // Email admins.
     $key = 'change_access_request';
     $to = Settings::get('corpus_users_bcc_email');
-    $admin_email = $this->getAdminEmailText($name, $data['role'], $data['description'], $current_roles);
+    $admin_email = $this->getAdminEmailText($name, $email, $data['role'], $data['description'], $current_roles);
     $params['message'] = $admin_email;
     $params['title'] = 'Access level change request: ' . $name;
     $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
@@ -134,9 +135,10 @@ class ChangeAccessRequest extends ResourceBase {
     return new ModifiedResourceResponse(['Sent'], 200);
   }
 
-  public function getAdminEmailText($name, $requested_role, $justification, $current_roles) {
+  public function getAdminEmailText($name, $email, $requested_role, $justification, $current_roles) {
     $body = [];
     $body[] = 'The user ' . $name . ' has requested an access level change.';
+    $body[] = 'ACCOUNT EMAIL:' . $email;
     $body[] = 'ACCESS REQUEST: ' . $requested_role;
     if ($requested_role === 'offline') {
       $body[] = 'This person has been emailed the offline training link.';
