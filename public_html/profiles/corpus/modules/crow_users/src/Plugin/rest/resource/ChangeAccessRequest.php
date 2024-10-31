@@ -138,7 +138,7 @@ class ChangeAccessRequest extends ResourceBase {
   public function getAdminEmailText($name, $email, $requested_role, $justification, $current_roles) {
     $body = [];
     $body[] = 'The user ' . $name . ' has requested an access level change.';
-    $body[] = 'ACCOUNT EMAIL:' . $email;
+    $body[] = 'ACCOUNT EMAIL: ' . $email;
     $body[] = 'ACCESS REQUEST: ' . $requested_role;
     if ($requested_role === 'offline') {
       $body[] = 'This person has been emailed the offline training link.';
