@@ -1,0 +1,5 @@
+services:
+  corpus_frequency.commands:
+    class: \Drupal\corpus_frequency\Commands\FrequencyCommands
+    tags:
+      - { name: drush.command }
