@@ -4,11 +4,11 @@ config:
   webroot: public_html
   composer_version: 2
 services:
-  #phpmyadmin:
-  #  type: phpmyadmin
-  #  hosts:
-  #    - database
-  #    - source_database
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+      - source_database
   #mailhog:
   #  type: mailhog:v1.0.0
   #  portforward: true

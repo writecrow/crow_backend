@@ -288,8 +288,10 @@ class CorpusSearch extends ControllerBase {
           continue;
         }
         $length = strlen($token);
+        // If the first and last characters are "...
         if ((substr($token, 0, 1) == '"') && (substr($token, $length - 1, 1) == '"')) {
           $cleaned = substr($token, 1, $length - 2);
+          // The search contains anything other than alphas
           if (preg_match("/[^a-zA-Z]/", $cleaned)) {
             // This is a quoted string. Do a phrasal search.
             $result[$token] = 'phrase';
