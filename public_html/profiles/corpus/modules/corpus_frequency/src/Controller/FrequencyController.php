@@ -43,7 +43,7 @@ class FrequencyController extends ControllerBase {
         $request->query->set('name', ImporterHelper::getLegacyInstitutionalCourse($name));
       }
       // Check for presence of cached data.
-      $cache_id = self::getCacheString($request);
+      $cache_id = self::getCacheString($name, $category);
       if ($cache = \Drupal::cache()->get($cache_id)) {
         if ($cache->expire > time()) {
           return $cache->data;
@@ -58,8 +58,8 @@ class FrequencyController extends ControllerBase {
   /**
    * Helper function to get a specific cache id.
    */
-  private static function getCacheString($request) {
-    $cachestring = 'corpus_frequency_subset_' . $request->getRequestUri();
+  public static function getCacheString($name, $category) {
+    $cachestring = 'corpus_frequency_subset_' . $name . $category;
     return md5($cachestring);
   }
 

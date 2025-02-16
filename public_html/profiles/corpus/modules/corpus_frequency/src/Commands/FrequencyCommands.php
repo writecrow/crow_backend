@@ -2,6 +2,7 @@
 
 namespace Drupal\corpus_frequency\Commands;
 
+use Drupal\corpus_frequency\Controller\FrequencyController;
 use Drush\Commands\DrushCommands;
 use Drupal\corpus_frequency\FrequencyHelper;
 use Drupal\corpus_search\TextMetadata;
@@ -35,8 +36,13 @@ class FrequencyCommands extends DrushCommands {
     $vocabulary = 'assignment';
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vocabulary);
     foreach ($terms as $term) {
-      \Drupal::logger('corpus_frequency')->notice("Rebuilt frequency data for $term->name");
-      FrequencyHelper::analyze($term->name, $vocabulary);
+      // Check for presence of cached data.
+      $cache_id = FrequencyController::getCacheString($term->name, $vocabulary);
+      if (!$cache = \Drupal::cache()->get($cache_id)) {
+        $results = FrequencyHelper::analyze($term->name, $vocabulary);
+        \Drupal::cache()->set($cache_id, $results, \Drupal::time()->getRequestTime() + (2500000));
+        \Drupal::logger('corpus_frequency')->notice("Rebuilt frequency data for $term->name");
+      }
     }
   }
 
