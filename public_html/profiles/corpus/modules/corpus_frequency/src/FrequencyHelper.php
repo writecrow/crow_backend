@@ -46,14 +46,16 @@ class FrequencyHelper {
     arsort($slice, SORT_NUMERIC);
     $inc = 1;
     foreach ($slice as $word => $count) {
-      $results['frequency'][] = [
-        'rank' => $inc,
-        'word' => $word,
-        'texts' => $texts[$word],
-        'raw' => $count,
-        'normed' => $ratio * $count,
-      ];
-      $inc++;
+      if (isset($texts[$word])) {
+        $results['frequency'][] = [
+          'rank' => $inc,
+          'word' => $word,
+          'texts' => $texts[$word],
+          'raw' => $count,
+          'normed' => $ratio * $count,
+        ];
+        $inc++;
+      }
     }
     $results['name'] = $name;
     $results['category'] = $vid;

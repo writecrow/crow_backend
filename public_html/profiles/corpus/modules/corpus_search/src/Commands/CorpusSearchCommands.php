@@ -84,7 +84,7 @@ class CorpusSearchCommands extends DrushCommands {
    * Generate a cached version of the text metadata.
    *
    * @command corpus:rebuild-metadata
-   * @aliases remeta
+   * @aliases c-meta
    */
   public function rebuildMetadataMap() {
     TextMetadata::batchMetadata();
