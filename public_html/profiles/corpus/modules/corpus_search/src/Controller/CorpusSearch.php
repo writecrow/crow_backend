@@ -155,6 +155,15 @@ class CorpusSearch extends ControllerBase {
     }
     $results['pager']['total_items'] = count($matching_texts);
     $results['pager']['subcorpus_wordcount'] = $global['subcorpus_wordcount'];
+    $results['pager']['current_page'] = "";
+    $pages = round($results['pager']['total_items'] / 20);
+    $current_page = 1;
+    if ($offset > 0) {
+      $current_page = ($offset / 20) + $current_page;
+    }
+    if ($results['pager']['total_items'] > 20) {
+      $results['pager']['current_page'] = "Page $current_page of $pages";
+    }
     $results['facets'] = TextMetadata::countFacets($matching_texts, $facet_map, $conditions);
 
     $excerpt_tokens = array_keys($tokens);
