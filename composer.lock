@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45b6ac64d512ba57ec3f7308e0ef301c",
+    "content-hash": "5586116c3818bffb5dfb94d7a34612d9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8436,21 +8436,22 @@
         },
         {
             "name": "writecrow/basecamp_api",
-            "version": "1.1.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/basecamp_api.git",
-                "reference": "d9c9b659ad8d9a22b9f044e1092666034f72046f"
+                "reference": "977af0f78e912fd609113a0088b100eafa99fbe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/d9c9b659ad8d9a22b9f044e1092666034f72046f",
-                "reference": "d9c9b659ad8d9a22b9f044e1092666034f72046f",
+                "url": "https://api.github.com/repos/writecrow/basecamp_api/zipball/977af0f78e912fd609113a0088b100eafa99fbe4",
+                "reference": "977af0f78e912fd609113a0088b100eafa99fbe4",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1 || ^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -8465,7 +8466,7 @@
                 "issues": "https://github.com/writecrow/basecamp_api/issues",
                 "source": "https://github.com/writecrow/basecamp_api"
             },
-            "time": "2023-07-09T01:18:32+00:00"
+            "time": "2025-06-04T22:58:53+00:00"
         },
         {
             "name": "writecrow/country_code_converter",
@@ -8616,12 +8617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/writecrow/rest_feedback_endpoint.git",
-                "reference": "077e95905e74e4f99f158f6ea7ff0450144bdb5e"
+                "reference": "1df604e38259f372d1bee51a1fde2a1aef8cf095"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/077e95905e74e4f99f158f6ea7ff0450144bdb5e",
-                "reference": "077e95905e74e4f99f158f6ea7ff0450144bdb5e",
+                "url": "https://api.github.com/repos/writecrow/rest_feedback_endpoint/zipball/1df604e38259f372d1bee51a1fde2a1aef8cf095",
+                "reference": "1df604e38259f372d1bee51a1fde2a1aef8cf095",
                 "shasum": ""
             },
             "require": {
@@ -8642,7 +8643,7 @@
                 "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
                 "source": "https://github.com/writecrow/rest_feedback_endpoint"
             },
-            "time": "2023-07-09T01:32:33+00:00"
+            "time": "2025-06-04T22:57:46+00:00"
         },
         {
             "name": "writecrow/tag_converter",
@@ -8706,6 +8707,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/mimemail": 20,
+        "writecrow/basecamp_api": 20,
         "writecrow/country_code_converter": 20,
         "writecrow/highlighter": 20,
         "writecrow/rest_feedback_endpoint": 20
