@@ -35,7 +35,7 @@ function crow_users_cron() {
     $base_url = Settings::get('base_url');
     $data = UserReport::prepareData();
     $renderer = \Drupal::service('renderer');
-    $table = $renderer->renderPlain($data);
+    $table = $renderer->renderInIsolation($data);
     $params['message'] = Markup::create('<p>This email provides a summary of the current metrics on Crow users.</p>' . $table . '<p>This report can also be accessed by managers at ' . $base_url . '/admin/config/user-report .</p>');
     try {
       $mailManager = \Drupal::service('plugin.manager.mail');

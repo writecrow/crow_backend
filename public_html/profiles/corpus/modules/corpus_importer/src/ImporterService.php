@@ -2,6 +2,7 @@
 
 namespace Drupal\corpus_importer;
 
+use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\file\Entity\File;
@@ -464,7 +465,7 @@ class ImporterService {
       $file_content = file_get_contents($original_file);
       $directory = 'public://resources/';
       \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
-      \Drupal::service('file.repository')->writeData($file_content, $directory . basename($original_file), FileSystemInterface::EXISTS_REPLACE);
+      \Drupal::service('file.repository')->writeData($file_content, $directory . basename($original_file), FileExists::Replace);
       return $file;
     }
     else {

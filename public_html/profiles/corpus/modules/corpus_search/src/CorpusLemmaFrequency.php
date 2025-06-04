@@ -120,7 +120,7 @@ class CorpusLemmaFrequency {
     }
     $connection = \Drupal::database();
     $connection->merge('corpus_lemma_frequency')
-      ->key(['word' => utf8_decode($lemma)])
+      ->key(['word' => $lemma])
       ->fields([
         'ids' => $ready_list,
       ])
@@ -140,6 +140,7 @@ class CorpusLemmaFrequency {
     $module_path = $module_handler->getModule('search_api_lemma')->getPath();
     $alpha = $word[0];
     $path = DRUPAL_ROOT . '/' . $module_path . '/data/lemmas_' . $alpha . '.php';
+    $word = mb_convert_encoding($word, "UTF-8", mb_detect_encoding($word));
     if (file_exists($path)) {
       require $path;
       if (isset($lemma_map[$word])) {

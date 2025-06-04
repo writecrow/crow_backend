@@ -48,10 +48,10 @@ class ExcerptEmbed extends CorpusSearch {
       '#rows' => $output['target_desc'],
       '#header_columns' => 1,
     ];
-    $sorted_before = $renderer->renderPlain($sorted_before_array);
-    $sorted_after = $renderer->renderPlain($sorted_after_array);
-    $target_asc = $renderer->renderPlain($target_asc_array);
-    $target_desc = $renderer->renderPlain($target_desc_array);
+    $sorted_before = $renderer->renderInIsolation($sorted_before_array);
+    $sorted_after = $renderer->renderInIsolation($sorted_after_array);
+    $target_asc = $renderer->renderInIsolation($target_asc_array);
+    $target_desc = $renderer->renderInIsolation($target_desc_array);
     $build = [
       'page' => [
         '#theme' => 'corpus_concordance',

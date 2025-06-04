@@ -76,7 +76,7 @@ class CorpusWordFrequency {
             continue;
           }
           $connection->merge('corpus_word_frequency')
-            ->key(['word' => utf8_decode($word)])
+            ->key(['word' => $word])
             ->fields([
               'count' => $count,
               'texts' => 1,
@@ -109,6 +109,7 @@ class CorpusWordFrequency {
     $result = [];
     $strip_chars = ":,.!&\?;-\”'()^*";
     foreach ($tokens as $token) {
+      $token = mb_convert_encoding($token, "UTF-8", mb_detect_encoding($token));
       if (is_numeric($token)) {
         continue;
       }
