@@ -1276,6 +1276,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 100
           total_pages: null
           id: 0
@@ -1293,7 +1294,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -1421,6 +1421,7 @@ display:
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
         - 'config:search_api.index.resource_index'
+        - 'search_api_list:resource_index'
   page_1:
     id: page_1
     display_title: Page
@@ -1447,6 +1448,7 @@ display:
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
         - 'config:search_api.index.resource_index'
+        - 'search_api_list:resource_index'
   rest_export_1:
     id: rest_export_1
     display_title: 'REST export'
@@ -1457,6 +1459,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 100
           total_pages: null
           id: 0
@@ -1474,7 +1477,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       cache:
         type: search_api_tag
         options: {  }
@@ -1552,6 +1554,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'facets_filter:f'
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
@@ -1575,3 +1578,4 @@ display:
         - 'config:field.storage.node.field_filename'
         - 'config:field.storage.node.field_raw_text'
         - 'config:search_api.index.resource_index'
+        - 'search_api_list:resource_index'

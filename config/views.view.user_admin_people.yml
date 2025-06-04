@@ -753,6 +753,7 @@ display:
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
+              autosubmit_textfield_minimum_length: 3
             filter:
               combine:
                 plugin_id: default
@@ -760,6 +761,7 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
               status:
                 plugin_id: default
                 advanced:
@@ -770,6 +772,7 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
               roles_target_id:
                 plugin_id: default
                 advanced:
@@ -780,6 +783,7 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
               field_account_type_value:
                 plugin_id: default
                 advanced:
@@ -790,12 +794,14 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
               field_project_complete_date_value:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
               field_institution_target_id:
                 plugin_id: default
                 advanced:
@@ -806,6 +812,7 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
       access:
         type: perm
         options:

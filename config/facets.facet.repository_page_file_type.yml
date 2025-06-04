@@ -33,6 +33,9 @@ widget:
   config:
     show_numbers: true
     soft_limit: 0
+    show_reset_link: false
+    reset_text: 'Show all'
+    hide_reset_when_no_selection: false
     soft_limit_settings:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
@@ -40,7 +43,7 @@ empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: true
 show_only_one_result: false
-show_title: null
+show_title: false
 processor_configs:
   display_value_widget_order:
     processor_id: display_value_widget_order
@@ -52,6 +55,11 @@ processor_configs:
     processor_id: hide_non_narrowing_result_processor
     weights:
       build: -10
+    settings: {  }
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
