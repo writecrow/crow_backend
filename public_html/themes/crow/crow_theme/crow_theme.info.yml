@@ -1,7 +1,7 @@
 name: Crow
 type: theme
 description: Administrative theme for Crow organization
-core_version_requirement: '^9 || ^10'
+core_version_requirement: '>=10'
 # Defines the base theme
 base theme: claro
 

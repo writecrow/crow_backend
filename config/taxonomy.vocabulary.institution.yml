@@ -6,5 +6,6 @@ _core:
   default_config_hash: aVJ-PBCbfdgO64MvT7UMcpSvY_zqqb9s6q4qrz202tY
 name: Institution
 vid: institution
-description: ''
+description: null
 weight: 0
+new_revision: false

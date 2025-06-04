@@ -6,5 +6,6 @@ _core:
   default_config_hash: 0eu6SP7qUyBjUVeMbhJmBHPJAn5wp4XMZU-UDgz5CKg
 name: Year
 vid: year
-description: ''
+description: null
 weight: 0
+new_revision: false

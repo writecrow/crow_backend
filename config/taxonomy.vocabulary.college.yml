@@ -6,5 +6,6 @@ _core:
   default_config_hash: gJkFDUuB3CawAvDmC64d1Kpbj99LDXTE5iHorYFzDWA
 name: College
 vid: college
-description: ''
+description: null
 weight: 0
+new_revision: false

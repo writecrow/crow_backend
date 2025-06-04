@@ -6,5 +6,6 @@ _core:
   default_config_hash: W8Ze4S0LB6OGAvtzW6B5OGg6Z946lKqk5SpIiPpol80
 name: 'Document Type'
 vid: document_type
-description: ''
+description: null
 weight: 0
+new_revision: false

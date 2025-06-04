@@ -6,5 +6,6 @@ _core:
   default_config_hash: 03LTPf-4Wgzm-zdWAjz0ZxmgLaDD5KcQMhIf2bPZrTk
 name: Instructor
 vid: instructor
-description: ''
+description: null
 weight: 0
+new_revision: false

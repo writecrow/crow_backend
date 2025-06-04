@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_path
+    - field.field.node.page.rabbit_hole__settings
     - node.type.page
   module:
     - path
+    - rabbit_hole
     - text
 _core:
   default_config_hash: JBJAoKGCevE_lJfzLfq3xOTh7mFNzr5aHdEqoaRZaus
@@ -59,6 +61,13 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  rabbit_hole__settings:
+    type: rabbit_hole_default
+    weight: 100
+    region: content
+    settings:
+      advanced: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox

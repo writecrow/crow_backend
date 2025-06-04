@@ -6,5 +6,6 @@ _core:
   default_config_hash: ru23SeodoTXcRSZr3FRiiI5G5vDA3uBSzUtght9nOxI
 name: Course
 vid: course
-description: ''
+description: null
 weight: 0
+new_revision: false

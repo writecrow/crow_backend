@@ -6,5 +6,6 @@ _core:
   default_config_hash: 92JPHzgYE1yaJu46ydqbfB7WWz1XxbKsp0zpbU2OYac
 name: 'File Type'
 vid: file_type
-description: ''
+description: null
 weight: 0
+new_revision: false

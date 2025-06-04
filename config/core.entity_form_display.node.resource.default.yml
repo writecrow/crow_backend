@@ -17,10 +17,12 @@ dependencies:
     - field.field.node.resource.field_semester
     - field.field.node.resource.field_topic
     - field.field.node.resource.field_year
+    - field.field.node.resource.rabbit_hole__settings
     - node.type.resource
   module:
     - file
     - path
+    - rabbit_hole
     - text
 _core:
   default_config_hash: IdJmP3-TybzsfUui4s2WVRBSS2Q4aUW_GmKXubVErMU
@@ -187,6 +189,13 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  rabbit_hole__settings:
+    type: rabbit_hole_default
+    weight: 100
+    region: content
+    settings:
+      advanced: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox

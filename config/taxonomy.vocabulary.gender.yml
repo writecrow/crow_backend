@@ -6,5 +6,6 @@ _core:
   default_config_hash: NV7Qi4jPSY8BkOBM2myTSX5jErITU2fPbATT_2fSVCI
 name: Gender
 vid: gender
-description: ''
+description: null
 weight: 0
+new_revision: false

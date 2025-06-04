@@ -7,7 +7,7 @@ _core:
 name: 'Repository Resource'
 type: resource
 description: 'The basic storage unit for repository materials. Includes relational fields to assignment, institution, year, semester, instructor, and the file itself.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: false

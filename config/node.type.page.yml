@@ -7,7 +7,7 @@ _core:
 name: Page
 type: page
 description: 'General purpose content for pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: false

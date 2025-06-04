@@ -6,5 +6,6 @@ _core:
   default_config_hash: PEq_QQTJnlcyLvuAH0TFEEp81mmsKO8nMUanBWscd6I
 name: Program
 vid: program
-description: ''
+description: null
 weight: 0
+new_revision: false

@@ -6,5 +6,6 @@ _core:
   default_config_hash: HF6RqMfs-70rT_o_HePG7ggWoe4Sh65sJKCSR6VQI0w
 name: Mode
 vid: mode
-description: ''
+description: null
 weight: 0
+new_revision: false

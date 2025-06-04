@@ -6,5 +6,6 @@ _core:
   default_config_hash: hgcg6-Z07UEiev-o6tX4YzJXz-VBZI1Q5sFmkBDV36I
 name: 'Course Length'
 vid: course_length
-description: ''
+description: null
 weight: 0
+new_revision: false

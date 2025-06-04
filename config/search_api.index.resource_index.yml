@@ -19,9 +19,8 @@ dependencies:
     - field.storage.node.field_year
     - search_api.server.corpus_database_server
   module:
-    - taxonomy
     - node
-    - search_api
+    - taxonomy
 _core:
   default_config_hash: 4ClZxj_kuUFCSkVb3Qj61bb4vy01QRj6c77yDfqMG14
 id: resource_index

@@ -7,7 +7,7 @@ _core:
 name: 'Corpus Text'
 type: text
 description: 'The basic storage unit for corpus data. Includes relational fields to assignment, school, and TOEFL metadata.'
-help: ''
+help: null
 new_revision: false
 preview_mode: 0
 display_submitted: false

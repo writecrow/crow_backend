@@ -6,5 +6,6 @@ _core:
   default_config_hash: h_PSCW4L-owMBkuOPUBJD6UzBoP359Tx-_JL9wpW6Q0
 name: Country
 vid: country
-description: ''
+description: null
 weight: 0
+new_revision: false

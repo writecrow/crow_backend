@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.resource.field_semester
     - field.field.node.resource.field_topic
     - field.field.node.resource.field_year
+    - field.field.node.resource.rabbit_hole__settings
     - node.type.resource
   module:
     - file
@@ -138,4 +139,5 @@ content:
 hidden:
   field_topic: true
   langcode: true
+  rabbit_hole__settings: true
   search_api_excerpt: true
