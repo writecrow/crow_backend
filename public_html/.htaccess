@@ -185,4 +185,4 @@ AddEncoding gzip svgz
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>
-AddHandler application/x-httpd-php81 .php .php5 .php4 .php3
+AddHandler application/x-httpd-php83 .php .php5 .php4 .php3
