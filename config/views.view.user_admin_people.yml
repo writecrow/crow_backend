@@ -715,6 +715,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: 0
           id: 0
@@ -732,7 +733,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -749,18 +749,18 @@ display:
             general:
               autosubmit: false
               autosubmit_exclude_textfield: false
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit_textfield_minimum_length: 3
             filter:
               combine:
                 plugin_id: default
                 advanced:
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
               status:
                 plugin_id: default
@@ -770,8 +770,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
               roles_target_id:
                 plugin_id: default
@@ -781,8 +781,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
               field_account_type_value:
                 plugin_id: default
@@ -792,15 +792,15 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
               field_project_complete_date_value:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
               field_institution_target_id:
                 plugin_id: default
@@ -810,8 +810,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
                   hide_label: false
       access:
         type: perm

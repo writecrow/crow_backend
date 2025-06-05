@@ -1,0 +1,22 @@
+uuid: ea4135ed-604e-49af-a78e-a12e147905a9
+langcode: en
+status: true
+dependencies: {  }
+id: basic_search_access
+name: basic_search_access
+description: Standard
+grant_types:
+  authorization_code:
+    status: true
+    description: ''
+  client_credentials:
+    status: true
+    description: ''
+  refresh_token:
+    status: true
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: role
+granularity_configuration:
+  role: basic_search_access

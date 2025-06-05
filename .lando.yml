@@ -25,7 +25,7 @@ services:
       - composer install
       - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
   source_database:
-    type: mysql
+    type: mariadb
 tooling:
   drush:
     service: appserver

@@ -1,0 +1,22 @@
+uuid: a3c412f1-b9bb-498f-9582-886540681547
+langcode: en
+status: true
+dependencies: {  }
+id: offline
+name: offline
+description: Offline
+grant_types:
+  authorization_code:
+    status: true
+    description: ''
+  client_credentials:
+    status: true
+    description: ''
+  refresh_token:
+    status: true
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: role
+granularity_configuration:
+  role: offline

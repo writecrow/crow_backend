@@ -1,0 +1,22 @@
+uuid: 0ca02253-94a5-45c6-940a-0d3027a193f5
+langcode: en
+status: true
+dependencies: {  }
+id: export_access
+name: export_access
+description: Export
+grant_types:
+  authorization_code:
+    status: true
+    description: ''
+  client_credentials:
+    status: true
+    description: ''
+  refresh_token:
+    status: true
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: role
+granularity_configuration:
+  role: export_access

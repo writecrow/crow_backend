@@ -1,0 +1,22 @@
+uuid: 8023c556-6861-4261-9f71-26371bfc2de6
+langcode: en
+status: true
+dependencies: {  }
+id: full_text_access
+name: full_text_access
+description: Full
+grant_types:
+  authorization_code:
+    status: true
+    description: ''
+  client_credentials:
+    status: true
+    description: ''
+  refresh_token:
+    status: true
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: role
+granularity_configuration:
+  role: full_text_access
