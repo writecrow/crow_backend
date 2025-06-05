@@ -1,0 +1,21 @@
+{
+  "name": "writecrow/rest_feedback_endpoint",
+  "type": "drupal-module",
+  "description": "REST endpoint for receiving a POST request",
+  "keywords": [
+    "Drupal"
+  ],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/writecrow/rest_feedback_endpoint",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/writecrow/rest_feedback_endpoint/issues",
+    "source": "https://github.com/writecrow/rest_feedback_endpoint"
+  },
+  "require": {
+    "composer/installers": "^1 || ^2"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

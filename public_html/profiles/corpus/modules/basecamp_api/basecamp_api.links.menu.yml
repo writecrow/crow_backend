@@ -1,0 +1,5 @@
+basecamp_api.settings:
+  title: 'Basecamp API settings'
+  description: 'Set up Basecamp integration'
+  parent: system.admin_config_development
+  route_name: basecamp_api.settings

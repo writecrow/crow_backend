@@ -1,0 +1,5 @@
+rest_feedback_endpoint.settings:
+  title: 'Feedback endpoint settings'
+  description: 'Manage notification settings'
+  parent: user.admin_index
+  route_name: rest_feedback_endpoint.settings

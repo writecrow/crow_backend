@@ -1,0 +1,21 @@
+{
+  "name": "writecrow/basecamp_api",
+  "type": "drupal-module",
+  "description": "Drupal integration for Basecamp API v3",
+  "keywords": [
+    "Drupal"
+  ],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/writecrow/basecamp_api",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/writecrow/basecamp_api/issues",
+    "source": "https://github.com/writecrow/basecamp_api"
+  },
+  "require": {
+    "composer/installers": "^1 || ^2"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

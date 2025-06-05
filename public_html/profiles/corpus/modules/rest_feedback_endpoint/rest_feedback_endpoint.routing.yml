@@ -1,0 +1,7 @@
+rest_feedback_endpoint.settings:
+  path: '/admin/config/rest-feedback-endpoint'
+  defaults:
+    _form: '\Drupal\rest_feedback_endpoint\Form\Settings'
+    _title: 'Feedback endpoint settings'
+  requirements:
+    _permission: 'administer users'

@@ -1,0 +1,17 @@
+<?php
+
+/**
+* Implements hook_mail().
+*/
+function rest_feedback_endpoint_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+   case 'rest_feedback_endpoint':
+     $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+     $message['body'][] = $params['message'];
+     break;
+ }
+}

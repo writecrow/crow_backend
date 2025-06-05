@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_install().
+ */
+function rest_feedback_endpoint_install() {
+  $messenger = \Drupal::messenger();
+  // @var \Drupal\Core\Routing\RouteBuilderInterface $routeBuilder $route_builder.
+  $route_builder = \Drupal::service('router.builder');
+
+  // Makes the 'rest_feedback_endpoint.settings' route available here, see hook_install doc.
+  $route_builder->rebuild();
+
+  $messenger->addMessage(t('Thanks for installing the REST Feedback endpoint'));
+  $messenger->addMessage(t('1. Configure feedback settings at <a href="/admin/config/rest-feedback-endpoint">/admin/config/rest-feedback-endpoint</a>'));
+  $messenger->addMessage(t('2. Enable the "Submit an Issue" endpoint at <a href="/admin/config/services/rest"">/admin/config/services/rest</a>: <ul><li>Granularity: "resource"</li><li>method: "POST"</li><li>authentication providers: oauth2</li></ul>'));
+  $messenger->addMessage(t('3. Set Drupal permissions to restrict access to the endpoint by role.'));
+  $messenger->addMessage(t('4. Make sure your services.yml is set up to handle POST requests (see README.md).'));
+}
