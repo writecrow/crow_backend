@@ -44,7 +44,7 @@ class OfflineUploadForm extends ConfigFormBase {
       '#multiple' => FALSE,
       '#description' => $this->t('Allowed extensions: zip'),
       '#upload_validators' => [
-        'file_validate_extensions' => ['zip'],
+        'FileExtension' => ['extensions' => 'zip'],
       ],
       '#default_value' => [$fid],
       '#title' => $this->t('Upload a zip file'),
