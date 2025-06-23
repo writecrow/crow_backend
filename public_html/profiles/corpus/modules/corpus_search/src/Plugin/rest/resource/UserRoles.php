@@ -89,4 +89,8 @@ class UserRoles extends ResourceBase {
     return $response;
   }
 
+  public function permissions() {
+    return [];
+  }
+
 }
