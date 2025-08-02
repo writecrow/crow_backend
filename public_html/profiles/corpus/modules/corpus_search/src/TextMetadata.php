@@ -106,14 +106,6 @@ class TextMetadata {
           }
         }
       }
-      if ($elements['first_and_final'] === '1') {
-        if (!isset($facet_results['draft']['Has first and final draft'])) {
-          $facet_results['draft']['Has first and final draft']['count'] = 1;
-        }
-        else {
-          $facet_results['draft']['Has first and final draft']['count']++;
-        }
-      }
     }
 
     // Add facets that have no matches to the result set.
