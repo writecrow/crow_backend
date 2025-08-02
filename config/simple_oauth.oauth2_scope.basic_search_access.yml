@@ -15,6 +15,9 @@ grant_types:
   refresh_token:
     status: true
     description: ''
+  password:
+    status: true
+    description: ''
 umbrella: false
 parent: _none
 granularity_id: role

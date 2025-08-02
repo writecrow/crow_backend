@@ -1,0 +1,21 @@
+uuid: 2b1f6825-3c71-4874-b28a-955b2d696eee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_and_final
+    - node.type.text
+id: node.text.field_first_and_final
+field_name: field_first_and_final
+entity_type: node
+bundle: text
+label: first_and_final
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
