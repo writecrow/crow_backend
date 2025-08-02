@@ -2,6 +2,7 @@
 
 namespace Drupal\corpus_importer;
 
+use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use writecrow\CountryCodeConverter\CountryCodeConverter;
 
@@ -290,6 +291,32 @@ class ImporterHelper {
       return ImporterMap::$legacyCourseFixes[$course];
     }
     return $course;
+  }
+
+  public static function firstAndFinal() {
+    // Get a list of all texts' filenames
+    $connection = \Drupal::database();
+    $query = $connection->select('node_field_data', 't');
+    $query->condition('type', 'text');
+    $query->fields('t', ['title', 'nid']);
+    $result = $query->execute()->fetchAllKeyed(0, 1);
+    foreach ($result as $filename => $nid) {
+      $parts = explode("_", $filename);
+      if (($parts[2]) === 'F') {
+        $parts[2] = 1;
+        $first = implode("_", $parts);
+        if (in_array($first, array_keys($result))) {
+          if ($node = Node::load($nid)) {
+            $node->set('field_first_and_final', TRUE);
+            $node->save();
+          }
+          if ($node = Node::load($result[$first])) {
+            $node->set('field_first_and_final', TRUE);
+            $node->save();
+          }
+        }
+      }
+    }
   }
 
   /**

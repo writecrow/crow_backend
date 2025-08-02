@@ -41,6 +41,8 @@ class TextMetadata {
     }
     $query->leftJoin('node__field_wordcount', 'wc', 'n.nid = wc.entity_id');
     $query->fields('wc', ['field_wordcount_value']);
+    $query->leftJoin('node__field_first_and_final', 'ff', 'n.nid = ff.entity_id');
+    $query->fields('ff', ['field_first_and_final_value']);
     foreach (TextMetadataConfig::$facetIDs as $field => $alias) {
       $query->leftJoin('node__field_' . $field, $alias, 'n.nid = ' . $alias . '.entity_id');
       $query->fields($alias, ['field_' . $field . '_target_id']);
@@ -104,7 +106,16 @@ class TextMetadata {
           }
         }
       }
+      if ($elements['first_and_final'] === '1') {
+        if (!isset($facet_results['draft']['Has first and final draft'])) {
+          $facet_results['draft']['Has first and final draft']['count'] = 1;
+        }
+        else {
+          $facet_results['draft']['Has first and final draft']['count']++;
+        }
+      }
     }
+
     // Add facets that have no matches to the result set.
     // Loop through facet groups (e.g., course, assignment).
     foreach (array_keys(TextMetadataConfig::$facetIDs) as $group) {
@@ -138,6 +149,7 @@ class TextMetadata {
     $metadata = [
       'filename' => $result->title,
       'wordcount' => $result->field_wordcount_value,
+      'first_and_final' => $result->field_first_and_final_value,
     ];
     if (in_array('toefl_total', TextMetadataConfig::$metadata_groups)) {
       $metadata['toefl_total'] = $result->field_toefl_total_value;

@@ -127,6 +127,20 @@ class CorpusImporterCommands extends DrushCommands {
   /**
    * Delete all terms from the stated taxonomy vocabulary.
    *
+   * @usage
+   *   drush first-and-final
+   *
+   * @command importer:first-and-final
+   * @aliases f-f
+   */
+  public function firstAndFinal() {
+    ImporterHelper::firstAndFinal();
+    $this->output()->writeln("Identified texts with first and final drafts.");
+  }
+
+  /**
+   * Delete all terms from the stated taxonomy vocabulary.
+   *
    * @usage 0
    *   drush taxonomy-wipe country
    *

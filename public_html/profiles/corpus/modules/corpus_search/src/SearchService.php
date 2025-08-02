@@ -225,6 +225,10 @@ class SearchService {
     if (isset($conditions['toefl_total_max'])) {
       $query->condition('tt.field_toefl_total_value', (int) $conditions['toefl_total_max'], '<=');
     }
+    if (isset($conditions['first_and_final'])) {
+      $query->join('node__field_first_and_final', 'ff', 'n.nid = ff.entity_id');
+      $query->condition('ff.field_first_and_final_value', 1);
+    }
     return $query;
   }
 
