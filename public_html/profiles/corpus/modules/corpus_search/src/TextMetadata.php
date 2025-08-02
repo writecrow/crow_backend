@@ -107,7 +107,6 @@ class TextMetadata {
         }
       }
     }
-    $facet_results['draft']['Has first and final draft']['count'] = 0;
     // Add facets that have no matches to the result set.
     // Loop through facet groups (e.g., course, assignment).
     foreach (array_keys(TextMetadataConfig::$facetIDs) as $group) {
