@@ -203,8 +203,23 @@ class SearchService {
    * Helper function to further limit query.
    */
   protected static function applyConditions($query, $conditions) {
+    // Exclude 'first and final' from draft query.
+    $properties = [
+      'name' => 'Has first and final draft',
+      'vid' => 'draft',
+    ];
+    $terms = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadByProperties($properties);
+    $term = reset($terms);
+    $first_and_final = !empty($term) ? $term->id() : 0;
+    if (isset($conditions['draft'])) {
+      foreach ($conditions['draft'] as $key => $value) {
+        if ($value === $first_and_final) {
+          unset($conditions['draft'][$key]);
+        }
+      }
+    }
     foreach (TextMetadataConfig::$facetIDs as $name => $abbr) {
-      if (isset($conditions[$name])) {
+      if (isset($conditions[$name]) && !empty($conditions[$name])) {
         $query->join('node__field_' . $name, $abbr, 'n.nid = ' . $abbr . '.entity_id');
         $query->fields($abbr, ['field_' . $name . '_target_id']);
         $query->condition($abbr . '.field_' . $name . '_target_id', $conditions[$name], 'IN');
@@ -224,6 +239,11 @@ class SearchService {
     }
     if (isset($conditions['toefl_total_max'])) {
       $query->condition('tt.field_toefl_total_value', (int) $conditions['toefl_total_max'], '<=');
+    }
+    if (isset($conditions['first_and_final'])) {
+      $query->join('node__field_first_and_final', 'ff', 'n.nid = ff.entity_id');
+      $query->fields('ff', ['field_first_and_final_value']);
+      $query->condition('ff.field_first_and_final_value', (int) 1);
     }
     return $query;
   }

@@ -251,6 +251,12 @@ class CorpusSearch extends ControllerBase {
             $conditions[$id][] = $facet_map['by_name'][$id][$param];
           }
         }
+        // Special case for 'Has first and final draft'.
+        if ($id === 'draft') {
+          if (in_array('Has first and final draft', $param_list)) {
+            $conditions['first_and_final'] = 1;
+          }
+        }
       }
     }
     if (isset($parameters['id'])) {
@@ -266,7 +272,6 @@ class CorpusSearch extends ControllerBase {
     if (isset($parameters['toefl_total_max'])) {
       $conditions['toefl_total_max'] = Xss::filter($parameters['toefl_total_max']);
     }
-
     return $conditions;
   }
 

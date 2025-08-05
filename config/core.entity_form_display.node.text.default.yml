@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.text.field_country
     - field.field.node.text.field_course
     - field.field.node.text.field_draft
+    - field.field.node.text.field_first_and_final
     - field.field.node.text.field_gender
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
@@ -25,8 +26,6 @@ dependencies:
     - field.field.node.text.field_year
     - field.field.node.text.field_year_in_school
     - node.type.text
-  module:
-    - text
 _core:
   default_config_hash: AYQFnYnsxqZvD2o2hRPjGBmxI5Rl2FR18Ok7PS6LZAc
 id: node.text.default
@@ -89,6 +88,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_first_and_final:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_gender:
     type: entity_reference_autocomplete_tags

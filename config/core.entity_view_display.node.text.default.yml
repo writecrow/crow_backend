@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.text.field_country
     - field.field.node.text.field_course
     - field.field.node.text.field_draft
+    - field.field.node.text.field_first_and_final
     - field.field.node.text.field_gender
     - field.field.node.text.field_id
     - field.field.node.text.field_institution
@@ -81,6 +82,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 118
+    region: content
+  field_first_and_final:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 124
     region: content
   field_gender:
     type: entity_reference_label
