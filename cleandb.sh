@@ -7,3 +7,6 @@ fi
 sed -i '/^\/\*!999999\\- enable the sandbox mode \*\//d' $1
 # Find-replace encoding utf8mb4_unicode_ai_ci
 sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' $1
+
+sed -i 's/：/:/g' $1
+sed -i 's/，/,/g' $1
