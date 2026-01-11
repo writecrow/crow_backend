@@ -57,7 +57,7 @@ class CorpusWordFrequency {
     $query = $connection->select('corpus_texts', 'n');
     $query->fields('n', ['text', 'entity_id']);
     $query->condition('n.entity_id', $node_id, '=');
-    $query->condition('n.bundle', 'text', '=');
+    //$query->condition('n.bundle', 'text', '=');
     $result = $query->execute()->fetchCol();
     if (!empty($result[0])) {
       $text = mb_convert_encoding($result[0], 'UTF-8', mb_list_encodings());
@@ -72,11 +72,12 @@ class CorpusWordFrequency {
       }
       if (!empty($frequency)) {
         foreach ($frequency as $word => $count) {
+          $word = (string) $word;
           if (mb_strlen($word) > 25) {
             continue;
           }
           $connection->merge('corpus_word_frequency')
-            ->key(['word' => $word])
+            ->key('word', $word)
             ->fields([
               'count' => $count,
               'texts' => 1,
@@ -105,7 +106,7 @@ class CorpusWordFrequency {
 
     // This regex is similar to any non-word character (\W),
     // but retains the following symbols: @'#$%
-    $tokens = preg_split("/\s|[,.!?:*&;\"()\[\]_+=”]/", $string);
+    $tokens = preg_split("/\s|%20|[,.!?:*\/&;\"()\[\]_+=”]/", $string);
     $result = [];
     $strip_chars = ":,.!&\?;-\”'()^*";
     foreach ($tokens as $token) {

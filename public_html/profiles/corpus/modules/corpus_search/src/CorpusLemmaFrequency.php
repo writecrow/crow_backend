@@ -120,7 +120,7 @@ class CorpusLemmaFrequency {
     }
     $connection = \Drupal::database();
     $connection->merge('corpus_lemma_frequency')
-      ->key(['word' => $lemma])
+      ->key('word', $lemma)
       ->fields([
         'ids' => $ready_list,
       ])
