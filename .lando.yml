@@ -24,8 +24,10 @@ services:
     build:
       - composer install
       - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
-  source_database:
-    type: mariadb
+    scanner: false
+  database:
+    type: mariadb:10.6
+    scanner: false
 tooling:
   drush:
     service: appserver
