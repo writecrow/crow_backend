@@ -65,6 +65,7 @@ class ImporterMap {
     "AR" => "Argumentative Paper",
     "AN" => "Analytical Essay",
     "BE" => "Researcher Beliefs",
+    "BN" => "Braided Narrative",
     "CA" => "Controversy Analysis",
     "CO" => "Counterstory",
     "CS" => "Case Study",
@@ -187,7 +188,9 @@ class ImporterMap {
     '106' => 'ENGL 106',
     '107' => 'ENGL 107',
     '108' => 'ENGL 108',
+    'ENG 105' => 'ENGL 105',
     'ENGL 106i' => 'ENGL 106INTL',
+    'RDG 100' => 'ENGL 101-GCC',
   ];
 
   /**
@@ -229,9 +232,16 @@ class ImporterMap {
   /**
    * {@inheritdoc}
    */
-  public static $genderFixes = [
-    'G' => 'M',
-  ];
+  public static function genderFixes($value) {
+    if ($value == 'G') {
+      return 'M';
+    }
+    // Categorize all non male/female as nonbinary per
+    // https://3.basecamp.com/3129499/buckets/3403924/todos/9393671487.
+    if (!in_array($value, ['M', 'F'])) {
+      return 'U';
+    }
+  }
 
   /**
    * {@inheritdoc}

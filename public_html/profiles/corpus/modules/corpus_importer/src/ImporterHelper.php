@@ -179,9 +179,7 @@ class ImporterHelper {
           break;
 
         case 'gender':
-          if (in_array($value, array_keys(ImporterMap::$genderFixes))) {
-            $text[$name][$key] = ImporterMap::$genderFixes[$value];
-          }
+          $text[$name][$key] = ImporterMap::genderFixes($value);
           break;
 
         case 'institution':
@@ -273,6 +271,15 @@ class ImporterHelper {
     }
     elseif ($institution === 'Northern Arizona University') {
       $course .= '-NAU';
+    }
+    elseif ($institution === 'Glendale Community College') {
+      $course .= '-GCC';
+    }
+    elseif ($institution === 'Pima Community College') {
+      $course .= '-PCC';
+    }
+    elseif ($institution === 'Arizona Western College') {
+      $course .= '-AWC';
     }
     return $course;
   }
