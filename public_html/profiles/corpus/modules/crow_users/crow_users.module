@@ -456,7 +456,7 @@ function _crow_users_basecamp_todo(&$form, &$form_state) {
     $title .= ' (Offline Access)';
   }
   $message .= '<p><strong>Request time: </strong>' . date('F j, Y g:i a', time()) . '</p>';
-  $message .= '<p><strong>Account type:</strong>' . $values['field_account_type'][0]['value'] . '</p>';
+  $message .= '<p><strong>Account type: </strong>' . $values['field_account_type'][0]['value'] . '</p>';
   $message .= '<p><strong>Access level(s) requested</strong>: ' . implode(',', $values['field_requested_access_level']);
   $message .= '<p><hr /></p>';
   $message .= '<p><strong>Name: </strong>' . $values['field_full_name'][0]['value'] . '</p>';
