@@ -76,6 +76,10 @@ class CorpusWordFrequency {
           if (mb_strlen($word) > 25) {
             continue;
           }
+          // Filter out strings with non-word characters.
+          if (preg_match('/[^A-Za-z]/', $word)) {
+            continue;
+          }
           $connection->merge('corpus_word_frequency')
             ->key('word', $word)
             ->fields([
