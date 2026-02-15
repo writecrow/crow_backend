@@ -76,6 +76,39 @@ class CorpusImporterCommands extends DrushCommands {
   }
 
   /**
+   * Recategorize texts with a given vocabulary.
+   *
+   * @command corpus:recategorize
+   *
+   * @option field
+   * @option source
+   * @option destination
+   * @usage 0
+   *   drush corpus:recategorize --fieldname="field_l1" --source="629" --destination="384"
+   *
+   * @param array $options
+   *   An array of options.
+   * @aliases c-recategorize
+   */
+  public function recategorize(
+    array $options = [
+      'fieldname' => NULL,
+      'source' => NULL,
+      'destination' => NULL,
+    ]) {
+    $fieldname = $this->getOption($options, 'fieldname');
+    $source = $this->getOption($options, 'source');
+    $destination = $this->getOption($options, 'destination');
+    if (!$fieldname || !$source || !$destination) {
+      $this->output()->writeln('The "recategorize" command is missing a parameter');
+    }
+    else {
+      $this->output()->writeln('Recategorizing...');
+      ImporterHelper::recategorize($vid, $fieldname, $source, $destination);
+    }
+  }
+
+  /**
    * Find duplicate corpus texts.
    *
    * @param array $options

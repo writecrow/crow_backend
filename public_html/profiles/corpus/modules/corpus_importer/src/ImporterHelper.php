@@ -351,6 +351,21 @@ class ImporterHelper {
     }
   }
 
+  public static function recategorize($fieldname, $source, $destination) {
+    $connection = \Drupal::database();
+    $query = $connection->select('taxonomy_index', 't');
+    $query->condition('tid', $source);
+    $query->fields('t', ['nid']);
+    $results = $query->execute()->fetchAll();
+    foreach ($results as $result) {
+      if ($node = Node::load($result->nid)) {
+        print_r("Updating " . $node->getTitle() . PHP_EOL);
+        $node->set($fieldname, $destination);
+        $node->save();
+      }
+    }
+  }
+
   /**
    * Utility: find term by name and vid.
    *

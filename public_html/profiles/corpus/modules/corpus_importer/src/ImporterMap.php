@@ -152,6 +152,8 @@ class ImporterMap {
   public static $languageFixes = [
     'Uzbek language' => 'Uzbek',
     'Mauritian Kreole' => 'Mauritian Creole',
+    'Arabic - Modern Standard' => 'Arabic',
+    'Chinese - Mandarin' => 'Chinese',
   ];
 
   /**
@@ -233,13 +235,24 @@ class ImporterMap {
    * {@inheritdoc}
    */
   public static function genderFixes($value) {
-    if ($value == 'G') {
-      return 'M';
-    }
-    // Categorize all non male/female as nonbinary per
-    // https://3.basecamp.com/3129499/buckets/3403924/todos/9393671487.
-    if (!in_array($value, ['M', 'F'])) {
-      return 'U';
+    switch ($value) {
+      case 'G':
+      case 'M':
+        return 'Male';
+
+      case 'F':
+        return 'Female';
+
+      case 'U':
+      case 'NA':
+        return 'Unknown';
+
+      case 'Male Presenting':
+      case 'Genderqueer Woman':
+        return 'Non-binary';
+
+      default:
+        return $value;
     }
   }
 
