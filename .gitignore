@@ -69,7 +69,7 @@ config/.htaccess
 # to use this file add the following to your settings.local.php file:
 #   $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
 /public_html/sites/*/services.local.yml
-
+/public_html/sites/*/services.yml
 # ** Only works in OSs that support newer versions of fnmatch (Bash 4+)
 /sites/default/**/files
 /sites/default/**/private
