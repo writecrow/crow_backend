@@ -104,7 +104,7 @@ class CorpusImporterCommands extends DrushCommands {
     }
     else {
       $this->output()->writeln('Recategorizing...');
-      ImporterHelper::recategorize($vid, $fieldname, $source, $destination);
+      ImporterHelper::recategorize($fieldname, $source, $destination);
     }
   }
 
