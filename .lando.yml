@@ -3,6 +3,8 @@ recipe: drupal10
 config:
   webroot: public_html
   composer_version: 2
+  xdebug: true
+
 services:
   phpmyadmin:
     type: phpmyadmin
@@ -15,9 +17,10 @@ services:
   #  hogfrom:
   #    - appserver
   appserver:
-    type: php:8.3
+    type: php:8.4
+    xdebug: true
     config:
-      php: lando/php.ini
+      php: .vscode/php.ini
     via: apache
     version: 2.4
     webroot: public_html
