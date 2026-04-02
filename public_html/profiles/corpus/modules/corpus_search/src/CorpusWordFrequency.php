@@ -105,8 +105,6 @@ class CorpusWordFrequency {
     // Remove URLs.
     $regex = "@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@";
     $string = preg_replace($regex, ' ', $string);
-    // Lowercase.
-    $string = mb_strtolower($string);
 
     // This regex is similar to any non-word character (\W),
     // but retains the following symbols: @'#$%
