@@ -2,6 +2,8 @@
 
 namespace Drupal\corpus_search;
 
+use Drupal\Core\Database\Database;
+
 /**
  * Class CorpusWordFrequency.
  *
@@ -53,6 +55,7 @@ class CorpusWordFrequency {
    */
   public static function count($node_id) {
     $result = FALSE;
+    $corpusdata = Database::getConnection('default', 'corpusdata');
     $connection = \Drupal::database();
     $query = $connection->select('corpus_texts', 'n');
     $query->fields('n', ['text', 'entity_id']);
@@ -80,7 +83,7 @@ class CorpusWordFrequency {
           if (preg_match('/[^A-Za-z]/', $word)) {
             continue;
           }
-          $connection->merge('corpus_word_frequency')
+          $corpusdata->merge('corpus_word_frequency')
             ->key('word', $word)
             ->fields([
               'count' => $count,
@@ -133,7 +136,7 @@ class CorpusWordFrequency {
    * Callback function to truncate the table.
    */
   public static function wipe() {
-    $connection = \Drupal::database();
+    $connection = Database::getConnection('default', 'corpusdata');
     $query = $connection->delete('corpus_word_frequency');
     $query->execute();
   }

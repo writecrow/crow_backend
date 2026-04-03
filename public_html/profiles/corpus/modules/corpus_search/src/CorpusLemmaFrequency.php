@@ -2,6 +2,8 @@
 
 namespace Drupal\corpus_search;
 
+use Drupal\Core\Database\Database;
+
 /**
  * Provide lemma-based search.
  *
@@ -47,7 +49,7 @@ class CorpusLemmaFrequency {
    *   The entire list of words.
    */
   protected static function retrieve() {
-    $connection = \Drupal::database();
+    $connection = Database::getConnection('default', 'corpusdata');
     $query = $connection->select('corpus_word_frequency', 'c');
     $query->fields('c', ['word', 'ids']);
     return $query->execute()->fetchAllKeyed();
@@ -60,7 +62,7 @@ class CorpusLemmaFrequency {
    *   The entire list of words.
    */
   protected static function getExisting($lemma) {
-    $connection = \Drupal::database();
+    $connection = Database::getConnection('default', 'corpusdata');
     $query = $connection->select('corpus_lemma_frequency', 'l');
     $query->condition('l.word', $lemma, '=');
     $query->fields('l', ['ids']);
@@ -118,7 +120,7 @@ class CorpusLemmaFrequency {
     else {
       $ready_list = $texts;
     }
-    $connection = \Drupal::database();
+    $connection = Database::getConnection('default', 'corpusdata');
     $connection->merge('corpus_lemma_frequency')
       ->key('word', $lemma)
       ->fields([
@@ -176,7 +178,7 @@ class CorpusLemmaFrequency {
    * Callback function to truncate the table.
    */
   public static function wipe() {
-    $connection = \Drupal::database();
+    $connection = Database::getConnection('default', 'corpusdata');
     $query = $connection->delete('corpus_lemma_frequency');
     $query->execute();
   }

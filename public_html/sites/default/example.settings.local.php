@@ -26,6 +26,16 @@ $databases['default']['default'] = [
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
 ];
+$databases['corpusdata']['default'] = array(
+  'database' => 'database',
+  'username' => 'mariadb',
+  'password' => 'mariadb',
+  'prefix' => '',
+  'host' => 'corpusdata',
+  'port' => '3306',
+  'namespace' => 'Drupal\Core\Database\Driver\mysql',
+  'driver' => 'mysql',
+);
 
 $settings['trusted_host_patterns'] = [
   '^api\.lndo\.site$',
