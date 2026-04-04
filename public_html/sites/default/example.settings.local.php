@@ -21,22 +21,21 @@ $databases['default']['default'] = [
   'username' => $lando_info['database']['creds']['user'],
   'password' => $lando_info['database']['creds']['password'],
   'host' => $lando_info['database']['internal_connection']['host'],
-  'port' => '3306',
+  'port' => $lando_info['database']['internal_connection']['port'],
   'driver' => 'mysql',
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
 ];
-
-$databases['corpusdata']['default'] = [
-  'database' => $lando_info['corpusdata']['creds']['database'],
-  'username' => $lando_info['corpusdata']['creds']['user'],
-  'password' => $lando_info['corpusdata']['creds']['password'],
-  'host' => $lando_info['corpusdata']['internal_connection']['host'],
-  'port' => '3306',
-  'driver' => 'mysql',
-  'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
-];
+//$databases['corpusdata']['default'] = [
+//  'database' => $lando_info['corpusdata']['creds']['database'],
+//  'username' => $lando_info['corpusdata']['creds']['user'],
+//  'password' => $lando_info['corpusdata']['creds']['password'],
+//  'host' => $lando_info['corpusdata']['internal_connection']['host'],
+//  'port' => '3306',
+//  'driver' => 'mysql',
+//  'prefix' => '',
+//  'collation' => 'utf8mb4_general_ci',
+//];
 
 $settings['trusted_host_patterns'] = [
   '^api\.lndo\.site$',
