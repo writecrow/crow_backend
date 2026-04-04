@@ -4,13 +4,13 @@ config:
   webroot: public_html
   composer_version: 2
   xdebug: false
-
 services:
-  phpmyadmin:
-    type: phpmyadmin
-    hosts:
-      - database
-      - corpusdata
+  database:
+    type: mysql:8.4
+    scanner: false
+  corpusdata:
+    type: mysql:8.4
+    scanner: false
   #mailhog:
   #  type: mailhog:v1.0.0
   #  portforward: true
@@ -28,12 +28,11 @@ services:
       - composer install
       - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
     scanner: false
-  corpusdata:
-    type: mariadb:10.6
-    scanner: false
-  database:
-    type: mariadb:10.6
-    scanner: false
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+      - corpusdata
 tooling:
   drush:
     service: appserver
