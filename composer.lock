@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8ab5c2c3bca4da2a10e80dc8661ef8f",
+    "content-hash": "fdaf3e561b0ebb02a311c81c4b1e159a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2559,21 +2559,21 @@
         },
         {
             "name": "drupal/simple_oauth",
-            "version": "6.1.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_oauth.git",
-                "reference": "6.1.0"
+                "reference": "6.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_oauth-6.1.0.zip",
-                "reference": "6.1.0",
-                "shasum": "3c345e42cf41a17b2922b0b69129ac2697cf566a"
+                "url": "https://ftp.drupal.org/files/projects/simple_oauth-6.0.0.zip",
+                "reference": "6.0.0",
+                "shasum": "a19c2ef0cbfae431af0e92ea5c89d7514cd7c238"
             },
             "require": {
                 "drupal/consumers": "^1.17",
-                "drupal/core": "^10.3 || ^11",
+                "drupal/core": "^10.2 || ^11",
                 "league/oauth2-server": "^9.0",
                 "php": ">=8.1",
                 "steverhoades/oauth2-openid-connect-server": "^3.0"
@@ -2585,8 +2585,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.0",
-                    "datestamp": "1765191669",
+                    "version": "6.0.0",
+                    "datestamp": "1741341101",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

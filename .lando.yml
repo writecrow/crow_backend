@@ -1,6 +1,7 @@
 name: api
-recipe: drupal10
+recipe: drupal11
 config:
+  php: 8.4
   webroot: public_html
   composer_version: 2
   xdebug: false
@@ -11,16 +12,10 @@ services:
   #  hogfrom:
   #    - appserver
   appserver:
-    type: php:8.4
-    xdebug: true
     config:
       php: .vscode/php.ini
     via: apache
     version: 2.4
-    webroot: public_html
-    build:
-      - composer install
-      - cp public_html/sites/default/example.settings.local.php public_html/sites/default/settings.local.php
     scanner: false
   phpmyadmin:
     type: phpmyadmin
