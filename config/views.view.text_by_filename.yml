@@ -1698,8 +1698,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1739,8 +1737,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1780,8 +1776,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1827,8 +1821,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1874,8 +1866,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1921,8 +1911,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1968,8 +1956,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2015,12 +2001,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2068,12 +2048,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -2113,13 +2087,6 @@ display:
             multiple: true
             remember_roles:
               authenticated: authenticated
-              basic_search_access: '0'
-              full_text_access: '0'
-              export_access: '0'
-              offline: '0'
-              manager: '0'
-              content_manager: '0'
-              anonymous: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2387,8 +2354,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -2428,8 +2393,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -2469,8 +2432,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2516,8 +2477,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2563,8 +2522,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2610,8 +2567,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2657,8 +2612,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2704,12 +2657,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2757,12 +2704,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -2802,13 +2743,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              full_text_access: '0'
-              basic_search_access: '0'
-              export_access: '0'
-              manager: '0'
-              content_manager: '0'
             reduce: false
           is_grouped: false
           group_info:
