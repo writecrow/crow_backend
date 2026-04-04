@@ -26,16 +26,17 @@ $databases['default']['default'] = [
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
 ];
-$databases['corpusdata']['default'] = array(
-  'database' => 'database',
-  'username' => 'mariadb',
-  'password' => 'mariadb',
-  'prefix' => '',
-  'host' => 'corpusdata',
+
+$databases['corpusdata']['default'] = [
+  'database' => $lando_info['corpusdata']['creds']['database'],
+  'username' => $lando_info['corpusdata']['creds']['user'],
+  'password' => $lando_info['corpusdata']['creds']['password'],
+  'host' => $lando_info['corpusdata']['internal_connection']['host'],
   'port' => '3306',
-  'namespace' => 'Drupal\Core\Database\Driver\mysql',
   'driver' => 'mysql',
-);
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+];
 
 $settings['trusted_host_patterns'] = [
   '^api\.lndo\.site$',

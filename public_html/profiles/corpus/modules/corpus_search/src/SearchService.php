@@ -2,8 +2,6 @@
 
 namespace Drupal\corpus_search;
 
-use Drupal\Core\Database\Database;
-
 /**
  * Class SearchService.
  *
@@ -15,7 +13,6 @@ class SearchService {
    * Retrieve matching results from word_frequency table.
    */
   public static function wordSearch($word, $condition_matches, $case = 'insensitive', $method = 'word') {
-    $connection = Database::getConnection('default', 'corpusdata');
     $cache_id = md5('corpus_search_word_' . $word . $case . $method);
     if ($cache = \Drupal::cache()->get($cache_id)) {
       $word_matches = $cache->data;
@@ -27,6 +24,7 @@ class SearchService {
         // Get lemma stem.
         $lemma = CorpusLemmaFrequency::lemmatize(strtolower($word));
         $tokens = CorpusLemmaFrequency::getVariants($lemma);
+        $connection = \Drupal::database();
         $query = $connection->select('corpus_lemma_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($lemma), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
@@ -35,7 +33,7 @@ class SearchService {
       }
       else {
         $tokens = [$word];
-        $connection = Database::getConnection('default', 'corpusdata');
+        $connection = \Drupal::database();
         $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');
         $result = $query->execute()->fetchAssoc();
