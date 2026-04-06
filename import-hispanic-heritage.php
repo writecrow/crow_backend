@@ -16,8 +16,7 @@ foreach ($objects as $filepath => $object) {
 }
 foreach ($files as $file) {
   $contents = file_get_contents($file);
-  //print_r($contents);
-  if (str_contains($contents, '<Heritage Spanish Speaker: Y>')) {
+  if (str_contains($contents, '<Heritage Spanish Speaker: Y')) {
     $hsi[] = $file;
   }
 }
