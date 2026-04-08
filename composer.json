@@ -87,6 +87,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
+        "patches": {
+            "drupal/simple_oauth": {
+                "OAuth Password grant": "patches/oauth6_issue3557748.patch"
+            }
+        },
         "installer-paths": {
             "public_html/core": [
                 "type:drupal-core"
@@ -140,6 +145,7 @@
                 "[web-root]/sites/default/default.settings.php": false
             }
         },
+
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
