@@ -247,6 +247,16 @@ class ImporterService {
       }
     }
 
+    // Add Heritage Spanish Speaker as an "L1" value.
+    if (isset($text['Heritage Spanish Speaker'])) {
+      $heritage_spanish_speaker_tid = ImporterHelper::getTidByName('Heritage Spanish Speaker', 'l1');
+      if (in_array($text['Heritage Spanish Speaker'], ['Y', 'Yes'])) {
+        $node->get('field_l1')->appendItem([
+          'target_id' => $heritage_spanish_speaker_tid,
+        ]);
+      }
+    }
+
     // Massage TOEFL logic if entered as 'Proficiency Exam'.
     if (isset($text['Proficiency Exam'])) {
       if ($text['Proficiency Exam'] == 'TOEFL') {

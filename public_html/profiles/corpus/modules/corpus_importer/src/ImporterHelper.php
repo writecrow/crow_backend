@@ -307,7 +307,6 @@ class ImporterHelper {
     $query->condition('type', 'text');
     $query->fields('t', ['title', 'nid']);
     $result = $query->execute()->fetchAllKeyed(0, 1);
-    $count = 0;
     foreach ($result as $filename => $nid) {
       $parts = explode("_", $filename);
       if (($parts[2]) === 'F') {

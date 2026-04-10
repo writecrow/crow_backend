@@ -14,6 +14,7 @@ config/phpmailer_smtp.settings.yml
 /repository_data
 /2019_data
 /private
+public_html/cwc
 
 # "Built" components
 
