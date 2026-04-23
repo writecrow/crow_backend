@@ -34,6 +34,9 @@ class Diff {
       ->condition('n.filename', [$before, $after], 'IN');
     $query->range(0, 2);
     $results = $query->execute()->fetchAllKeyed();
+    if (!isset($results[$before]) || !isset($results[$after])) {
+      return '';
+    }
     // renderer class name:
     //     Text renderers: Context, JsonText, Unified
     //     HTML renderers: Combined, Inline, JsonHtml, SideBySide
