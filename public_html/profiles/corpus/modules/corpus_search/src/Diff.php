@@ -27,7 +27,12 @@ class Diff {
    * @return string
    *   The diff as HTML.
    */
-  public static function getDiff($before, $after) {
+  public static function getDiff($before, $after, $format) {
+    $map = [
+      'inline' => 'Inline',
+      'side-by-side' => 'SideBySide',
+      'combined' => 'Combined',
+    ];
     $connection = \Drupal::database();
     $query = $connection->select('corpus_texts', 'n')
       ->fields('n', ['filename', 'text'])
@@ -40,14 +45,14 @@ class Diff {
     // renderer class name:
     //     Text renderers: Context, JsonText, Unified
     //     HTML renderers: Combined, Inline, JsonHtml, SideBySide
-    $rendererName = 'Combined';
+    $rendererName = isset($format) && isset($map[$format]) ? $map[$format] : 'SideBySide';
     $differOptions = new DifferOptions(
       // show how many neighbor lines; Differ::CONTEXT_ALL shows the whole file
-      context: 3,
+      context: 10,
       // ignore case difference
       ignoreCase: false,
       // ignore line ending difference
-      ignoreLineEnding: false,
+      ignoreLineEnding: true,
       // ignore whitespace difference
       ignoreWhitespace: false,
       // if the input sequence is too long, give up (especially for char-level diff)

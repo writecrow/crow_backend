@@ -97,7 +97,8 @@ class CorpusDiff extends ResourceBase {
     }
     $before = $this->currentRequest->query->get('before');
     $after = $this->currentRequest->query->get('after');
-    $diff = Diff::getDiff($before, $after);
+    $format = $this->currentRequest->query->get('format');
+    $diff = Diff::getDiff($before, $after, $format);
     // Using ModifiedResourceResponse will enforce no caching in browser.
     $response = new ModifiedResourceResponse([
       "before" => $before,
