@@ -42,8 +42,14 @@ class Diff {
     if (!isset($results[$before]) || !isset($results[$after])) {
       return '';
     }
-    $beforetext = trim($results[$before]);
-    $aftertext = trim($results[$after]);
+    $beforetext = self::normalizeText($results[$before]);
+    $aftertext = self::normalizeText($results[$after]);
+    if (in_array($format, ['side-by-side', 'inline'])) {
+      $b_parts = explode(PHP_EOL, $beforetext);
+      $a_parts = explode(PHP_EOL, $aftertext);
+      $beforetext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $b_parts) . PHP_EOL;
+      $aftertext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $a_parts) . PHP_EOL;
+    }
     if (!isset($format)) {
       $result = "<table><tr><td>" . nl2br($beforetext) . "</td><td>" . nl2br($aftertext) . "</td></tr></table>";
     }
@@ -81,13 +87,13 @@ class Diff {
         // show the (table) header
         showHeader: FALSE,
         // render spaces/tabs as <span class="ch sp"> </span> tags (visualised via CSS)
-        spaceToHtmlTag: TRUE,
+        spaceToHtmlTag: FALSE,
         // convert consecutive spaces to &nbsp; in HTML output
         spacesToNbsp: FALSE,
         // HTML renderer tab width (negative = do not convert into spaces)
         tabSize: 4,
         // Combined renderer: merge replace-blocks whose changed ratio is at or below this threshold (0–1)
-        mergeThreshold: 0.8,
+        mergeThreshold: 0.99,
         // Unified/Context renderers CLI colorization:
         // RendererConstant::CLI_COLOR_AUTO   = colorize if possible (default)
         // RendererConstant::CLI_COLOR_ENABLE = force colorize
@@ -109,6 +115,12 @@ class Diff {
       $result = DiffHelper::calculate($beforetext, $aftertext, $rendererName, $differOptions, $rendererOptions);
     }
     return $result;
+  }
+
+  public static function normalizeText($string) {
+    $text = trim($string);
+    $text = str_replace(['<', '>'], ['[', ']'], $text);
+    return $text;
   }
 
 }
