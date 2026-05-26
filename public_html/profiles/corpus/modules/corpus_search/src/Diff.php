@@ -2,12 +2,7 @@
 
 namespace Drupal\corpus_search;
 
-use Jfcherng\Diff\Differ;
-use Jfcherng\Diff\DiffHelper;
-use Jfcherng\Diff\Factory\RendererFactory;
-use Jfcherng\Diff\Options\DifferOptions;
-use Jfcherng\Diff\Options\RendererOptions;
-use Jfcherng\Diff\Renderer\RendererConstant;
+use Caxy\HtmlDiff\HtmlDiff;
 
 /**
  * Class Excerpt.
@@ -29,7 +24,6 @@ class Diff {
    */
   public static function getDiff($before, $after, $format) {
     $map = [
-      'inline' => 'Inline',
       'side-by-side' => 'SideBySide',
       'combined' => 'Combined',
     ];
@@ -44,75 +38,23 @@ class Diff {
     }
     $beforetext = self::normalizeText($results[$before]);
     $aftertext = self::normalizeText($results[$after]);
-    if (in_array($format, ['side-by-side', 'inline'])) {
-      $b_parts = explode(PHP_EOL, $beforetext);
-      $a_parts = explode(PHP_EOL, $aftertext);
-      $beforetext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $b_parts) . PHP_EOL;
-      $aftertext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $a_parts) . PHP_EOL;
-    }
+    //if (in_array($format, ['side-by-side', 'inline'])) {
+    //  $b_parts = explode(PHP_EOL, $beforetext);
+    //  $a_parts = explode(PHP_EOL, $aftertext);
+    //  $beforetext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $b_parts) . PHP_EOL;
+    //  $aftertext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $a_parts) . PHP_EOL;
+    //}
     if (!isset($format)) {
       $result = "<table><tr><td>" . nl2br($beforetext) . "</td><td>" . nl2br($aftertext) . "</td></tr></table>";
     }
     else {
-      // renderer class name:
-      //     Text renderers: Context, JsonText, Unified
-      //     HTML renderers: Combined, Inline, JsonHtml, SideBySide
-      $rendererName = isset($format) && isset($map[$format]) ? $map[$format] : 'SideBySide';
-      $differOptions = new DifferOptions(
-        // show how many neighbor lines; Differ::CONTEXT_ALL shows the whole file
-        context: Differ::CONTEXT_ALL,
-        // ignore case difference
-        ignoreCase: FALSE,
-        // ignore line ending difference
-        ignoreLineEnding: TRUE,
-        // ignore whitespace difference
-        ignoreWhitespace: TRUE,
-        // if the input sequence is too long, give up (especially for char-level diff)
-        lengthLimit: 20000,
-        // when inputs are identical, render the whole content rather than an empty result
-        fullContextIfIdentical: FALSE,
-      );
-      // the renderer options
-      $rendererOptions = new RendererOptions(
-        // how detailed the rendered HTML in-line diff is? (none, line, word, char)
-        detailLevel: 'word',
-        // renderer language: eng, cht, chs, jpn, ...
-        // or an array which has the same keys with a language file
-        // check the "Custom Language" section in the readme for more advanced usage
-        language: 'eng',
-        // show line numbers in HTML renderers
-        lineNumbers: FALSE,
-        // show a separator between different diff hunks in HTML renderers
-        separateBlock: FALSE,
-        // show the (table) header
-        showHeader: FALSE,
-        // render spaces/tabs as <span class="ch sp"> </span> tags (visualised via CSS)
-        spaceToHtmlTag: FALSE,
-        // convert consecutive spaces to &nbsp; in HTML output
-        spacesToNbsp: FALSE,
-        // HTML renderer tab width (negative = do not convert into spaces)
-        tabSize: 4,
-        // Combined renderer: merge replace-blocks whose changed ratio is at or below this threshold (0–1)
-        mergeThreshold: 0.99,
-        // Unified/Context renderers CLI colorization:
-        // RendererConstant::CLI_COLOR_AUTO   = colorize if possible (default)
-        // RendererConstant::CLI_COLOR_ENABLE = force colorize
-        // RendererConstant::CLI_COLOR_DISABLE = force no color
-        cliColorization: RendererConstant::CLI_COLOR_AUTO,
-        // JSON renderer: emit op tags as human-readable strings instead of ints
-        outputTagAsString: TRUE,
-        // JSON renderer: flags passed to json_encode()
-        // see https://www.php.net/manual/en/function.json-encode.php
-        jsonEncodeFlags: \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE,
-        // word-level diff: adjacent segments joined by these characters are merged into one
-        // e.g. "<del>good</del>-<del>looking</del>" → "<del>good-looking</del>"
-        wordGlues: ['-', ' '],
-        // return this string verbatim when the two inputs are identical; null = renderer default
-        resultForIdenticals: null,
-        // extra CSS classes added to the diff container <div> in HTML renderers
-        wrapperClasses: ['diff-wrapper'],
-      );
-      $result = DiffHelper::calculate($beforetext, $aftertext, $rendererName, $differOptions, $rendererOptions);
+      $htmlDiff = new HtmlDiff($beforetext, $aftertext);
+      $result = $htmlDiff->build(); 
+      if ($format === 'side-by-side') {
+        $newdiff = self::stripTagsContent($result, '<br><del>', TRUE);
+        $olddiff = self::stripTagsContent($result, '<br><ins>', TRUE);
+        $result = '<table class="caxy-diff"><tr><td>' . $olddiff . '</td><td>' . $newdiff . '</td></tr></table>';
+      }
     }
     return $result;
   }
@@ -120,6 +62,22 @@ class Diff {
   public static function normalizeText($string) {
     $text = trim($string);
     $text = str_replace(['<', '>'], ['[', ']'], $text);
+    return nl2br($text);
+  }
+  
+  public static function stripTagsContent($text, $tags = '', $invert = FALSE) {
+    preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
+    $tags = array_unique($tags[1]);
+  
+    if (is_array($tags) and count($tags) > 0) {
+      if ($invert == FALSE) {
+        return preg_replace('@<(?!(?:' . implode('|', $tags) . ')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
+      } else {
+        return preg_replace('@<(' . implode('|', $tags) . ')\b.*?>.*?</\1>@si', '', $text);
+      }
+    } elseif ($invert == FALSE) {
+      return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
+    }
     return $text;
   }
 
