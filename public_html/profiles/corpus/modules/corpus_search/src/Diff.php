@@ -38,22 +38,16 @@ class Diff {
     }
     $beforetext = self::normalizeText($results[$before]);
     $aftertext = self::normalizeText($results[$after]);
-    //if (in_array($format, ['side-by-side', 'inline'])) {
-    //  $b_parts = explode(PHP_EOL, $beforetext);
-    //  $a_parts = explode(PHP_EOL, $aftertext);
-    //  $beforetext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $b_parts) . PHP_EOL;
-    //  $aftertext = PHP_EOL . implode(PHP_EOL . PHP_EOL, $a_parts) . PHP_EOL;
-    //}
     if (!isset($format)) {
-      $result = "<table><tr><td>" . nl2br($beforetext) . "</td><td>" . nl2br($aftertext) . "</td></tr></table>";
+      $result = '<div class="caxy-diff"><div class="before">' . $beforetext . '</div><div class="after">' . $aftertext . '</div></div>';
     }
     else {
       $htmlDiff = new HtmlDiff($beforetext, $aftertext);
       $result = $htmlDiff->build(); 
       if ($format === 'side-by-side') {
-        $newdiff = self::stripTagsContent($result, '<br><del>', TRUE);
-        $olddiff = self::stripTagsContent($result, '<br><ins>', TRUE);
-        $result = '<table class="caxy-diff"><tr><td>' . $olddiff . '</td><td>' . $newdiff . '</td></tr></table>';
+        $newdiff = self::stripTagsContent($result, '<del>', TRUE);
+        $olddiff = self::stripTagsContent($result, '<ins>', TRUE);
+        $result = '<div class="caxy-diff"><div class="before">' . $olddiff . '</div><div class="after">' . $newdiff . '</div></div>';
       }
     }
     return $result;
@@ -72,10 +66,12 @@ class Diff {
     if (is_array($tags) and count($tags) > 0) {
       if ($invert == FALSE) {
         return preg_replace('@<(?!(?:' . implode('|', $tags) . ')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
-      } else {
+      }
+      else {
         return preg_replace('@<(' . implode('|', $tags) . ')\b.*?>.*?</\1>@si', '', $text);
       }
-    } elseif ($invert == FALSE) {
+    }
+    elseif ($invert == FALSE) {
       return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
     }
     return $text;
