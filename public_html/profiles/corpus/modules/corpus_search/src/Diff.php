@@ -23,10 +23,7 @@ class Diff {
    *   The diff as HTML.
    */
   public static function getDiff($before, $after, $format) {
-    $map = [
-      'side-by-side' => 'SideBySide',
-      'combined' => 'Combined',
-    ];
+    $format = $format ?? 'side-by-side';
     $connection = \Drupal::database();
     $query = $connection->select('corpus_texts', 'n')
       ->fields('n', ['filename', 'text'])
@@ -38,7 +35,7 @@ class Diff {
     }
     $beforetext = self::normalizeText($results[$before]);
     $aftertext = self::normalizeText($results[$after]);
-    if (!isset($format)) {
+    if ($format === 'plain') {
       $result = '<div class="caxy-diff"><div class="before">' . $beforetext . '</div><div class="after">' . $aftertext . '</div></div>';
     }
     else {
