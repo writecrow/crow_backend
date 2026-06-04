@@ -15,15 +15,49 @@ class CorpusWordFrequency {
   public static function analyze() {
     if (PHP_SAPI == 'cli' && function_exists('drush_main')) {
       ini_set("memory_limit", "4096M");
+      $texts = self::retrieve();
+      if (empty($texts)) {
+        print_r('No texts found?!' . PHP_EOL);
+        return;
+      }
+      // Temporary local file storage before database import.
+      array_map('unlink', glob("cwc/*.*"));
+      rmdir('cwc');
+      mkdir('cwc');
       print_r('Analyzing word frequency...' . PHP_EOL);
-      if ($texts = self::retrieve()) {
-        if (!empty($texts)) {
-          $inc = 1;
-          foreach ($texts as $key => $text) {
-            $result = self::count($text);
-            print_r($inc . PHP_EOL);
-            $inc++;
+      if (!empty($texts)) {
+        $inc = 1;
+        foreach (array_values($texts) as $text) {
+          self::count($text);
+          print_r($inc . PHP_EOL);
+          $inc++;
+        }
+      }
+      print_r('Saving to database...');
+      /** @var \Drupal\Core\Database\Connection $connection */
+      $connection = \Drupal::database();
+      $files = scandir('cwc');
+      foreach ($files as $filename) {
+        if ('.' !== $filename && '..' !== $filename && is_file("cwc/" . $filename)) {
+          $word = basename($filename, '.txt');
+          print_r($word . PHP_EOL);
+          $contents = file("cwc/" . $filename);
+          $texts = count($contents);
+          $count = 0;
+          $ids = [];
+          foreach ($contents as $line) {
+            $ids[] = trim($line);
+            $parts = explode(":", $line);
+            $count = $count + $parts[1];
           }
+          $connection->insert('corpus_word_frequency')
+            ->fields([
+              'word' => $word,
+              'count' => $count,
+              'texts' => $texts,
+              'ids' => implode(",", array_unique($ids)),
+            ])
+            ->execute();
         }
       }
     }
@@ -57,7 +91,6 @@ class CorpusWordFrequency {
     $query = $connection->select('corpus_texts', 'n');
     $query->fields('n', ['text', 'entity_id']);
     $query->condition('n.entity_id', $node_id, '=');
-    //$query->condition('n.bundle', 'text', '=');
     $result = $query->execute()->fetchCol();
     if (!empty($result[0])) {
       $text = mb_convert_encoding($result[0], 'UTF-8', mb_list_encodings());
@@ -80,17 +113,8 @@ class CorpusWordFrequency {
           if (preg_match('/[^A-Za-z]/', $word)) {
             continue;
           }
-          $connection->merge('corpus_word_frequency')
-            ->key('word', $word)
-            ->fields([
-              'count' => $count,
-              'texts' => 1,
-              'ids' => $node_id . ":" . $count,
-            ])
-            ->expression('count', 'count + :inc', [':inc' => $count])
-            ->expression('texts', 'texts + 1')
-            ->expression('ids', "concat(ids, ',' :node_id)", [':node_id' => $node_id . ":" . $count])
-            ->execute();
+          $data = "$node_id:$count" . PHP_EOL;
+          file_put_contents("cwc/" . $word . ".txt", $data, FILE_APPEND);
         }
       }
       $result = $node_id;
@@ -136,6 +160,8 @@ class CorpusWordFrequency {
     $connection = \Drupal::database();
     $query = $connection->delete('corpus_word_frequency');
     $query->execute();
+    array_map('unlink', glob("cwc/*.*"));
+    rmdir('cwc');
   }
 
 }

@@ -3,7 +3,7 @@
 namespace Drupal\corpus_search;
 
 /**
- * Class SearchService.
+ * Performs searches!
  *
  * @package Drupal\corpus_search
  */
@@ -19,11 +19,8 @@ class SearchService {
     }
     else {
       if ($method == 'lemma') {
-        $module_handler = \Drupal::service('module_handler');
-        $module_path = $module_handler->getModule('search_api_lemma')->getPath();
         // Get lemma stem.
         $lemma = CorpusLemmaFrequency::lemmatize(strtolower($word));
-        $tokens = CorpusLemmaFrequency::getVariants($lemma);
         $connection = \Drupal::database();
         $query = $connection->select('corpus_lemma_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($lemma), 'LIKE BINARY');
@@ -32,7 +29,6 @@ class SearchService {
         $word_matches = self::arrangeTextCountResults($ids);
       }
       else {
-        $tokens = [$word];
         $connection = \Drupal::database();
         $query = $connection->select('corpus_word_frequency', 'f')->fields('f', ['ids']);
         $query->condition('word', $connection->escapeLike($word), 'LIKE BINARY');

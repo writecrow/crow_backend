@@ -3,6 +3,7 @@
 namespace Drupal\corpus_search\Commands;
 
 use Drush\Commands\DrushCommands;
+use Drupal\corpus_search\Diff;
 use Drupal\corpus_search\CorpusWordFrequency;
 use Drupal\corpus_search\CorpusLemmaFrequency;
 use Drupal\corpus_search\TextMetadata;
@@ -41,6 +42,17 @@ class CorpusSearchCommands extends DrushCommands {
   public function wordWipe() {
     CorpusWordFrequency::wipe();
     print_r('Word Frequency data reset. Run drush cwc to re-run.' . PHP_EOL);
+  }
+
+  /**
+   * Generate a diff of texts
+   *
+   * @command corpus:diff
+   */
+  public function getDiff($before, $after, $format = NULL) {
+    $diff = Diff::getDiff($before, $after, $format);
+    return;
+    print_r($diff);
   }
 
   /**
